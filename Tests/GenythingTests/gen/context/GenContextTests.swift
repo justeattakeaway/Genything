@@ -34,7 +34,7 @@ final internal class GenContextTests: XCTestCase {
         let ctx = Context(determinism: .predetermined(seed: 0))
 
         let calls = (0..<100).map { _ in
-            Gen.from(1...100).generate(using: ctx)
+            Gen.from(1...100).generate(context: ctx)
         }
 
         let distribution = calls.reduce(into: [Int:Int]()) { (acc, curr) in
@@ -79,6 +79,6 @@ final internal class GenContextTests: XCTestCase {
             iterationCount += 1
         }
 
-        XCTAssertEqual(iterationCount, GenConfig.iterations)
+        XCTAssertEqual(iterationCount, ContextDefaults.iterations)
     }
 }

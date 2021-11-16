@@ -6,8 +6,15 @@ final internal class GenOneOfTests: XCTestCase {
         let gen1 = Gen.constant(0)
         let gen2 = Gen.constant(1)
 
-        let gen1CountProductionCount = Gen.one(of: [gen1, gen2]).take().filter { $0 == 0 }.count
+        let iterations = 1000
 
-        XCTAssert(gen1CountProductionCount < 75 && gen1CountProductionCount > 25)
+        // Count which bucket we are taking from
+        let count = Gen.one(of: [gen1, gen2]).take(count: iterations).filter { $0 == 0 }.count
+
+        let expectedCount = iterations / 2 // We are expecting exactly half the values to be from bucket 0
+        let acceptableDelta = 1 // Allow for 1 integer difference from expectation
+        let acceptableRange = (expectedCount-acceptableDelta)...(expectedCount+acceptableDelta)
+
+        XCTAssert(acceptableRange ~= count)
     }
 }

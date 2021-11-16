@@ -1,28 +1,30 @@
 import Foundation
 
-// MARK: Typeclass
+// MARK: Gen Typeclass
 
 public struct Gen<T> {
-    /**
-     * Generates a new value using provided RNG
-     */
+    /// A callback capable of generating a new value using the provided `Context`
     private let generator: (Context) throws -> T
 
-    /**
-     * Constructor allowing default empty constants
-     */
+    /// Initialize a new generator
+    ///
+    /// - Parameters:
+    ///   - generator: The `generator` capable of generating a new value using the provided `Context`
     public init(generator: @escaping (Context) throws -> T) {
         self.generator = generator
     }
 }
 
-// MARK: Generating using inout Any RNG
+// MARK: Generation
 
 public extension Gen {
-    /**
-     * Generate a random instance of type T, that is compatible with the constraints of this generator
-     */
-    func generate(using context: Context) -> T {
+    /// Returns: A single value produced by the generator using the provided Context
+    ///
+    /// - Parameters:
+    ///   - context: The context to be used for generation
+    ///
+    /// - Returns: A value of type `T`
+    func generate(context: Context = .default) -> T {
         try! generator(context)
     }
 }

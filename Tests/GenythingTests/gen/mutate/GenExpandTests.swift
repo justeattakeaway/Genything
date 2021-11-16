@@ -1,11 +1,11 @@
 import XCTest
 @testable import Genything
 
-final internal class GenProliferateTests: XCTestCase {
+final internal class GenExpandTests: XCTestCase {
     func test_proliferate_withSize_createsWithCorrectSize() {
         let size = 10
         let strings = String.arbitrary
-            .proliferate(withSize: size)
+            .expand(toSize: size)
             .take()
 
         XCTAssert(strings.allSatisfy { s in
@@ -16,7 +16,7 @@ final internal class GenProliferateTests: XCTestCase {
     func test_proliferate_inRange_createsInsideCorrectBounds() {
         let range: Range<Int> = 0..<5
         let strings = String.arbitrary
-            .proliferate(withSizeRange: range)
+            .expand(toSizeInRange: range)
             .take()
 
         XCTAssert(strings.allSatisfy { s in
@@ -27,7 +27,7 @@ final internal class GenProliferateTests: XCTestCase {
     func test_proliferate_inClosedRange_createsInsideCorrectBounds() {
         let range: ClosedRange<Int> = 0...5
         let strings = String.arbitrary
-            .proliferate(in: range)
+            .expand(toSizeInRange: range)
             .take()
 
         XCTAssert(strings.allSatisfy { s in
