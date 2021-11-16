@@ -9,4 +9,12 @@ final internal class GenSampleTests: XCTestCase {
 
         XCTAssert(String.arbitrary.samples(count: count).count == count)
     }
+
+    func test_sample_createsRandomValueOnEveryCall() {
+        let sampled = (0..<5).map { _ in
+            String.arbitrary.sample()
+        }
+
+        XCTAssertEqual(Set(sampled).count, sampled.count)
+    }
 }

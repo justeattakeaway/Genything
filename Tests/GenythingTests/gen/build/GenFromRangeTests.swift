@@ -2,7 +2,7 @@ import XCTest
 @testable import Genything
 
 final internal class GenFromRangeTests: XCTestCase {
-    func test_fromElements_createsGenerator_usingIntegers() {
+    func test_fromElements_usingClosedRangeOf_Integers_IncludesAllElements() {
         let gen = Gen.from(0...1)
         let sample = gen.take()
 
@@ -11,7 +11,7 @@ final internal class GenFromRangeTests: XCTestCase {
         XCTAssert(sample.allSatisfy { $0 == 0 || $0 == 1 })
     }
 
-    func test_fromElements_createsGenerator_usingIntegers_halfOpen_lessThan() {
+    func test_fromElements_usingRangeOf_Integers_DoesNotIncludeLastElement() {
         let gen = Gen.from(0..<1)
         let sample = gen.take()
 
@@ -19,10 +19,19 @@ final internal class GenFromRangeTests: XCTestCase {
         XCTAssert(sample.allSatisfy { $0 == 0 })
     }
 
-    func test_fromElements_createsGenerator_usingStrings() {
+    func test_fromElements_usingClosedRangeOf_Characters_IncludesAllElements() {
         let gen = Gen<Character>.from("a"..."z")
-        let samples = gen.samples()
+        let samples = gen.take()
 
         XCTAssert(samples.allSatisfy { $0.isLowercase })
+        XCTAssertTrue(samples.contains("z"))
+    }
+
+    func test_fromElements_usingRangeOf_Characters_DoesNotIncludeLastElement() {
+        let gen = Gen<Character>.from("a"..<"z")
+        let samples = gen.take()
+
+        XCTAssert(samples.allSatisfy { $0.isLowercase })
+        XCTAssertFalse(samples.contains("z"))
     }
 }
