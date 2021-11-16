@@ -1,0 +1,5 @@
+{
+    "generalEndings": ["Services", "Company", "Place", "Supplies"],
+    "restaurantEndings": ["Restaurant", "Burgers", "Pizza", "Pasta", "Sushi", "Soups", "Bread", "Pastries"],
+    "abreiviations": ["Inc.", "Ltd.", "Co."]
+}
