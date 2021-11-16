@@ -3,7 +3,7 @@ import Genything
 
 extension Fake {
     public enum PersonNames {
-        private static let data: NameData = NameData.loadJson()
+        private static let data: PersonNamesData = PersonNamesData.loadJson()
         
         public static let first: Gen<String> = .of(data.names)
         // TODO: proliferate with bias from distribution
