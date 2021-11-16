@@ -79,6 +79,6 @@ final internal class GenContextTests: XCTestCase {
             iterationCount += 1
         }
 
-        XCTAssertEqual(iterationCount, GenConfig.iterations)
+        XCTAssertEqual(iterationCount, ContextDefaults.iterations)
     }
 }
