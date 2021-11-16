@@ -2,7 +2,7 @@ import Foundation
 import Genything
 
 extension Fake {
-    public enum Names {
+    public enum PersonNames {
         private static let data: NameData = NameData.loadJson()
         
         public static let first: Gen<String> = .of(data.names)
