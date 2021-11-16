@@ -6,7 +6,7 @@ extension Fake {
         public static let urlScheme: Gen<String> = .of(["http", "https"])
 
         public static let urlDomain: Gen<String> = Characters.alphanumeric
-            .proliferate(in: 1...63)
+            .expand(toSizeInRange: 1...63)
             .map { (chars: [Character]) -> String in String(chars) }
 
         public static let urlSubdomain: Gen<String> = .one(of: [
