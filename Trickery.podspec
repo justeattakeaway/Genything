@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
     s.homepage     = 'https://bitbucket.org/skipthedishes/swifttestingfixtures/'
     s.authors      = { 'SkipTheDishes Restaurant Services Inc.' => 'nicolas.richard@justeattakeaway.com' }
     s.summary      = 'Trick yourself with this fake data.'
-    s.source       = { :git => 'git@github.com:justeattakeaway/Genything.git', :tag => 'v0.0.1' }
+    s.source       = { :git => 'https://github.com/justeattakeaway/Genything.git', :tag => '0.0.1' }
 
     s.ios.deployment_target = '11.0'
     s.tvos.deployment_target = '11.0'
