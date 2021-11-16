@@ -11,16 +11,16 @@ public extension Gen {
     /// - Warning: If the filtered condition is rare enough this function can become infinitely complex
     /// e.g. `Int.arbitrary.filter { $0 == 0 }` has a `$1/Int.max$` probability of occuring and will be nearly infinite
     ///
-    /// Therefore if `maxDepth` is reached without producing a value the function will throw
+    /// Therefore if the Context's `maxFilterDepth` is reached before producing a value the generator will throw
     ///
     /// - Parameters:
     ///   - isIncluded: A function which returns true if the value should be included
     ///   - maxDepth: The maximum amount of times `isIncluded` may return false in succession
     ///
     /// - Returns: A `Gen` generator.
-    func filter(_ isIncluded: @escaping (T) -> Bool, maxDepth: Int = GenConfig.maxFilterDepth) -> Gen<T> {
+    func filter(_ isIncluded: @escaping (T) -> Bool) -> Gen<T> {
         Gen<T> { ctx in
-            let value = (0...maxDepth).lazy.map { _ in
+            let value = (0...ctx.maxFilterDepth).lazy.map { _ in
                 generate(using: ctx)
             }.first {
                 isIncluded($0)

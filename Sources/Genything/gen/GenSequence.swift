@@ -1,6 +1,6 @@
 import Foundation
 
-public struct GenSequence<T>: Sequence, IteratorProtocol {
+internal struct GenSequence<T>: Sequence, IteratorProtocol {
     private let generator: () -> T
     private let size: Int?
 

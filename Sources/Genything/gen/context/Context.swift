@@ -2,19 +2,19 @@ import Foundation
 
 public class Context {
 
-    // MARK: Random Properties
+    // MARK: Randomness
 
     internal var rng: AnyRandomNumberGenerator
     public let originalSeed: Int?
 
-    // MARK: Defaults
+    // MARK: Mutate
 
-    private static var defaultFactory: () -> Context = {
-        Context(determinism: .predetermined(seed: 0))
-    }
-    public static func registerDefault(_ factory: @escaping () -> Context) {
-        defaultFactory = factory
-    }
+    public var maxFilterDepth: Int = ContextDefaults.maxFilterDepth
+
+    // MARK: Produce
+
+    public var iterations: Int = ContextDefaults.iterations
+    public var maxCollectionSize: Int = ContextDefaults.maxCollectionSize
 
     // MARK: Init
 
@@ -24,9 +24,9 @@ public class Context {
     }
 }
 
-// MARK: Convenience creators
+// MARK: Convenience Context creators
 
 public extension Context {
     static var random: Context { .init(determinism: .random) }
-    static var `default`: Context { defaultFactory() }
+    static var `default`: Context { ContextDefaults.defaultContextFactory() }
 }
