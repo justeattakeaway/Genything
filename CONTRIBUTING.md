@@ -5,7 +5,7 @@ All contributions are handled through Pull Requests(PR).
 * [Submitting Pull Requests](#Submitting-Pull-Requests)
 
 ## Submitting Pull Requests
-Contributions are welcome, but before submmitting a pull request add relevant tests and ensure your changes don't break any existing tests.
+Contributions are welcome, but before submitting a pull request add relevant tests and ensure your changes don't break any existing tests.
 
 Ways of contributing:
 * report bugs
