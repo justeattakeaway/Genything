@@ -71,4 +71,14 @@ final internal class GenContextTests: XCTestCase {
             result.map { $0.1 }
         )
     }
+
+    func test_byDefault_forEach_iterationCountIsBasedOnConfig() {
+        var iterationCount = 0
+
+        Gen.from(1...100).forEach { _ in
+            iterationCount += 1
+        }
+
+        XCTAssertEqual(iterationCount, GenConfig.iterations)
+    }
 }

@@ -35,7 +35,7 @@
 		03BA410B2742DED000B97AA6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		03BA41112742DED000B97AA6 /* GenythingExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenythingExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BA41152742DED000B97AA6 /* GenythingExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenythingExampleTests.swift; sourceTree = "<group>"; };
-		03BA41302742DFAE00B97AA6 /* Generator */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Generator; path = ..; sourceTree = "<group>"; };
+		03BA41302742DFAE00B97AA6 /* Genything */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Genything; path = ..; sourceTree = "<group>"; };
 		770849352742EA250044E19E /* PhoneBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +110,7 @@
 		03BA412E2742DF4E00B97AA6 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				03BA41302742DFAE00B97AA6 /* Generator */,
+				03BA41302742DFAE00B97AA6 /* Genything */,
 			);
 			name = Packages;
 			sourceTree = "<group>";

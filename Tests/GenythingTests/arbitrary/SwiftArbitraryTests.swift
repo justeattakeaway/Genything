@@ -1,7 +1,7 @@
 import XCTest
 @testable import Genything
 
-final internal class ArbitrarySwiftTests: XCTestCase {
+final internal class SwiftArbitraryTests: XCTestCase {
     func test_stringGeneration_createsDifferentStrings_withDifferentSizes() throws {
         let strings = String.arbitrary.take(count: 2)
 
@@ -19,5 +19,11 @@ final internal class ArbitrarySwiftTests: XCTestCase {
         let nilCount = samples.filter { $0 == nil }.count
 
         XCTAssert(nilCount != 20 && nilCount != 0)
+    }
+
+    func test_boolGeneration_createsRandomBool() {
+        let bools = Bool.arbitrary.take()
+        XCTAssertTrue(bools.contains(true))
+        XCTAssertTrue(bools.contains(false))
     }
 }

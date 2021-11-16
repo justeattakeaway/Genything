@@ -14,6 +14,17 @@ final internal class GenProliferateTests: XCTestCase {
     }
 
     func test_proliferate_inRange_createsInsideCorrectBounds() {
+        let range: Range<Int> = 0..<5
+        let strings = String.arbitrary
+            .proliferate(withSizeRange: range)
+            .take()
+
+        XCTAssert(strings.allSatisfy { s in
+            range.lowerBound <= s.count && s.count <= range.upperBound
+        })
+    }
+
+    func test_proliferate_inClosedRange_createsInsideCorrectBounds() {
         let range: ClosedRange<Int> = 0...5
         let strings = String.arbitrary
             .proliferate(in: range)
