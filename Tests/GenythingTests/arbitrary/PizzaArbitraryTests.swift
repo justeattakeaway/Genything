@@ -7,7 +7,7 @@ import XCTest
     - You can specify a seed value, so that the tests run with the same "randomness" in repeated executions.
     - You can alter the chances of conditions. Increase the likelyhood of conditions. Filter only certain conditions.
  */
-final internal class ArbitraryPizzaTests: XCTestCase {
+final internal class PizzaArbitraryTests: XCTestCase {
     func test_usingFixtures_withNoToppings_itIsACheesePizza() {
         let pizzaGen = Pizza.arbitrary.map {
             Pizza(name: $0.name,
