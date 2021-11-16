@@ -4,7 +4,7 @@ extension Gen {
      */
     public func zip<R>(with other: Gen<R>) -> Gen<(T, R)> {
         Gen<(T, R)> { ctx in
-            (self.generate(using: ctx), other.generate(using: ctx))
+            (self.generate(context: ctx), other.generate(context: ctx))
         }
     }
 
@@ -18,7 +18,7 @@ extension Gen {
     /// Zips together two generators and returns a generator of tuples.
     public static func zip<A1, A2>(_ ga1 : Gen<A1>, _ ga2 : Gen<A2>) -> Gen<(A1, A2)> where T == (A1, A2) {
         Gen<(A1, A2)> { ctx in
-            (ga1.generate(using: ctx), ga2.generate(using: ctx))
+            (ga1.generate(context: ctx), ga2.generate(context: ctx))
         }
     }
 

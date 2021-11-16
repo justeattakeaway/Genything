@@ -15,7 +15,7 @@ public extension Gen {
     static func traverse<R>(_ parts: [Gen<T>], transform: @escaping (T) -> R) -> Gen<[R]> {
         Gen<[R]> { ctx in
             parts.map { part in
-                part.generate(using: ctx)
+                part.generate(context: ctx)
             }.map(transform)
         }
     }

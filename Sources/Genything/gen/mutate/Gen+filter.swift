@@ -21,7 +21,7 @@ public extension Gen {
     func filter(_ isIncluded: @escaping (T) -> Bool) -> Gen<T> {
         Gen<T> { ctx in
             let value = (0...ctx.maxFilterDepth).lazy.map { _ in
-                generate(using: ctx)
+                generate(context: ctx)
             }.first {
                 isIncluded($0)
             }

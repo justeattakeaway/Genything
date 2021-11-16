@@ -11,7 +11,7 @@ public extension Gen {
     func take(count: Int? = nil,
               context: Context = .default) -> [T] {
         (0..<(count ?? context.iterations)).map { _ in
-            generate(using: context)
+            generate(context: context)
         }
     }
 }

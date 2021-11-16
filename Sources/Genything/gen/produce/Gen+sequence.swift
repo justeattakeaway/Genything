@@ -1,5 +1,29 @@
 import Foundation
 
+internal struct GenSequence<T>: Sequence, IteratorProtocol {
+    private let generator: () -> T
+    private let size: Int?
+
+    private var index = 0
+
+    public init(size: Int? = nil, _ generator: @escaping () -> T) {
+        self.size = size
+        self.generator = generator
+    }
+
+    public typealias Element = T
+
+    mutating public func next() -> T? {
+        guard size == nil || index < size! else {
+            return nil
+        }
+
+        index += 1
+
+        return generator()
+    }
+}
+
 internal extension Gen {
     /// Returns: An optionally sized sequence capable of generating the generators' values
     ///
@@ -13,7 +37,7 @@ internal extension Gen {
     func sequence(ofSize size: Int? = nil,
                   context: Context = .default) -> GenSequence<T> {
         GenSequence(size: size ?? context.iterations) {
-            generate(using: context)
+            generate(context: context)
         }
     }
 }

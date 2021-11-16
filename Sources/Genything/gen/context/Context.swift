@@ -14,7 +14,6 @@ public class Context {
     // MARK: Produce
 
     public var iterations: Int = ContextDefaults.iterations
-    public var maxCollectionSize: Int = ContextDefaults.maxCollectionSize
 
     // MARK: Init
 

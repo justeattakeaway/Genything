@@ -63,9 +63,9 @@ final internal class PizzaArbitraryTests: XCTestCase {
         }
 
         let hawaiianPizzaQuotient = pizzaQuotient(hawaiian)
-        XCTAssertTrue(0.2...0.3 ~= hawaiianPizzaQuotient, "Hawaiian generated with quotient \(hawaiianPizzaQuotient)")
+        XCTAssert(0.2...0.3 ~= hawaiianPizzaQuotient, "Hawaiian generated with quotient \(hawaiianPizzaQuotient)")
 
         let pepperoniPizzaQuotient = pizzaQuotient(pepperoni)
-        XCTAssertTrue(0.7...0.8 ~= pepperoniPizzaQuotient, "Pepperoni generated with quotient \(pepperoniPizzaQuotient)")
+        XCTAssert(0.7...0.8 ~= pepperoniPizzaQuotient, "Pepperoni generated with quotient \(pepperoniPizzaQuotient)")
     }
 }
