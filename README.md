@@ -102,6 +102,9 @@ dependencies: [
 
 The Genything and Trickery projects are owned and maintained by [SkipTheDishes](https://www.skipthedishes.com/), a [Just Eat Takeaway](https://www.justeattakeaway.com/) subsidiary.
 
+### Contributing
+Please read the [Contribution Guide](./CONTRIBUTING.md)
+
 ### Inspiration
   
 - https://github.com/typelift/SwiftCheck
