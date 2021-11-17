@@ -10,7 +10,7 @@ class FakeEmailsTests: XCTestCase {
     }
 
     func test_businessEmails() {
-        Fake.Emails.business.forEach { email in
+        Fake.Emails.business().forEach { email in
             let parts = email.split(separator: "@")
             XCTAssertEqual(parts.count, 2)
         }

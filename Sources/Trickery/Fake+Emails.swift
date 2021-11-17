@@ -33,9 +33,12 @@ extension Fake {
             return "\(transformedName)@\(personalDomain)\(topLevelDomain)"
         }
 
-        public static let business = Gen<String>.zip(Fake.BusinessNames.any, contacts, topLevelDomains) { name, contacts, topLevelDomains in
-            let transformedName = String(name.filter { $0.isLetter }).lowercased()
-            return "\(contacts)@\(transformedName)\(topLevelDomains)"
+        public static func business(_ name: String? = nil) -> Gen<String> {
+            let nameGen = name == nil ? Fake.BusinessNames.any : Gen<String>.constant(name!)
+            return Gen<String>.zip(nameGen, contacts, topLevelDomains) { name, contacts, topLevelDomains in
+                let transformedName = String(name.filter { $0.isLetter }).lowercased()
+                return "\(contacts)@\(transformedName)\(topLevelDomains)"
+            }
         }
     }
 }
