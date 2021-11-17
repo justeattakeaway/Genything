@@ -3,6 +3,7 @@ import Trickery
 
 private enum Destination: String, CaseIterable, Identifiable {
     case phoneBook
+    case businessList
     case shapeDrawing
     
     var id: String {
@@ -22,6 +23,7 @@ struct IndexView: View {
                     NavigationLink(destination: {
                         switch destination {
                         case .phoneBook: PhoneBook()
+                        case .businessList: BusinessListView()
                         case .shapeDrawing: ShapeDrawing()
                         }
                     }) {

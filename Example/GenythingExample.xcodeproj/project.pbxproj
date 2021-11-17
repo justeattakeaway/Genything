@@ -17,6 +17,7 @@
 		14C3856927456152001CF50F /* PolygonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C3856827456152001CF50F /* PolygonShape.swift */; };
 		14C3856B274562C3001CF50F /* ShapeDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C3856A274562C3001CF50F /* ShapeDrawing.swift */; };
 		770849362742EA250044E19E /* PhoneBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770849352742EA250044E19E /* PhoneBook.swift */; };
+		777912A727456B9400C92173 /* BusinessListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777912A627456B9400C92173 /* BusinessListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		14C3856827456152001CF50F /* PolygonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonShape.swift; sourceTree = "<group>"; };
 		14C3856A274562C3001CF50F /* ShapeDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeDrawing.swift; sourceTree = "<group>"; };
 		770849352742EA250044E19E /* PhoneBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBook.swift; sourceTree = "<group>"; };
+		777912A627456B9400C92173 /* BusinessListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		770849372742EC8E0044E19E /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				777912A627456B9400C92173 /* BusinessListView.swift */,
 				770849352742EA250044E19E /* PhoneBook.swift */,
 				14C3856A274562C3001CF50F /* ShapeDrawing.swift */,
 			);
@@ -249,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C3856927456152001CF50F /* PolygonShape.swift in Sources */,
+				777912A727456B9400C92173 /* BusinessListView.swift in Sources */,
 				770849362742EA250044E19E /* PhoneBook.swift in Sources */,
 				14C3856B274562C3001CF50F /* ShapeDrawing.swift in Sources */,
 				03BA41072742DECD00B97AA6 /* IndexView.swift in Sources */,
