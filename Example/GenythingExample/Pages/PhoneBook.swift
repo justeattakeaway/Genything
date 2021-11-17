@@ -21,7 +21,7 @@ struct PhoneBookCell: View {
     }
 }
 struct PhoneBook: View {
-    let data = Gen.zip(Fake.Names.full, Fake.PhoneNumbers.formatted) {Contact(name: $0, phoneNumber: $1)}.samples(count: 50)
+    let data = Gen.zip(Fake.PersonNames.full, Fake.PhoneNumbers.formatted) {Contact(name: $0, phoneNumber: $1)}.samples(count: 50)
     
     var body: some View {
         List {

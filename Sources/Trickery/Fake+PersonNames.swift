@@ -2,8 +2,8 @@ import Foundation
 import Genything
 
 extension Fake {
-    public enum Names {
-        private static let data: NameData = NameData.loadJson()
+    public enum PersonNames {
+        private static let data: PersonNamesData = PersonNamesData.loadJson()
         
         public static let first: Gen<String> = .of(data.names)
         // TODO: expand with bias from distribution
