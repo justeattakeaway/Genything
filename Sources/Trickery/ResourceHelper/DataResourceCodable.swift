@@ -16,7 +16,6 @@ extension JsonResourceCodable {
     }
 
     static func loadJson() -> Self {
-
         getBundle()
             .url(forResource: String(describing: self),
                  withExtension: "json")
