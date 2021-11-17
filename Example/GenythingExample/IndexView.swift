@@ -4,6 +4,7 @@ import Trickery
 private enum Destination: String, CaseIterable, Identifiable {
     case phoneBook
     case businessList
+    case genLibs
     
     var id: String {
         rawValue
@@ -23,6 +24,7 @@ struct IndexView: View {
                         switch destination {
                             case .phoneBook: PhoneBook()
                             case .businessList: BusinessListView()
+                            case .genLibs: GenLibsView()
                         }
                     }) {
                         Text(destination.title)

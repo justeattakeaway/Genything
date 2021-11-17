@@ -1,9 +1,29 @@
-[![Swift](https://img.shields.io/badge/Swift-5.0+-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.3_5.4_5.5-Orange?style=flat-square)
-[![Platforms](https://img.shields.io/badge/Platforms-iOS_tvOS_watchOS_macOS-yellowgreen?style=flat-square)](https://img.shields.io/badge/Platforms-macOS_iOS_tvOS_watchOS_Linux_Windows-Green?style=flat-square)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Genything.svg)](https://cocoapods.org/pods/Genything)
-[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)
+<p align="center">
+<img src="assets/Genything-icon.png" width="35%" alt="Genything" /><br/>
+</p>
 
-## Genything - Generate Anything
+<h1 align="center">Genything</h1>
+
+<p align="center">
+<a href="#">
+<img src="https://img.shields.io/badge/Swift-5.0+-FE8001?style=flat-square"
+    alt="Swift: 5.0">
+</a>
+<a href="#">
+<img src="https://img.shields.io/badge/Platforms-iOS%20|%20tvOS%20|%20watchOS%20|%20macOS-FE8001.svg"
+    alt="Platforms: iOS – tvOS – watchOS – macOS">
+</a>
+<a href="https://cocoapods.org/pods/Genything">
+<img src="https://img.shields.io/cocoapods/v/Genything.svg"
+    alt="Cocoapods Compatible">
+</a>
+<a href="#">
+<img src="https://img.shields.io/badge/Swift_Package_Manager-Compatible-FE8001?style=flat-square"
+    alt="Swift Package Manager Compatible">
+</a>
+</p>
+
+## Generate Anything
 
 Genything is a framework for random testing of a program properties. It provides way to random data based on simple and complex types.
 

@@ -50,6 +50,8 @@ struct BusinessListView: View {
             Fake.Addresses.usLastLine
         ])
 
+        let name = Fake.BusinessNames.any.generate(context: ctx)
+
         return BusinessCard(
             name: Fake.BusinessNames.any.generate(context: ctx),
             email: "business@email.com",
