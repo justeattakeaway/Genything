@@ -1,10 +1,14 @@
 import Foundation
 
 public extension Gen {
-    /**
-     * Returns a generator which produces values from either left or right generators
-     * Using `rightProbability` to control the probability of a right value occuring
-     */
+    /// Returns: A generator which randomly selects values from either the `left` or `right` generator
+    ///
+    /// - Parameters:
+    ///    - left: A generator which may get selected to produce values
+    ///    - right: A generator which may get selected to produce values
+    ///    - rightProbability: The probability that the the right generator will be selected from
+    ///
+    /// - Returns: The generator
     static func either(left: Gen<T>, right: Gen<T>, rightProbability: Double = 0.5) -> Gen<T> {
         let probabilityRange = 0.0...1.0
         assert(
