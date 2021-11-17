@@ -26,7 +26,7 @@ public extension Gen {
         }
     }
 
-    /// Returns: A generator of strings which modify the `source` by replacing all occurence of `replace` strings their associated generator
+    /// Returns: A generator of strings which modify the `source` by replacing all occurence of `replace` strings by their associated generator
     ///
     /// - Parameters:
     ///   - source: The source or template `String` that will be modified
