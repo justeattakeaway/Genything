@@ -51,7 +51,7 @@ struct BusinessListView: View {
 
         return BusinessCard(
             name: Fake.BusinessNames.any.generate(context: ctx),
-            email: "business@email.com",
+            email: Fake.Emails.business.generate(context: ctx),
             symbolName: "circle.fill",
             addressLine1: Fake.Addresses.streetLine.generate(context: ctx),
             addressLine2: addressLine2Gen.generate(context: ctx)
