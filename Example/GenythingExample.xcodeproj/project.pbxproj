@@ -14,6 +14,11 @@
 		03BA41162742DED000B97AA6 /* GenythingExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA41152742DED000B97AA6 /* GenythingExampleTests.swift */; };
 		03BA41372742E37300B97AA6 /* Genything in Frameworks */ = {isa = PBXBuildFile; productRef = 03BA41362742E37300B97AA6 /* Genything */; };
 		03BA41392742E37300B97AA6 /* Trickery in Frameworks */ = {isa = PBXBuildFile; productRef = 03BA41382742E37300B97AA6 /* Trickery */; };
+		14299D8827448709005B5E3A /* BadgeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14299D8727448709005B5E3A /* BadgeBackground.swift */; };
+		14299D8B27448753005B5E3A /* HexagonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14299D8A27448753005B5E3A /* HexagonParameters.swift */; };
+		14299D8D27448B71005B5E3A /* BadgeSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14299D8C27448B71005B5E3A /* BadgeSymbol.swift */; };
+		14299D8F27448C38005B5E3A /* RotatedBadgeSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14299D8E27448C38005B5E3A /* RotatedBadgeSymbol.swift */; };
+		14299D9127448D18005B5E3A /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14299D9027448D18005B5E3A /* Badge.swift */; };
 		770849362742EA250044E19E /* PhoneBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770849352742EA250044E19E /* PhoneBook.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +41,11 @@
 		03BA41112742DED000B97AA6 /* GenythingExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenythingExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BA41152742DED000B97AA6 /* GenythingExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenythingExampleTests.swift; sourceTree = "<group>"; };
 		03BA41302742DFAE00B97AA6 /* Genything */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Genything; path = ..; sourceTree = "<group>"; };
+		14299D8727448709005B5E3A /* BadgeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeBackground.swift; sourceTree = "<group>"; };
+		14299D8A27448753005B5E3A /* HexagonParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonParameters.swift; sourceTree = "<group>"; };
+		14299D8C27448B71005B5E3A /* BadgeSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeSymbol.swift; sourceTree = "<group>"; };
+		14299D8E27448C38005B5E3A /* RotatedBadgeSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatedBadgeSymbol.swift; sourceTree = "<group>"; };
+		14299D9027448D18005B5E3A /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		770849352742EA250044E19E /* PhoneBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +92,7 @@
 		03BA41032742DECD00B97AA6 /* GenythingExample */ = {
 			isa = PBXGroup;
 			children = (
+				14299D892744872E005B5E3A /* Models */,
 				770849372742EC8E0044E19E /* Pages */,
 				03BA41042742DECD00B97AA6 /* GenythingExampleApp.swift */,
 				03BA41062742DECD00B97AA6 /* IndexView.swift */,
@@ -122,10 +133,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		14299D892744872E005B5E3A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14299D8A27448753005B5E3A /* HexagonParameters.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		770849372742EC8E0044E19E /* Pages */ = {
 			isa = PBXGroup;
 			children = (
 				770849352742EA250044E19E /* PhoneBook.swift */,
+				14299D8727448709005B5E3A /* BadgeBackground.swift */,
+				14299D8C27448B71005B5E3A /* BadgeSymbol.swift */,
+				14299D8E27448C38005B5E3A /* RotatedBadgeSymbol.swift */,
+				14299D9027448D18005B5E3A /* Badge.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -234,8 +257,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14299D8B27448753005B5E3A /* HexagonParameters.swift in Sources */,
+				14299D9127448D18005B5E3A /* Badge.swift in Sources */,
+				14299D8D27448B71005B5E3A /* BadgeSymbol.swift in Sources */,
+				14299D8827448709005B5E3A /* BadgeBackground.swift in Sources */,
 				770849362742EA250044E19E /* PhoneBook.swift in Sources */,
 				03BA41072742DECD00B97AA6 /* IndexView.swift in Sources */,
+				14299D8F27448C38005B5E3A /* RotatedBadgeSymbol.swift in Sources */,
 				03BA41052742DECD00B97AA6 /* GenythingExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
