@@ -2,8 +2,10 @@ import SwiftUI
 import Trickery
 import Genything
 
+let generator = GenLibsScriptGenerator().generator
+
 private func generateScript() -> String {
-    ScriptGen.generator.generate(context: .random)
+    generator.generate(context: .random)
 }
 
 struct GenLibsView: View {

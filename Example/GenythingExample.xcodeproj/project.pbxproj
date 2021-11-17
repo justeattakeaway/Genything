@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0331193027457E540053D75E /* GenLibsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331192F27457E540053D75E /* GenLibsView.swift */; };
-		0331193527458C840053D75E /* ScriptGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331193427458C840053D75E /* ScriptGen.swift */; };
+		0331193527458C840053D75E /* GenLibsScriptGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331193427458C840053D75E /* GenLibsScriptGenerator.swift */; };
+		03A4EBEB2745B131001A7241 /* genlib.json in Resources */ = {isa = PBXBuildFile; fileRef = 03A4EBEA2745B131001A7241 /* genlib.json */; };
 		03BA41052742DECD00B97AA6 /* GenythingExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA41042742DECD00B97AA6 /* GenythingExampleApp.swift */; };
 		03BA41072742DECD00B97AA6 /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA41062742DECD00B97AA6 /* IndexView.swift */; };
 		03BA41092742DED000B97AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BA41082742DED000B97AA6 /* Assets.xcassets */; };
@@ -32,7 +33,8 @@
 
 /* Begin PBXFileReference section */
 		0331192F27457E540053D75E /* GenLibsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenLibsView.swift; path = GenythingExample/Pages/GenLibs/GenLibsView.swift; sourceTree = SOURCE_ROOT; };
-		0331193427458C840053D75E /* ScriptGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptGen.swift; sourceTree = "<group>"; };
+		0331193427458C840053D75E /* GenLibsScriptGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenLibsScriptGenerator.swift; sourceTree = "<group>"; };
+		03A4EBEA2745B131001A7241 /* genlib.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = genlib.json; sourceTree = "<group>"; };
 		03BA41012742DECD00B97AA6 /* GenythingExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenythingExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BA41042742DECD00B97AA6 /* GenythingExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenythingExampleApp.swift; sourceTree = "<group>"; };
 		03BA41062742DECD00B97AA6 /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
@@ -69,7 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				0331192F27457E540053D75E /* GenLibsView.swift */,
-				0331193427458C840053D75E /* ScriptGen.swift */,
+				0331193427458C840053D75E /* GenLibsScriptGenerator.swift */,
+				03A4EBEA2745B131001A7241 /* genlib.json */,
 			);
 			path = GenLibs;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A4EBEB2745B131001A7241 /* genlib.json in Resources */,
 				03BA410C2742DED000B97AA6 /* Preview Assets.xcassets in Resources */,
 				03BA41092742DED000B97AA6 /* Assets.xcassets in Resources */,
 			);
@@ -256,7 +260,7 @@
 				770849362742EA250044E19E /* PhoneBook.swift in Sources */,
 				03BA41072742DECD00B97AA6 /* IndexView.swift in Sources */,
 				03BA41052742DECD00B97AA6 /* GenythingExampleApp.swift in Sources */,
-				0331193527458C840053D75E /* ScriptGen.swift in Sources */,
+				0331193527458C840053D75E /* GenLibsScriptGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
