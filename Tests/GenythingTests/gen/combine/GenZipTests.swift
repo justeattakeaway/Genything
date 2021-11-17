@@ -4,7 +4,7 @@ import XCTest
 final internal class GenZipTests: XCTestCase {
     // MARK: - Basic tests
 
-    func test_anyGen_zipWithAnotherGen_generateTupleOfExpectedValues() {
+    func test_anyGen_zipAnotherGen_generateTupleOfExpectedValues() {
         let firstRange = 0..<100
         let secondRange = 100..<200
         let firstGen = Gen.from(firstRange)
@@ -252,7 +252,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_3Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 3) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2]
             ){ a, b, c in
                 a+b+c
@@ -263,7 +263,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_4Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 4) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3]
             ){ a, b, c, d in
                 a+b+c+d
@@ -274,7 +274,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_5Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 5) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4]
             ){ a, b, c, d, e in
                 a+b+c+d+e
@@ -285,7 +285,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_6Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 6) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5]
             ){ a, b, c, d, e, f in
@@ -297,7 +297,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_7Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 7) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6]
             ){ a, b, c, d, e, f, g in
@@ -309,7 +309,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_8Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 8) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7]
             ){ a, b, c, d, e, f, g, h in
@@ -321,7 +321,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_9Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 9) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8]
             ){ a, b, c, d, e, f, g, h, i in
@@ -333,7 +333,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_10Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 10) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9]
             ){ a, b, c, d, e, f, g, h, i, j in
@@ -345,7 +345,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_11Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 11) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10]
@@ -358,7 +358,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_12Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 12) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10], gens[11]
@@ -371,7 +371,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_13Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 13) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10], gens[11], gens[12]
@@ -384,7 +384,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_14Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 14) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10], gens[11], gens[12], gens[13]
@@ -397,7 +397,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_15Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 15) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10], gens[11], gens[12], gens[13], gens[14]
@@ -410,7 +410,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_16Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 16) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10], gens[11], gens[12], gens[13], gens[14],
@@ -424,7 +424,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_17Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 17) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10], gens[11], gens[12], gens[13], gens[14],
@@ -438,7 +438,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_18Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 18) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10], gens[11], gens[12], gens[13], gens[14],
@@ -452,7 +452,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_19Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 19) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10], gens[11], gens[12], gens[13], gens[14],
@@ -466,7 +466,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_20Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 20) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10], gens[11], gens[12], gens[13], gens[14],
@@ -480,7 +480,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_21Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 21) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10], gens[11], gens[12], gens[13], gens[14],
@@ -495,7 +495,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_22Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 22) { gens in
-            Gen.zipWith(
+            Gen.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4],
                 gens[5], gens[6], gens[7], gens[8], gens[9],
                 gens[10], gens[11], gens[12], gens[13], gens[14],
