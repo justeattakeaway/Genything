@@ -35,7 +35,7 @@ extension Gen {
     ///    - gen2: Second generator
     ///
     /// - Returns: A generator of Tuples
-    static func zip<T1, T2>(
+    public static func zip<T1, T2>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>
     ) -> Gen<(T1, T2)> where T == (T1, T2) {
@@ -55,7 +55,7 @@ extension Gen {
     ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
     ///
     /// - Returns: A generator of values
-    static func zip<T1, T2>(
+    public static func zip<T1, T2>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         transform: @escaping (T1, T2) -> T
