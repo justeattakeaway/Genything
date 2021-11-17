@@ -3,7 +3,7 @@ import Trickery
 
 private enum Destination: String, CaseIterable, Identifiable {
     case phoneBook
-    case badge
+    case shapeDrawing
     
     var id: String {
         rawValue
@@ -22,7 +22,7 @@ struct IndexView: View {
                     NavigationLink(destination: {
                         switch destination {
                         case .phoneBook: PhoneBook()
-                        case .badge: Badge()
+                        case .shapeDrawing: ShapeDrawing()
                         }
                     }) {
                         Text(destination.title)
