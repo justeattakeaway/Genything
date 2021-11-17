@@ -20,6 +20,7 @@ struct PhoneBookCell: View {
         }
     }
 }
+
 struct PhoneBook: View {
     let data = Gen.zip(Fake.PersonNames.full, Fake.PhoneNumbers.formatted) {Contact(name: $0, phoneNumber: $1)}.samples(count: 50)
     
