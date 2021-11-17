@@ -1,9 +1,11 @@
 import Foundation
 
 public extension Gen {
-    /**
-     * Adapts an array into a generator which produces any of the values in the array
-     */
+    /// Returns: A generator which randomly produces values form the provided list
+    ///
+    /// - Parameter values: The values which this generator will randomly select from
+    ///
+    /// - Returns: The generator
     static func of(_ values: [T]) -> Gen<T> {
         Gen<T> {
             values.randomElement(using: &$0.rng)!
