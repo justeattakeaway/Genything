@@ -9,7 +9,7 @@ public extension Gen {
     /// - Returns: A `Gen` generator of values of type `R`
     func flatMap<R>(_ transform: @escaping (T) -> Gen<R>) -> Gen<R> {
         Gen<R> { ctx -> R in
-            transform(generate(using: ctx)).generate(using: ctx)
+            transform(generate(context: ctx)).generate(context: ctx)
         }
     }
 }

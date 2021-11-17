@@ -1,6 +1,6 @@
 [![Swift](https://img.shields.io/badge/Swift-5.0+-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.3_5.4_5.5-Orange?style=flat-square)
 [![Platforms](https://img.shields.io/badge/Platforms-iOS_tvOS_watchOS_macOS-yellowgreen?style=flat-square)](https://img.shields.io/badge/Platforms-macOS_iOS_tvOS_watchOS_Linux_Windows-Green?style=flat-square)
-[![CocoaPods Compatible](https://img.shields.io/badge/pod-0.01-blue?style=flat-square)](https://img.shields.io/badge/pod-0.01-blue)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Genything.svg)](https://cocoapods.org/pods/Genything)
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)
 
 ## Genything - Generate Anything
@@ -101,6 +101,9 @@ dependencies: [
 ## Credits
 
 The Genything and Trickery projects are owned and maintained by [SkipTheDishes](https://www.skipthedishes.com/), a [Just Eat Takeaway](https://www.justeattakeaway.com/) subsidiary.
+
+### Contributing
+Please read the [Contribution Guide](./CONTRIBUTING.md)
 
 ### Inspiration
   

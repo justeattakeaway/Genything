@@ -9,7 +9,7 @@ extension Fake {
 
         public static func sentence(wordCountRange: ClosedRange<Int> = 5...20) -> Gen<String> {
             word
-                .proliferate(in: wordCountRange)
+                .expand(toSizeInRange: wordCountRange)
                 .map {
                     $0.joined(separator: " ")
                 }

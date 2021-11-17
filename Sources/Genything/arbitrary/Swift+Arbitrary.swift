@@ -52,7 +52,7 @@ extension String: Arbitrary {
     }
 
     public static func arbitrary(in range: ClosedRange<Int> = 0...100) -> Gen<String> {
-        Character.arbitrary.proliferate(in: range).map {
+        Character.arbitrary.expand(toSizeInRange: range).map {
             String($0)
         }
     }
@@ -64,7 +64,7 @@ extension Array: Arbitrary where Element: Arbitrary {
     }
 
     public static func arbitrary(in range: ClosedRange<Int> = 0...33) -> Gen<Array> {
-        Element.arbitrary.proliferate(in: range)
+        Element.arbitrary.expand(toSizeInRange: range)
     }
 }
 

@@ -32,31 +32,4 @@ class Gen_ReplacingOccurencesTests: XCTestCase {
             XCTAssertTrue(subject[13].isNumber)
         }
     }
-
-    func test_replacing_two_occurences_to_create_postal_code() {
-        let capitalLetters = Gen<Character>.from("A"..."Z")
-        let digits = Gen<Int>.from(0...9)
-        let postalCodeFormat = "*#* #*#"
-
-        let gen = digits.replacingOccurrences(of: "#", in: postalCodeFormat)
-                    .flatMap { nextFormat in
-                        capitalLetters.replacingOccurrences(of: "*", in: nextFormat)
-                    }
-
-        gen.forEach { postalCode in
-            let subject = Array(postalCode)
-
-            XCTAssertEqual(7, subject.count)
-
-            XCTAssertTrue(subject[0].isLetter)
-            XCTAssertTrue(subject[1].isNumber)
-            XCTAssertTrue(subject[2].isLetter)
-
-            XCTAssertEqual(" ", subject[3])
-
-            XCTAssertTrue(subject[4].isNumber)
-            XCTAssertTrue(subject[5].isLetter)
-            XCTAssertTrue(subject[6].isNumber)
-        }
-    }
 }
