@@ -19,4 +19,11 @@ class FakeAddressesTests: XCTestCase {
             XCTAssertTrue(subject[6].isNumber)
         }
     }
+
+    func test_zipCode() {
+        Fake.Addresses.zipCode.forEach { zipCode in
+            XCTAssertEqual(zipCode.count, 5)
+            zipCode.forEach { XCTAssertTrue($0.isNumber) }
+        }
+    }
 }
