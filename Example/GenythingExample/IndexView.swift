@@ -3,6 +3,7 @@ import Trickery
 
 private enum Destination: String, CaseIterable, Identifiable {
     case phoneBook
+    case genLibs
     
     var id: String {
         rawValue
@@ -20,7 +21,8 @@ struct IndexView: View {
                 ForEach(Destination.allCases) { destination in
                     NavigationLink(destination: {
                         switch destination {
-                        case .phoneBook: PhoneBook()
+                            case .phoneBook: PhoneBook()
+                            case .genLibs: GenLibsView()
                         }
                     }) {
                         Text(destination.title)
