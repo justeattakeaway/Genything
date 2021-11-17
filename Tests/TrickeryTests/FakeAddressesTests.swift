@@ -124,4 +124,14 @@ class FakeAddressesTests: XCTestCase {
             XCTAssertEqual(parts.count, 2)
         }
     }
+
+    func test_test() {
+        Fake.Emails.personal.forEach { email in
+            print(email)
+        }
+
+        Fake.Emails.business.forEach { email in
+            print(email)
+        }
+    }
 }

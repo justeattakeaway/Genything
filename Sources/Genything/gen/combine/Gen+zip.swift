@@ -27,7 +27,7 @@ public extension Gen {
 
 // - MARK: zip2
 
-extension Gen {
+public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
     ///
     /// - Parameters:
@@ -35,7 +35,7 @@ extension Gen {
     ///    - gen2: Second generator
     ///
     /// - Returns: A generator of Tuples
-    public static func zip<T1, T2>(
+    static func zip<T1, T2>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>
     ) -> Gen<(T1, T2)> where T == (T1, T2) {
@@ -55,7 +55,7 @@ extension Gen {
     ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2>(
+    static func zip<T1, T2>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         transform: @escaping (T1, T2) -> T
@@ -66,7 +66,7 @@ extension Gen {
 
 // - MARK: zip3
 
-extension Gen {
+public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
     ///
     /// - Parameters:
@@ -75,7 +75,7 @@ extension Gen {
     ///    - gen3: Third generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3>(
+    static func zip<T1, T2, T3>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>
@@ -98,7 +98,7 @@ extension Gen {
     ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3>(
+    static func zip<T1, T2, T3>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>,
@@ -110,7 +110,7 @@ extension Gen {
 
 // - MARK: zip4
 
-extension Gen {
+public extension Gen {
 
     /// Returns: A generator by zipping together the values produced by the supplied generators
     ///
@@ -215,7 +215,7 @@ public extension Gen {
 
 // - MARK: zip6
 
-extension Gen {
+public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
     ///
     /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
@@ -229,7 +229,7 @@ extension Gen {
     ///    - gen6: Sixth generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3, T4, T5, T6>(
+    static func zip<T1, T2, T3, T4, T5, T6>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>,
@@ -263,7 +263,7 @@ extension Gen {
     ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3, T4, T5, T6>(
+    static func zip<T1, T2, T3, T4, T5, T6>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>,
@@ -280,7 +280,7 @@ extension Gen {
 
 // - MARK: zip7
 
-extension Gen {
+public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
     ///
     /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
@@ -295,7 +295,7 @@ extension Gen {
     ///    - gen7: Seventh generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3, T4, T5, T6, T7>(
+    static func zip<T1, T2, T3, T4, T5, T6, T7>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>,
@@ -332,7 +332,7 @@ extension Gen {
     ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3, T4, T5, T6, T7>(
+    static func zip<T1, T2, T3, T4, T5, T6, T7>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>,
@@ -350,7 +350,7 @@ extension Gen {
 
 // - MARK: zip8
 
-extension Gen {
+public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
     ///
     /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
@@ -366,7 +366,7 @@ extension Gen {
     ///    - gen8: Eighth generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3, T4, T5, T6, T7, T8>(
+    static func zip<T1, T2, T3, T4, T5, T6, T7, T8>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>,
@@ -406,7 +406,7 @@ extension Gen {
     ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3, T4, T5, T6, T7, T8>(
+    static func zip<T1, T2, T3, T4, T5, T6, T7, T8>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>,
@@ -425,7 +425,7 @@ extension Gen {
 
 // - MARK: zip9
 
-extension Gen {
+public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
     ///
     /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
@@ -442,7 +442,7 @@ extension Gen {
     ///    - gen9: Ninth generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9>(
+    static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>,
@@ -485,7 +485,7 @@ extension Gen {
     ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9>(
+    static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>,
@@ -505,7 +505,7 @@ extension Gen {
 
 // - MARK: zip10
 
-extension Gen {
+public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
     ///
     /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
@@ -523,7 +523,7 @@ extension Gen {
     ///    - gen10: Tenth generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
+    static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>,
@@ -569,7 +569,7 @@ extension Gen {
     ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
     ///
     /// - Returns: A generator of values
-    public static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
+    static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
         _ gen3: Gen<T3>,
