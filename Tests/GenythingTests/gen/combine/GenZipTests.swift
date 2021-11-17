@@ -4,7 +4,7 @@ import XCTest
 final internal class GenZipTests: XCTestCase {
     // MARK: - Basic tests
 
-    func test_anyGen_zipAnotherGen_generateTupleOfExpectedValues() {
+    func test_anyGen_zippedWithAnotherGen_generateTupleOfExpectedValues() {
         let firstRange = 0..<100
         let secondRange = 100..<200
         let firstGen = Gen.from(firstRange)
