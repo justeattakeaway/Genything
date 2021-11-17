@@ -15,7 +15,7 @@
 		03BA41372742E37300B97AA6 /* Genything in Frameworks */ = {isa = PBXBuildFile; productRef = 03BA41362742E37300B97AA6 /* Genything */; };
 		03BA41392742E37300B97AA6 /* Trickery in Frameworks */ = {isa = PBXBuildFile; productRef = 03BA41382742E37300B97AA6 /* Trickery */; };
 		770849362742EA250044E19E /* PhoneBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770849352742EA250044E19E /* PhoneBook.swift */; };
-		777912A52744B27900C92173 /* BusinessListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777912A42744B27900C92173 /* BusinessListView.swift */; };
+		777912A727456B9400C92173 /* BusinessListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777912A627456B9400C92173 /* BusinessListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,7 @@
 		03BA41152742DED000B97AA6 /* GenythingExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenythingExampleTests.swift; sourceTree = "<group>"; };
 		03BA41302742DFAE00B97AA6 /* Genything */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Genything; path = ..; sourceTree = "<group>"; };
 		770849352742EA250044E19E /* PhoneBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBook.swift; sourceTree = "<group>"; };
-		777912A42744B27900C92173 /* BusinessListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusinessListView.swift; path = ../../../../../BusinessListView.swift; sourceTree = "<group>"; };
+		777912A627456B9400C92173 /* BusinessListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +127,8 @@
 		770849372742EC8E0044E19E /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				777912A627456B9400C92173 /* BusinessListView.swift */,
 				770849352742EA250044E19E /* PhoneBook.swift */,
-				777912A42744B27900C92173 /* BusinessListView.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -237,7 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777912A52744B27900C92173 /* BusinessListView.swift in Sources */,
+				777912A727456B9400C92173 /* BusinessListView.swift in Sources */,
 				770849362742EA250044E19E /* PhoneBook.swift in Sources */,
 				03BA41072742DECD00B97AA6 /* IndexView.swift in Sources */,
 				03BA41052742DECD00B97AA6 /* GenythingExampleApp.swift in Sources */,
