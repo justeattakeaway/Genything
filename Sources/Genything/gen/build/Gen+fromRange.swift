@@ -1,9 +1,13 @@
 import Foundation
 
+// - MARK: fromRange
+
 public extension Gen where T: RandomInRangeable {
-    /**
-     * Returns a generator which produces elements in the provided range
-     */
+    /// Returns: A generator which produces elements in the provided range
+    ///
+    /// - Parameter range: The range in which the generator will randomly select values
+    ///
+    /// - Returns: The generator
     static func from(_ range: Range<T>) -> Gen {
         assert(!range.isEmpty, "`Gen.from(range:)` was invoked with an empty interval")
 
@@ -12,9 +16,11 @@ public extension Gen where T: RandomInRangeable {
         }
     }
 
-    /**
-     * Returns a generator which produces elements in the provided range
-     */
+    /// Returns: A generator which produces elements in the provided range
+    ///
+    /// - Parameter range: The range in which the generator will randomly select values
+    ///
+    /// - Returns: The generator
     static func from(_ range: ClosedRange<T>) -> Gen {
         assert(!range.isEmpty, "`Gen.from(range:)` was invoked with an empty interval")
 
@@ -24,13 +30,17 @@ public extension Gen where T: RandomInRangeable {
     }
 }
 
-/**
- * Indicates a type which can provide random values within a Range
- */
+// - MARK: RandomInRangeable
+
+/// Indicates a type which can provide random values within a Range
+///
+/// - Note: Many existing Swift classes support this format despite not deriving from a protocol
 public protocol RandomInRangeable: Comparable {
     static func random<RNG>(in range: ClosedRange<Self>, using generator: inout RNG) -> Self where RNG: RandomNumberGenerator
     static func random<RNG>(in range: Range<Self>, using generator: inout RNG) -> Self where RNG: RandomNumberGenerator
 }
+
+// - MARK: RandomInRangeable Extensions
 
 extension Int: RandomInRangeable {}
 extension Int32: RandomInRangeable {}
@@ -71,6 +81,8 @@ extension UnicodeScalar: RandomInRangeable {
         }))!
     }
 }
+
+// - MARK: Helper Range Extensions
 
 private extension Range {
     func mapBound<T>(_ fn: (Bound) -> T) -> Range<T> {
