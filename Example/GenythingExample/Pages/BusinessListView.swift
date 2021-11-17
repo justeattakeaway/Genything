@@ -43,11 +43,20 @@ struct BusinessListCell: View {
 }
 
 struct BusinessListView: View {
-    let data = [BusinessCard(name: "Business Name",
-                            email: "business@email.com",
-                            symbolName: "circle.fill",
-                            addressLine1: "### Street Ave.",
-                            addressLine2: "City, ZIPCODE")]
+    let data = Gen<BusinessCard> { ctx in
+        let addressLine2Gen = Gen<String>.one(of: [
+            Fake.Addresses.caLastLine,
+            Fake.Addresses.usLastLine
+        ])
+
+        return BusinessCard(
+            name: Fake.BusinessNames.any.generate(context: ctx),
+            email: "business@email.com",
+            symbolName: "circle.fill",
+            addressLine1: Fake.Addresses.streetLine.generate(context: ctx),
+            addressLine2: addressLine2Gen.generate(context: ctx)
+        )
+    }.take(count: 50)
     
     var body: some View {
         List {
