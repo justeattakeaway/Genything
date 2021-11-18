@@ -12,5 +12,3 @@ extension Fake {
         public static let any: Gen<String> = .one(of: [ restaurant, general ])
     }
 }
-
-
