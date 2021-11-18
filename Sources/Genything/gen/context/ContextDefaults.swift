@@ -1,7 +1,10 @@
 import Foundation
 
+/// Global mutable defaults which will be used when initializing a `Context`
+///
+/// - SeeAlso: `Context`
 public enum ContextDefaults {
-    public static var iterations: Int = 1000
+    public static var maxIterations: Int = 1000
     public static var maxFilterDepth: Int = 1000
 
     private(set) public static var defaultContextFactory: () -> Context = {
