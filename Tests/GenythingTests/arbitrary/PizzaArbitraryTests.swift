@@ -17,7 +17,7 @@ final internal class PizzaArbitraryTests: XCTestCase {
 
         // Read as:
         // For any pizza produced by `pizzaGen`, the pizza is a cheese pizza
-        pizzaGen.take(count: 100)() /// Takes 100 random pizzas
+        pizzaGen.take(count: 100) /// Takes 100 random pizzas
             .forEach { (pizza: Pizza) in
                 XCTAssertTrue(pizza.isCheesePizza)
         }
