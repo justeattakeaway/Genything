@@ -5,14 +5,12 @@ on: [push]
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: macos-11
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
-        with:
-          swift-version: "5.3.3"      
-      - name: Build
-        run: swift build
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build Package
+        run: swift build -v
       - name: Run tests
-        run: swift test
+        run: swift test -v
