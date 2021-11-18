@@ -269,11 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				14C3856927456152001CF50F /* PolygonShape.swift in Sources */,
-=======
 				0331193027457E540053D75E /* GenLibsView.swift in Sources */,
->>>>>>> main
 				777912A727456B9400C92173 /* BusinessListView.swift in Sources */,
 				770849362742EA250044E19E /* PhoneBook.swift in Sources */,
 				14C3856B274562C3001CF50F /* ShapeDrawing.swift in Sources */,
