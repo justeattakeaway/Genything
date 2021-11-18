@@ -1,12 +1,14 @@
 import Foundation
 
+// MARK: Produce
+
 public extension Gen {
     /// Returns: A Boolean value indicating whether every element of a sequence satisfies a given predicate
     ///
     /// Will run n times, where n is the provided `iterations` or the context's value
     ///
     /// - Parameters:
-    ///   - iterations: The amount of times the sequence should iterate, default's to the context's `iterations` value
+    ///   - iterations: The amount of times the sequence should iterate, default's to the context's `maxIterations` value
     ///   - context: The context to be used for generation
     ///
     /// - Returns: The Boolean result

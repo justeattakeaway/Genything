@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Build
+
 public extension Gen where T: CaseIterable {
     /// Adapts a type conforming to CaseIterable into a generator which produces values of any case
     ///

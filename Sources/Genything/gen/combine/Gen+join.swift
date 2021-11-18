@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Combine
+
 public extension Gen {
     /// Returns: A new generator which produces strings by concatenating the elements of the generator sequence, adding the given separator between each generated element.
     ///

@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Mutate
+
 public extension Gen {
     /// Returns: The receiver's generator expanded to generate an array of the receiver's values
     ///

@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Combine
+
 public extension Gen {
     /// Collects and combines the values from the `generators` maintaining the order
     ///

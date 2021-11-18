@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Build
+
 public extension Gen {
     /// Returns: A generator which **constantly** produces the provided value
     ///
