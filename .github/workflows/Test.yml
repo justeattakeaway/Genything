@@ -1,0 +1,16 @@
+name: Test
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macos-11
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build Package
+        run: swift build -v
+      - name: Run tests
+        run: swift test -v
