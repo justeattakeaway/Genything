@@ -36,7 +36,7 @@ internal extension Gen {
     /// - Returns: A sequence that generates this generator's values
     func sequence(ofSize size: Int? = nil,
                   context: Context = .default) -> GenSequence<T> {
-        GenSequence(size: size ?? context.iterations) {
+        GenSequence(size: size ?? context.maxIterations) {
             generate(context: context)
         }
     }

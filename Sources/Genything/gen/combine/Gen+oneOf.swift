@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Combine
+
 public extension Gen {
     /// Returns: A generator which produces values randomly selected from one of the provided generators
     ///

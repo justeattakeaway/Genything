@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Mutate
+
 public extension Gen {
     /// An Error representing the scenarios in which filtering a Generator may fail
     enum FilterError: Error {

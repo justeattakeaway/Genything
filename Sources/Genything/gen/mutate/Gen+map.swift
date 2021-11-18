@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Mutate
+
 public extension Gen {
     /// Returns: A generator that transforms the receivers' values into a value of type `R`
     ///

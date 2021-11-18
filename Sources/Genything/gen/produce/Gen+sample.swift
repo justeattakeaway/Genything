@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Produce
+
 public extension Gen {
     /// Returns: Non-deterministic random samples of the generator's values
     ///
