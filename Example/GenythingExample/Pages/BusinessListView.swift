@@ -53,7 +53,7 @@ struct BusinessListView: View {
         let name = Fake.BusinessNames.any.generate(context: ctx)
 
         return BusinessCard(
-            name: Fake.BusinessNames.any.generate(context: ctx),
+            name: name,
             email: Fake.Emails.business(name).generate(context: ctx),
             symbolName: Fake.Icons.sfSymbols.generate(context: ctx),
             addressLine1: Fake.Addresses.streetLine.generate(context: ctx),
