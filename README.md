@@ -190,7 +190,7 @@ Then install `Genything` and optionally `Trickery` by adding it to:
 
 ## Credits
 
-The Genything and Trickery projects are owned and maintained by [SkipTheDishes](https://www.skipthedishes.com/), a [Just Eat Takeaway](https://www.justeattakeaway.com/) subsidiary.
+The Genything and Trickery projects are owned and maintained by [SkipTheDishes](https://www.skipthedishes.com/), a [Just Eat Takeaway.com](https://www.justeattakeaway.com/) subsidiary.
 
 ### Contributing
 
