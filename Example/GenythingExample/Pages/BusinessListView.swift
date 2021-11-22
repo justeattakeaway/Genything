@@ -1,12 +1,13 @@
 import SwiftUI
 import Trickery
 import Genything
+import SFSafeSymbols
 
 struct BusinessCard: Identifiable {
     let id: UUID = UUID()
     let name: String
     let email: String
-    let symbolName: String
+    let symbolName: SFSymbol
     let addressLine1: String
     let addressLine2: String
 }
@@ -16,7 +17,7 @@ struct BusinessListCell: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            Image(systemName: businessCard.symbolName)
+            Image(systemSymbol: businessCard.symbolName)
                 .resizable()
                 .frame(width: 50, height: 50)
                 .foregroundColor(.orange)
@@ -54,7 +55,7 @@ struct BusinessListView: View {
         return BusinessCard(
             name: name,
             email: Fake.Emails.business(name).generate(context: ctx),
-            symbolName: "circle.fill",
+            symbolName: Fake.Icons.sfSymbols.generate(context: ctx),
             addressLine1: Fake.Addresses.streetLine.generate(context: ctx),
             addressLine2: addressLine2Gen.generate(context: ctx)
         )
