@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Produce
+
 public extension Gen {
     /// Returns: An array of values from the generator
     ///
@@ -10,7 +12,7 @@ public extension Gen {
     /// - Returns: An array of generated values
     func take(count: Int? = nil,
               context: Context = .default) -> [T] {
-        (0..<(count ?? context.iterations)).map { _ in
+        (0..<(count ?? context.maxIterations)).map { _ in
             generate(context: context)
         }
     }

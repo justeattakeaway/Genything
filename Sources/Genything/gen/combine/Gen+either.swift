@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Combine
+
 public extension Gen {
     /// Returns: A generator which randomly selects values from either the `left` or `right` generator
     ///

@@ -1,4 +1,4 @@
-// - MARK: zip
+// MARK: Combine - Zip
 
 public extension Gen {
     /// Returns: A generator by zipping together the values produced by the receiver and `other`
@@ -24,8 +24,6 @@ public extension Gen {
         self.zip(with: other).map({ t in transform(t.0, t.1) })
     }
 }
-
-// - MARK: zip2
 
 public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
@@ -63,8 +61,6 @@ public extension Gen {
         Gen<(T1, T2)>.zip(gen1, gen2).map({ t in transform(t.0, t.1) })
     }
 }
-
-// - MARK: zip3
 
 public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
@@ -107,8 +103,6 @@ public extension Gen {
         Gen<(T1, T2, T3)>.zip(gen1, gen2, gen3).map({ t in transform(t.0, t.1, t.2) })
     }
 }
-
-// - MARK: zip4
 
 public extension Gen {
 
@@ -157,8 +151,6 @@ public extension Gen {
         Gen<(T1, T2, T3, T4)>.zip(gen1, gen2, gen3, gen4).map({ t in transform(t.0, t.1, t.2, t.3) })
     }
 }
-
-// - MARK: zip5
 
 public extension Gen {
 
@@ -212,8 +204,6 @@ public extension Gen {
         Gen<(T1, T2, T3, T4, T5)>.zip(gen1, gen2, gen3, gen4, gen5).map({ t in transform(t.0, t.1, t.2, t.3, t.4) })
     }
 }
-
-// - MARK: zip6
 
 public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
@@ -277,8 +267,6 @@ public extension Gen {
             .map({ t in transform(t.0, t.1, t.2, t.3, t.4, t.5) })
     }
 }
-
-// - MARK: zip7
 
 public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
@@ -347,8 +335,6 @@ public extension Gen {
             .map({ t in transform(t.0, t.1, t.2, t.3, t.4, t.5, t.6) })
     }
 }
-
-// - MARK: zip8
 
 public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
@@ -422,8 +408,6 @@ public extension Gen {
             .map({ t in transform(t.0, t.1, t.2, t.3, t.4, t.5, t.6, t.7) })
     }
 }
-
-// - MARK: zip9
 
 public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
@@ -502,8 +486,6 @@ public extension Gen {
             .map({ t in transform(t.0, t.1, t.2, t.3, t.4, t.5, t.6, t.7, t.8) })
     }
 }
-
-// - MARK: zip10
 
 public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators

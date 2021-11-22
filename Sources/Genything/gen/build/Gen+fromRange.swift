@@ -1,6 +1,6 @@
 import Foundation
 
-// - MARK: fromRange
+// MARK: Build
 
 public extension Gen where T: RandomInRangeable {
     /// Returns: A generator which produces elements in the provided range

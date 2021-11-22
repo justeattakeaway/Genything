@@ -19,7 +19,7 @@
     <a title="Context Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Genything 0.0.2 Docs</a> (63% documented)</p>
+        <p><a href="../index.html">Genything 0.0.2 Docs</a> (91% documented)</p>
         <p class="header-right"><a href="https://github.com/justeattakeaway/Genything"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <div class="header-right">
           <form role="search" action="../search.json">
@@ -77,6 +77,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/CGFloat.html">CGFloat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CGVector.html">CGVector</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
@@ -187,7 +190,14 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>The context will be passed through all generators</p>
+
+<p>It&rsquo;s main purpose is to hold onto the Random Number Generator <code>rng</code>, so that as generations occur the RNG&rsquo;s state changes are propogated to each generator</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    The context can be held onto by a user to keep track of <code>rng</code>&lsquo;s state between generations
+
+</div>
 
           </section>
           <section class="section task-group-section">
@@ -215,7 +225,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The original seed used to begin random number generation, if available</p>
+
+<p>To be used for debugging purposes and to &ldquo;replay&rdquo; a generation event</p>
 
                       </div>
                       <div class="declaration">
@@ -255,7 +267,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The maximum depth that a <code>filter</code> operation may experience before failing</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code>Gen.filter(isIncluded:)</code>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -285,9 +302,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything7ContextC10iterationsSivp"></a>
-                    <a name="//apple_ref/swift/Property/iterations" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything7ContextC10iterationsSivp">iterations</a>
+                    <a name="/s:9Genything7ContextC13maxIterationsSivp"></a>
+                    <a name="//apple_ref/swift/Property/maxIterations" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything7ContextC13maxIterationsSivp">maxIterations</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -295,14 +312,27 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The maximum iterations that producers should run for</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code><a href="../Structs/Gen.html#/s:9Genything3GenV4take5count7contextSayxGSiSg_AA7ContextCtF">Gen.take(count:context:)</a></code>
+
+</div><div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code>Gen.forEach(iterations:context:)</code>
+
+</div><div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code>Gen.allSatisfy(iterations:context:)</code>
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">iterations</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">maxIterations</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -335,7 +365,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Creates a <code>Context</code></p>
 
                       </div>
                       <div class="declaration">
@@ -345,6 +375,37 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">using</span> <span class="nv">rng</span><span class="p">:</span> <span class="kt">RandomNumberGenerator</span><span class="p">,</span> <span class="nv">originalSeed</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rng</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Random Number Generator to be used to produce values</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>originalSeed</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The original seed (start position) of <code>rng</code>, if possible</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -362,7 +423,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initializes a <code>Context</code> with a <code><a href="../Enums/Determinism.html">Determinism</a></code></p>
 
                       </div>
                       <div class="declaration">
@@ -402,7 +463,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Creates a <code>Context</code> initialized to default values, with random <code><a href="../Enums/Determinism.html">Determinism</a></code></p>
 
                       </div>
                       <div class="declaration">
@@ -429,7 +490,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Creates a  default<code>Context</code></p>
 
                       </div>
                       <div class="declaration">
@@ -448,7 +509,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-17)</p>
+          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -5,6 +5,7 @@ private enum Destination: String, CaseIterable, Identifiable {
     case phoneBook
     case businessList
     case genLibs
+    case shapeDrawing
     
     var id: String {
         rawValue
@@ -25,6 +26,7 @@ struct IndexView: View {
                             case .phoneBook: PhoneBook()
                             case .businessList: BusinessListView()
                             case .genLibs: GenLibsView()
+                            case .shapeDrawing: ShapeDrawing()
                         }
                     }) {
                         Text(destination.title)

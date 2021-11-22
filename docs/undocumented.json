@@ -1,432 +1,110 @@
 {
   "warnings": [
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/arbitrary/Swift+Arbitrary.swift",
-      "line": 54,
-      "symbol": "String.arbitrary(in:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/arbitrary/Swift+Arbitrary.swift",
-      "line": 66,
-      "symbol": "Array.arbitrary(in:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 3,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 5,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 5,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 20,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 69,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 163,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 218,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 283,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 353,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 428,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/Gen.swift",
-      "line": 508,
-      "symbol": "Gen",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/build/Gen+compose.swift",
-      "line": 8,
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/build/Gen+compose.swift",
+      "line": 10,
       "symbol": "Gen.GenComposer.generate(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/build/Gen+compose.swift",
-      "line": 12,
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/build/Gen+compose.swift",
+      "line": 14,
       "symbol": "Gen.GenComposer.generate()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
       "line": 39,
       "symbol": "RandomInRangeable.random(in:using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
       "line": 40,
       "symbol": "RandomInRangeable.random(in:using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
       "line": 54,
       "symbol": "Character.random(in:using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
       "line": 62,
       "symbol": "Character.random(in:using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
       "line": 72,
       "symbol": "UnicodeScalar.random(in:using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/build/Gen+fromRange.swift",
       "line": 78,
       "symbol": "UnicodeScalar.random(in:using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context+Determinism.swift",
-      "line": 3,
-      "symbol": "Determinism",
-      "symbol_kind": "source.lang.swift.decl.enum",
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/context/ContextDefaults.swift",
+      "line": 7,
+      "symbol": "ContextDefaults.maxIterations",
+      "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context+Determinism.swift",
-      "line": 5,
-      "symbol": "Determinism.predetermined(seed:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context+Determinism.swift",
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/context/ContextDefaults.swift",
       "line": 8,
-      "symbol": "Determinism.deterministic",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context+Determinism.swift",
-      "line": 10,
-      "symbol": "Determinism.random",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context+Determinism.swift",
-      "line": 14,
-      "symbol": "Context.init(determinism:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context.swift",
-      "line": 3,
-      "symbol": "Context",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context.swift",
-      "line": 8,
-      "symbol": "Context.originalSeed",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context.swift",
-      "line": 12,
-      "symbol": "Context.maxFilterDepth",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context.swift",
-      "line": 13,
-      "symbol": "Context",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context.swift",
-      "line": 16,
-      "symbol": "Context.iterations",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context.swift",
-      "line": 20,
-      "symbol": "Context.init(using:originalSeed:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context.swift",
-      "line": 28,
-      "symbol": "Context",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context.swift",
-      "line": 29,
-      "symbol": "Context.random",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/Context.swift",
-      "line": 30,
-      "symbol": "Context.default",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/ContextDefaults.swift",
-      "line": 3,
-      "symbol": "ContextDefaults",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/ContextDefaults.swift",
-      "line": 4,
-      "symbol": "ContextDefaults.iterations",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/ContextDefaults.swift",
-      "line": 5,
       "symbol": "ContextDefaults.maxFilterDepth",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/ContextDefaults.swift",
-      "line": 7,
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/context/ContextDefaults.swift",
+      "line": 10,
       "symbol": "ContextDefaults.defaultContextFactory",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/ContextDefaults.swift",
-      "line": 10,
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/context/ContextDefaults.swift",
+      "line": 13,
       "symbol": "ContextDefaults.registerDefaultContext(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/rng/AnyRandomNumberGenerator.swift",
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/context/rng/AnyRandomNumberGenerator.swift",
       "line": 3,
       "symbol": "AnyRandomNumberGenerator",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/context/rng/LCRNG.swift",
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/context/rng/LCRNG.swift",
       "line": 7,
       "symbol": "LCRNG.init(seed:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/nico/Projects/ios/CityTransit-Genything/Sources/Genything/gen/mutate/Gen+filter.swift",
-      "line": 6,
+      "file": "/Users/nico/Projects/ios/Genything/Sources/Genything/gen/mutate/Gen+filter.swift",
+      "line": 8,
       "symbol": "Gen.FilterError.maxDepthReached",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/nico/Projects/ios/CityTransit-Genything"
+  "source_directory": "/Users/nico/Projects/ios/Genything"
 }

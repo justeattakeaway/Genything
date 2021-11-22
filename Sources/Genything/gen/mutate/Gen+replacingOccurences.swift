@@ -19,6 +19,8 @@ private extension String {
     }
 }
 
+// MARK: Mutate
+
 public extension Gen {
     /// Returns: A generator of strings which replace `character` in `source` by the content of the receiver's generator
     ///

@@ -19,7 +19,7 @@
     <a title="Gen Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Genything 0.0.2 Docs</a> (63% documented)</p>
+        <p><a href="../index.html">Genything 0.0.2 Docs</a> (91% documented)</p>
         <p class="header-right"><a href="https://github.com/justeattakeaway/Genything"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <div class="header-right">
           <form role="search" action="../search.json">
@@ -77,6 +77,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/CGFloat.html">CGFloat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CGVector.html">CGVector</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
@@ -187,7 +190,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>A type class capable of generating a value of type <code>T</code> from a given <code><a href="../Classes/Context.html">Context</a></code></p>
 
           </section>
           <section class="section task-group-section">
@@ -302,6 +305,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Build"></a>
+                <a name="//apple_ref/swift/Section/Build" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Build"></a>
+                  <h3 class="section-name"><span>Build</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -480,6 +496,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Combine"></a>
+                <a name="//apple_ref/swift/Section/Combine" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Combine"></a>
+                  <h3 class="section-name"><span>Combine</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -782,11 +811,11 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/zip"></a>
-                <a name="//apple_ref/swift/Section/zip" class="dashAnchor"></a>
+                <a name="/Combine%20-%20Zip"></a>
+                <a name="//apple_ref/swift/Section/Combine - Zip" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/zip"></a>
-                  <h3 class="section-name"><span>zip</span>
+                  <a class="section-name-link" href="#/Combine%20-%20Zip"></a>
+                  <h3 class="section-name"><span>Combine - Zip</span>
 </h3>
                 </div>
               </div>
@@ -903,19 +932,149 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/zip3"></a>
-                <a name="//apple_ref/swift/Section/zip3" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/zip3"></a>
-                  <h3 class="section-name"><span>zip3</span>
-</h3>
-                </div>
-              </div>
-              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV3zipyACyqd___qd_0_tGACyqd__G_ACyqd_0_Gtqd___qd_0_tRszr0_lFZ"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV3zipyACyqd___qd_0_tGACyqd__G_ACyqd_0_Gtqd___qd_0_tRszr0_lFZ">zip(_:<wbr>_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the supplied generators</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="o">==</span> <span class="p">(</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen1</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>First generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen2</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Second generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of Tuples</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV3zip__9transformACyxGACyqd__G_ACyqd_0_Gxqd___qd_0_tctr0_lFZ"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:_:transform:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV3zip__9transformACyxGACyqd__G_ACyqd_0_Gxqd___qd_0_tctr0_lFZ">zip(_:<wbr>_:<wbr>transform:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the supplied generators</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen1</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>First generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen2</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Second generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transform</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A function capable of transforming the values produced by the resulting zipped generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of values</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -936,7 +1095,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span>
@@ -1014,7 +1173,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
@@ -1085,19 +1244,201 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/zip5"></a>
-                <a name="//apple_ref/swift/Section/zip5" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/zip5"></a>
-                  <h3 class="section-name"><span>zip5</span>
-</h3>
-                </div>
-              </div>
-              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV3zipyACyqd___qd_0_qd_1_qd_2_tGACyqd__G_ACyqd_0_GACyqd_1_GACyqd_2_Gtqd___qd_0_qd_1_qd_2_tRszr2_lFZ"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:_:_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV3zipyACyqd___qd_0_qd_1_qd_2_tGACyqd__G_ACyqd_0_GACyqd_1_GACyqd_2_Gtqd___qd_0_qd_1_qd_2_tRszr2_lFZ">zip(_:<wbr>_:<wbr>_:<wbr>_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the supplied generators</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">gen4</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T4</span><span class="o">&gt;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="o">==</span> <span class="p">(</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen1</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>First generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen2</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Second generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen3</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Third generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen4</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Fourth generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of values</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV3zip____9transformACyxGACyqd__G_ACyqd_0_GACyqd_1_GACyqd_2_Gxqd___qd_0_qd_1_qd_2_tctr2_lFZ"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:_:_:_:transform:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV3zip____9transformACyxGACyqd__G_ACyqd_0_GACyqd_1_GACyqd_2_Gxqd___qd_0_qd_1_qd_2_tctr2_lFZ">zip(_:<wbr>_:<wbr>_:<wbr>_:<wbr>transform:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the supplied generators</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">gen4</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T4</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen1</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>First generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen2</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Second generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen3</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Third generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gen4</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Fourth generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transform</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A function capable of transforming the values produced by the resulting zipped generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of values</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -1319,19 +1660,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/zip6"></a>
-                <a name="//apple_ref/swift/Section/zip6" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/zip6"></a>
-                  <h3 class="section-name"><span>zip6</span>
-</h3>
-                </div>
-              </div>
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1357,7 +1685,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
@@ -1479,7 +1807,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
@@ -1589,19 +1917,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/zip7"></a>
-                <a name="//apple_ref/swift/Section/zip7" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/zip7"></a>
-                  <h3 class="section-name"><span>zip7</span>
-</h3>
-                </div>
-              </div>
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1627,7 +1942,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
@@ -1762,7 +2077,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
@@ -1885,19 +2200,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/zip8"></a>
-                <a name="//apple_ref/swift/Section/zip8" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/zip8"></a>
-                  <h3 class="section-name"><span>zip8</span>
-</h3>
-                </div>
-              </div>
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1923,7 +2225,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
@@ -2071,7 +2373,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
@@ -2207,19 +2509,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/zip9"></a>
-                <a name="//apple_ref/swift/Section/zip9" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/zip9"></a>
-                  <h3 class="section-name"><span>zip9</span>
-</h3>
-                </div>
-              </div>
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2245,7 +2534,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="p">,</span> <span class="kt">T9</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="p">,</span> <span class="kt">T9</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
@@ -2406,7 +2695,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="p">,</span> <span class="kt">T9</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="p">,</span> <span class="kt">T9</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
@@ -2555,19 +2844,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/zip10"></a>
-                <a name="//apple_ref/swift/Section/zip10" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/zip10"></a>
-                  <h3 class="section-name"><span>zip10</span>
-</h3>
-                </div>
-              </div>
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -2593,7 +2869,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="p">,</span> <span class="kt">T9</span><span class="p">,</span> <span class="kt">T10</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="p">,</span> <span class="kt">T9</span><span class="p">,</span> <span class="kt">T10</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
@@ -2767,7 +3043,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="p">,</span> <span class="kt">T9</span><span class="p">,</span> <span class="kt">T10</span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">T1</span><span class="p">,</span> <span class="kt">T2</span><span class="p">,</span> <span class="kt">T3</span><span class="p">,</span> <span class="kt">T4</span><span class="p">,</span> <span class="kt">T5</span><span class="p">,</span> <span class="kt">T6</span><span class="p">,</span> <span class="kt">T7</span><span class="p">,</span> <span class="kt">T8</span><span class="p">,</span> <span class="kt">T9</span><span class="p">,</span> <span class="kt">T10</span><span class="o">&gt;</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">gen1</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T1</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen2</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T2</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="n">_</span> <span class="nv">gen3</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T3</span><span class="o">&gt;</span><span class="p">,</span>
@@ -2929,6 +3205,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Mutate"></a>
+                <a name="//apple_ref/swift/Section/Mutate" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Mutate"></a>
+                  <h3 class="section-name"><span>Mutate</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -3336,9 +3625,9 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything3GenV20replacingOccurrences2of2inACySSGSJ_SStF"></a>
+                    <a name="/s:9Genything3GenV20replacingOccurrences2of2inACySSGSS_SStF"></a>
                     <a name="//apple_ref/swift/Method/replacingOccurrences(of:in:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV20replacingOccurrences2of2inACySSGSJ_SStF">replacingOccurrences(of:<wbr>in:<wbr>)</a>
+                    <a class="token" href="#/s:9Genything3GenV20replacingOccurrences2of2inACySSGSS_SStF">replacingOccurrences(of:<wbr>in:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3355,7 +3644,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">replacingOccurrences</span><span class="p">(</span><span class="n">of</span> <span class="nv">character</span><span class="p">:</span> <span class="kt">Character</span><span class="p">,</span> <span class="k">in</span> <span class="nv">source</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">replacingOccurrences</span><span class="p">(</span><span class="n">of</span> <span class="nv">substring</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="k">in</span> <span class="nv">source</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -3366,12 +3655,12 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                             <tr>
                               <td>
                                 <code>
-                                <em>character</em>
+                                <em>substring</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The character that should be replaced</p>
+                                  <p>The substring that should be replaced</p>
                                 </div>
                               </td>
                             </tr>
@@ -3459,6 +3748,19 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Produce"></a>
+                <a name="//apple_ref/swift/Section/Produce" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Produce"></a>
+                  <h3 class="section-name"><span>Produce</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -3499,7 +3801,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                               </td>
                               <td>
                                 <div>
-                                  <p>The amount of times the sequence should iterate, default&rsquo;s to the context&rsquo;s <code>iterations</code> value</p>
+                                  <p>The amount of times the sequence should iterate, default&rsquo;s to the context&rsquo;s <code>maxIterations</code> value</p>
                                 </div>
                               </td>
                             </tr>
@@ -3565,7 +3867,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                               </td>
                               <td>
                                 <div>
-                                  <p>The amount of times the sequence should iterate, default&rsquo;s to the context&rsquo;s <code>iterations</code> value</p>
+                                  <p>The amount of times the sequence should iterate, default&rsquo;s to the context&rsquo;s <code>maxIterations</code> value</p>
                                 </div>
                               </td>
                             </tr>
@@ -3908,7 +4210,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-17)</p>
+          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

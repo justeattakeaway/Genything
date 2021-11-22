@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: Build
+
 public extension Gen {
     /// The composer class which passes in the context and allows us to generate more complex data with ease
     struct GenComposer {
