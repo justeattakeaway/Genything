@@ -2,13 +2,13 @@ import SwiftUI
 import Trickery
 import Genything
 
-struct Contact: Identifiable {
+private struct Contact: Identifiable {
     let id: UUID = UUID()
     let name: String
     let phoneNumber: String
 }
 
-struct PhoneBookCell: View {
+private struct PhoneBookCell: View {
     let contact: Contact
     
     var body: some View {
@@ -21,8 +21,10 @@ struct PhoneBookCell: View {
     }
 }
 
-struct PhoneBook: View {
-    let data = Gen.zip(Fake.PersonNames.full, Fake.PhoneNumbers.formatted) {Contact(name: $0, phoneNumber: $1)}.samples(count: 50)
+struct PhoneBookView: View {
+    private let data = Gen.zip(Fake.PersonNames.full, Fake.PhoneNumbers.formatted) {
+        Contact(name: $0, phoneNumber: $1)
+    }.samples(count: 50)
     
     var body: some View {
         List {
@@ -34,9 +36,9 @@ struct PhoneBook: View {
     }
 }
 
-struct PhoneBook_Previews: PreviewProvider {
+struct PhoneBookView_Previews: PreviewProvider {
     static var previews: some View {
-        PhoneBook()
+        PhoneBookView()
     }
 }
 
