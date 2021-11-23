@@ -5,12 +5,22 @@ import Foundation
 public extension Gen {
     /// The composer class which passes in the context and allows us to generate more complex data with ease
     struct GenComposer {
+        /// Forwards the `Context` to be used by the generators
         fileprivate var context: Context
 
+        /// Generates a value using the provided `Gen<T>`
+        ///
+        /// - Parameters:
+        ///   - gen: A generator capable of producing vlaues of type `T`
+        ///
+        /// - Returns: A value of type `T`
         public func generate<T>(_ gen: Gen<T>) -> T {
             gen.generate(context: context)
         }
 
+        /// Generates an arbitrary value of type `T` where `T` conforms to `Arbitrary`
+        ///
+        /// - Returns: An arbitrary value of type `T`
         public func generate<T>() -> T where T: Arbitrary {
             generate(T.arbitrary)
         }
