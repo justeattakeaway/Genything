@@ -42,7 +42,7 @@ Both of these libraries may be used for code testing, rapid prototyping, demo ap
   - Run your [screenshot](https://github.com/pointfreeco/swift-snapshot-testing) [tests](https://github.com/uber/ios-snapshot-test-case) with easy-to-use and predictable data
   - Use your generators to unit test with [Property Based Testing](https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237)
 - High test coverage
-- Good [documentation](https://justeattakeaway.github.io/Genything)
+- [100% Documented](https://justeattakeaway.github.io/Genything)
 
 ### Gen
 
