@@ -186,7 +186,7 @@
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Identifiable</span></code></pre>
 
                 </div>
               </div>
@@ -196,6 +196,33 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV2id10Foundation4UUIDVvp"></a>
+                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV2id10Foundation4UUIDVvp">id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A stable identity for this generator</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -4211,6 +4238,13 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
 </div>
 
 <p>Therefore if the Context&rsquo;s <code>maxDepth</code> is reached before producing a value the generator will throw</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    The unique cache will persist between uses with the same <code><a href="../Classes/Context.html">Context</a></code>, leading to a higher chance of exhausting the generator
+
+</div>
+
+<p>The <code><a href="../Classes/Context.html">Context</a></code>&lsquo;s unique cache may be cleared by calling <code>Context.clearCache()</code></p>
 
                       </div>
                       <div class="declaration">

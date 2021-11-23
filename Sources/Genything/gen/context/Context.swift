@@ -47,6 +47,13 @@ public class Context {
         self.rng = AnyRandomNumberGenerator(rng: rng)
         self.originalSeed = originalSeed
     }
+
+    /// A cache capable of storing the unique values created by a particular Generator's id for the lifetime of the `Context`
+    ///
+    /// - Note: At the moment only Generators which have been `unique`'d will add values to the cache
+    ///
+    /// - SeeAlso: `Gen.unique()`
+    internal var uniqueCache: [UUID:[Any]] = [:]
 }
 
 // MARK: Convenience Context creators

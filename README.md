@@ -1,5 +1,5 @@
 <p align="center">
-<img src="assets/Genything-icon.png" width="35%" alt="Genything" /><br/>
+<img src="https://raw.githubusercontent.com/justeattakeaway/Genything/main/assets/Genything-icon.png" width="35%" alt="Genything" /><br/>
 </p>
 
 <h1 align="center">Genything</h1>

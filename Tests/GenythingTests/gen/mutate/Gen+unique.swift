@@ -3,16 +3,45 @@ import Genything
 
 class Gen_UniqueTests: XCTestCase {
     func test_uniquing_where_it_is_possible() {
-        let values = Gen.from(1...10).unique().take(count: 10)
+        let digitGenerator = Gen.from(0...9).unique()
 
         XCTAssertEqual(
-            [1,2,3,4,5,6,7,8,9,10],
-            values.sorted()
+            [0,1,2,3,4,5,6,7,8,9],
+            digitGenerator.take(count: 10).sorted()
+        )
+
+        XCTAssertEqual(
+            [0,1,2,3,4,5,6,7,8,9],
+            digitGenerator.take(count: 10).sorted()
         )
     }
 
-    func test_uniquing_where_it_is_not_possible() {
-        XCTExpectFailure("Generating 100 unique values from a pool of 10 possibilities cannot be done")
-        _ = Gen.from(1...10).unique().take(count: 100)
+    func test_uniquing_with_compose() {
+
+        // In order to `unique` with `compose` the generator must be created
+        // outside of the composition.
+        let digitGenerator = Gen.from(0...9)
+        let correctComposedUniqueGenerator = Gen.compose { c in
+            c.generate(digitGenerator.unique())
+        }
+
+        XCTAssertEqual(
+            [0,1,2,3,4,5,6,7,8,9],
+            correctComposedUniqueGenerator.take(count: 10).sorted()
+        )
+
+        // Otherwise the generator will be created occur once per generation
+        // As the unique values are stored per-generator
+        // this leads to having no other values to unique against
+
+        let incorrectComposedDigitGenerator = Gen.compose { c in
+            c.generate(Gen.from(0...9).unique())
+        }
+
+        // We do not expect to receive unique values
+        XCTAssertNotEqual(
+            [0,1,2,3,4,5,6,7,8,9],
+            incorrectComposedDigitGenerator.take(count: 10).sorted()
+        )
     }
 }
