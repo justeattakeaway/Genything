@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0331193027457E540053D75E /* GenLibsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331192F27457E540053D75E /* GenLibsView.swift */; };
 		0331193527458C840053D75E /* GenLibsScriptGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331193427458C840053D75E /* GenLibsScriptGenerator.swift */; };
 		03A4EBEB2745B131001A7241 /* genlib.json in Resources */ = {isa = PBXBuildFile; fileRef = 03A4EBEA2745B131001A7241 /* genlib.json */; };
+		03B06917274C8CDD00AC2D71 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 03B06916274C8CDD00AC2D71 /* SFSafeSymbols */; };
+		03B0691A274C8D4900AC2D71 /* GenLibsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B06919274C8D4900AC2D71 /* GenLibsView.swift */; };
 		03BA41052742DECD00B97AA6 /* GenythingExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA41042742DECD00B97AA6 /* GenythingExampleApp.swift */; };
 		03BA41072742DECD00B97AA6 /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA41062742DECD00B97AA6 /* IndexView.swift */; };
 		03BA41092742DED000B97AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BA41082742DED000B97AA6 /* Assets.xcassets */; };
@@ -18,8 +19,8 @@
 		03BA41372742E37300B97AA6 /* Genything in Frameworks */ = {isa = PBXBuildFile; productRef = 03BA41362742E37300B97AA6 /* Genything */; };
 		03BA41392742E37300B97AA6 /* Trickery in Frameworks */ = {isa = PBXBuildFile; productRef = 03BA41382742E37300B97AA6 /* Trickery */; };
 		14C3856927456152001CF50F /* PolygonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C3856827456152001CF50F /* PolygonShape.swift */; };
-		14C3856B274562C3001CF50F /* ShapeDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C3856A274562C3001CF50F /* ShapeDrawing.swift */; };
-		770849362742EA250044E19E /* PhoneBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770849352742EA250044E19E /* PhoneBook.swift */; };
+		14C3856B274562C3001CF50F /* ShapeDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C3856A274562C3001CF50F /* ShapeDrawingView.swift */; };
+		770849362742EA250044E19E /* PhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770849352742EA250044E19E /* PhoneBookView.swift */; };
 		777912A727456B9400C92173 /* BusinessListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777912A627456B9400C92173 /* BusinessListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0331192F27457E540053D75E /* GenLibsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenLibsView.swift; path = GenythingExample/Pages/GenLibs/GenLibsView.swift; sourceTree = SOURCE_ROOT; };
 		0331193427458C840053D75E /* GenLibsScriptGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenLibsScriptGenerator.swift; sourceTree = "<group>"; };
 		03A4EBEA2745B131001A7241 /* genlib.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = genlib.json; sourceTree = "<group>"; };
+		03B06919274C8D4900AC2D71 /* GenLibsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenLibsView.swift; sourceTree = "<group>"; };
 		03BA41012742DECD00B97AA6 /* GenythingExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenythingExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BA41042742DECD00B97AA6 /* GenythingExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenythingExampleApp.swift; sourceTree = "<group>"; };
 		03BA41062742DECD00B97AA6 /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
@@ -46,8 +47,8 @@
 		03BA41152742DED000B97AA6 /* GenythingExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenythingExampleTests.swift; sourceTree = "<group>"; };
 		03BA41302742DFAE00B97AA6 /* Genything */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Genything; path = ..; sourceTree = "<group>"; };
 		14C3856827456152001CF50F /* PolygonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonShape.swift; sourceTree = "<group>"; };
-		14C3856A274562C3001CF50F /* ShapeDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeDrawing.swift; sourceTree = "<group>"; };
-		770849352742EA250044E19E /* PhoneBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBook.swift; sourceTree = "<group>"; };
+		14C3856A274562C3001CF50F /* ShapeDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeDrawingView.swift; sourceTree = "<group>"; };
+		770849352742EA250044E19E /* PhoneBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBookView.swift; sourceTree = "<group>"; };
 		777912A627456B9400C92173 /* BusinessListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03B06917274C8CDD00AC2D71 /* SFSafeSymbols in Frameworks */,
 				03BA41372742E37300B97AA6 /* Genything in Frameworks */,
 				03BA41392742E37300B97AA6 /* Trickery in Frameworks */,
 			);
@@ -71,14 +73,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0331193127457F2B0053D75E /* GenLibs */ = {
+		0331193127457F2B0053D75E /* Gen Libs */ = {
 			isa = PBXGroup;
 			children = (
-				0331192F27457E540053D75E /* GenLibsView.swift */,
+				03B06919274C8D4900AC2D71 /* GenLibsView.swift */,
 				0331193427458C840053D75E /* GenLibsScriptGenerator.swift */,
 				03A4EBEA2745B131001A7241 /* genlib.json */,
 			);
-			path = GenLibs;
+			path = "Gen Libs";
+			sourceTree = "<group>";
+		};
+		03B06918274C8CE400AC2D71 /* Business Cards */ = {
+			isa = PBXGroup;
+			children = (
+				777912A627456B9400C92173 /* BusinessListView.swift */,
+			);
+			path = "Business Cards";
+			sourceTree = "<group>";
+		};
+		03B0691B274C8E1000AC2D71 /* Phone Book */ = {
+			isa = PBXGroup;
+			children = (
+				770849352742EA250044E19E /* PhoneBookView.swift */,
+			);
+			path = "Phone Book";
+			sourceTree = "<group>";
+		};
+		03B0691C274C8E1800AC2D71 /* Shape Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				14C3856827456152001CF50F /* PolygonShape.swift */,
+				14C3856A274562C3001CF50F /* ShapeDrawingView.swift */,
+			);
+			path = "Shape Drawing";
 			sourceTree = "<group>";
 		};
 		03BA40F82742DECD00B97AA6 = {
@@ -104,10 +131,8 @@
 		03BA41032742DECD00B97AA6 /* GenythingExample */ = {
 			isa = PBXGroup;
 			children = (
-				14299D892744872E005B5E3A /* Shapes */,
-				770849372742EC8E0044E19E /* Pages */,
 				03BA41042742DECD00B97AA6 /* GenythingExampleApp.swift */,
-				03BA41062742DECD00B97AA6 /* IndexView.swift */,
+				770849372742EC8E0044E19E /* Pages */,
 				03BA41082742DED000B97AA6 /* Assets.xcassets */,
 				03BA410A2742DED000B97AA6 /* Preview Content */,
 			);
@@ -145,21 +170,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		14299D892744872E005B5E3A /* Shapes */ = {
-			isa = PBXGroup;
-			children = (
-				14C3856827456152001CF50F /* PolygonShape.swift */,
-			);
-			path = Shapes;
-			sourceTree = "<group>";
-		};
 		770849372742EC8E0044E19E /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				0331193127457F2B0053D75E /* GenLibs */,
-				777912A627456B9400C92173 /* BusinessListView.swift */,
-				770849352742EA250044E19E /* PhoneBook.swift */,
-				14C3856A274562C3001CF50F /* ShapeDrawing.swift */,
+				03BA41062742DECD00B97AA6 /* IndexView.swift */,
+				03B0691C274C8E1800AC2D71 /* Shape Drawing */,
+				03B0691B274C8E1000AC2D71 /* Phone Book */,
+				03B06918274C8CE400AC2D71 /* Business Cards */,
+				0331193127457F2B0053D75E /* Gen Libs */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -183,6 +201,7 @@
 			packageProductDependencies = (
 				03BA41362742E37300B97AA6 /* Genything */,
 				03BA41382742E37300B97AA6 /* Trickery */,
+				03B06916274C8CDD00AC2D71 /* SFSafeSymbols */,
 			);
 			productName = GenythingExample;
 			productReference = 03BA41012742DECD00B97AA6 /* GenythingExample.app */;
@@ -234,6 +253,9 @@
 				Base,
 			);
 			mainGroup = 03BA40F82742DECD00B97AA6;
+			packageReferences = (
+				03B06915274C8CDD00AC2D71 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
+			);
 			productRefGroup = 03BA41022742DECD00B97AA6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,11 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03B0691A274C8D4900AC2D71 /* GenLibsView.swift in Sources */,
 				14C3856927456152001CF50F /* PolygonShape.swift in Sources */,
-				0331193027457E540053D75E /* GenLibsView.swift in Sources */,
 				777912A727456B9400C92173 /* BusinessListView.swift in Sources */,
-				770849362742EA250044E19E /* PhoneBook.swift in Sources */,
-				14C3856B274562C3001CF50F /* ShapeDrawing.swift in Sources */,
+				770849362742EA250044E19E /* PhoneBookView.swift in Sources */,
+				14C3856B274562C3001CF50F /* ShapeDrawingView.swift in Sources */,
 				03BA41072742DECD00B97AA6 /* IndexView.swift in Sources */,
 				03BA41052742DECD00B97AA6 /* GenythingExampleApp.swift in Sources */,
 				0331193527458C840053D75E /* GenLibsScriptGenerator.swift in Sources */,
@@ -553,7 +575,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		03B06915274C8CDD00AC2D71 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/piknotech/SFSafeSymbols.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		03B06916274C8CDD00AC2D71 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03B06915274C8CDD00AC2D71 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
 		03BA41362742E37300B97AA6 /* Genything */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Genything;
