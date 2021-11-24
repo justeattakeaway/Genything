@@ -4,7 +4,7 @@ internal struct GenSequence<T>: Sequence, IteratorProtocol {
     private let generator: () -> T
     private let size: Int?
 
-    private var index = 0
+    private(set) var index = 0
 
     public init(size: Int? = nil, _ generator: @escaping () -> T) {
         self.size = size

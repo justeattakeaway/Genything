@@ -14,7 +14,7 @@ public extension Gen {
     /// - Returns: The Boolean result
     func allSatisfy(iterations: Int? = nil,
                     context: Context = .default,
-                    _ predicate: (T) -> Bool) -> Bool {
-        sequence(ofSize: iterations, context: context).allSatisfy(predicate)
+                    _ predicate: (T) throws -> Bool) rethrows -> Bool {
+        try sequence(ofSize: iterations, context: context).allSatisfy(predicate)
     }
 }

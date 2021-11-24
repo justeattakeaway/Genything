@@ -33,6 +33,14 @@ let package = Package(
             name: "Genything",
             dependencies: []
         ),
+        .testTarget(
+            name: "GenythingTests",
+            dependencies: ["Genything", "GenythingTest"]
+        ),
+        .target(
+            name: "GenythingTest",
+            dependencies: ["Genything"]
+        ),
         .target(
             name: "Trickery",
             dependencies: ["Genything"],
@@ -41,12 +49,8 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "GenythingTests",
-            dependencies: ["Genything"]
-        ),        
-        .testTarget(
             name: "TrickeryTests",
-            dependencies: ["Genything", "Trickery"]
+            dependencies: ["Genything", "Trickery", "GenythingTest"]
         ),
     ]
 )

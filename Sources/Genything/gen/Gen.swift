@@ -31,4 +31,14 @@ public extension Gen {
     func generate(context: Context = .default) -> T {
         try! generator(context)
     }
+
+    /// Returns: A single value produced by the generator using the provided Context
+    ///
+    /// - Parameters:
+    ///   - context: The context to be used for generation
+    ///
+    /// - Returns: A value of type `T`
+    func safeGenerate(context: Context = .default) throws -> T {
+        try generator(context)
+    }
 }

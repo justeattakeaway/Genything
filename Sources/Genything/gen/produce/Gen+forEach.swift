@@ -12,7 +12,7 @@ public extension Gen {
     ///   - context: The context to be used for generation
     func forEach(iterations: Int? = nil,
                  context: Context = .default,
-                 _ body: (T) -> Void) {
-        sequence(ofSize: iterations, context: context).forEach(body)
+                 _ body: (T) throws -> Void) rethrows {
+        try sequence(ofSize: iterations, context: context).forEach(body)
     }
 }

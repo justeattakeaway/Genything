@@ -1,15 +1,21 @@
 import XCTest
 @testable import Genything
+import GenythingTest
 
 final internal class GenForAllTests: XCTestCase {
     func test_forAll_meta() {
-        Gen.from(0...100).take().forEach { count in
-            var i = 0
-            Int.arbitrary.take(count: count).forEach { _ in
-                i += 1
-            }
+//        Gen.from(0...100).take().forEach { count in
+//            var i = 0
+//            Int.arbitrary.take(count: count).forEach { _ in
+//                i += 1
+//            }
+//
+//            XCTAssertEqual(i, count)
+//        }
+//
 
-            XCTAssertEqual(i, count)
+        Gen.from(0...10).xctest { n in
+            return n > 0 // This obviously fails for 0
         }
     }
 
