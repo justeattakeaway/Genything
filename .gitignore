@@ -22,3 +22,7 @@ Carthage/Build/
 # Swift PM
 
 .swiftpm/
+
+# Documentation
+
+.tgz
