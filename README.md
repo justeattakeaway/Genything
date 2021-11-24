@@ -31,6 +31,20 @@ Genything can be combined with [Trickery](#Trickery) which provides a growing li
 
 Both of these libraries may be used for code testing, rapid prototyping, demo applications, ui testing, and much more. Be creative!
 
+- [Why use Genything?](#why-use-genything-)
+  * [Gen](#gen)
+  * [Arbitrary](#arbitrary)
+- [Trickery](#trickery)
+- [Examples](#examples)
+- [Mixins](#mixins)
+- [Installation](#installation)
+  * [Cocoapods](#cocoapods)
+  * [Swift Package Manager](#swift-package-manager)
+- [Credits](#credits)
+  * [Contributing](#contributing)
+  * [Inspiration](#inspiration)
+- [[License](./LICENSE)](#-license---license-)
+
 ## Why use Genything?
   
 - We do not include a dependency on XCTest
@@ -162,6 +176,23 @@ struct PhoneBook_Previews: PreviewProvider {
     }
 }
 
+```
+
+## Mixins
+
+Genything & Trickery are also amazing when combined with other open source libraries!
+
+### [SFSafeSymbols](https://github.com/piknotech/SFSafeSymbols)
+
+Generate any [SF Symbol](https://developer.apple.com/sf-symbols/)
+
+```swift
+extension Fake {
+    public enum SFSafeSymbols {
+        @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+        public static let any: Gen<SFSymbol> = .ofCases().map { $0.rawValue }
+    }
+}
 ```
 
 ## Installation

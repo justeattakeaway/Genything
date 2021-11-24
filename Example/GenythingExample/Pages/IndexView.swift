@@ -12,7 +12,12 @@ private enum Destination: String, CaseIterable, Identifiable {
     }
     
     var title: String {
-        rawValue.capitalized
+        switch self {
+            case .genLibs: return "Gen Libs"
+            case .businessList: return "Business Cards"
+            case .phoneBook: return "Phone Book"
+            case .shapeDrawing: return "Shape Drawing"
+        }
     }
 }
 
@@ -23,10 +28,10 @@ struct IndexView: View {
                 ForEach(Destination.allCases) { destination in
                     NavigationLink(destination: {
                         switch destination {
-                            case .phoneBook: PhoneBook()
+                            case .phoneBook: PhoneBookView()
                             case .businessList: BusinessListView()
                             case .genLibs: GenLibsView()
-                            case .shapeDrawing: ShapeDrawing()
+                            case .shapeDrawing: ShapeDrawingView()
                         }
                     }) {
                         Text(destination.title)
