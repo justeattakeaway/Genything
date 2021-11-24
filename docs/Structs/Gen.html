@@ -19,7 +19,7 @@
     <a title="Gen Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Genything 0.0.2 Docs</a> (91% documented)</p>
+        <p><a href="../index.html">Genything 0.0.2 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/justeattakeaway/Genything"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <div class="header-right">
           <form role="search" action="../search.json">
@@ -54,6 +54,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/Determinism.html">Determinism</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/GenError.html">GenError</a>
               </li>
             </ul>
           </li>
@@ -170,9 +173,6 @@
                 <a href="../Structs/Gen/GenComposer.html">– GenComposer</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/Gen/FilterError.html">– FilterError</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/LCRNG.html">LCRNG</a>
               </li>
             </ul>
@@ -186,7 +186,7 @@
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Identifiable</span></code></pre>
 
                 </div>
               </div>
@@ -196,6 +196,33 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV2id10Foundation4UUIDVvp"></a>
+                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV2id10Foundation4UUIDVvp">id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A stable identity for this generator</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -3377,34 +3404,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything3GenV11FilterErrorO"></a>
-                    <a name="//apple_ref/swift/Enum/FilterError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV11FilterErrorO">FilterError</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>An Error representing the scenarios in which filtering a Generator may fail</p>
-
-                        <a href="../Structs/Gen/FilterError.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">FilterError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:9Genything3GenV6filteryACyxGSbxcF"></a>
                     <a name="//apple_ref/swift/Method/filter(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:9Genything3GenV6filteryACyxGSbxcF">filter(_:<wbr>)</a>
@@ -3423,7 +3422,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
 
 </div>
 
-<p>Therefore if the Context&rsquo;s <code>maxFilterDepth</code> is reached before producing a value the generator will throw</p>
+<p>Therefore if the Context&rsquo;s <code>maxDepth</code> is reached before producing a value the generator will throw</p>
 
                       </div>
                       <div class="declaration">
@@ -4207,10 +4206,87 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60T%60%3A%20%60Equatable%60"></a>
+                <a name="//apple_ref/swift/Section/Available where `T`: `Equatable`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60T%60%3A%20%60Equatable%60"></a>
+                  <h3 class="section-name"><span>Available where <code>T</code>: <code>Equatable</code></span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenVAASQRzlE6uniqueACyxGyF"></a>
+                    <a name="//apple_ref/swift/Method/unique()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenVAASQRzlE6uniqueACyxGyF">unique()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator that only produces unique values</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    If the unique&rsquo;d Generator is small enough this function will throw <code>UniqueError.maxDepthReached</code>
+
+</div>
+
+<p>Therefore if the Context&rsquo;s <code>maxDepth</code> is reached before producing a value the generator will throw</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    The unique cache will persist between uses with the same <code><a href="../Classes/Context.html">Context</a></code>, leading to a higher chance of exhausting the generator
+
+</div>
+
+<p>The <code><a href="../Classes/Context.html">Context</a></code>&lsquo;s unique cache may be cleared by calling <code>Context.clearCache()</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">unique</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>maxDepth</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The maximum amount of times we will attempt to create a distinct unique value before throwing</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>Gen</code> generator.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

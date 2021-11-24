@@ -16,14 +16,15 @@ public class Context {
     /// The original seed used to begin random number generation, if available
     ///
     /// To be used for debugging purposes and to "replay" a generation event
-    public let originalSeed: Int?
+    public let originalSeed: UInt64?
 
     // MARK: Mutate
 
-    /// The maximum depth that a `filter` operation may experience before failing
+    /// The maximum depth that a generator which rejects values can reach before failing
     ///
     /// - SeeAlso: `Gen.filter(isIncluded:)`
-    public var maxFilterDepth: Int = ContextDefaults.maxFilterDepth
+    /// - SeeAlso: `Gen.unique()`
+    public var maxDepth: Int = ContextDefaults.maxDepth
 
     // MARK: Produce
 
@@ -42,10 +43,17 @@ public class Context {
     ///   - rng: The Random Number Generator to be used to produce values
     ///   - originalSeed: The original seed (start position) of `rng`, if possible
     ///
-    public init(using rng: RandomNumberGenerator, originalSeed: Int? = nil) {
+    public init(using rng: RandomNumberGenerator, originalSeed: UInt64? = nil) {
         self.rng = AnyRandomNumberGenerator(rng: rng)
         self.originalSeed = originalSeed
     }
+
+    /// A cache capable of storing the unique values created by a particular Generator's id for the lifetime of the `Context`
+    ///
+    /// - Note: At the moment only Generators which have been `unique`'d will add values to the cache
+    ///
+    /// - SeeAlso: `Gen.unique()`
+    internal var uniqueCache: [UUID:[Any]] = [:]
 }
 
 // MARK: Convenience Context creators

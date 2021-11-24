@@ -36,7 +36,18 @@ public extension Gen where T: RandomInRangeable {
 ///
 /// - Note: Many existing Swift classes support this format despite not deriving from a protocol
 public protocol RandomInRangeable: Comparable {
+    /// Returns a random value within the specified range.
+    ///
+    /// - Parameter range: The range in which to create a random value. range must not be empty.
+    ///
+    /// - Returns: A random value within the bounds of range.
     static func random<RNG>(in range: ClosedRange<Self>, using generator: inout RNG) -> Self where RNG: RandomNumberGenerator
+
+    /// Returns a random value within the specified range.
+    ///
+    /// - Parameter range: The range in which to create a random value. range must not be empty.
+    ///
+    /// - Returns: A random value within the bounds of range.
     static func random<RNG>(in range: Range<Self>, using generator: inout RNG) -> Self where RNG: RandomNumberGenerator
 }
 

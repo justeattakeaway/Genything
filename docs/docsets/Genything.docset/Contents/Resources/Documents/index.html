@@ -18,7 +18,7 @@
     <a title="Genything  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">Genything 0.0.2 Docs</a> (91% documented)</p>
+        <p><a href="index.html">Genything 0.0.2 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/justeattakeaway/Genything"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <div class="header-right">
           <form role="search" action="search.json">
@@ -53,6 +53,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/Determinism.html">Determinism</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/GenError.html">GenError</a>
               </li>
             </ul>
           </li>
@@ -169,9 +172,6 @@
                 <a href="Structs/Gen/GenComposer.html">– GenComposer</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/Gen/FilterError.html">– FilterError</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/LCRNG.html">LCRNG</a>
               </li>
             </ul>
@@ -183,7 +183,7 @@
           <section class="section">
             
             <p align="center">
-<img src="assets/Genything-icon.png" width="35%" alt="Genything" /><br/>
+<img src="https://raw.githubusercontent.com/justeattakeaway/Genything/main/assets/Genything-icon.png" width="35%" alt="Genything" /><br/>
 </p>
 
 <h1 align="center">Genything</h1>
@@ -206,59 +206,106 @@
     alt="Swift Package Manager Compatible">
 </a>
 </p>
-<h2 id='generate-anything' class='heading'>Generate Anything</h2>
+<h2 id='genything-generate-anything' class='heading'>Genything - Generate Anything</h2>
 
-<p>Genything is a framework for random testing of a program properties. It provides way to random data based on simple and complex types.</p>
+<p>Genything is a library dedicated to easy and composable generation of random data, no matter how complex.</p>
 
-<p>Combined with <a href="#Trickery">Trickery</a> it allows the generation of data according to real world scenarios, which can be used for code testing, demo applications, ui testing, usability tests, be creative!</p>
-<h2 id='about' class='heading'>About</h2>
+<p>Genything can be combined with <a href="#Trickery">Trickery</a> which provides a growing library of pre-made generators which mock real-world information.</p>
 
-<p>An opinionated distillation of the successful patterns from QuickCheck, SwiftCheck, and Kotest.
-  Directed towards testing of a product rather than library.</p>
-
-<p><strong>Why use Genything?</strong></p>
+<p>Both of these libraries may be used for code testing, rapid prototyping, demo applications, ui testing, and much more. Be creative!</p>
+<h2 id='why-use-genything' class='heading'>Why use Genything?</h2>
 
 <ul>
-<li>We do not depend on XCTest</li>
-<li>Predictable randomness is expected</li>
-<li>We are agnostic to how the generators are used
+<li>We do not include a dependency on XCTest</li>
+<li>Controllable randomness that&rsquo;s deterministic by default
 
 <ul>
-<li>Testing scenarios that require pseudo-random data</li>
-<li>Realistic models for previewing content and detecting UI issues</li>
+<li>Produce the same results on CI, your colleagues machine, and your own</li>
 </ul></li>
-</ul>
-<h3 id='arbitrary-types' class='heading'>Arbitrary Types</h3>
+<li>You can use these generators for anything!
 
-<p>Arbitrary types provide a pseudo-random generator suitable for checking the hypothetical correctness of code without strict definition of all cases. It&rsquo;s used for <a href="https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237">property testing</a>.</p>
+<ul>
+<li>Create dummy data for your example apps or to rapidly prototype features</li>
+<li>Use them in your SwiftUI previews to rapidly discover edge cases</li>
+<li>Run your <a href="https://github.com/pointfreeco/swift-snapshot-testing">screenshot</a> <a href="https://github.com/uber/ios-snapshot-test-case">tests</a> with easy-to-use and predictable data</li>
+<li>Use your generators to unit test with <a href="https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237">Property Based Testing</a></li>
+</ul></li>
+<li>High test coverage</li>
+<li><a href="https://justeattakeaway.github.io/Genything">100% Documented</a></li>
+</ul>
+<h3 id='gen' class='heading'>Gen</h3>
+
+<p>The <code><a href="Structs/Gen.html">Gen</a></code> type class is the core of Genything.
+It is nothing more than a generic container that stores a callback capable of generating a value from a <code><a href="Classes/Context.html">Context</a></code>.</p>
+<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">generator</span><span class="p">:</span> <span class="p">(</span><span class="kt">Context</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>The <code><a href="Classes/Context.html">Context</a></code> contains configuration, and a Random Number Generator which you can customize.</p>
+
+<p>So a generator of Booleans might look like this:</p>
+<pre class="highlight swift"><code><span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">context</span> <span class="k">in</span>
+    <span class="kt">Bool</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">context</span><span class="o">.</span><span class="n">rng</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>This is a good to understand, but in practice you can avoid <code><a href="Structs/Gen.html">Gen</a></code>&lsquo;s initializer altogether and instead use the vast library of extensions to build, combine, and mutate <code><a href="Structs/Gen.html">Gen</a></code>s.</p>
+
+<p>You can find out more about these extensions in the <a href="https://justeattakeaway.github.io/Genything/Structs/Gen.html">documentation</a>!</p>
+<h3 id='arbitrary' class='heading'>Arbitrary</h3>
+
+<p>The <code>Arbitary</code> protocol allows a Type to define a generator suitable for generating <strong>all</strong> of it&rsquo;s values.</p>
+
+<p>Take Swift&rsquo;s <code>Bool</code> as example, it&rsquo;s Arbitrary is defined as:</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Bool</span><span class="p">:</span> <span class="kt">Arbitrary</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">arbitrary</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="kt">Gen</span><span class="o">.</span><span class="nf">of</span><span class="p">([</span><span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">])</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>We can now use this definition automatically when we are composing a more complex arbitrary type:</p>
+<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">Transaction</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">isComplete</span><span class="p">:</span> <span class="kt">Bool</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="kd">extension</span> <span class="kt">Transaction</span><span class="p">:</span> <span class="kt">Arbitrary</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">arbitrary</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="kt">Gen</span><span class="o">.</span><span class="n">compose</span> <span class="p">{</span>
+          <span class="kt">Transaction</span><span class="p">(</span>
+            <span class="nv">isComplete</span><span class="p">:</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">generate</span><span class="p">(),</span> <span class="c1">// Will equally generate True or False when the Transaction generator is run</span>
+            <span class="c1">//...</span>
+          <span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>These can then be used for invariant tests, to stub an API response, as preview data, etc&hellip;</p>
 <h2 id='trickery' class='heading'>Trickery</h2>
 
 <p>Genything comes together with Trickery, a collection of generators suitable for producing pseudo-realistic data according to real-world-conditions rather than those enforced only by the type.</p>
 
 <p>Consider a phone number. A phone number of type <code>String</code> has rules about length, formatting, allowable characters. Whereas the arbitrary type <code>String</code> contains contains at most a definition of it&rsquo;s length</p>
-<h2 id='features' class='heading'>Features</h2>
-<h3 id='genything' class='heading'>Genything</h3>
-
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Linear_congruential_generat">Linear Congruential Generator</a></li>
-<li>Arbitrary of: Bool, Double, Int, UInt, Int32, UInt32, UnicodeScalar, Character, String, Array, Optional, AnySequence, AnyBidirectionalCollection, ArraySlice, Dictionary, CGFloat, UUID, Core Location</li>
-</ul>
-<h3 id='trickery' class='heading'>Trickery</h3>
-
-<ul>
-<li>Fake of: Characters, ID, Locattion, Lorem, Numerics, Web, Person, Address, Telephone</li>
-<li>Can create fake from json using Codable</li>
-</ul>
-<h2 id='usage' class='heading'>Usage</h2>
-<h3 id='genything-gen' class='heading'>Genything/Gen</h3>
-
-<p>Will print one of the cities from the generator</p>
+<h2 id='examples' class='heading'>Examples</h2>
+<h3 id='examples-gen' class='heading'>Examples: Gen</h3>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Genything</span>
 
-<span class="k">let</span> <span class="nv">genCities</span> <span class="o">=</span> <span class="kt">Gen</span><span class="o">.</span><span class="nf">of</span><span class="p">([</span><span class="s">"Winnipeg"</span><span class="p">,</span><span class="s">"Calgary"</span><span class="p">,</span><span class="s">"Vancouver"</span><span class="p">,</span><span class="s">"Halifax"</span><span class="p">])</span>
-<span class="nf">debugPrint</span><span class="p">(</span><span class="n">genCities</span><span class="o">.</span><span class="nf">sample</span><span class="p">())</span>
+<span class="k">let</span> <span class="nv">cityGen</span> <span class="o">=</span> <span class="kt">Gen</span><span class="o">.</span><span class="nf">of</span><span class="p">([</span><span class="s">"Winnipeg"</span><span class="p">,</span><span class="s">"Calgary"</span><span class="p">,</span><span class="s">"Vancouver"</span><span class="p">,</span><span class="s">"Halifax"</span><span class="p">])</span>
+
+<span class="c1">/// Generates 1 city</span>
+<span class="n">cityGen</span><span class="o">.</span><span class="nf">generate</span><span class="p">()</span>
+
+<span class="c1">/// Takes 100 random cities</span>
+<span class="n">cityGen</span><span class="o">.</span><span class="nf">take</span><span class="p">(</span><span class="nv">count</span><span class="p">:</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">/// Prints values from the generator until the Context's max iterations is reached</span>
+<span class="n">cityGen</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="n">city</span> <span class="k">in</span> <span class="nf">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span> <span class="p">}</span>
+
 </code></pre>
-<h3 id='genything-arbitrary' class='heading'>Genything/Arbitrary</h3>
+<h3 id='examples-arbitrary' class='heading'>Examples: Arbitrary</h3>
 
 <p>Will print an arbitrary string with any number of random characters</p>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Genything</span>
@@ -266,13 +313,23 @@
 <span class="k">let</span> <span class="nv">arbitraryString</span> <span class="o">=</span> <span class="kt">String</span><span class="o">.</span><span class="n">arbitrary</span><span class="o">.</span><span class="nf">sample</span><span class="p">()</span>
 <span class="nf">debugPring</span><span class="p">(</span><span class="n">arbitraryString</span><span class="p">)</span>
 </code></pre>
-<h3 id='trickery-fake' class='heading'>Trickery/Fake</h3>
-
-<p>Will print a random alphanumeric character</p>
+<h3 id='examples-trickery' class='heading'>Examples: Trickery</h3>
+<h4 id='trickery-example-use-fake-data-to-create-a-swift-ui-preview' class='heading'>Trickery Example: Use fake data to create a Swift UI preview</h4>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Trickery</span>
 
-<span class="k">let</span> <span class="nv">fakeAlphanumericCharacters</span> <span class="o">=</span> <span class="kt">Fake</span><span class="o">.</span><span class="kt">Characters</span><span class="o">.</span><span class="n">alphanumeric</span><span class="o">.</span><span class="nf">sample</span><span class="p">()</span>
-<span class="nf">debugPrint</span><span class="p">(</span><span class="n">fakeAlphanumericCharacters</span><span class="p">)</span>
+<span class="kd">struct</span> <span class="kt">PhoneBook_Previews</span><span class="p">:</span> <span class="kt">PreviewProvider</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">previews</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">PhoneBook</span><span class="p">(</span>
+          <span class="kt">Gen</span><span class="o">.</span><span class="nf">zip</span><span class="p">(</span>
+            <span class="kt">Fake</span><span class="o">.</span><span class="kt">PersonNames</span><span class="o">.</span><span class="n">full</span><span class="p">,</span> 
+            <span class="kt">Fake</span><span class="o">.</span><span class="kt">PhoneNumbers</span><span class="o">.</span><span class="n">formatted</span>
+          <span class="p">)</span> <span class="p">{</span> 
+            <span class="kt">PhoneBookRow</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="nv">$0</span><span class="p">,</span> <span class="nv">number</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> 
+          <span class="p">}</span><span class="o">.</span><span class="nf">samples</span><span class="p">()</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
 </code></pre>
 <h2 id='installation' class='heading'>Installation</h2>
 <h3 id='cocoapods' class='heading'>Cocoapods</h3>
@@ -286,19 +343,28 @@
     <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/justeattakeaway/genything.git"</span><span class="p">,</span> <span class="o">.</span><span class="nf">exact</span><span class="p">(</span><span class="s">"0.0.1"</span><span class="p">))</span>
 <span class="p">]</span>
 </code></pre>
+
+<p>Then install <code>Genything</code> and optionally <code>Trickery</code> by adding it to:</p>
+
+<ul>
+<li>General -&gt; &ldquo;Frameworks and Libraries&rdquo;, for an application of framework target</li>
+<li>Build Phases -&gt; &ldquo;Link Binary With Libraries&rdquo;, for a test target</li>
+</ul>
 <h2 id='credits' class='heading'>Credits</h2>
 
-<p>The Genything and Trickery projects are owned and maintained by <a href="https://www.skipthedishes.com/">SkipTheDishes</a>, a <a href="https://www.justeattakeaway.com/">Just Eat Takeaway</a> subsidiary.</p>
+<p>The Genything and Trickery projects are owned and maintained by <a href="https://www.skipthedishes.com/">SkipTheDishes</a>, a <a href="https://www.justeattakeaway.com/">Just Eat Takeaway.com</a> subsidiary.</p>
 <h3 id='contributing' class='heading'>Contributing</h3>
 
 <p>Please read the <a href="./CONTRIBUTING.md">Contribution Guide</a></p>
 <h3 id='inspiration' class='heading'>Inspiration</h3>
 
+<p>Genything stands on the shoulder of giants. Please check out these other libraries and resources!</p>
+
 <ul>
-<li><a href="https://github.com/typelift/SwiftCheck">https://github.com/typelift/SwiftCheck</a></li>
-<li><a href="https://github.com/pointfreeco/episode-code-samples/tree/main/0048-predictable-randomness-pt2">https://github.com/pointfreeco/episode-code-samples/tree/main/0048-predictable-randomness-pt2</a></li>
-<li><a href="https://github.com/kotest/kotest/tree/master/kotest-property/src/commonMain/kotlin/io/kotest/property">https://github.com/kotest/kotest/tree/master/kotest-property/src/commonMain/kotlin/io/kotest/property</a></li>
-<li><a href="https://hackage.haskell.org/package/QuickCheck">https://hackage.haskell.org/package/QuickCheck</a></li>
+<li><a href="https://github.com/typelift/SwiftCheck">SwiftCheck</a></li>
+<li><a href="https://github.com/vadymmarkov/Fakery">Fakery</a></li>
+<li><a href="https://www.pointfree.co/">Point-Free</a>&rsquo;s lessons on <a href="https://github.com/pointfreeco/episode-code-samples/tree/main/0048-predictable-randomness-pt2">predictable randomness</a></li>
+<li><a href="https://kotest.io/">Kotest</a>&rsquo;s <a href="https://kotest.io/docs/proptest/property-based-testing.html">Property Based Testing</a></li>
 </ul>
 <h2 id='a-href-license-license-a' class='heading'><a href="./LICENSE">License</a></h2>
 
@@ -307,7 +373,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

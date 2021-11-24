@@ -4,7 +4,7 @@ import Foundation
 public enum Determinism {
     /// A random `Determinism` seeded by `seed`
     /// Subsequent runs using the same `Context` are guaranteed to produce values in the same order
-    case predetermined(seed: Int)
+    case predetermined(seed: UInt64)
 
     // TODO: Create a mechanism to log `originalSeed` to allow for replay using .predetermined.
 
@@ -20,7 +20,7 @@ public extension Context {
             case let .predetermined(seed):
                 self.init(using: LCRNG(seed: seed), originalSeed: seed)
             case .random:
-                let seed = Int(arc4random())
+                let seed = UInt64(arc4random())
                 self.init(using: LCRNG(seed: seed), originalSeed: seed)
         }
     }
