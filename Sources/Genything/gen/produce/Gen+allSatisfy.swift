@@ -10,6 +10,7 @@ public extension Gen {
     /// - Parameters:
     ///   - iterations: The amount of times the sequence should iterate, default's to the context's `maxIterations` value
     ///   - context: The context to be used for generation
+    ///   - predicate: A closure that takes an element of the sequence as its argument and returns a Boolean value that indicates whether the passed element satisfies a condition.
     ///
     /// - Returns: The Boolean result
     func allSatisfy(iterations: Int? = nil,
