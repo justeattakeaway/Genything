@@ -27,6 +27,7 @@ private extension FailedTestReport {
     }
 }
 
+// - MARK: Test
 
 public extension Gen {
     /// Iterates (lazily) over a generator sequence and tests that all values satisfy the given `predicate`
