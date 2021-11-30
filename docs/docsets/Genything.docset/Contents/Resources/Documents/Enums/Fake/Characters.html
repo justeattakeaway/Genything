@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Characters Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/katex.min.css" />
+    <meta charset='utf-8'>
+    <script src="../../js/jquery.min.js" defer></script>
+    <script src="../../js/katex.min.js" defer></script>
+    <script src="../../js/jazzy.js" defer></script>
+    
+    <script src="../../js/lunr.min.js" defer></script>
+    <script src="../../js/typeahead.jquery.js" defer></script>
+    <script src="../../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Enum/Characters" class="dashAnchor"></a>
+    <a title="Characters Enumeration Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../../index.html">Genything 0.0.2 Docs</a> (69% documented)</p>
+        <p class="header-right"><a href="https://github.com/justeattakeaway/Genything"><img src="../../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <div class="header-right">
+          <form role="search" action="../../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../../index.html">Genything Reference</a>
+        <img id="carat" src="../../img/carat.png" alt=""/>
+        Characters Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/Context.html">Context</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Enums/ContextDefaults.html">ContextDefaults</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Determinism.html">Determinism</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake.html">Fake</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake/Addresses.html">– Addresses</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake/BusinessNames.html">– BusinessNames</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake/Characters.html">– Characters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake/Emails.html">– Emails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake/ID.html">– ID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake/Locations.html">– Locations</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake/Lorem.html">– Lorem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake/Numerics.html">– Numerics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake/PersonNames.html">– PersonNames</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake/PhoneNumbers.html">– PhoneNumbers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/Fake/Web.html">– Web</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Enums/GenError.html">GenError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Extensions/AnyBidirectionalCollection.html">AnyBidirectionalCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/AnySequence.html">AnySequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/ArraySlice.html">ArraySlice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Bool.html">Bool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/CGFloat.html">CGFloat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/CGVector.html">CGVector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Character.html">Character</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Double.html">Double</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/EmptyCollection.html">EmptyCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions.html#/s:Sf">Float</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Int.html">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Int32.html">Int32</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions.html#/s:s5Int64V">Int64</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/LazySequence.html">LazySequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Optional.html">Optional</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Range.html">Range</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Repeated.html">Repeated</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Result.html">Result</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Set.html">Set</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/UInt.html">UInt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/UInt32.html">UInt32</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/UUID.html">UUID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/UnicodeScalar.html">UnicodeScalar</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Protocols/Arbitrary.html">Arbitrary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Protocols/RandomInRangeable.html">RandomInRangeable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Structs/AnyRandomNumberGenerator.html">AnyRandomNumberGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Gen.html">Gen</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Gen/GenComposer.html">– GenComposer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/LCRNG.html">LCRNG</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Characters</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Characters</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Trickery4FakeO10CharactersO9lowercase9Genything3GenVySJGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/lowercase" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Trickery4FakeO10CharactersO9lowercase9Genything3GenVySJGvpZ">lowercase</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">lowercase</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Gen.html">Gen</a></span><span class="o">&lt;</span><span class="kt">Character</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Trickery4FakeO10CharactersO9uppercase9Genything3GenVySJGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/uppercase" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Trickery4FakeO10CharactersO9uppercase9Genything3GenVySJGvpZ">uppercase</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">uppercase</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Gen.html">Gen</a></span><span class="o">&lt;</span><span class="kt">Character</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Trickery4FakeO10CharactersO6digits9Genything3GenVySJGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/digits" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Trickery4FakeO10CharactersO6digits9Genything3GenVySJGvpZ">digits</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">digits</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Gen.html">Gen</a></span><span class="o">&lt;</span><span class="kt">Character</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Trickery4FakeO10CharactersO12alphanumeric9Genything3GenVySJGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/alphanumeric" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Trickery4FakeO10CharactersO12alphanumeric9Genything3GenVySJGvpZ">alphanumeric</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">alphanumeric</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Gen.html">Gen</a></span><span class="o">&lt;</span><span class="kt">Character</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Trickery4FakeO10CharactersO21punctuationAndSymbols9Genything3GenVySJGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/punctuationAndSymbols" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Trickery4FakeO10CharactersO21punctuationAndSymbols9Genything3GenVySJGvpZ">punctuationAndSymbols</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">punctuationAndSymbols</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Gen.html">Gen</a></span><span class="o">&lt;</span><span class="kt">Character</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Trickery4FakeO10CharactersO24latinAccentsAndDiacritcs9Genything3GenVySJGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/latinAccentsAndDiacritcs" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Trickery4FakeO10CharactersO24latinAccentsAndDiacritcs9Genything3GenVySJGvpZ">latinAccentsAndDiacritcs</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">latinAccentsAndDiacritcs</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Gen.html">Gen</a></span><span class="o">&lt;</span><span class="kt">Character</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Trickery4FakeO10CharactersO13latinExtended9Genything3GenVySJGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/latinExtended" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Trickery4FakeO10CharactersO13latinExtended9Genything3GenVySJGvpZ">latinExtended</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">latinExtended</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Gen.html">Gen</a></span><span class="o">&lt;</span><span class="kt">Character</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Trickery4FakeO10CharactersO13ipaExtensions9Genything3GenVySJGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/ipaExtensions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Trickery4FakeO10CharactersO13ipaExtensions9Genything3GenVySJGvpZ">ipaExtensions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">ipaExtensions</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Gen.html">Gen</a></span><span class="o">&lt;</span><span class="kt">Character</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Trickery4FakeO10CharactersO15spacingModifier9Genything3GenVySJGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/spacingModifier" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Trickery4FakeO10CharactersO15spacingModifier9Genything3GenVySJGvpZ">spacingModifier</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">spacingModifier</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Gen.html">Gen</a></span><span class="o">&lt;</span><span class="kt">Character</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Trickery4FakeO10CharactersO14greekAndCoptic9Genything3GenVySJGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/greekAndCoptic" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Trickery4FakeO10CharactersO14greekAndCoptic9Genything3GenVySJGvpZ">greekAndCoptic</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">greekAndCoptic</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Gen.html">Gen</a></span><span class="o">&lt;</span><span class="kt">Character</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8Trickery4FakeO10CharactersO18allButAlphanumeric9Genything3GenVySJGvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/allButAlphanumeric" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Trickery4FakeO10CharactersO18allButAlphanumeric9Genything3GenVySJGvpZ">allButAlphanumeric</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">allButAlphanumeric</span><span class="p">:</span> <span class="kt"><a href="../../Structs/Gen.html">Gen</a></span><span class="o">&lt;</span><span class="kt">Character</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

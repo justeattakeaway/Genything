@@ -332,6 +332,56 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV12safeGenerate7contextxAA7ContextC_tKF"></a>
+                    <a name="//apple_ref/swift/Method/safeGenerate(context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV12safeGenerate7contextxAA7ContextC_tKF">safeGenerate(context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A single value produced by the generator using the provided Context</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">safeGenerate</span><span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Classes/Context.html">Context</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The context to be used for generation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A value of type <code>T</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -3763,9 +3813,9 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything3GenV10allSatisfy10iterations7context_SbSiSg_AA7ContextCSbxXEtF"></a>
+                    <a name="/s:9Genything3GenV10allSatisfy10iterations7context_SbSiSg_AA7ContextCSbxKXEtKF"></a>
                     <a name="//apple_ref/swift/Method/allSatisfy(iterations:context:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV10allSatisfy10iterations7context_SbSiSg_AA7ContextCSbxXEtF">allSatisfy(iterations:<wbr>context:<wbr>_:<wbr>)</a>
+                    <a class="token" href="#/s:9Genything3GenV10allSatisfy10iterations7context_SbSiSg_AA7ContextCSbxKXEtKF">allSatisfy(iterations:<wbr>context:<wbr>_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3784,7 +3834,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">allSatisfy</span><span class="p">(</span><span class="nv">iterations</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
                 <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Classes/Context.html">Context</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span>
-                <span class="n">_</span> <span class="nv">predicate</span><span class="p">:</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                <span class="n">_</span> <span class="nv">predicate</span><span class="p">:</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="k">rethrows</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -3816,6 +3866,18 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>predicate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure that takes an element of the sequence as its argument and returns a Boolean value that indicates whether the passed element satisfies a condition.</p>
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -3829,9 +3891,9 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything3GenV7forEach10iterations7context_ySiSg_AA7ContextCyxXEtF"></a>
+                    <a name="/s:9Genything3GenV7forEach10iterations7context_ySiSg_AA7ContextCyxKXEtKF"></a>
                     <a name="//apple_ref/swift/Method/forEach(iterations:context:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV7forEach10iterations7context_ySiSg_AA7ContextCyxXEtF">forEach(iterations:<wbr>context:<wbr>_:<wbr>)</a>
+                    <a class="token" href="#/s:9Genything3GenV7forEach10iterations7context_ySiSg_AA7ContextCyxKXEtKF">forEach(iterations:<wbr>context:<wbr>_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3850,7 +3912,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">forEach</span><span class="p">(</span><span class="nv">iterations</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
              <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Classes/Context.html">Context</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span>
-             <span class="n">_</span> <span class="nv">body</span><span class="p">:</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+             <span class="n">_</span> <span class="nv">body</span><span class="p">:</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">rethrows</span></code></pre>
 
                         </div>
                       </div>
@@ -4038,6 +4100,125 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                       <div>
                         <h4>Return Value</h4>
                         <p>An array of generated values</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Test"></a>
+                <a name="//apple_ref/swift/Section/Test" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Test"></a>
+                  <h3 class="section-name"><span>Test</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV0A4TestE6xctest10iterations7context4file4line_ySiSg_AA7ContextCs12StaticStringVSuSbxKXEtKF"></a>
+                    <a name="//apple_ref/swift/Method/xctest(iterations:context:file:line:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV0A4TestE6xctest10iterations7context4file4line_ySiSg_AA7ContextCs12StaticStringVSuSbxKXEtKF">xctest(iterations:<wbr>context:<wbr>file:<wbr>line:<wbr>_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Iterates (lazily) over a generator sequence and tests that all values satisfy the given <code>predicate</code></p>
+
+<p>Will run a maximum of n times, where n is the provided <code>iterations</code> or the context&rsquo;s value</p>
+<div class="aside aside-attention">
+    <p class="aside-title">Attention</p>
+    <p>A failing predicate will assert with <code>XCTFail</code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">xctest</span><span class="p">(</span><span class="nv">iterations</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Classes/Context.html">Context</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span>
+            <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="kt">Path</span><span class="p">,</span>
+            <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span><span class="p">,</span>
+           <span class="n">_</span> <span class="nv">predicate</span><span class="p">:</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="p">)</span> <span class="k">rethrows</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>iterations</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount of times the sequence should iterate, default&rsquo;s to the context&rsquo;s <code>maxIterations</code> value</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>file</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The file this test was called from</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>line</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The line this test was called from</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The context to be used for generation</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>predicate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure that takes an element of the sequence as its argument and returns a Boolean value that indicates whether the passed element satisfies a condition.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -4286,7 +4467,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
