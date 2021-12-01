@@ -5,9 +5,10 @@ import XCTest
 // MARK: - Failure Detection / Context storage
 
 /// In order to provide information about the Context we store a static map against `XCTestCase`
+/// e.g. the `originalSeed` used for the test run
 ///
 /// - Warning: Great care must be used to clear the context store after a test run
-/// e.g. the `originalSeed` used for the test run
+///
 private extension XCTestCase {
     static var _contextStore = [String : Context]()
 
@@ -47,7 +48,7 @@ private extension XCTestCase {
 
 // MARK: - Test
 
-extension XCTestCase {
+public extension XCTestCase {
 
     func checkAll<T>(_ gen1: Gen<T>,
                      context: Context = .default,

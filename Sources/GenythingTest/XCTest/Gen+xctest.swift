@@ -43,7 +43,7 @@ public extension Gen {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func xctest(iterations: Int? = nil,
+    func assertForAll(iterations: Int? = nil,
                 context: Context = .default,
                 file: StaticString = #filePath,
                 line: UInt = #line,

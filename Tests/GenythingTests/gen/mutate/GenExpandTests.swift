@@ -7,7 +7,7 @@ final internal class GenExpandTests: XCTestCase {
         let size = 10
         String.arbitrary
             .expand(toSize: size)
-            .xctest { s in
+            .assertForAll { s in
                 s.count == size
             }
     }
@@ -16,7 +16,7 @@ final internal class GenExpandTests: XCTestCase {
         let range: Range<Int> = 0..<5
         String.arbitrary
             .expand(toSizeInRange: range)
-            .xctest { s in
+            .assertForAll { s in
                 range.lowerBound <= s.count && s.count <= range.upperBound
             }
     }
@@ -25,7 +25,7 @@ final internal class GenExpandTests: XCTestCase {
         let range: ClosedRange<Int> = 0...5
         String.arbitrary
             .expand(toSizeInRange: range)
-            .xctest { s in
+            .assertForAll { s in
                 range.lowerBound <= s.count && s.count <= range.upperBound
             }
     }
