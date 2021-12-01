@@ -49,7 +49,19 @@ private extension XCTestCase {
 // MARK: - Test
 
 public extension XCTestCase {
-
+    /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
+    ///
+    /// Will run a maximum of n times, where n is the provided `iterations` or the `Context` value
+    ///
+    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
+    ///
+    /// - Parameters:
+    ///   - context: The context to be used for generation
+    ///   - gen1: A generator who's values will be used for testing
+    ///   - body: A closure body where you may make your XCTest assertions
+    ///
+    /// - Attention: A failing predicate will assert with `XCTFail`
+    ///
     func checkAll<T>(_ gen1: Gen<T>,
                      context: Context = .default,
                      _ body: (T) throws -> Void) rethrows {
@@ -58,6 +70,20 @@ public extension XCTestCase {
             .forEach(body)
     }
 
+    /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
+    ///
+    /// Will run a maximum of n times, where n is the provided `iterations` or the `Context` value
+    ///
+    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
+    ///
+    /// - Parameters:
+    ///   - context: The context to be used for generation
+    ///   - gen1: A generator who's values will be used for testing
+    ///   - gen2: A generator who's values will be used for testing
+    ///   - body: A closure body where you may make your XCTest assertions
+    ///
+    /// - Attention: A failing predicate will assert with `XCTFail`
+    ///
     func checkAll<T1, T2>(_ gen1: Gen<T1>,
                           _ gen2: Gen<T2>,
                           context: Context = .default,
@@ -67,6 +93,21 @@ public extension XCTestCase {
             .forEach(body)
     }
 
+    /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
+    ///
+    /// Will run a maximum of n times, where n is the provided `iterations` or the `Context` value
+    ///
+    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
+    ///
+    /// - Parameters:
+    ///   - context: The context to be used for generation
+    ///   - gen1: A generator who's values will be used for testing
+    ///   - gen2: A generator who's values will be used for testing
+    ///   - gen3: A generator who's values will be used for testing
+    ///   - body: A closure body where you may make your XCTest assertions
+    ///
+    /// - Attention: A failing predicate will assert with `XCTFail`
+    ///
     func checkAll<T1, T2, T3>(_ gen1: Gen<T1>,
                               _ gen2: Gen<T2>,
                               _ gen3: Gen<T3>,
@@ -77,6 +118,22 @@ public extension XCTestCase {
             .forEach(body)
     }
 
+    /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
+    ///
+    /// Will run a maximum of n times, where n is the provided `iterations` or the `Context` value
+    ///
+    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
+    ///
+    /// - Parameters:
+    ///   - context: The context to be used for generation
+    ///   - gen1: A generator who's values will be used for testing
+    ///   - gen2: A generator who's values will be used for testing
+    ///   - gen3: A generator who's values will be used for testing
+    ///   - gen4: A generator who's values will be used for testing
+    ///   - body: A closure body where you may make your XCTest assertions
+    ///
+    /// - Attention: A failing predicate will assert with `XCTFail`
+    ///
     func checkAll<T1, T2, T3, T4>(_ gen1: Gen<T1>,
                                   _ gen2: Gen<T2>,
                                   _ gen3: Gen<T3>,
@@ -88,6 +145,23 @@ public extension XCTestCase {
             .forEach(body)
     }
 
+    /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
+    ///
+    /// Will run a maximum of n times, where n is the provided `iterations` or the `Context` value
+    ///
+    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
+    ///
+    /// - Parameters:
+    ///   - context: The context to be used for generation
+    ///   - gen1: A generator who's values will be used for testing
+    ///   - gen2: A generator who's values will be used for testing
+    ///   - gen3: A generator who's values will be used for testing
+    ///   - gen4: A generator who's values will be used for testing
+    ///   - gen5: A generator who's values will be used for testing
+    ///   - body: A closure body where you may make your XCTest assertions
+    ///
+    /// - Attention: A failing predicate will assert with `XCTFail`
+    ///
     func checkAll<T1, T2, T3, T4, T5>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
@@ -102,6 +176,24 @@ public extension XCTestCase {
             .forEach(body)
     }
 
+    /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
+    ///
+    /// Will run a maximum of n times, where n is the provided `iterations` or the `Context` value
+    ///
+    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
+    ///
+    /// - Parameters:
+    ///   - context: The context to be used for generation
+    ///   - gen1: A generator who's values will be used for testing
+    ///   - gen2: A generator who's values will be used for testing
+    ///   - gen3: A generator who's values will be used for testing
+    ///   - gen4: A generator who's values will be used for testing
+    ///   - gen5: A generator who's values will be used for testing
+    ///   - gen6: A generator who's values will be used for testing
+    ///   - body: A closure body where you may make your XCTest assertions
+    ///
+    /// - Attention: A failing predicate will assert with `XCTFail`
+    ///
     func checkAll<T1, T2, T3, T4, T5, T6>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
@@ -117,6 +209,26 @@ public extension XCTestCase {
             .forEach(body)
     }
 
+
+    /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
+    ///
+    /// Will run a maximum of n times, where n is the provided `iterations` or the `Context` value
+    ///
+    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
+    ///
+    /// - Parameters:
+    ///   - context: The context to be used for generation
+    ///   - gen1: A generator who's values will be used for testing
+    ///   - gen2: A generator who's values will be used for testing
+    ///   - gen3: A generator who's values will be used for testing
+    ///   - gen4: A generator who's values will be used for testing
+    ///   - gen5: A generator who's values will be used for testing
+    ///   - gen6: A generator who's values will be used for testing
+    ///   - gen7: A generator who's values will be used for testing
+    ///   - body: A closure body where you may make your XCTest assertions
+    ///
+    /// - Attention: A failing predicate will assert with `XCTFail`
+    ///
     func checkAll<T1, T2, T3, T4, T5, T6, T7>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
@@ -133,6 +245,26 @@ public extension XCTestCase {
             .forEach(body)
     }
 
+    /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
+    ///
+    /// Will run a maximum of n times, where n is the provided `iterations` or the `Context` value
+    ///
+    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
+    ///
+    /// - Parameters:
+    ///   - context: The context to be used for generation
+    ///   - gen1: A generator who's values will be used for testing
+    ///   - gen2: A generator who's values will be used for testing
+    ///   - gen3: A generator who's values will be used for testing
+    ///   - gen4: A generator who's values will be used for testing
+    ///   - gen5: A generator who's values will be used for testing
+    ///   - gen6: A generator who's values will be used for testing
+    ///   - gen7: A generator who's values will be used for testing
+    ///   - gen8: A generator who's values will be used for testing
+    ///   - body: A closure body where you may make your XCTest assertions
+    ///
+    /// - Attention: A failing predicate will assert with `XCTFail`
+    ///
     func checkAll<T1, T2, T3, T4, T5, T6, T7, T8>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
@@ -150,6 +282,27 @@ public extension XCTestCase {
             .forEach(body)
     }
 
+    /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
+    ///
+    /// Will run a maximum of n times, where n is the provided `iterations` or the `Context` value
+    ///
+    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
+    ///
+    /// - Parameters:
+    ///   - context: The context to be used for generation
+    ///   - gen1: A generator who's values will be used for testing
+    ///   - gen2: A generator who's values will be used for testing
+    ///   - gen3: A generator who's values will be used for testing
+    ///   - gen4: A generator who's values will be used for testing
+    ///   - gen5: A generator who's values will be used for testing
+    ///   - gen6: A generator who's values will be used for testing
+    ///   - gen7: A generator who's values will be used for testing
+    ///   - gen8: A generator who's values will be used for testing
+    ///   - gen9: A generator who's values will be used for testing
+    ///   - body: A closure body where you may make your XCTest assertions
+    ///
+    /// - Attention: A failing predicate will assert with `XCTFail`
+    ///
     func checkAll<T1, T2, T3, T4, T5, T6, T7, T8, T9>(
         _ gen1: Gen<T1>,
         _ gen2: Gen<T2>,
