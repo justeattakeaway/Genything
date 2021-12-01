@@ -37,4 +37,18 @@ final internal class GenTestTests: XCTestCase {
             a < 1 || a > 100
         }
     }
+
+    func test_check_passed_when_it_should() {
+        checkAll(Gen.from(1...100)) { a in
+            XCTAssert(a >= 1)
+            XCTAssert(a <= 100)
+        }
+    }
+
+    func test_check_fails_when_it_should() {
+        XCTExpectFailure()
+        checkAll(Gen.from(1...100)) { a in
+            XCTAssert(a < 1)
+        }
+    }
 }
