@@ -125,10 +125,33 @@ Genything comes together with Trickery, a collection of generators suitable for 
 
 Consider a phone number. A phone number of type `String` has rules about length, formatting, allowable characters. Whereas the arbitrary type `String` contains contains at most a definition of it's length
 
+## GenythingTest
+
+A key consideration for Genything is that your Generators be usable Genywhere (anywhere). In order to help enforce that  
+
 ## Examples
 
 ### Examples: Gen
 
+#### Using Genything to create a dice roller
+
+```swift
+
+// A very basic dice roll example
+let d4 = Gen<Int>.from(1...4)
+print("d4: \(twoD4Plus2.sample())")
+
+// Getting more complex with an RPG-style multiple dice roll
+func diceRoller(_ dice: [Gen<Int>], modifier: Int = 0) -> Gen<Int> {
+    Gen.reduce(dice, modifier, +)
+}
+
+// Roll 2 d4s with a +2 modifier
+let twoD4Plus2 = diceRoller([d4, d4], modifier: 2)
+print("2d4+2: \(twoD4Plus2.sample())")
+```
+
+#### Using Genything to produce random city names from a list
 ```swift
 import Genything
 
@@ -147,18 +170,17 @@ cityGen.forEach { city in print(city) }
 
 ### Examples: Arbitrary
 
-Will print an arbitrary string with any number of random characters
+#### Using Arbitrary to sanity check an invariant condition
 
 ```swift
-import Genything
- 
-let arbitraryString = String.arbitrary.sample()
-debugPring(arbitraryString)
+checkAll(UInt.arbitrary) { number in
+    XCTAssert(divideByTwo(Int(number)) < number)
+}
 ```
 
 ### Examples: Trickery
 
-#### Trickery Example: Use fake data to create a Swift UI preview
+#### Using fake data to render a Swift UI preview
 
 ```swift
 import Trickery
@@ -171,7 +193,7 @@ struct PhoneBook_Previews: PreviewProvider {
             Fake.PhoneNumbers.formatted
           ) { 
             PhoneBookRow(name: $0, number: $1) 
-          }.samples()
+          }.take(count: 10)
         )
     }
 }
@@ -201,7 +223,8 @@ extension Fake {
 
 ```ruby
 pod 'Genything'
-pod 'Trickery'
+pod 'Trickery' # Optional library of realistic fake data
+pod 'GenythingTest' # Optional extensions for property test assertions
 ```
 
 ### Swift Package Manager
@@ -214,7 +237,7 @@ dependencies: [
 ]
 ```
 
-Then install `Genything` and optionally `Trickery` by adding it to:
+Then add the packages you want to:
 
 - General -> "Frameworks and Libraries", for an application of framework target
 - Build Phases -> "Link Binary With Libraries", for a test target
