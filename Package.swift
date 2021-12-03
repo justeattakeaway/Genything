@@ -18,6 +18,10 @@ let package = Package(
             targets: ["Genything"]
         ),
         .library(
+            name: "GenythingTest",
+            targets: ["GenythingTest"]
+        ),
+        .library(
             name: "Trickery",
             targets: ["Trickery"]
         ),        
