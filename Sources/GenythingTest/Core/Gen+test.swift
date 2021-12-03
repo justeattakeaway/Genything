@@ -22,7 +22,7 @@ extension Gen {
 
         while index < iterations {
             do {
-                let value: T = try safeGenerate(context: context)
+                let value: T = try safe.generate(context: context)
 
                 if try !predicate(value) {
                     return .failure(

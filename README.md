@@ -43,7 +43,7 @@ Both of these libraries may be used for code testing, rapid prototyping, demo ap
 - [Credits](#credits)
   * [Contributing](#contributing)
   * [Inspiration](#inspiration)
-- [[License](./LICENSE)](#-license---license-)
+- [License](./LICENSE)
 
 ## Why use Genything?
   
@@ -260,6 +260,8 @@ Genything stands on the shoulder of giants. Please check out these other librari
 - [Point-Free](https://www.pointfree.co/)'s lessons on [predictable randomness](https://github.com/pointfreeco/episode-code-samples/tree/main/0048-predictable-randomness-pt2)
 - [Kotest](https://kotest.io/)'s [Property Based Testing](https://kotest.io/docs/proptest/property-based-testing.html)
 
-## [License](./LICENSE)
+## License
+
+See: [License](./LICENSE)
 
 Apache License Version 2.0, January 2004 http://www.apache.org/licenses/

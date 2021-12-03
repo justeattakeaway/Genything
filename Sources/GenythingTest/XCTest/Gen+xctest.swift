@@ -2,31 +2,6 @@ import Foundation
 import Genything
 import XCTest
 
-private extension FailedTestReport {
-    /// String desription of a failing test report
-    var failureMessage: String {
-        let seedInfo: String = {
-            guard let seed = seed else { return "" }
-            return "seed:\(seed)"
-        }()
-        let iterationInfo = "i:\(iteration)"
-
-        let basicMessage = "(\(seedInfo) \(iterationInfo))"
-
-        switch reason {
-            case .predicate(let value):
-                return "Predicate failed with value: `\(value)` " + basicMessage
-            case .error(let error):
-                switch error as? GenError {
-                    case .some(.maxDepthReached):
-                        return "Max generator depth was reached! " + basicMessage
-                    default:
-                        return "Test failed with exception: \(error.localizedDescription). " + basicMessage
-                }
-        }
-    }
-}
-
 // - MARK: Test
 
 public extension Gen {
@@ -54,7 +29,13 @@ public extension Gen {
         switch result {
             case .success: return
             case .failure(let info):
-                XCTFail(info.failureMessage, file: file, line: line)
+                switch info.reason {
+                    case let .predicate(value):
+                        fail("assertForAll failed with value: `\(value)`", context: context, file: file, line: line)
+                    case let .error(error):
+                        fail(error, context: context, file: file, line: line)
+                }
+
         }
     }
 }

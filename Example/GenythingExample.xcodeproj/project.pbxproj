@@ -18,6 +18,9 @@
 		03BA41162742DED000B97AA6 /* GenythingExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA41152742DED000B97AA6 /* GenythingExampleTests.swift */; };
 		03BA41372742E37300B97AA6 /* Genything in Frameworks */ = {isa = PBXBuildFile; productRef = 03BA41362742E37300B97AA6 /* Genything */; };
 		03BA41392742E37300B97AA6 /* Trickery in Frameworks */ = {isa = PBXBuildFile; productRef = 03BA41382742E37300B97AA6 /* Trickery */; };
+		03BCC93F275A6C5100158B92 /* GenythingTest in Frameworks */ = {isa = PBXBuildFile; productRef = 03BCC93E275A6C5100158B92 /* GenythingTest */; };
+		03BCC941275A6C5700158B92 /* Genything in Frameworks */ = {isa = PBXBuildFile; productRef = 03BCC940275A6C5700158B92 /* Genything */; };
+		03BCC943275A6C5B00158B92 /* Trickery in Frameworks */ = {isa = PBXBuildFile; productRef = 03BCC942275A6C5B00158B92 /* Trickery */; };
 		14C3856927456152001CF50F /* PolygonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C3856827456152001CF50F /* PolygonShape.swift */; };
 		14C3856B274562C3001CF50F /* ShapeDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C3856A274562C3001CF50F /* ShapeDrawingView.swift */; };
 		770849362742EA250044E19E /* PhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770849352742EA250044E19E /* PhoneBookView.swift */; };
@@ -67,6 +70,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03BCC941275A6C5700158B92 /* Genything in Frameworks */,
+				03BCC943275A6C5B00158B92 /* Trickery in Frameworks */,
+				03BCC93F275A6C5100158B92 /* GenythingTest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +227,11 @@
 				03BA41132742DED000B97AA6 /* PBXTargetDependency */,
 			);
 			name = GenythingExampleTests;
+			packageProductDependencies = (
+				03BCC93E275A6C5100158B92 /* GenythingTest */,
+				03BCC940275A6C5700158B92 /* Genything */,
+				03BCC942275A6C5B00158B92 /* Trickery */,
+			);
 			productName = GenythingExampleTests;
 			productReference = 03BA41112742DED000B97AA6 /* GenythingExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -597,6 +608,18 @@
 			productName = Genything;
 		};
 		03BA41382742E37300B97AA6 /* Trickery */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Trickery;
+		};
+		03BCC93E275A6C5100158B92 /* GenythingTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GenythingTest;
+		};
+		03BCC940275A6C5700158B92 /* Genything */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Genything;
+		};
+		03BCC942275A6C5B00158B92 /* Trickery */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Trickery;
 		};
