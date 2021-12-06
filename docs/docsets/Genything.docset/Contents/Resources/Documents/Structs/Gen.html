@@ -175,6 +175,9 @@
               <li class="nav-group-task">
                 <a href="../Structs/LCRNG.html">LCRNG</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SafeGen.html">SafeGen</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -335,9 +338,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything3GenV12safeGenerate7contextxAA7ContextC_tKF"></a>
-                    <a name="//apple_ref/swift/Method/safeGenerate(context:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV12safeGenerate7contextxAA7ContextC_tKF">safeGenerate(context:<wbr>)</a>
+                    <a name="/s:9Genything3GenV4safeAA04SafeB0VyxGmvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/safe" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV4safeAA04SafeB0VyxGmvpZ">safe</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -345,39 +348,43 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns: A single value produced by the generator using the provided Context</p>
+                        <p>Namespacing for safe static extension <code>Gen</code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">safeGenerate</span><span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Classes/Context.html">Context</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">safe</span><span class="p">:</span> <span class="kt"><a href="../Structs/SafeGen.html">SafeGen</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;.</span><span class="k">Type</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>context</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The context to be used for generation</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV4safeAA04SafeB0VyxGvp"></a>
+                    <a name="//apple_ref/swift/Property/safe" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV4safeAA04SafeB0VyxGvp">safe</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Namespacing for safe extension functions for <code>Gen</code></p>
+
                       </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>A value of type <code>T</code></p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">safe</span><span class="p">:</span> <span class="kt"><a href="../Structs/SafeGen.html">SafeGen</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -589,6 +596,118 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:9Genything3GenV7collectyACySayxGGSayACyxGGFZ"></a>
+                    <a name="//apple_ref/swift/Method/collect(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV7collectyACySayxGGSayACyxGGFZ">collect(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Collects and combines the values from the <code>generators</code> maintaining the order</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">collect</span><span class="p">(</span><span class="n">_</span> <span class="nv">generators</span><span class="p">:</span> <span class="p">[</span><span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">T</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>generators</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Generators to select values from in-order</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator of Arrays containing values selected in order from the provided generators</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV7collectyACySayqd__GGSayACyxGG_qd__xctlFZ"></a>
+                    <a name="//apple_ref/swift/Method/collect(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV7collectyACySayqd__GGSayACyxGG_qd__xctlFZ">collect(_:<wbr>_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Collects and combines the values from the <code>generators</code> maintaining the order</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">collect</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">generators</span><span class="p">:</span> <span class="p">[</span><span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">],</span> <span class="n">_</span> <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">R</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>generators</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Generators to select values from in-order</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transform</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Transformation to be applied to each value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator of Arrays containing values selected in order from the provided generators</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:9Genything3GenV6either4left5right0E11ProbabilityACyxGAH_AHSdtFZ"></a>
                     <a name="//apple_ref/swift/Method/either(left:right:rightProbability:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:9Genything3GenV6either4left5right0E11ProbabilityACyxGAH_AHSdtFZ">either(left:<wbr>right:<wbr>rightProbability:<wbr>)</a>
@@ -768,118 +887,6 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>The generator</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9Genything3GenV7collectyACySayxGGSayACyxGGFZ"></a>
-                    <a name="//apple_ref/swift/Method/collect(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV7collectyACySayxGGSayACyxGGFZ">collect(_:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Collects and combines the values from the <code>generators</code> maintaining the order</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">collect</span><span class="p">(</span><span class="n">_</span> <span class="nv">generators</span><span class="p">:</span> <span class="p">[</span><span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">T</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>generators</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Generators to select values from in-order</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The generator of Arrays containing values selected in order from the provided generators</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9Genything3GenV7collectyACySayqd__GGSayACyxGG_qd__xctlFZ"></a>
-                    <a name="//apple_ref/swift/Method/collect(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV7collectyACySayqd__GGSayACyxGG_qd__xctlFZ">collect(_:<wbr>_:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Collects and combines the values from the <code>generators</code> maintaining the order</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">collect</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">generators</span><span class="p">:</span> <span class="p">[</span><span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">],</span> <span class="n">_</span> <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">R</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>generators</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Generators to select values from in-order</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>transform</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Transformation to be applied to each value</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The generator of Arrays containing values selected in order from the provided generators</p>
                       </div>
                     </section>
                   </div>
@@ -3574,9 +3581,9 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything3GenV3mapyACyqd__Gqd__xclF"></a>
+                    <a name="/s:9Genything3GenV3mapyACyqd__Gqd__xKcKlF"></a>
                     <a name="//apple_ref/swift/Method/map(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV3mapyACyqd__Gqd__xclF">map(_:<wbr>)</a>
+                    <a class="token" href="#/s:9Genything3GenV3mapyACyqd__Gqd__xKcKlF">map(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3591,7 +3598,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">map</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">map</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">R</span><span class="p">)</span> <span class="k">rethrows</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -3667,6 +3674,82 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                       <div>
                         <h4>Return Value</h4>
                         <p>A <code>Gen</code> generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV6reduceyACyqd__GSayACyxGG_qd__qd__qd___xtKctKlFZ"></a>
+                    <a name="//apple_ref/swift/Method/reduce(_:_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV6reduceyACyqd__GSayACyxGG_qd__qd__qd___xtKctKlFZ">reduce(_:<wbr>_:<wbr>_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator resulting from combining generated elements from the generators sequence using the given closure</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">reduce</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">generators</span><span class="p">:</span> <span class="p">[</span><span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">],</span>
+                      <span class="n">_</span> <span class="nv">initialResult</span><span class="p">:</span> <span class="kt">R</span><span class="p">,</span>
+                      <span class="n">_</span> <span class="nv">nextPartialResult</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">R</span><span class="p">,</span> <span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">R</span><span class="p">)</span> <span class="k">rethrows</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>generators</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A sequence of generators to be reduced into a single generator instance</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>initialResult</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value to use as the initial accumulating value. initialResult is passed to nextPartialResult the first time the closure is executed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>nextPartialResult</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure that combines an accumulating value and an element of the sequence into a new accumulating value, to be used in the next call of the nextPartialResult closure or returned to the caller.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>Gen</code> generator producing the final accumulated value. If the sequence has no elements, the result will be initialResult.</p>
                       </div>
                     </section>
                   </div>
@@ -4108,125 +4191,6 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Test"></a>
-                <a name="//apple_ref/swift/Section/Test" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Test"></a>
-                  <h3 class="section-name"><span>Test</span>
-</h3>
-                </div>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9Genything3GenV0A4TestE6xctest10iterations7context4file4line_ySiSg_AA7ContextCs12StaticStringVSuSbxKXEtKF"></a>
-                    <a name="//apple_ref/swift/Method/xctest(iterations:context:file:line:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV0A4TestE6xctest10iterations7context4file4line_ySiSg_AA7ContextCs12StaticStringVSuSbxKXEtKF">xctest(iterations:<wbr>context:<wbr>file:<wbr>line:<wbr>_:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Iterates (lazily) over a generator sequence and tests that all values satisfy the given <code>predicate</code></p>
-
-<p>Will run a maximum of n times, where n is the provided <code>iterations</code> or the context&rsquo;s value</p>
-<div class="aside aside-attention">
-    <p class="aside-title">Attention</p>
-    <p>A failing predicate will assert with <code>XCTFail</code></p>
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">xctest</span><span class="p">(</span><span class="nv">iterations</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Classes/Context.html">Context</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span>
-            <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="kt">Path</span><span class="p">,</span>
-            <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span><span class="p">,</span>
-           <span class="n">_</span> <span class="nv">predicate</span><span class="p">:</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
-<span class="p">)</span> <span class="k">rethrows</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>iterations</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The amount of times the sequence should iterate, default&rsquo;s to the context&rsquo;s <code>maxIterations</code> value</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>file</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The file this test was called from</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>line</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The line this test was called from</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>context</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The context to be used for generation</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>predicate</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A closure that takes an element of the sequence as its argument and returns a Boolean value that indicates whether the passed element satisfies a condition.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
                 <a name="/Available%20where%20%60T%60%3A%20%60CaseIterable%60"></a>
                 <a name="//apple_ref/swift/Section/Available where `T`: `CaseIterable`" class="dashAnchor"></a>
                 <div class="section-name-container">
@@ -4467,7 +4431,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-26)</p>
+          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-12-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

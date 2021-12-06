@@ -174,6 +174,9 @@
               <li class="nav-group-task">
                 <a href="Structs/LCRNG.html">LCRNG</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Structs/SafeGen.html">SafeGen</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -236,7 +239,7 @@
 <li><a href="#contributing">Contributing</a></li>
 <li><a href="#inspiration">Inspiration</a></li>
 </ul></li>
-<li><a href="#-license---license-"><a href="./LICENSE">License</a></a></li>
+<li><a href="./LICENSE">License</a></li>
 </ul>
 <h2 id='why-use-genything' class='heading'>Why use Genything?</h2>
 
@@ -314,8 +317,27 @@ It is nothing more than a generic container that stores a callback capable of ge
 <p>Genything comes together with Trickery, a collection of generators suitable for producing pseudo-realistic data according to real-world-conditions rather than those enforced only by the type.</p>
 
 <p>Consider a phone number. A phone number of type <code>String</code> has rules about length, formatting, allowable characters. Whereas the arbitrary type <code>String</code> contains contains at most a definition of it&rsquo;s length</p>
+<h2 id='genythingtest' class='heading'>GenythingTest</h2>
+
+<p>A key consideration for Genything is that your Generators be usable Genywhere (anywhere). In order to help enforce that  </p>
 <h2 id='examples' class='heading'>Examples</h2>
 <h3 id='examples-gen' class='heading'>Examples: Gen</h3>
+<h4 id='using-genything-to-create-a-dice-roller' class='heading'>Using Genything to create a dice roller</h4>
+<pre class="highlight swift"><code>
+<span class="c1">// A very basic dice roll example</span>
+<span class="k">let</span> <span class="nv">d4</span> <span class="o">=</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;.</span><span class="nf">from</span><span class="p">(</span><span class="mi">1</span><span class="o">...</span><span class="mi">4</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"d4: </span><span class="se">\(</span><span class="n">twoD4Plus2</span><span class="o">.</span><span class="nf">sample</span><span class="p">()</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+
+<span class="c1">// Getting more complex with an RPG-style multiple dice roll</span>
+<span class="kd">func</span> <span class="nf">diceRoller</span><span class="p">(</span><span class="n">_</span> <span class="nv">dice</span><span class="p">:</span> <span class="p">[</span><span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">],</span> <span class="nv">modifier</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kt">Gen</span><span class="o">.</span><span class="nf">reduce</span><span class="p">(</span><span class="n">dice</span><span class="p">,</span> <span class="n">modifier</span><span class="p">,</span> <span class="o">+</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// Roll 2 d4s with a +2 modifier</span>
+<span class="k">let</span> <span class="nv">twoD4Plus2</span> <span class="o">=</span> <span class="nf">diceRoller</span><span class="p">([</span><span class="n">d4</span><span class="p">,</span> <span class="n">d4</span><span class="p">],</span> <span class="nv">modifier</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"2d4+2: </span><span class="se">\(</span><span class="n">twoD4Plus2</span><span class="o">.</span><span class="nf">sample</span><span class="p">()</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+</code></pre>
+<h4 id='using-genything-to-produce-random-city-names-from-a-list' class='heading'>Using Genything to produce random city names from a list</h4>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Genything</span>
 
 <span class="k">let</span> <span class="nv">cityGen</span> <span class="o">=</span> <span class="kt">Gen</span><span class="o">.</span><span class="nf">of</span><span class="p">([</span><span class="s">"Winnipeg"</span><span class="p">,</span><span class="s">"Calgary"</span><span class="p">,</span><span class="s">"Vancouver"</span><span class="p">,</span><span class="s">"Halifax"</span><span class="p">])</span>
@@ -331,15 +353,13 @@ It is nothing more than a generic container that stores a callback capable of ge
 
 </code></pre>
 <h3 id='examples-arbitrary' class='heading'>Examples: Arbitrary</h3>
-
-<p>Will print an arbitrary string with any number of random characters</p>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Genything</span>
-
-<span class="k">let</span> <span class="nv">arbitraryString</span> <span class="o">=</span> <span class="kt">String</span><span class="o">.</span><span class="n">arbitrary</span><span class="o">.</span><span class="nf">sample</span><span class="p">()</span>
-<span class="nf">debugPring</span><span class="p">(</span><span class="n">arbitraryString</span><span class="p">)</span>
+<h4 id='using-arbitrary-to-sanity-check-an-invariant-condition' class='heading'>Using Arbitrary to sanity check an invariant condition</h4>
+<pre class="highlight swift"><code><span class="nf">checkAll</span><span class="p">(</span><span class="kt">UInt</span><span class="o">.</span><span class="n">arbitrary</span><span class="p">)</span> <span class="p">{</span> <span class="n">number</span> <span class="k">in</span>
+    <span class="kt">XCTAssert</span><span class="p">(</span><span class="nf">divideByTwo</span><span class="p">(</span><span class="kt">Int</span><span class="p">(</span><span class="n">number</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">number</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre>
 <h3 id='examples-trickery' class='heading'>Examples: Trickery</h3>
-<h4 id='trickery-example-use-fake-data-to-create-a-swift-ui-preview' class='heading'>Trickery Example: Use fake data to create a Swift UI preview</h4>
+<h4 id='using-fake-data-to-render-a-swift-ui-preview' class='heading'>Using fake data to render a Swift UI preview</h4>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Trickery</span>
 
 <span class="kd">struct</span> <span class="kt">PhoneBook_Previews</span><span class="p">:</span> <span class="kt">PreviewProvider</span> <span class="p">{</span>
@@ -350,7 +370,7 @@ It is nothing more than a generic container that stores a callback capable of ge
             <span class="kt">Fake</span><span class="o">.</span><span class="kt">PhoneNumbers</span><span class="o">.</span><span class="n">formatted</span>
           <span class="p">)</span> <span class="p">{</span> 
             <span class="kt">PhoneBookRow</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="nv">$0</span><span class="p">,</span> <span class="nv">number</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> 
-          <span class="p">}</span><span class="o">.</span><span class="nf">samples</span><span class="p">()</span>
+          <span class="p">}</span><span class="o">.</span><span class="nf">take</span><span class="p">(</span><span class="nv">count</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
         <span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -372,7 +392,8 @@ It is nothing more than a generic container that stores a callback capable of ge
 <h2 id='installation' class='heading'>Installation</h2>
 <h3 id='cocoapods' class='heading'>Cocoapods</h3>
 <pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'Genything'</span>
-<span class="n">pod</span> <span class="s1">'Trickery'</span>
+<span class="n">pod</span> <span class="s1">'Trickery'</span> <span class="c1"># Optional library of realistic fake data</span>
+<span class="n">pod</span> <span class="s1">'GenythingTest'</span> <span class="c1"># Optional extensions for property test assertions</span>
 </code></pre>
 <h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
 
@@ -382,7 +403,7 @@ It is nothing more than a generic container that stores a callback capable of ge
 <span class="p">]</span>
 </code></pre>
 
-<p>Then install <code>Genything</code> and optionally <code>Trickery</code> by adding it to:</p>
+<p>Then add the packages you want to:</p>
 
 <ul>
 <li>General -&gt; &ldquo;Frameworks and Libraries&rdquo;, for an application of framework target</li>
@@ -404,14 +425,16 @@ It is nothing more than a generic container that stores a callback capable of ge
 <li><a href="https://www.pointfree.co/">Point-Free</a>&rsquo;s lessons on <a href="https://github.com/pointfreeco/episode-code-samples/tree/main/0048-predictable-randomness-pt2">predictable randomness</a></li>
 <li><a href="https://kotest.io/">Kotest</a>&rsquo;s <a href="https://kotest.io/docs/proptest/property-based-testing.html">Property Based Testing</a></li>
 </ul>
-<h2 id='a-href-license-license-a' class='heading'><a href="./LICENSE">License</a></h2>
+<h2 id='license' class='heading'>License</h2>
+
+<p>See: <a href="./LICENSE">License</a></p>
 
 <p>Apache License Version 2.0, January 2004 <a href="http://www.apache.org/licenses/">http://www.apache.org/licenses/</a></p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-11-26)</p>
+          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-12-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

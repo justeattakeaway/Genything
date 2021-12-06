@@ -3,6 +3,7 @@ import Foundation
 /// Combines Gen member lookup with the "safe" extensions
 @dynamicMemberLookup
 public struct SafeGen<T> {
+    /// The base Gen instance which has been enhanced by `safe` functionality
     public let base: Gen<T>
     /// Creates extensions with base object.
     ///
@@ -11,6 +12,7 @@ public struct SafeGen<T> {
         self.base = base
     }
 
+    /// Enhances `SafeGen` to include the members of the base `Gen`
     subscript<Property>(dynamicMember keyPath: KeyPath<Gen<T>, Property>) -> Property {
         return base[keyPath: keyPath]
     }
