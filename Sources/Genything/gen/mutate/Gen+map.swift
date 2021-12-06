@@ -9,9 +9,9 @@ public extension Gen {
     ///   - transform: A function capable of transforming the receiver's values to type `R`
     ///
     /// - Returns: A `Gen` generator of values of type `R`
-    func map<R>(_ transform: @escaping (T) -> R) -> Gen<R> {
+    func map<R>(_ transform: @escaping (T) throws -> R) rethrows -> Gen<R> {
         Gen<R> { ctx -> R in
-            transform(generate(context: ctx))
+            try transform(generate(context: ctx))
         }
     }
 }
