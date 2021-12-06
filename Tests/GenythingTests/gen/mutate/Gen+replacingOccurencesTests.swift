@@ -1,12 +1,13 @@
 import XCTest
 import Genything
+import GenythingTest
 
 class Gen_ReplacingOccurencesTests: XCTestCase {
     func test_replacing_occurences_to_create_a_phone_number() {
         let digits = Gen<Int>.from(0...9)
         let gen = digits.replacingOccurrences(of: "#", in: "(###) ###-####")
 
-        gen.forEach { phoneNumber in
+        checkAll(gen) { phoneNumber in
             let subject = Array(phoneNumber)
 
             XCTAssertEqual(14, subject.count)

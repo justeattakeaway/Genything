@@ -9,7 +9,7 @@ extension Date: Arbitrary {
 
 //extension URL: Arbitrary {
 //    public static var arbitrary: Gen<URL> {
-//        // TODO
+//        // TODO: https://datatracker.ietf.org/doc/html/rfc3986
 //    }
 //}
 

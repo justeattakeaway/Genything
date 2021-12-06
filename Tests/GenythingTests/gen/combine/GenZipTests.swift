@@ -2,6 +2,10 @@ import XCTest
 @testable import Genything
 
 final internal class GenZipTests: XCTestCase {
+    override func setUp() {
+        continueAfterFailure = false
+    }
+
     // MARK: - Basic tests
 
     func test_anyGen_zippedWithAnotherGen_generateTupleOfExpectedValues() {
