@@ -6,8 +6,6 @@ public enum Determinism {
     /// Subsequent runs using the same `Context` are guaranteed to produce values in the same order
     case predetermined(seed: UInt64)
 
-    // TODO: Create a mechanism to log `originalSeed` to allow for replay using .predetermined.
-
     /// A random `Determinism` seeded by a random value
     /// Subsequent runs using the same `Context` will generate completely different random values
     case random

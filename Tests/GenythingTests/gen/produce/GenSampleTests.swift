@@ -1,13 +1,12 @@
 import XCTest
-@testable import Genything
+import Genything
+import GenythingTest
 
 final internal class GenSampleTests: XCTestCase {
     func test_sample_createsValues_ofSizeCount() {
-        let count = 20
-
-        // TODO: can be converted to a proptest
-
-        XCTAssert(String.arbitrary.samples(count: count).count == count)
+        Gen.from(0...100).assertForAll {
+            Gen.constant(()).samples(count: $0).count == $0
+        }
     }
 
     func test_sample_createsRandomValueOnEveryCall() {

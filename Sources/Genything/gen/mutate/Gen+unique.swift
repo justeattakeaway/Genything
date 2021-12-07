@@ -23,9 +23,6 @@ private class UniqueStorage {
     }
 }
 
-// TODO: Give context a DI engine to "resolve" the UniqueStore
-// TODO: Check resolver which uses an int to represent the Type
-
 public extension Gen where T: Equatable {
 
     /// Returns: A generator that only produces unique values
