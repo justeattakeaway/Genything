@@ -53,7 +53,7 @@ public extension Gen where T: Equatable {
             let value = (0...ctx.maxDepth).lazy.map { _ in
                 generate(context: ctx)
             }.first { candidateValue in
-                store.contains(candidateValue, id: id)
+                !store.contains(candidateValue, id: id)
             }
 
             guard let value = value else {

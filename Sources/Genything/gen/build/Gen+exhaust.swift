@@ -1,25 +1,25 @@
 import Foundation
 
-public extension Gen {
-    /// Storage required in order to index all exhaustive values before moving on to the  `then` generator
-    /// Bounded by the lifetime of the `Context`
-    ///
-    /// - SeeAlso: `Gen.exhaust(values:then:)`
-    private class ExhaustiveStorage {
-        /// Map of generator identifier to Index
-        private var data: [UUID:Int] = [:]
+/// Storage required in order to index all exhaustive values before moving on to the  `then` generator
+/// Bounded by the lifetime of the `Context`
+///
+/// - SeeAlso: `Gen.exhaust(values:then:)`
+private class ExhaustiveStorage {
+    /// Map of generator identifier to Index
+    private var data: [UUID:Int] = [:]
 
-        /// Returns: The current exhaustive index for the provided generator's ID
-        func index(_ id: UUID) -> Int {
-            data[id] ?? 0
-        }
-
-        /// Increments the index for the provided generator's ID
-        func incrementIndex(_ id: UUID) {
-            data[id] = index(id) + 1
-        }
+    /// Returns: The current exhaustive index for the provided generator's ID
+    func index(_ id: UUID) -> Int {
+        data[id] ?? 0
     }
 
+    /// Increments the index for the provided generator's ID
+    func incrementIndex(_ id: UUID) {
+        data[id] = index(id) + 1
+    }
+}
+
+public extension Gen {
     /// Returns: A generator which produces (in-order) all of the values from the provided list, then randomly from the provided generator
     ///
     /// - Parameters:
