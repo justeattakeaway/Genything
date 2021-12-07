@@ -18,11 +18,10 @@ class Gen_UniqueTests: XCTestCase {
 
     func test_uniquing_with_compose() {
 
-        // In order to `unique` with `compose` the generator must be created
-        // outside of the composition.
-        let digitGenerator = Gen.from(0...9)
+        // In order to `unique` while using `compose` we must put the `unique` outside of the composition block
+        let digitGenerator = Gen.from(0...9).unique()
         let correctComposedUniqueGenerator = Gen.compose { c in
-            c.generate(digitGenerator.unique())
+            c.generate(digitGenerator)
         }
 
         XCTAssertEqual(
@@ -43,5 +42,18 @@ class Gen_UniqueTests: XCTestCase {
             [0,1,2,3,4,5,6,7,8,9],
             incorrectComposedDigitGenerator.take(count: 10).sorted()
         )
+    }
+
+
+    func test_uniquing_with_zip() {
+        let gen = Gen.from(0...9)
+        let tupleValues = gen.unique().zip(with: gen.unique()).take(count: 10)
+        let values0 = tupleValues.map { $0.0 }.sorted()
+        let values1 = tupleValues.map { $0.1 }.sorted()
+
+        let expected = [0,1,2,3,4,5,6,7,8,9]
+
+        XCTAssertEqual(expected, values0)
+        XCTAssertEqual(expected, values1)
     }
 }

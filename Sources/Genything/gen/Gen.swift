@@ -3,10 +3,7 @@ import Foundation
 // MARK: Gen Typeclass
 
 /// A type class capable of generating a value of type `T` from a given `Context`
-public struct Gen<T>: Identifiable {
-    /// A stable identity for this generator
-    public let id = UUID()
-
+public struct Gen<T> {
     /// A callback capable of generating a new value using the provided `Context`
     fileprivate let generator: (Context) throws -> T
 
