@@ -7,7 +7,7 @@ import Foundation
 ///
 /// - SeeAlso: https://nuclear.llnl.gov/CNP/rng/rngman/node4.html
 /// - SeeAlso: https://en.wikipedia.org/wiki/Linear_congruential_generator
-public struct LCRNG: RandomNumberGenerator {
+struct LinearCongruentialRandomNumberGenerator: RandomNumberGenerator {
     private var seed: UInt64
 
     /// Initializes a `LCRNG` with the provided seed
@@ -15,13 +15,13 @@ public struct LCRNG: RandomNumberGenerator {
     /// Any two `LCRNG` instances initialized by the same seed will independently generate the same sequence of pseudo-random
     ///
     /// - Parameter seed: The seed value which should be used to start the generator
-    public init(seed: UInt64) {
+    init(seed: UInt64) {
         self.seed = seed
     }
 
     private let a: UInt64 = 2862933555777941757
     private let b: UInt64 = 3037000493
-    public mutating func next() -> UInt64 {
+    mutating func next() -> UInt64 {
         seed = a &* seed &+ b
         return seed
     }
