@@ -2,19 +2,19 @@ import XCTest
 @testable import Genything
 
 final internal class GenOneOfTests: XCTestCase {
-    func test_oneOf() {
-        let gen1 = Gen.constant(0)
-        let gen2 = Gen.constant(1)
+    func test_oneOf_generates_equally() {
+        let gen0 = Gen.constant(0)
+        let gen1 = Gen.constant(1)
 
-        let iterations = 1000
+        let iterations = 10000
 
         // Count which bucket we are taking from
-        let count = Gen.one(of: [gen1, gen2]).take(count: iterations).filter { $0 == 0 }.count
+        let countGen0 = Gen
+            .one(of: [gen0, gen1])
+            .take(count: iterations)
+            .filter { $0 == 0 }
+            .count
 
-        let expectedCount = iterations / 2 // We are expecting exactly half the values to be from bucket 0
-        let acceptableDelta = 50 // Allow for the count to be +- 50
-        let acceptableRange = (expectedCount-acceptableDelta)...(expectedCount+acceptableDelta)
-
-        XCTAssert(acceptableRange ~= count)
+        assertAcceptableDelta(total: iterations, actual: countGen0, acceptablePercentDelta: 0.01)
     }
 }

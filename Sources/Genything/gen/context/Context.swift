@@ -5,7 +5,6 @@ import Foundation
 /// It's main purpose is to hold onto the Random Number Generator `rng`, so that as generations occur the RNG's state changes are propogated to each generator
 ///
 /// - Note: The context can be held onto by a user to keep track of `rng`'s state between generations
-///
 public class Context {
 
     // MARK: Randomness
@@ -48,12 +47,13 @@ public class Context {
         self.originalSeed = originalSeed
     }
 
-    /// A cache capable of storing the unique values created by a particular Generator's id for the lifetime of the `Context`
+    /// A service locator and cache capable of storing services for the lifetime of the context
     ///
-    /// - Note: At the moment only Generators which have been `unique`'d will add values to the cache
+    /// Gives the `Context` and it's Generators their super-powers!
     ///
-    /// - SeeAlso: `Gen.unique()`
-    internal var uniqueCache: [UUID:[Any]] = [:]
+    /// - SeeAlso: `Gen.unique`
+    /// - SeeAlso: `Gen.exhaust`
+    internal let services: ContextServiceLocator = ContextServiceLocator()
 }
 
 // MARK: Convenience Context creators

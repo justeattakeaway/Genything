@@ -11,4 +11,15 @@ final internal class GenOfTests: XCTestCase {
         XCTAssert(sample.contains(2))
         XCTAssert(sample.allSatisfy { $0 == 0 || $0 == 1 || $0 == 2 })
     }
+
+
+    func test_exhaust() {
+        let samples = Gen.exhaust([0, Int.max], then: Gen.from(0...Int.max))
+            .samples()
+
+        XCTAssertEqual(0, samples[0])
+        XCTAssertEqual(Int.max, samples[1])
+
+        print("!@# samples \(samples)")
+    }
 }

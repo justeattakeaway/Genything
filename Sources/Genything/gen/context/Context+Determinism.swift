@@ -18,10 +18,10 @@ public extension Context {
     convenience init(determinism: Determinism) {
         switch determinism {
             case let .predetermined(seed):
-                self.init(using: LCRNG(seed: seed), originalSeed: seed)
+                self.init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
             case .random:
                 let seed = UInt64(arc4random())
-                self.init(using: LCRNG(seed: seed), originalSeed: seed)
+                self.init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
         }
     }
 }
