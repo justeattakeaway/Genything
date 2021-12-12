@@ -34,6 +34,13 @@ public class Context {
     /// - SeeAlso: `Gen.allSatisfy(iterations:context:)`
     public var maxIterations: Int = ContextDefaults.maxIterations
 
+    /// The probability to generate edge cases included by `withEdgecases(edgeCases:)`
+    ///
+    /// - Note: The included Arbitrary generators will contain edge cases by default
+    ///
+    /// - SeeAlso: `Gen.withEdgecases(edgeCases:)`
+    public var edgeCaseProbability: Double = ContextDefaults.edgeCaseProbability
+
     // MARK: Init
 
     /// Creates a `Context`

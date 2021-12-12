@@ -4,11 +4,11 @@ import Foundation
 @dynamicMemberLookup
 public struct SafeGen<T> {
     /// The base Gen instance which has been enhanced by `safe` functionality
-    public let base: Gen<T>
+    let base: Gen<T>
     /// Creates extensions with base object.
     ///
     /// - parameter base: Base object.
-    public init(_ base: Gen<T>) {
+    init(_ base: Gen<T>) {
         self.base = base
     }
 

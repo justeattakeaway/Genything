@@ -17,9 +17,16 @@ public enum ContextDefaults {
     /// - SeeAlso: `Gen.unique()`
     public static var maxDepth: Int = 100
 
+    /// The default probability to generate edge cases included by `withEdgecases(edgeCases:)`
+    ///
+    /// - Note: The included Arbitrary generators will contain edge cases by default
+    ///
+    /// - SeeAlso: `Gen.withEdgecases(edgeCases:)`
+    public static var edgeCaseProbability: Double = 0.1
+
     /// Stores a factory capable of creating the `Context` which will be used by default
     private(set) public static var defaultContextFactory: () -> Context = {
-        Context(determinism: .predetermined(seed: 0))
+        Context(determinism: .predetermined(seed: 2022))
     }
 
     /// Registers a function capable of creating the `Context` which will be used by default
