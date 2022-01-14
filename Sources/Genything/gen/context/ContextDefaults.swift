@@ -22,7 +22,7 @@ public enum ContextDefaults {
     /// - Note: The included Arbitrary generators will contain edge cases by default
     ///
     /// - SeeAlso: `Gen.withEdgecases(edgeCases:)`
-    public static var edgeCaseProbability: Double = 0.1
+    public static var edgeCaseProbability: Double = 0.05
 
     /// Stores a factory capable of creating the `Context` which will be used by default
     private(set) public static var defaultContextFactory: () -> Context = {
