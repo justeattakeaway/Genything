@@ -22,20 +22,4 @@ final internal class GenOfTests: XCTestCase {
 
         print("!@# samples \(samples)")
     }
-
-    func test_wow() {
-        Gen.looping(0...10).forEach {
-            print($0)
-        }
-
-        Gen.looping([Gen.constant("a"), Gen.constant("b")]).forEach {
-            print($0)
-        }
-    }
-
-    func test_whoah() {
-        Gen.constant(10).startWith(Array(0...9)).take(20).forEach {
-            print($0)
-        }
-    }
 }

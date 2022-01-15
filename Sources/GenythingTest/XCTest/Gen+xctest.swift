@@ -31,7 +31,7 @@ public extension Gen {
             case .failure(let info):
                 switch info.reason {
                     case let .predicate(value):
-                        fail("assertForAll failed with value: `\(value)`", context: context, file: file, line: line)
+                        fail("assertForAll failed for generated value: `\(value)` after `\(info.iteration) iterations.", context: context, file: file, line: line)
                     case let .error(error):
                         fail(error, context: context, file: file, line: line)
                 }

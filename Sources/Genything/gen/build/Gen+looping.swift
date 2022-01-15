@@ -3,6 +3,12 @@ import Foundation
 // MARK: Build
 
 public extension Gen where T: Comparable {
+
+    private static func assertSequenceNotEmpty<S: Sequence>(_ sequence: S) {
+        var iterator = sequence.makeIterator()
+        assert(iterator.next() != nil, "`Gen.looping(sequence:)` was invoked with an empty sequence")
+    }
+
     /// Returns: A generator which produces values from the sequence in sequential order.
     /// If the sequence is exhausted it will be restarted.
     ///
@@ -14,20 +20,15 @@ public extension Gen where T: Comparable {
     ///
     /// - Returns: The generator
     static func looping<S: Sequence>(_ sequence: S) -> Gen where S.Element == T {
+        assertSequenceNotEmpty(sequence)
+
         var iterator = sequence.makeIterator()
-        var next = iterator.next()
-
-        assert(next != nil, "`Gen.looping(sequence:)` was invoked with an empty sequence")
-
         return Gen<T> { _ in
-            next = iterator.next()
-
-            if let next = next {
+            if let next = iterator.next() {
                 return next
             } else {
                 iterator = sequence.makeIterator()
-                next = iterator.next()
-                return next!
+                return iterator.next()!
             }
         }
     }
@@ -43,20 +44,15 @@ public extension Gen where T: Comparable {
     ///
     /// - Returns: The generator
     static func looping<S: Sequence>(_ sequence: S) -> Gen where S.Element == Gen<T> {
+        assertSequenceNotEmpty(sequence)
+
         var iterator = sequence.makeIterator()
-        var next = iterator.next()
-
-        assert(next != nil, "`Gen.looping(sequence:)` was invoked with an empty sequence")
-
         return Gen<T> { ctx in
-            next = iterator.next()
-
-            if let next = next {
+            if let next = iterator.next() {
                 return next.generate(context: ctx)
             } else {
                 iterator = sequence.makeIterator()
-                next = iterator.next()
-                return next!.generate(context: ctx)
+                return iterator.next()!.generate(context: ctx)
             }
         }
     }
