@@ -7,12 +7,12 @@ class Gen_UniqueTests: XCTestCase {
 
         XCTAssertEqual(
             [0,1,2,3,4,5,6,7,8,9],
-            digitGenerator.take(count: 10).sorted()
+            digitGenerator.take(10).sorted()
         )
 
         XCTAssertEqual(
             [0,1,2,3,4,5,6,7,8,9],
-            digitGenerator.take(count: 10).sorted()
+            digitGenerator.take(10).sorted()
         )
     }
 
@@ -26,7 +26,7 @@ class Gen_UniqueTests: XCTestCase {
 
         XCTAssertEqual(
             [0,1,2,3,4,5,6,7,8,9],
-            correctComposedUniqueGenerator.take(count: 10).sorted()
+            correctComposedUniqueGenerator.take(10).sorted()
         )
 
         // Otherwise the generator will be created occur once per generation
@@ -40,14 +40,14 @@ class Gen_UniqueTests: XCTestCase {
         // We do not expect to receive unique values
         XCTAssertNotEqual(
             [0,1,2,3,4,5,6,7,8,9],
-            incorrectComposedDigitGenerator.take(count: 10).sorted()
+            incorrectComposedDigitGenerator.take(10).sorted()
         )
     }
 
 
     func test_uniquing_with_zip() {
         let gen = Gen.from(0...9)
-        let tupleValues = gen.unique().zip(with: gen.unique()).take(count: 10)
+        let tupleValues = gen.unique().zip(with: gen.unique()).take(10)
         let values0 = tupleValues.map { $0.0 }.sorted()
         let values1 = tupleValues.map { $0.1 }.sorted()
 

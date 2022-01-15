@@ -3,7 +3,7 @@ import XCTest
 
 final internal class SwiftArbitraryTests: XCTestCase {
     func test_stringGeneration_createsDifferentStrings_withDifferentSizes() throws {
-        let strings = String.arbitrary.take(count: 2)
+        let strings = String.arbitrary.take(2)
 
         XCTAssertEqual(2, strings.count)
         XCTAssertNotEqual(strings[0], strings[1])

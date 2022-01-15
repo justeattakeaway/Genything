@@ -12,7 +12,7 @@ public extension SafeGen {
     ///
     /// - Returns: An array of sample values
     func samples(count: Int = 20) throws -> [T] {
-        try take(count: count, context: .random)
+        try take(count, context: .random)
     }
 
     /// Returns: A single non-deterministic random sample of the generator's values

@@ -10,7 +10,7 @@ public extension SafeGen {
     ///   - context: The context to be used for generation
     ///
     /// - Returns: An array of generated values
-    func take(count: Int? = nil,
+    func take(_ count: Int? = nil,
               context: Context = .default) throws -> [T] {
         try (0..<(count ?? context.maxIterations)).map { _ in
             try generate(context: context)
@@ -26,8 +26,8 @@ public extension Gen {
     ///   - context: The context to be used for generation
     ///
     /// - Returns: An array of generated values
-    func take(count: Int? = nil,
+    func take(_ count: Int? = nil,
               context: Context = .default) -> [T] {
-        try! safe.take(count: count, context: context)
+        try! safe.take(count, context: context)
     }
 }

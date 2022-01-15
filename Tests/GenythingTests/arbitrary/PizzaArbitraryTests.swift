@@ -17,7 +17,7 @@ final internal class PizzaArbitraryTests: XCTestCase {
 
         // Read as:
         // For any pizza produced by `pizzaGen`, the pizza is a cheese pizza
-        pizzaGen.take(count: 100) /// Takes 100 random pizzas
+        pizzaGen.take(100) /// Takes 100 random pizzas
             .forEach { (pizza: Pizza) in
                 XCTAssertTrue(pizza.isCheesePizza)
         }
@@ -57,7 +57,7 @@ final internal class PizzaArbitraryTests: XCTestCase {
         let pizzaDistribution = Gen<Pizza>.either(left: hawaiianPizzaGen, right: pepperoniPizzaGen, rightProbability: 0.75)
 
         // Take a statistical sample of pizzas
-        let pizzas = pizzaDistribution.take(count: 1000)
+        let pizzas = pizzaDistribution.take(1000)
 
         func pizzaQuotient(_ pizzaName: String) -> Double {
             let countOfPizzaName = pizzas.filter { $0.name == pizzaName }.count
