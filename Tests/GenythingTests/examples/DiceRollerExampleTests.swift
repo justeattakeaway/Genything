@@ -4,13 +4,32 @@ import Genything
 import GenythingTest
 
 final internal class DiceRollerExampleTests: XCTestCase {
-    /// An extremely simple dice roll
-    func test_d6() {
-        let d6 = Gen<Int>.from(1...6)
+    /// An extremely simple dice
+    private let d6 = Gen<Int>.from(1...6)
 
+    func test_d6_bounds() {
+        // All values are within the expected bounds
         d6.assertForAll {
             1...6 ~= $0
         }
+    }
+
+    func test_d6_occurences() {
+        // All values occur in a small sample size
+        let occurences = d6.take(count: 50)
+        XCTAssertTrue(occurences.contains(1))
+        XCTAssertTrue(occurences.contains(2))
+        XCTAssertTrue(occurences.contains(3))
+        XCTAssertTrue(occurences.contains(4))
+        XCTAssertTrue(occurences.contains(5))
+        XCTAssertTrue(occurences.contains(6))
+    }
+
+    func test_d6_mean() {
+        // With a large sample size the mean is very close to 3.5
+        let occurences = d6.take(count: 1_000_000)
+        let mean = Double(occurences.reduce(0, +)) / Double(occurences.count)
+        XCTAssertEqual(mean, 3.5, accuracy: 0.005)
     }
 
     /// Experiment with some ways of creating a dice roll with multiple die
@@ -47,6 +66,7 @@ final internal class DiceRollerExampleTests: XCTestCase {
         Gen.reduce(dice, modifier, +)
     }
 
+    /// Simulate a pen and paper roleplaying dice role
     func test_a_damage_roll_using_two_daggers_with_a_modifier() {
         let d4 = Gen<Int>.from(1...4)
         let twoDaggers = diceRoller([d4, d4], modifier: 2)
@@ -54,5 +74,16 @@ final internal class DiceRollerExampleTests: XCTestCase {
         twoDaggers.assertForAll {
             4...10 ~= $0
         }
+
+        let occurences = twoDaggers
+            .take(count: 1000)
+
+        XCTAssertTrue(occurences.contains(4))
+        XCTAssertTrue(occurences.contains(5))
+        XCTAssertTrue(occurences.contains(6))
+        XCTAssertTrue(occurences.contains(7))
+        XCTAssertTrue(occurences.contains(8))
+        XCTAssertTrue(occurences.contains(9))
+        XCTAssertTrue(occurences.contains(10))
     }
 }

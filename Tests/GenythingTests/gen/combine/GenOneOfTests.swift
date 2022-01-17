@@ -15,6 +15,6 @@ final internal class GenOneOfTests: XCTestCase {
             .filter { $0 == 0 }
             .count
 
-        assertAcceptableDelta(total: iterations, actual: countGen0, acceptablePercentDelta: 0.01)
+        XCTAssertEqual(countGen0, iterations / 2, accuracy: Int(Double(iterations) * 0.01))
     }
 }
