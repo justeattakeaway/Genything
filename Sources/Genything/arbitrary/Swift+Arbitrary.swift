@@ -10,42 +10,47 @@ extension Bool: Arbitrary {
 extension Double: Arbitrary {
     /// A generator of arbitrary `Doubles`s
     public static var arbitrary: Gen<Double> {
-        Gen<Double>.from(Double.leastNormalMagnitude...Double.greatestFiniteMagnitude)
+        .from(Double.leastNormalMagnitude...Double.greatestFiniteMagnitude)
+        .withEdgeCases(.of([.leastNormalMagnitude, -1.0, -0.0, 0.0, 1.0, .greatestFiniteMagnitude]))
     }
 }
 
 extension Int: Arbitrary {
     /// A generator of arbitrary `Int`s
     public static var arbitrary: Gen<Int> {
-        Gen<Int>.from(Int.min...Int.max)
+        .from(Int.min...Int.max)
+        .withEdgeCases(.of([Int.min, -1, 0, 1, Int.max]))
     }
 }
 
 extension UInt: Arbitrary {
     /// A generator of arbitrary `UInt`s
     public static var arbitrary: Gen<UInt> {
-        Gen<UInt>.from(UInt.min...UInt.max)
+        .from(UInt.min...UInt.max)
+        .withEdgeCases(.of([.min, 1, .max]))
     }
 }
 
 extension Int32: Arbitrary {
     /// A generator of arbitrary `Int32`s
     public static var arbitrary: Gen<Int32> {
-        Gen<Int32>.from(Int32.min...Int32.max)
+        .from(Int32.min...Int32.max)
+        .withEdgeCases(.of([.min, -1, 0, 1, .max]))
     }
 }
 
 extension UInt32: Arbitrary {
     /// A generator of arbitrary `UInt32`s
     public static var arbitrary: Gen<UInt32> {
-        Gen<UInt32>.from(UInt32.min...UInt32.max)
+        .from(UInt32.min...UInt32.max)
+        .withEdgeCases(.of([.min, 1, .max]))
     }
 }
 
 extension UnicodeScalar: Arbitrary {
     /// A generator of arbitrary `UnicodeScalar`s
     public static var arbitrary: Gen<UnicodeScalar> {
-        Gen<UnicodeScalar>.from(UnicodeScalar(32)...UnicodeScalar(255))
+        .from(UnicodeScalar(32)...UnicodeScalar(255))
     }
 }
 
@@ -64,9 +69,10 @@ extension String: Arbitrary {
 
     /// A generator of arbitrary `String`s of random sizes in`range`
     public static func arbitrary(in range: ClosedRange<Int> = 0...100) -> Gen<String> {
-        Character.arbitrary.expand(toSizeInRange: range).map {
-            String($0)
-        }
+        Character.arbitrary
+            .expand(toSizeInRange: range)
+            .map { String($0) }
+            .withEdgeCases(.constant(""))
     }
 }
 
@@ -78,7 +84,9 @@ extension Array: Arbitrary where Element: Arbitrary {
 
     /// A generator of arbitrary `Array`s of random sizes in `range`
     public static func arbitrary(in range: ClosedRange<Int> = 0...33) -> Gen<Array> {
-        Element.arbitrary.expand(toSizeInRange: range)
+        Element.arbitrary
+            .expand(toSizeInRange: range)
+            .withEdgeCases(.constant([]))
     }
 }
 
