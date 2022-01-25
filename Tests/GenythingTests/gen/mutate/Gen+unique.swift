@@ -2,6 +2,12 @@ import XCTest
 import Genything
 
 class Gen_UniqueTests: XCTestCase {
+    func test_uniquing_where_it_is_not_possible() {
+        XCTAssertThrowsError(
+            try Gen.constant(true).unique().safe.take()
+        )
+    }
+
     func test_uniquing_where_it_is_possible() {
         let digitGenerator = Gen.from(0...9).unique()
 
