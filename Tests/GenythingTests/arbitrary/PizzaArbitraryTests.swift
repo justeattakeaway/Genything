@@ -64,10 +64,7 @@ final internal class PizzaArbitraryTests: XCTestCase {
             return Double(countOfPizzaName) / Double(pizzas.count)
         }
 
-        let hawaiianPizzaQuotient = pizzaQuotient(hawaiian)
-        XCTAssert(0.2...0.3 ~= hawaiianPizzaQuotient, "Hawaiian generated with quotient \(hawaiianPizzaQuotient)")
-
-        let pepperoniPizzaQuotient = pizzaQuotient(pepperoni)
-        XCTAssert(0.7...0.8 ~= pepperoniPizzaQuotient, "Pepperoni generated with quotient \(pepperoniPizzaQuotient)")
+        XCTAssertEqual(pizzaQuotient(hawaiian), 0.25, accuracy: 0.05)
+        XCTAssertEqual(pizzaQuotient(pepperoni), 0.75, accuracy: 0.05)
     }
 }

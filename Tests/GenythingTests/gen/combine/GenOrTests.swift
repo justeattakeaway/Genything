@@ -11,7 +11,7 @@ final internal class GenOrTests: XCTestCase {
                     .filter { $0 }
                     .count
 
-        assertAcceptableDelta(total: totalCount, actual: trueCount, acceptablePercentDelta: 0.01)
+        XCTAssertEqual(trueCount, totalCount / 2, accuracy: Int(Double(totalCount) * 0.01))
     }
 
     func test_or_with_zero_probability() {
