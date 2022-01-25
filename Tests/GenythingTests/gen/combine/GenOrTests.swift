@@ -7,7 +7,7 @@ final internal class GenOrTests: XCTestCase {
         let trueCount = Gen
                     .constant(false)
                     .or(.constant(true))
-                    .take(count: totalCount)
+                    .take(totalCount)
                     .filter { $0 }
                     .count
 
@@ -19,7 +19,7 @@ final internal class GenOrTests: XCTestCase {
         let trueCount = Gen
                     .constant(false)
                     .or(.constant(true), otherProbability: 0.0)
-                    .take(count: totalCount)
+                    .take(totalCount)
                     .filter { $0 }
                     .count
 
@@ -31,7 +31,7 @@ final internal class GenOrTests: XCTestCase {
         let trueCount = Gen
                     .constant(false)
                     .or(.constant(true), otherProbability: 1.0)
-                    .take(count: totalCount)
+                    .take(totalCount)
                     .filter { $0 }
                     .count
 

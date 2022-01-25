@@ -7,7 +7,7 @@ final internal class GenTakeTests: XCTestCase {
         let generator = Gen.of(bucket)
 
         let count = 100
-        let taken = generator.take(count: count)
+        let taken = generator.take(count)
 
         XCTAssertEqual(count, taken.count)
 

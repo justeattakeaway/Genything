@@ -11,7 +11,7 @@ final internal class GenWithEdgeCasesTests: XCTestCase {
         let iterations = 1000
         let emptyAndNonEmptyStrings = nonEmptyStrings
             .withEdgeCases([""])
-            .take(count: iterations, context: context)
+            .take(iterations, context: context)
 
         let countEdgecases = emptyAndNonEmptyStrings.filter { $0.isEmpty }.count
 
@@ -28,7 +28,7 @@ final internal class GenWithEdgeCasesTests: XCTestCase {
         XCTAssertTrue(
             Gen.constant(notEdgecaseValue)
                 .withEdgeCases([edgecaseValue])
-                .take(count: 1000, context: context)
+                .take(1000, context: context)
                 .filter { $0 == edgecaseValue }.isEmpty
         )
     }

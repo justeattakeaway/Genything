@@ -9,7 +9,7 @@ final internal class GenExhaustTests: XCTestCase {
         gen.assertForAll { 0...10 ~= $0 }
 
         let count = 100
-        let values = gen.take(count: count)
+        let values = gen.take(count)
 
         XCTAssertEqual(0, values[0])
         XCTAssertEqual(1, values[1])
@@ -26,7 +26,7 @@ final internal class GenExhaustTests: XCTestCase {
         let gen2 = Gen.exhaust([0, 1, 2], then: other)
 
         let count = 100
-        let values = gen1.zip(with: gen2).take(count: count)
+        let values = gen1.zip(with: gen2).take(count)
 
         XCTAssertEqual(0, values[0].0)
         XCTAssertEqual(0, values[0].1)

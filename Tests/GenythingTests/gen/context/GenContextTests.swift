@@ -47,8 +47,8 @@ final internal class GenContextTests: XCTestCase {
     func test_multiple_takes_with_propagated_rng_produce_differently() {
         let ctx = Context(determinism: .predetermined(seed: 0))
 
-        let first = Gen.from(1...100).take(count: 100, context: ctx)
-        let second = Gen.from(1...100).take(count: 100, context: ctx)
+        let first = Gen.from(1...100).take(100, context: ctx)
+        let second = Gen.from(1...100).take(100, context: ctx)
 
         XCTAssertNotEqual(first, second)
     }

@@ -11,7 +11,7 @@ final internal class GenOneOfTests: XCTestCase {
         // Count which bucket we are taking from
         let countGen0 = Gen
             .one(of: [gen0, gen1])
-            .take(count: iterations)
+            .take(iterations)
             .filter { $0 == 0 }
             .count
 

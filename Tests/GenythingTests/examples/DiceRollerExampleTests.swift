@@ -16,7 +16,7 @@ final internal class DiceRollerExampleTests: XCTestCase {
 
     func test_d6_occurences() {
         // All values occur in a small sample size
-        let occurences = d6.take(count: 50)
+        let occurences = d6.take(50)
         XCTAssertTrue(occurences.contains(1))
         XCTAssertTrue(occurences.contains(2))
         XCTAssertTrue(occurences.contains(3))
@@ -27,7 +27,7 @@ final internal class DiceRollerExampleTests: XCTestCase {
 
     func test_d6_mean() {
         // With a large sample size the mean is very close to 3.5
-        let occurences = d6.take(count: 1_000_000)
+        let occurences = d6.take(1_000_000)
         let mean = Double(occurences.reduce(0, +)) / Double(occurences.count)
         XCTAssertEqual(mean, 3.5, accuracy: 0.005)
     }
@@ -76,7 +76,7 @@ final internal class DiceRollerExampleTests: XCTestCase {
         }
 
         let occurences = twoDaggers
-            .take(count: 1000)
+            .take(1000)
 
         XCTAssertTrue(occurences.contains(4))
         XCTAssertTrue(occurences.contains(5))
