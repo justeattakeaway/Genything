@@ -3,10 +3,10 @@ import Foundation
 /// Wrapper to namespace safe (throwing) extension functions for `Gen`
 public struct SafeGen<T> {
     /// The base Gen instance
-    fileprivate let base: Gen<T>
+    let base: Gen<T>
 
     /// Initializes a `SafeGen` wrapping `base`
-    fileprivate init(_ base: Gen<T>) {
+    init(_ base: Gen<T>) {
         self.base = base
     }
 }
