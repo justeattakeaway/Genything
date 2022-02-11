@@ -19,7 +19,7 @@
     <a title="Gen Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Genything 0.0.3 Docs</a> (100% documented)</p>
+        <p><a href="../index.html">Genything 0.0.4 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/justeattakeaway/Genything"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <div class="header-right">
           <form role="search" action="../search.json">
@@ -173,9 +173,6 @@
                 <a href="../Structs/Gen/GenComposer.html">– GenComposer</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/LCRNG.html">LCRNG</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/SafeGen.html">SafeGen</a>
               </li>
             </ul>
@@ -189,7 +186,7 @@
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Identifiable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
 
                 </div>
               </div>
@@ -199,33 +196,6 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9Genything3GenV2id10Foundation4UUIDVvp"></a>
-                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV2id10Foundation4UUIDVvp">id</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A stable identity for this generator</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -338,33 +308,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything3GenV4safeAA04SafeB0VyxGmvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/safe" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV4safeAA04SafeB0VyxGmvpZ">safe</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Namespacing for safe static extension <code>Gen</code></p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">safe</span><span class="p">:</span> <span class="kt"><a href="../Structs/SafeGen.html">SafeGen</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;.</span><span class="k">Type</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:9Genything3GenV4safeAA04SafeB0VyxGvp"></a>
                     <a name="//apple_ref/swift/Property/safe" class="dashAnchor"></a>
                     <a class="token" href="#/s:9Genything3GenV4safeAA04SafeB0VyxGvp">safe</a>
@@ -375,7 +318,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Namespacing for safe extension functions for <code>Gen</code></p>
+                        <p>Converts the <code>Gen</code> to the <code><a href="../Structs/SafeGen.html">SafeGen</a></code> wrapper</p>
 
                       </div>
                       <div class="declaration">
@@ -533,6 +476,118 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:9Genything3GenV7exhaust_4thenACyxGSayxG_AFtFZ"></a>
+                    <a name="//apple_ref/swift/Method/exhaust(_:then:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV7exhaust_4thenACyxGSayxG_AFtFZ">exhaust(_:<wbr>then:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator which produces (in-order) all of the values from the provided list, then randomly from the provided generator</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">exhaust</span><span class="p">(</span><span class="n">_</span> <span class="nv">values</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">then</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>values</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list of values we will always draw from first</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>then</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A generator to produce values after we have exhausted the <code>values</code> list</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV7iterateyACyxSgGqd__7ElementQyd__RszSTRd__lFZ"></a>
+                    <a name="//apple_ref/swift/Method/iterate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV7iterateyACyxSgGqd__7ElementQyd__RszSTRd__lFZ">iterate(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator which produces values from the provided sequence (in order) or <code>nil</code> if the sequence becomes exhausted</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">iterate</span><span class="o">&lt;</span><span class="kt">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">sequence</span><span class="p">:</span> <span class="kt">S</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">?</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="o">==</span> <span class="kt">S</span><span class="o">.</span><span class="kt">Element</span><span class="p">,</span> <span class="kt">S</span> <span class="p">:</span> <span class="kt">Sequence</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sequence</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Sequence of values which will be produced in order</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:9Genything3GenV2ofyACyxGSayxGFZ"></a>
                     <a name="//apple_ref/swift/Method/of(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:9Genything3GenV2ofyACyxGSayxGFZ">of(_:<wbr>)</a>
@@ -544,6 +599,11 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns: A generator which randomly produces values form the provided list</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>The values list must not be empty</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -701,6 +761,116 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>The generator of Arrays containing values selected in order from the provided generators</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV13withEdgeCasesyACyxGSayxGF"></a>
+                    <a name="//apple_ref/swift/Method/withEdgeCases(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV13withEdgeCasesyACyxGSayxGF">withEdgeCases(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator which randomly selects values from either the receiver or the edge cases</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    The probability is determined by <code><a href="../Classes/Context.html#/s:9Genything7ContextC19edgeCaseProbabilitySdvp">Context.edgeCaseProbability</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">withEdgeCases</span><span class="p">(</span><span class="n">_</span> <span class="nv">edgeCases</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edgeCases</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of edgecases</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV13withEdgeCasesyACyxGAEF"></a>
+                    <a name="//apple_ref/swift/Method/withEdgeCases(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV13withEdgeCasesyACyxGAEF">withEdgeCases(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator which randomly selects values from either the receiver or the edge cases</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    The probability is determined by <code><a href="../Classes/Context.html#/s:9Genything7ContextC19edgeCaseProbabilitySdvp">Context.edgeCaseProbability</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">withEdgeCases</span><span class="p">(</span><span class="n">_</span> <span class="nv">edgeCases</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edgeCases</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another generator which may get selected to produce values</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator</p>
                       </div>
                     </section>
                   </div>
@@ -878,6 +1048,118 @@
                               <td>
                                 <div>
                                   <p>The generators which can be selected from to produce a value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV2or_16otherProbabilityACyxGAF_SdtF"></a>
+                    <a name="//apple_ref/swift/Method/or(_:otherProbability:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV2or_16otherProbabilityACyxGAF_SdtF">or(_:<wbr>otherProbability:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator which randomly selects values from either the receiver or the <code>other</code> generator</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">or</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">otherProbability</span><span class="p">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another generator which may get selected to produce values</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>otherProbability</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The probability that the the right generator will be selected from</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV9startWithyACyxGqd__7ElementQyd__RszSTRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/startWith(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV9startWithyACyxGqd__7ElementQyd__RszSTRd__lF">startWith(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator which produces values by the provided sequence. When exhausted the generator will switch to producing values from the receiving generator.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">startWith</span><span class="o">&lt;</span><span class="kt">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">sequence</span><span class="p">:</span> <span class="kt">S</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="o">==</span> <span class="kt">S</span><span class="o">.</span><span class="kt">Element</span><span class="p">,</span> <span class="kt">S</span> <span class="p">:</span> <span class="kt">Sequence</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>values</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array of values which will be produced in order before the receiver takes over</p>
                                 </div>
                               </td>
                             </tr>
@@ -3506,15 +3788,59 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                                 </div>
                               </td>
                             </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>Gen</code> generator.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenV13filterForeveryACyxGSbxcF"></a>
+                    <a name="//apple_ref/swift/Method/filterForever(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV13filterForeveryACyxGSbxcF">filterForever(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator that only produces values which pass the test <code>isIncluded</code></p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>If the filtered condition is rare enough this function will become infinitely complex and will run forever
+e.g. <code>Int.arbitrary.filter { $0 == 999 }</code> has a <span class='math m-inline'>1/Int.max</span> probability of occuring and will be nearly infinite</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">filterForever</span><span class="p">(</span><span class="n">_</span> <span class="nv">isIncluded</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
                             <tr>
                               <td>
                                 <code>
-                                <em>maxDepth</em>
+                                <em>isIncluded</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The maximum amount of times <code>isIncluded</code> may return false in succession</p>
+                                  <p>A function which returns true if the value should be included</p>
                                 </div>
                               </td>
                             </tr>
@@ -4127,9 +4453,9 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything3GenV4take5count7contextSayxGSiSg_AA7ContextCtF"></a>
-                    <a name="//apple_ref/swift/Method/take(count:context:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV4take5count7contextSayxGSiSg_AA7ContextCtF">take(count:<wbr>context:<wbr>)</a>
+                    <a name="/s:9Genything3GenV4take_7contextSayxGSiSg_AA7ContextCtF"></a>
+                    <a name="//apple_ref/swift/Method/take(_:context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenV4take_7contextSayxGSiSg_AA7ContextCtF">take(_:<wbr>context:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4144,7 +4470,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">take</span><span class="p">(</span><span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">take</span><span class="p">(</span><span class="n">_</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
           <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Classes/Context.html">Context</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span></code></pre>
 
                         </div>
@@ -4353,6 +4679,127 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
             </div>
             <div class="task-group">
               <div class="task-name-container">
+                <a name="/Available%20where%20%60T%60%3A%20%60Comparable%60"></a>
+                <a name="//apple_ref/swift/Section/Available where `T`: `Comparable`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60T%60%3A%20%60Comparable%60"></a>
+                  <h3 class="section-name"><span>Available where <code>T</code>: <code>Comparable</code></span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenVAASLRzlE7loopingyACyxGqd__7ElementQyd__RszSTRd__lFZ"></a>
+                    <a name="//apple_ref/swift/Method/looping(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenVAASLRzlE7loopingyACyxGqd__7ElementQyd__RszSTRd__lFZ">looping(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator which produces values from the sequence in sequential order.
+If the sequence is exhausted it will be restarted.</p>
+
+<p>e.g. <code>Gen.looping([&quot;a&quot;, &quot;b&quot;])</code> will always output &ldquo;abababababab&rdquo;&hellip;
+e.g. <code>Gen.looping(0...1)</code> will always output &ldquo;0101010101&rdquo;&hellip;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">looping</span><span class="o">&lt;</span><span class="kt">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">sequence</span><span class="p">:</span> <span class="kt">S</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span> <span class="k">where</span> <span class="kt">T</span> <span class="o">==</span> <span class="kt">S</span><span class="o">.</span><span class="kt">Element</span><span class="p">,</span> <span class="kt">S</span> <span class="p">:</span> <span class="kt">Sequence</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sequence</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Sequence of values which will be produced in order. Looping if necessary.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything3GenVAASLRzlE7loopingyACyxGqd__STRd__AE7ElementRtd__lFZ"></a>
+                    <a name="//apple_ref/swift/Method/looping(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything3GenVAASLRzlE7loopingyACyxGqd__STRd__AE7ElementRtd__lFZ">looping(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator which combines the output of a sequence of generators into a single generator.</p>
+
+<p>Maintains sequential execution without interleaving emissions</p>
+
+<p>e.g. <code>Gen.looping([Gen.constant(&quot;a&quot;), Gen.constant(&quot;b&quot;)])</code> will always output &ldquo;abababababab&rdquo;&hellip;</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">looping</span><span class="o">&lt;</span><span class="kt">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">sequence</span><span class="p">:</span> <span class="kt">S</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span> <span class="k">where</span> <span class="kt">S</span> <span class="p">:</span> <span class="kt">Sequence</span><span class="p">,</span> <span class="kt">S</span><span class="o">.</span><span class="kt">Element</span> <span class="o">==</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sequence</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Sequence of generators from which values will be selected from (in-order)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
                 <a name="/Available%20where%20%60T%60%3A%20%60Equatable%60"></a>
                 <a name="//apple_ref/swift/Section/Available where `T`: `Equatable`" class="dashAnchor"></a>
                 <div class="section-name-container">
@@ -4431,7 +4878,7 @@ e.g. <code>Int.arbitrary.filter { $0 == 0 }</code> has a <span class='math m-inl
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2021-12-07)</p>
+          <p>&copy; 2022 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2022-02-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
