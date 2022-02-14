@@ -59,7 +59,7 @@ struct BusinessListView: View {
             addressLine1: Fake.Addresses.streetLine.generate(context: ctx),
             addressLine2: addressLine2Gen.generate(context: ctx)
         )
-    }.take(count: 50)
+    }.take(50)
     
     var body: some View {
         List {
