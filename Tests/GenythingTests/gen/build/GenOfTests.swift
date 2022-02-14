@@ -1,5 +1,6 @@
 import XCTest
 @testable import Genything
+import GameKit
 
 final internal class GenOfTests: XCTestCase {
     func test_of_createGenerator() {

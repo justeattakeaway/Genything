@@ -6,7 +6,7 @@ public extension Gen {
     /// Returns: A generator which produces the result of shuffling the provided list
     ///
     /// - Warning: The values list must not be empty
-
+    ///
     /// - Parameter values: The values which this generator will shuffle
     ///
     /// - Returns: The generator
