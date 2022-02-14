@@ -3,15 +3,6 @@ import XCTest
 import GameKit
 
 final internal class GenOfTests: XCTestCase {
-
-    func test_wtf() {
-        var mine = LinearCongruentialRandomNumberGenerator(seed: 100)
-        let theirs = GKLinearCongruentialRandomSource(seed: 100)
-
-        print(mine.next())
-        print(theirs.nextInt())
-    }
-
     func test_of_createGenerator() {
         let gen = Gen.of([0, 1, 2])
         let sample = gen.take()
