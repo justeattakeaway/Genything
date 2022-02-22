@@ -4,9 +4,19 @@ import Foundation
 
 public extension Gen {
     /// The composer class which passes in the context and allows us to generate more complex data with ease
-    struct GenComposer {
+    struct Composer {
         /// Forwards the `Context` to be used by the generators
         fileprivate var context: Context
+
+        /// Generates a value using the provided `Gen<T>`
+        ///
+        /// - Parameters:
+        ///   - gen: A generator capable of producing vlaues of type `T`
+        ///
+        /// - Returns: A value of type `T`
+        public func callAsFunction<T>(_ gen: Gen<T>) -> T {
+            gen.generate(context: context)
+        }
 
         /// Generates a value using the provided `Gen<T>`
         ///
@@ -21,8 +31,15 @@ public extension Gen {
         /// Generates an arbitrary value of type `T` where `T` conforms to `Arbitrary`
         ///
         /// - Returns: An arbitrary value of type `T`
-        public func generate<T>() -> T where T: Arbitrary {
+        public func arbitrary<T>() -> T where T: Arbitrary {
             generate(T.arbitrary)
+        }
+
+        /// Generates an arbitrary value of type `T` where `T` conforms to `CaseIterable`
+        ///
+        /// - Returns: An arbitrary value of type `T`
+        public func ofCases<T>() -> T where T: CaseIterable {
+            generate(.ofCases())
         }
     }
 
@@ -32,9 +49,9 @@ public extension Gen {
     ///   - build: A callback which will produce the model of type `T`
     ///
     /// - Returns: A generator which produces values of type `T`
-    static func compose(build: @escaping (GenComposer) -> T) -> Gen<T> {
+    static func compose(build: @escaping (Composer) -> T) -> Gen<T> {
         Gen { ctx in
-            build(GenComposer(context: ctx))
+            build(Composer(context: ctx))
         }
     }
 }
