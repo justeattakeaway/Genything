@@ -3,17 +3,23 @@ import Foundation
 // MARK: Build
 
 public extension Gen {
-    /// Returns: A generator which produces values from the provided sequence (in order) or `nil` if the sequence becomes exhausted
+    /// Returns: A generator which produces values from the provided collection (in order) or `nil` if the collection becomes exhausted
     ///
     /// - Parameters:
-    ///    - sequence: Sequence of values which will be produced in order
+    ///    - collection: Collection of values which will be produced in order
     ///
     /// - Returns: The generator
-    static func iterate<S: Sequence>(_ sequence: S) -> Gen<T?> where S.Element == T {
-        var iterator = sequence.makeIterator()
-
+    static func iterate<C: Collection>(_ collection: C) -> Gen<T?> where C.Element == T {
+        var i = collection.startIndex
         return Gen<T?> { _ in
-            iterator.next()
+            if i < collection.endIndex {
+                defer {
+                    collection.formIndex(after: &i)
+                }
+                return collection[i]
+            } else {
+                return nil
+            }
         }
     }
 }

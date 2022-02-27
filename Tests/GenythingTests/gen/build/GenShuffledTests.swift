@@ -20,4 +20,20 @@ final internal class GenShuffledTests: XCTestCase {
             XCTAssertEqual(shuffledViaGenerator, source.shuffled(using: &collectionsLCRNG))
         }
     }
+
+    func test_shuffledDistribution() {
+        let d6shuffle = Gen<Int>.shuffledDistribution(Array(1...6))
+
+        var history = [Int]()
+
+        d6shuffle.forEach {
+            if history.count >= 6 {
+                history.removeAll()
+            }
+
+            XCTAssertFalse(history.contains($0))
+
+            history.append($0)
+        }
+    }
 }
