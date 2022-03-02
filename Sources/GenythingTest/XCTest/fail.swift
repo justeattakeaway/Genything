@@ -3,11 +3,7 @@ import XCTest
 import Genything
 
 private func rerunInfo(_ context: Context) -> String {
-    if let seed = context.originalSeed {
-        return "Re-run test with seed `\(seed)`."
-    } else {
-        return ""
-    }
+    "Re-run test with seed `\(context.originalSeed)`."
 }
 
 func fail(_ message: String,
