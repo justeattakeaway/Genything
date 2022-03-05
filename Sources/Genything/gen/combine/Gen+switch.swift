@@ -35,4 +35,18 @@ extension Gen {
     ) -> Gen<R> where T == R? {
         switchTo(next()) { $0 == nil }.map { $0! }
     }
+
+    /// Returns: A generator of unwrapped values which switches to the `next` generator whenever `nil` is produced
+    ///
+    /// - Parameters:
+    ///    - next: Factory which produces the next generator
+    ///
+    /// - Returns: The generator
+    func switchUnwrap<R>(
+        _ next: @escaping @autoclosure () -> Gen<R>
+    ) -> Gen<R> where T == R? {
+        switchTo(
+            next().map { value -> R? in value }
+        ) { $0 == nil }.map { $0! }
+    }
 }
