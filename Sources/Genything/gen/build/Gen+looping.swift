@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: Build
 
-public extension Gen where T: Comparable {
+public extension Gen {
     /// Returns: A generator which produces values from the collection in sequential order.
     /// If the collection is exhausted it will be restarted.
     ///
