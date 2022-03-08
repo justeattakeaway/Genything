@@ -1,3 +1,4 @@
+// Note: No specific dependency on XCTest and _could_ be moved to the main library
 import Foundation
 import Genything
 

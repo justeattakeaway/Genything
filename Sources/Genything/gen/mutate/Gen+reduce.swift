@@ -14,6 +14,6 @@ public extension Gen {
     static func reduce<R>(_ generators: [Gen<T>],
                           _ initialResult: R,
                           _ nextPartialResult: @escaping (R, T) throws -> R) rethrows -> Gen<R> {
-        try collect(generators).map { try $0.reduce(initialResult, nextPartialResult) }
+        collect(generators).map { try $0.reduce(initialResult, nextPartialResult) }
     }
 }
