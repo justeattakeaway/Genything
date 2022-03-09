@@ -9,16 +9,16 @@ class Gen_UniqueTests: XCTestCase {
     }
 
     func test_uniquing_where_it_is_possible() {
-        let digitGenerator = Gen.from(0...9).unique()
+        let digitGenerator = Gen.from(0...9)
 
         XCTAssertEqual(
             [0,1,2,3,4,5,6,7,8,9],
-            digitGenerator.take(10).sorted()
+            digitGenerator.unique().take(10).sorted()
         )
 
         XCTAssertEqual(
             [0,1,2,3,4,5,6,7,8,9],
-            digitGenerator.take(10).sorted()
+            digitGenerator.unique().take(10).sorted()
         )
     }
 

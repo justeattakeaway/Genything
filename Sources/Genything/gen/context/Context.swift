@@ -12,10 +12,10 @@ public class Context {
     /// A type-erased random number generator conformed to `RandomNumberGenerator`
     internal var rng: AnyRandomNumberGenerator
 
-    /// The original seed used to begin random number generation, if available
+    /// The original seed used to begin random number generation
     ///
     /// To be used for debugging purposes and to "replay" a generation event
-    public let originalSeed: UInt64?
+    public let originalSeed: UInt64
 
     // MARK: Mutate
 
@@ -47,20 +47,12 @@ public class Context {
     ///
     /// - Parameters:
     ///   - rng: The Random Number Generator to be used to produce values
-    ///   - originalSeed: The original seed (start position) of `rng`, if possible
+    ///   - originalSeed: The original seed (start position) of `rng`
     ///
-    public init(using rng: RandomNumberGenerator, originalSeed: UInt64? = nil) {
+    public init(using rng: RandomNumberGenerator, originalSeed: UInt64) {
         self.rng = AnyRandomNumberGenerator(rng: rng)
         self.originalSeed = originalSeed
     }
-
-    /// A service locator and cache capable of storing services for the lifetime of the context
-    ///
-    /// Gives the `Context` and it's Generators their super-powers!
-    ///
-    /// - SeeAlso: `Gen.unique`
-    /// - SeeAlso: `Gen.exhaust`
-    internal let services: ContextServiceLocator = ContextServiceLocator()
 }
 
 // MARK: Convenience Context creators

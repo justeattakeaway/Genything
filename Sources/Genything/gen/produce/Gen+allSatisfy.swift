@@ -3,14 +3,14 @@ import Foundation
 // MARK: Produce
 
 public extension SafeGen {
-    /// Returns: A Boolean value indicating whether every element of a sequence satisfies a given predicate
+    /// Returns: A Boolean value indicating whether every element of a collection satisfies a given predicate
     ///
     /// Will run n times, where n is the provided `iterations` or the context's value
     ///
     /// - Parameters:
-    ///   - iterations: The amount of times the sequence should iterate, default's to the context's `maxIterations` value
+    ///   - iterations: The amount of times the collection should iterate, default's to the context's `maxIterations` value
     ///   - context: The context to be used for generation
-    ///   - predicate: A closure that takes an element of the sequence as its argument and returns a Boolean value that indicates whether the passed element satisfies a condition.
+    ///   - predicate: A closure that takes an element of the collection as its argument and returns a Boolean value that indicates whether the passed element satisfies a condition.
     ///
     /// - Returns: The Boolean result
     func allSatisfy(iterations: Int? = nil,
@@ -30,14 +30,14 @@ public extension SafeGen {
 }
 
 public extension Gen {
-    /// Returns: A Boolean value indicating whether every element of a sequence satisfies a given predicate
+    /// Returns: A Boolean value indicating whether every element of a collection satisfies a given predicate
     ///
     /// Will run n times, where n is the provided `iterations` or the context's value
     ///
     /// - Parameters:
-    ///   - iterations: The amount of times the sequence should iterate, default's to the context's `maxIterations` value
+    ///   - iterations: The amount of times the collection should iterate, default's to the context's `maxIterations` value
     ///   - context: The context to be used for generation
-    ///   - predicate: A closure that takes an element of the sequence as its argument and returns a Boolean value that indicates whether the passed element satisfies a condition.
+    ///   - predicate: A closure that takes an element of the collection as its argument and returns a Boolean value that indicates whether the passed element satisfies a condition.
     ///
     /// - Returns: The Boolean result
     func allSatisfy(iterations: Int? = nil,

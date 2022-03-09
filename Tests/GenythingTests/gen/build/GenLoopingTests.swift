@@ -26,8 +26,17 @@ final internal class GenLoopingTests: XCTestCase {
                         expected += 1
                     }
                 }
-                print($0)
                 return expected == $0
+            }
+    }
+
+    func test_that_i_can_loop_a_list() {
+        var expected = false
+        Gen
+            .looping([false, true])
+            .assertForAll {
+                defer { expected = !expected }
+                return $0 == expected
             }
     }
 }

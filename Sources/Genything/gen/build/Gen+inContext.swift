@@ -9,8 +9,12 @@ internal extension Gen {
     ///
     /// - Returns: The generator
     static func inContext(_ factory: @escaping (Context) throws -> Gen<T>) -> Gen<T> {
-        self.init { ctx in
-            try factory(ctx).generate(context: ctx)
+        var generator: Gen<T>!
+        return Gen { ctx in
+            if generator == nil {
+                generator = try factory(ctx)
+            }
+            return generator.generate(context: ctx)
         }
     }
 }

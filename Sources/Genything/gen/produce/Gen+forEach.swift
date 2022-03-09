@@ -3,7 +3,7 @@ import Foundation
 // MARK: Produce
 
 public extension SafeGen {
-    /// Iterates (lazily) over a sequence and executes a given predicate `body`
+    /// Iterates (lazily) over a sequence of generated values and executes a given predicate `body`
     ///
     /// Will run n times, where n is the provided `iterations` or the context's value
     ///
@@ -22,7 +22,7 @@ public extension SafeGen {
 }
 
 public extension Gen {
-    /// Iterates (lazily) over a sequence and executes a given predicate `body`
+    /// Iterates (lazily) over a sequence of generated values and executes a given predicate `body`
     ///
     /// Will run n times, where n is the provided `iterations` or the context's value
     ///

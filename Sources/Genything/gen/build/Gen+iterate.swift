@@ -3,10 +3,10 @@ import Foundation
 // MARK: Build
 
 public extension Gen {
-    /// Returns: A generator which produces values from the provided sequence (in order) or `nil` if the sequence becomes exhausted
+    /// Returns: A generator which produces elements by iterating over the provided sequence
     ///
     /// - Parameters:
-    ///    - sequence: Sequence of values which will be produced in order
+    ///    - sequence: Sequence which will be iterated over to produce elements
     ///
     /// - Returns: The generator
     static func iterate<S: Sequence>(_ sequence: S) -> Gen<T?> where S.Element == T {
