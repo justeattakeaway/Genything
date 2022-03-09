@@ -10,8 +10,8 @@ import XCTest
 final internal class PizzaArbitraryTests: XCTestCase {
     func test_usingFixtures_withNoToppings_itIsACheesePizza() {
         let pizzaGen = Gen.compose {
-            Pizza(name: $0.generate(),
-                  size: $0.generate(),
+            Pizza(name: $0.arbitrary(),
+                  size: $0.arbitrary(),
                   toppings: []) // No toppings => Cheese pizza!
         }
 
@@ -43,14 +43,14 @@ final internal class PizzaArbitraryTests: XCTestCase {
 
         let pepperoniPizzaGen = Gen.compose {
             Pizza(name: pepperoni,
-                  size: $0.generate(),
+                  size: $0.arbitrary(),
                   toppings: [pepperoni].map { Pizza.Topping(name: $0) })
         }
 
         let hawaiian = "Hawaiian"
         let hawaiianPizzaGen = Gen.compose {
             Pizza(name: hawaiian,
-                  size: $0.generate(),
+                  size: $0.arbitrary(),
                   toppings: ["ham", "pineapple"].map { Pizza.Topping(name: $0) })
         }
 

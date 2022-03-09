@@ -4,9 +4,9 @@ extension Pizza: Arbitrary {
     public static var arbitrary: Gen<Pizza> {
         Gen.compose {
             Pizza(
-                name: $0.generate(),
-                size: $0.generate(),
-                toppings: $0.generate()
+                name: $0.arbitrary(),
+                size: $0.arbitrary(),
+                toppings: $0.arbitrary()
             )
         }
     }

@@ -13,7 +13,7 @@ extension CGVector: Arbitrary {
     /// A generator of `CGVector`s
     public static var arbitrary: Gen<CGVector> {
         Gen.compose {
-            let cgFloatGen: () -> CGFloat = $0.generate
+            let cgFloatGen: () -> CGFloat = $0.arbitrary
             return CGVector(dx: cgFloatGen(), dy: cgFloatGen())
         }
     }
