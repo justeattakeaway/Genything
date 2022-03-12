@@ -19,8 +19,7 @@ public extension Gen {
     /// - Returns: The generator
     func withEdgeCases(_ edgeCases: Gen<T>) -> Gen<T> {
         Gen<T> { ctx in
-            self
-                .or(edgeCases, otherProbability: ctx.edgeCaseProbability)
+            or(edgeCases, otherProbability: ctx.edgeCaseProbability)
                 .generate(context: ctx)
         }
     }
