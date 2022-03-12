@@ -6,7 +6,7 @@ final internal class GenInfiniteSequenceTests: XCTestCase {
         // given a generator of any Integer
         let gen = Int.arbitrary
         // when I turn it into an infinite sequence
-        let sequence = gen.infiniteSequence()
+        var sequence = gen.infiniteSequence()
         // then it generates lots of values
         for _ in 0...1000 {
             XCTAssertNotNil(sequence.next())
