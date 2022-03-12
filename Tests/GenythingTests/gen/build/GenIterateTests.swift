@@ -4,8 +4,9 @@ import XCTest
 final internal class GenIterateTests: XCTestCase {
     func test_the_sequence_generates_expected_values() {
         var expected = 0
-        Gen
+        StatefulGen
             .iterate(0...Int.max)
+            .start()
             .assertForAll {
                 defer {
                     expected += 1
@@ -18,8 +19,9 @@ final internal class GenIterateTests: XCTestCase {
     func test_exhausted_sequence_generates_nil() {
         let countNonNil = 10
         var i = 0
-        Gen
+        StatefulGen
             .iterate(0..<10)
+            .start()
             .assertForAll {
                 defer {
                     i += 1
@@ -32,8 +34,9 @@ final internal class GenIterateTests: XCTestCase {
     }
 
     func test_empty_sequence_generates_nil() {
-        Gen
+        StatefulGen
             .iterate([])
+            .start()
             .assertForAll {
                 $0 == nil
             }

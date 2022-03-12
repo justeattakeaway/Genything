@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: Build
 
-public extension Gen {
+public extension StatefulGen {
     /// Returns: A generator which produces values from the collection in sequential order.
     /// If the collection is exhausted it will be restarted.
     ///
@@ -15,12 +15,12 @@ public extension Gen {
     /// - Returns: The generator
     static func looping<S: Sequence>(
         _ sequence: S
-    ) -> Gen<T> where S.Element == T {
+    ) -> StatefulGen<T> where S.Element == T {
         iterate(sequence).switchUnwrap(iterate(sequence))
     }
 }
 
-extension Gen {
+extension StatefulGen {
     /// Returns: A generator which loops a Generator of optional elements. Calling again to refresh the generator when nil is produced.
     ///
     /// - Warning: Can lead to infinite loops. Internal.
@@ -30,8 +30,8 @@ extension Gen {
     ///
     /// - Returns: The generator
     static func looping<R>(
-        _ refresh: @escaping @autoclosure () -> Gen<R?>
-    ) -> Gen<R> where T == R? {
+        _ refresh: @escaping @autoclosure () -> StatefulGen<R?>
+    ) -> StatefulGen<R> where T == R? {
         refresh().switchTo(refresh()) { $0 == nil }.map { $0! }
     }
 }

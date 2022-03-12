@@ -9,6 +9,7 @@ public extension Gen {
     /// - Parameter edgeCases: An array of edgecases
     /// - Returns: The generator
     func withEdgeCases(_ edgeCases: [T]) -> Gen<T> {
+        // TODO: Do something else here... inContext is stateful
         Gen<T>.inContext { ctx in
             or(Gen.of(edgeCases), otherProbability: ctx.edgeCaseProbability)
         }

@@ -22,7 +22,7 @@ final internal class GenShuffledTests: XCTestCase {
     }
 
     func test_shuffledDistribution() {
-        let d6shuffle = Gen<Int>.shuffledDistribution(Array(1...6))
+        let d6shuffle = StatefulGen<Int>.shuffledDistribution(Array(1...6)).start()
 
         var history = [Int]()
 
@@ -51,15 +51,15 @@ final internal class GenShuffledTests: XCTestCase {
             var rank: Rank
         }
 
-        let cardGen = Gen<Card>.shuffledDistribution(
+        let cardGen = StatefulGen<Card>.shuffledDistribution(
             Rank.allCases.map { rank in Suit.allCases.map { suit in Card(suit: suit, rank: rank) }}
                 .flatMap { $0 }
         )
 
         // All cards of the deck are drawn, and they are all unique
-        XCTAssertEqual(52, Set<Card>(cardGen.take(52)).count)
+        XCTAssertEqual(52, Set<Card>(cardGen.start().take(52)).count)
 
         // Drawing more from the deck takes from a newly shuffled pile and will repeat values
-        XCTAssertEqual(52, Set<Card>(cardGen.take(53)).count)
+        XCTAssertEqual(52, Set<Card>(cardGen.start().take(53)).count)
     }
 }

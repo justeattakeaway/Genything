@@ -4,8 +4,9 @@ import XCTest
 final internal class GenLoopingTests: XCTestCase {
     func test_a_long_sequence_never_loops_but_generates_expected_values() {
         var expected = 0
-        Gen
+        StatefulGen
             .looping(0...Int.max)
+            .start()
             .assertForAll(iterations: 1000) {
                 defer {
                     expected += 1
@@ -16,8 +17,9 @@ final internal class GenLoopingTests: XCTestCase {
 
     func test_a_short_sequence_loops_with_expected_values() {
         var expected = 0
-        Gen
+        StatefulGen
             .looping(0...10)
+            .start()
             .assertForAll(iterations: 1000) {
                 defer {
                     if expected == 10 {
@@ -32,8 +34,9 @@ final internal class GenLoopingTests: XCTestCase {
 
     func test_that_i_can_loop_a_list() {
         var expected = false
-        Gen
+        StatefulGen
             .looping([false, true])
+            .start()
             .assertForAll {
                 defer { expected = !expected }
                 return $0 == expected

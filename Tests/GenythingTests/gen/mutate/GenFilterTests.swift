@@ -27,7 +27,8 @@ class Gen_FilterTests: XCTestCase {
             value == 0
         }
 
-        Gen.looping([0, 1])
+        StatefulGen.looping([0, 1])
+            .start()
             .filter { check($0) }
             .assertForAll {
                 check($0)
