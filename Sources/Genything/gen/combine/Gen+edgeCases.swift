@@ -9,10 +9,7 @@ public extension Gen {
     /// - Parameter edgeCases: An array of edgecases
     /// - Returns: The generator
     func withEdgeCases(_ edgeCases: [T]) -> Gen<T> {
-        // TODO: Do something else here... inContext is stateful
-        Gen<T>.inContext { ctx in
-            or(Gen.of(edgeCases), otherProbability: ctx.edgeCaseProbability)
-        }
+        withEdgeCases(Gen.of(edgeCases))
     }
 
     /// Returns: A generator which randomly selects values from either the receiver or the edge cases
@@ -21,8 +18,10 @@ public extension Gen {
     /// - Parameter edgeCases: Another generator which may get selected to produce values
     /// - Returns: The generator
     func withEdgeCases(_ edgeCases: Gen<T>) -> Gen<T> {
-        Gen<T>.inContext { ctx in
-            or(edgeCases, otherProbability: ctx.edgeCaseProbability)
+        Gen<T> { ctx in
+            self
+                .or(edgeCases, otherProbability: ctx.edgeCaseProbability)
+                .generate(context: ctx)
         }
     }
 }

@@ -32,4 +32,30 @@ final internal class GenWithEdgeCasesTests: XCTestCase {
                 .filter { $0 == edgecaseValue }.isEmpty
         )
     }
+
+    func test_edgeCases_changing_contexts() {
+        let mainCase = 0
+        let edgeCase = 1
+
+        let gen = Gen.of([mainCase])
+            .withEdgeCases([edgeCase])
+
+        let context1 = Context.default
+        context1.edgeCaseProbability = 0.0
+
+        let value1 = gen.generate(context: context1)
+        XCTAssertEqual(value1, mainCase)
+
+        let context2 = Context.default
+        context2.edgeCaseProbability = 1.0
+
+        let value2 = gen.generate(context: context2)
+        XCTAssertEqual(value2, edgeCase)
+
+        let context3 = Context.default
+        context3.edgeCaseProbability = 0.0
+
+        let value3 = gen.generate(context: context3)
+        XCTAssertEqual(value3, mainCase)
+    }
 }
