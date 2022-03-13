@@ -4,7 +4,9 @@ public struct StatefulGen<T> {
     public init(_ builder: @escaping () -> Gen<T>) {
         self.builder = builder
     }
+}
 
+extension StatefulGen: Generatable {
     public func start() -> Gen<T> {
         builder()
     }

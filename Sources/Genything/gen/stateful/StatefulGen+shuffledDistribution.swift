@@ -1,3 +1,5 @@
+// MARK: Build
+
 public extension StatefulGen {
     /// Returns: A generator which produces results by shuffling the provided list and drawing values until empty, then reshuffles
     ///

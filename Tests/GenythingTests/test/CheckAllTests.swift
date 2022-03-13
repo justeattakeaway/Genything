@@ -140,7 +140,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_fails_when_it_should() {
         XCTExpectFailure()
-        checkAll(.from(1...100)) { a in
+        checkAll(Gen.from(1...100)) { a in
             XCTAssert(a < 1)
         }
     }

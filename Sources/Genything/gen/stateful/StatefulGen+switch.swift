@@ -1,3 +1,5 @@
+// MARK: Combine
+
 extension StatefulGen {
     /// Returns: A generator which switches to the `other` generatable when the `when` predicate returns true
     ///

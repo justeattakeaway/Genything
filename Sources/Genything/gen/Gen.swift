@@ -16,6 +16,12 @@ public struct Gen<T> {
     }
 }
 
+// MARK: Generatable
+
+extension Gen: Generatable {
+    public func start() -> Gen<T> { self }
+}
+
 // MARK: Generation
 
 public extension Gen {

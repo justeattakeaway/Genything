@@ -62,15 +62,16 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T>(_ gen1: Gen<T>,
+    func checkAll<T, G1: Generatable>(_ gen1: G1,
                      context: Context = .default,
                      file: StaticString = #filePath,
                      line: UInt = #line,
-                     _ body: (T) throws -> Void) {
+                    _ body: (T) throws -> Void) where G1.T == T {
         setupCheck(context)
 
         do {
             try gen1
+                .start()
                 .safe
                 .forEach(context: context, body)
         } catch {
@@ -92,14 +93,18 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T1, T2>(_ gen1: Gen<T1>,
-                          _ gen2: Gen<T2>,
-                          context: Context = .default,
-                          file: StaticString = #filePath,
-                          line: UInt = #line,
-                          _ body: (T1, T2) throws -> Void) {
+    func checkAll<T1, T2, G1: Generatable, G2: Generatable>(
+        _ gen1: G1,
+        _ gen2: G2,
+        context: Context = .default,
+        file: StaticString = #filePath,
+        line: UInt = #line,
+        _ body: (T1, T2) throws -> Void
+    ) where G1.T == T1,
+            G2.T == T2
+    {
         checkAll(
-            Gen.zip(gen1, gen2),
+            Gen<(T1, T2)>.zip(gen1.start(), gen2.start()),
             context: context,
             file: file,
             line: line,
@@ -122,15 +127,24 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T1, T2, T3>(_ gen1: Gen<T1>,
-                              _ gen2: Gen<T2>,
-                              _ gen3: Gen<T3>,
-                              context: Context = .default,
-                              file: StaticString = #filePath,
-                              line: UInt = #line,
-                              _ body: (T1, T2, T3) throws -> Void) rethrows {
+    func checkAll<
+        T1, G1: Generatable,
+        T2, G2: Generatable,
+        T3, G3: Generatable
+    >(
+        _ gen1: G1,
+        _ gen2: G2,
+        _ gen3: G3,
+        context: Context = .default,
+        file: StaticString = #filePath,
+        line: UInt = #line,
+        _ body: (T1, T2, T3) throws -> Void
+    ) where G1.T == T1,
+            G2.T == T2,
+            G3.T == T3
+    {
         checkAll(
-            Gen.zip(gen1, gen2, gen3),
+            Gen.zip(gen1.start(), gen2.start(), gen3.start()),
             context: context,
             file: file,
             line: line,
@@ -154,16 +168,27 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T1, T2, T3, T4>(_ gen1: Gen<T1>,
-                                  _ gen2: Gen<T2>,
-                                  _ gen3: Gen<T3>,
-                                  _ gen4: Gen<T4>,
-                                  context: Context = .default,
-                                  file: StaticString = #filePath,
-                                  line: UInt = #line,
-                                  _ body: (T1, T2, T3, T4) throws -> Void) rethrows {
+    func checkAll<
+        T1, G1: Generatable,
+        T2, G2: Generatable,
+        T3, G3: Generatable,
+        T4, G4: Generatable
+    >(
+        _ gen1: G1,
+        _ gen2: G2,
+        _ gen3: G3,
+        _ gen4: G4,
+        context: Context = .default,
+        file: StaticString = #filePath,
+        line: UInt = #line,
+        _ body: (T1, T2, T3, T4) throws -> Void
+    ) where G1.T == T1,
+            G2.T == T2,
+            G3.T == T3,
+            G4.T == T4
+    {
         checkAll(
-            Gen.zip(gen1, gen2, gen3, gen4),
+            Gen.zip(gen1.start(), gen2.start(), gen3.start(), gen4.start()),
             context: context,
             file: file,
             line: line,
@@ -188,19 +213,36 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T1, T2, T3, T4, T5>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
+    func checkAll<
+        T1, G1: Generatable,
+        T2, G2: Generatable,
+        T3, G3: Generatable,
+        T4, G4: Generatable,
+        T5, G5: Generatable
+    >(
+        _ gen1: G1,
+        _ gen2: G2,
+        _ gen3: G3,
+        _ gen4: G4,
+        _ gen5: G5,
         context: Context = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (T1, T2, T3, T4, T5) throws -> Void
-    ) rethrows {
+    ) where G1.T == T1,
+            G2.T == T2,
+            G3.T == T3,
+            G4.T == T4,
+            G5.T == T5
+    {
         checkAll(
-            Gen.zip(gen1, gen2, gen3, gen4, gen5),
+            Gen.zip(
+                gen1.start(),
+                gen2.start(),
+                gen3.start(),
+                gen4.start(),
+                gen5.start()
+            ),
             context: context,
             file: file,
             line: line,
@@ -228,20 +270,40 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T1, T2, T3, T4, T5, T6>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
+    func checkAll<
+        T1, G1: Generatable,
+        T2, G2: Generatable,
+        T3, G3: Generatable,
+        T4, G4: Generatable,
+        T5, G5: Generatable,
+        T6, G6: Generatable
+    >(
+        _ gen1: G1,
+        _ gen2: G2,
+        _ gen3: G3,
+        _ gen4: G4,
+        _ gen5: G5,
+        _ gen6: G6,
         context: Context = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (T1, T2, T3, T4, T5, T6) throws -> Void
-    ) rethrows {
+    ) where G1.T == T1,
+            G2.T == T2,
+            G3.T == T3,
+            G4.T == T4,
+            G5.T == T5,
+            G6.T == T6
+    {
         checkAll(
-            Gen.zip(gen1, gen2, gen3, gen4, gen5, gen6),
+            Gen.zip(
+                gen1.start(),
+                gen2.start(),
+                gen3.start(),
+                gen4.start(),
+                gen5.start(),
+                gen6.start()
+            ),
             context: context,
             file: file,
             line: line,
@@ -271,21 +333,44 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T1, T2, T3, T4, T5, T6, T7>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>,
+    func checkAll<
+        T1, G1: Generatable,
+        T2, G2: Generatable,
+        T3, G3: Generatable,
+        T4, G4: Generatable,
+        T5, G5: Generatable,
+        T6, G6: Generatable,
+        T7, G7: Generatable
+    >(
+        _ gen1: G1,
+        _ gen2: G2,
+        _ gen3: G3,
+        _ gen4: G4,
+        _ gen5: G5,
+        _ gen6: G6,
+        _ gen7: G7,
         context: Context = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (T1, T2, T3, T4, T5, T6, T7) throws -> Void
-    ) rethrows {
+    ) where G1.T == T1,
+            G2.T == T2,
+            G3.T == T3,
+            G4.T == T4,
+            G5.T == T5,
+            G6.T == T6,
+            G7.T == T7
+    {
         checkAll(
-            Gen.zip(gen1, gen2, gen3, gen4, gen5, gen6, gen7),
+            Gen.zip(
+                gen1.start(),
+                gen2.start(),
+                gen3.start(),
+                gen4.start(),
+                gen5.start(),
+                gen6.start(),
+                gen7.start()
+            ),
             context: context,
             file: file,
             line: line,
@@ -315,22 +400,48 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T1, T2, T3, T4, T5, T6, T7, T8>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>,
-        _ gen8: Gen<T8>,
+    func checkAll<
+        T1, G1: Generatable,
+        T2, G2: Generatable,
+        T3, G3: Generatable,
+        T4, G4: Generatable,
+        T5, G5: Generatable,
+        T6, G6: Generatable,
+        T7, G7: Generatable,
+        T8, G8: Generatable
+    >(
+        _ gen1: G1,
+        _ gen2: G2,
+        _ gen3: G3,
+        _ gen4: G4,
+        _ gen5: G5,
+        _ gen6: G6,
+        _ gen7: G7,
+        _ gen8: G8,
         context: Context = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (T1, T2, T3, T4, T5, T6, T7, T8) throws -> Void
-    ) rethrows {
+    ) where G1.T == T1,
+            G2.T == T2,
+            G3.T == T3,
+            G4.T == T4,
+            G5.T == T5,
+            G6.T == T6,
+            G7.T == T7,
+            G8.T == T8
+    {
         checkAll(
-            Gen.zip(gen1, gen2, gen3, gen4, gen5, gen6, gen7, gen8),
+            Gen.zip(
+                gen1.start(),
+                gen2.start(),
+                gen3.start(),
+                gen4.start(),
+                gen5.start(),
+                gen6.start(),
+                gen7.start(),
+                gen8.start()
+            ),
             context: context,
             file: file,
             line: line,
@@ -361,23 +472,52 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T1, T2, T3, T4, T5, T6, T7, T8, T9>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>,
-        _ gen8: Gen<T8>,
-        _ gen9: Gen<T9>,
+    func checkAll<
+        T1, G1: Generatable,
+        T2, G2: Generatable,
+        T3, G3: Generatable,
+        T4, G4: Generatable,
+        T5, G5: Generatable,
+        T6, G6: Generatable,
+        T7, G7: Generatable,
+        T8, G8: Generatable,
+        T9, G9: Generatable
+    >(
+        _ gen1: G1,
+        _ gen2: G2,
+        _ gen3: G3,
+        _ gen4: G4,
+        _ gen5: G5,
+        _ gen6: G6,
+        _ gen7: G7,
+        _ gen8: G8,
+        _ gen9: G9,
         context: Context = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (T1, T2, T3, T4, T5, T6, T7, T8, T9) throws -> Void
-    ) rethrows {
+    ) where G1.T == T1,
+            G2.T == T2,
+            G3.T == T3,
+            G4.T == T4,
+            G5.T == T5,
+            G6.T == T6,
+            G7.T == T7,
+            G8.T == T8,
+            G9.T == T9
+    {
         checkAll(
-            Gen.zip(gen1, gen2, gen3, gen4, gen5, gen6, gen7, gen8, gen9),
+            Gen.zip(
+                gen1.start(),
+                gen2.start(),
+                gen3.start(),
+                gen4.start(),
+                gen5.start(),
+                gen6.start(),
+                gen7.start(),
+                gen8.start(),
+                gen9.start()
+            ),
             context: context,
             file: file,
             line: line,
@@ -409,24 +549,56 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>,
-        _ gen8: Gen<T8>,
-        _ gen9: Gen<T9>,
-        _ gen10: Gen<T10>,
+    func checkAll<
+        T1, G1: Generatable,
+        T2, G2: Generatable,
+        T3, G3: Generatable,
+        T4, G4: Generatable,
+        T5, G5: Generatable,
+        T6, G6: Generatable,
+        T7, G7: Generatable,
+        T8, G8: Generatable,
+        T9, G9: Generatable,
+        T10, G10: Generatable
+    >(
+        _ gen1: G1,
+        _ gen2: G2,
+        _ gen3: G3,
+        _ gen4: G4,
+        _ gen5: G5,
+        _ gen6: G6,
+        _ gen7: G7,
+        _ gen8: G8,
+        _ gen9: G9,
+        _ gen10: G10,
         context: Context = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10) throws -> Void
-    ) rethrows {
+    ) where G1.T == T1,
+            G2.T == T2,
+            G3.T == T3,
+            G4.T == T4,
+            G5.T == T5,
+            G6.T == T6,
+            G7.T == T7,
+            G8.T == T8,
+            G9.T == T9,
+            G10.T == T10
+    {
         checkAll(
-            Gen.zip(gen1, gen2, gen3, gen4, gen5, gen6, gen7, gen8, gen9, gen10),
+            Gen.zip(
+                gen1.start(),
+                gen2.start(),
+                gen3.start(),
+                gen4.start(),
+                gen5.start(),
+                gen6.start(),
+                gen7.start(),
+                gen8.start(),
+                gen9.start(),
+                gen10.start()
+            ),
             context: context,
             file: file,
             line: line,

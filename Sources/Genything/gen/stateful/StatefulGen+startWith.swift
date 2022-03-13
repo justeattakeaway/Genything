@@ -1,4 +1,3 @@
-
 // MARK: Combine
 
 public extension StatefulGen {
