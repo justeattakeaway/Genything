@@ -16,7 +16,7 @@ public extension Gen {
     ///   - context: The context to be used for generation
     ///
     /// - Returns: The Sequence
-    func sequence(_ size: Int, context: Context = .default) -> FiniteSequence<T> {
+    func sequence(size: Int, context: Context = .default) -> FiniteSequence<T> {
         FiniteSequence(size: size) {
             generate(context: context)
         }
