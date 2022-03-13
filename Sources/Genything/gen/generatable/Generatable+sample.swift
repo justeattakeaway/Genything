@@ -25,7 +25,7 @@ public extension SafeGen {
     }
 }
 
-public extension Gen {
+public extension Generatable {
     /// Returns: Non-deterministic random samples of the generator's values
     ///
     /// - Warning: Recommended to be used **only** to evaluate or demonstrate the generator
@@ -35,7 +35,7 @@ public extension Gen {
     ///
     /// - Returns: An array of sample values
     func samples(count: Int = 20) -> [T] {
-        try! safe.samples(count: count)
+        try! start().safe.samples(count: count)
     }
 
     /// Returns: A single non-deterministic random sample of the generator's values
@@ -44,6 +44,6 @@ public extension Gen {
     ///
     /// - Returns: A sample value
     func sample() -> T {
-        try! safe.sample()
+        try! start().safe.sample()
     }
 }

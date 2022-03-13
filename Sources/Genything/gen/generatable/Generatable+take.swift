@@ -18,7 +18,7 @@ public extension SafeGen {
     }
 }
 
-public extension Gen {
+public extension Generatable {
     /// Returns: An array of values from the generator
     ///
     /// - Parameters:
@@ -28,6 +28,6 @@ public extension Gen {
     /// - Returns: An array of generated values
     func take(_ count: Int? = nil,
               context: Context = .default) -> [T] {
-        try! safe.take(count, context: context)
+        try! start().safe.take(count, context: context)
     }
 }

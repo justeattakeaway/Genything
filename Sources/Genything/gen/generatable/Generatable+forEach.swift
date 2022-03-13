@@ -21,7 +21,7 @@ public extension SafeGen {
     }
 }
 
-public extension Gen {
+public extension Generatable {
     /// Iterates (lazily) over a sequence of generated values and executes a given predicate `body`
     ///
     /// Will run n times, where n is the provided `iterations` or the context's value
@@ -32,6 +32,6 @@ public extension Gen {
     func forEach(iterations: Int? = nil,
                  context: Context = .default,
                  _ body: (T) throws -> Void) rethrows {
-        try! safe.forEach(iterations: iterations, context: context, body)
+        try! start().safe.forEach(iterations: iterations, context: context, body)
     }
 }

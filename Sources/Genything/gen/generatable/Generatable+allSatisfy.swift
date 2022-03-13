@@ -29,7 +29,7 @@ public extension SafeGen {
     }
 }
 
-public extension Gen {
+public extension Generatable {
     /// Returns: A Boolean value indicating whether every element of a collection satisfies a given predicate
     ///
     /// Will run n times, where n is the provided `iterations` or the context's value
@@ -43,6 +43,6 @@ public extension Gen {
     func allSatisfy(iterations: Int? = nil,
                     context: Context = .default,
                     _ predicate: (T) throws -> Bool) rethrows -> Bool {
-        try! safe.allSatisfy(iterations: iterations, context: context, predicate)
+        try! start().safe.allSatisfy(iterations: iterations, context: context, predicate)
     }
 }
