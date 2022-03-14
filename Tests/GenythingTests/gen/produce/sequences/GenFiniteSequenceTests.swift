@@ -7,7 +7,7 @@ final internal class GenFiniteSequenceTests: XCTestCase {
         let gen = Int.arbitrary
 
         // when I run a loop of size `100`
-        for _ in gen.sequence(size: 100) {
+        for _ in gen.asSequence(size: 100) {
             // no-op
         }
 
@@ -22,7 +22,7 @@ final internal class GenFiniteSequenceTests: XCTestCase {
         // and a counter
         var count = 0
         // when I run a loop and count
-        for _ in gen.sequence(size: expected) {
+        for _ in gen.asSequence(size: expected) {
             count += 1
         }
         // then count matches expectations
@@ -37,7 +37,7 @@ final internal class GenFiniteSequenceTests: XCTestCase {
         // and a counter
         var count = 0
         // when I run a loop and count
-        for _ in gen.sequence(size: 0) {
+        for _ in gen.asSequence(size: 0) {
             count += 1
         }
         // then count matches expectations

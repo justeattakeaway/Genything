@@ -11,7 +11,7 @@ extension Gen {
     ///   - context: The context to be used for generation
     ///
     /// - Returns: The Sequence
-    func infiniteSequence(context: Context = .default) -> InfiniteSequence<T> {
+    func asInfiniteSequence(context: Context = .default) -> InfiniteSequence<T> {
         InfiniteSequence {
             generate(context: context)
         }
