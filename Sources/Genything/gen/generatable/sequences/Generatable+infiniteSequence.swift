@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: Produce
 
-extension Gen {
+extension Generatable {
     /// Returns: An infinite sequence of this generator's values
     ///
     /// - Warning: The resulting sequence is infinite
@@ -12,8 +12,9 @@ extension Gen {
     ///
     /// - Returns: The Sequence
     func asInfiniteSequence(context: Context = .default) -> InfiniteSequence<T> {
-        InfiniteSequence {
-            generate(context: context)
+        let gen = start()
+        return InfiniteSequence {
+            gen.generate(context: context)
         }
     }
 }
