@@ -10,17 +10,18 @@ public extension Generatable {
     ///
     /// - Returns: A `Gen` generator of values of type `R`
     func map<R>(_ transform: @escaping (T) throws -> R) -> Generatables.Map<Self.T, R> {
-        Generatables.Map(source: start(), transform: transform)
+        Generatables.Map(startSource: start, transform: transform)
     }
 }
 
 extension Generatables {
     public struct Map<SourceType, OutputType>: Generatable {
-        let source: Gen<SourceType>
+        let startSource: () -> Gen<SourceType>
         let transform: (SourceType) throws -> OutputType
 
         public func start() -> Gen<OutputType> {
-            Gen<OutputType> { ctx -> OutputType in
+            let source = startSource()
+            return Gen<OutputType> { ctx -> OutputType in
                 try transform(source.generate(context: ctx))
             }
         }

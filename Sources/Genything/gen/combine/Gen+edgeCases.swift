@@ -8,7 +8,7 @@ public extension Gen {
     /// - Note: The probability is determined by `Context.edgeCaseProbability`
     /// - Parameter edgeCases: An array of edgecases
     /// - Returns: The generator
-    func withEdgeCases(_ edgeCases: [T]) -> Gen<T> {
+    func withEdgeCases(_ edgeCases: [T]) -> AnyGeneratable<T> {
         withEdgeCases(Gen.of(edgeCases))
     }
 
@@ -17,10 +17,12 @@ public extension Gen {
     /// - Note: The probability is determined by `Context.edgeCaseProbability`
     /// - Parameter edgeCases: Another generator which may get selected to produce values
     /// - Returns: The generator
-    func withEdgeCases(_ edgeCases: Gen<T>) -> Gen<T> {
+    func withEdgeCases<G: Generatable>(_ edgeCases: G) -> G where G.T == T {
         Gen<T> { ctx in
             or(edgeCases, otherProbability: ctx.edgeCaseProbability)
                 .generate(context: ctx)
-        }
+        }.eraseToAnyGeneratable()
     }
 }
+
+

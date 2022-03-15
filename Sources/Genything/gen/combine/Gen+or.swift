@@ -11,6 +11,6 @@ public extension Generatable {
     ///
     /// - Returns: The generator
     func or(_ other: Gen<T>, otherProbability: Double = 0.5) -> Generatables.Either<T> {
-        Generatables.Either(primarySource: start(), otherSource: other, probability: otherProbability)
+        Generatables.Either(primarySource: start, otherSource: other.start, probability: otherProbability)
     }
 }

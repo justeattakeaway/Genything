@@ -18,9 +18,9 @@ public extension Gen {
 
 extension Generatables {
     public struct Either<T>: Generatable {
-        internal init(primarySource: Gen<T>, otherSource: Gen<T>, probability: Double) {
-            self.primarySource = primarySource
-            self.otherSource = otherSource
+        internal init(startPrimary: () -> Gen<T>, startOther: () -> Gen<T>, probability: Double) {
+            self.startPrimary = primarySource
+            self.startOther = otherSource
             self.probability = probability
 
             assert(
@@ -29,8 +29,8 @@ extension Generatables {
             )
         }
 
-        let primarySource: Gen<T>
-        let otherSource: Gen<T>
+        let startPrimary: () -> Gen<T>
+        let startOther: () -> Gen<T>
         let probability: Double
         let probabilityRange: ClosedRange<Double> = 0.0...1.0
 

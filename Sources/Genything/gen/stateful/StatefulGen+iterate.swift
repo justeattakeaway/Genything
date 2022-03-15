@@ -18,3 +18,16 @@ public extension StatefulGen {
         }
     }
 }
+
+extension Generatables {
+    public struct Iterate<T, S: Sequence>: Generatable where S.Element == T {
+        let sequence: S
+
+        public func start() -> Gen<T?> {
+            var iterator = sequence.makeIterator()
+            return Gen { _ in
+                iterator.next()
+            }
+        }
+    }
+}
