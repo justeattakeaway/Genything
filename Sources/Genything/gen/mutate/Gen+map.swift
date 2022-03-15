@@ -10,7 +10,7 @@ public extension Generatable {
     ///
     /// - Returns: A `Gen` generator of values of type `R`
     func map<R>(_ transform: @escaping (T) throws -> R) -> Generatables.Map<Self.T, R> {
-        Generatables.Map(source: self.start(), transform: transform)
+        Generatables.Map(source: start(), transform: transform)
     }
 }
 

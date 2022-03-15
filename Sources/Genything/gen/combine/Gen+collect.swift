@@ -9,7 +9,7 @@ public extension Gen {
     ///    - generators: Generators to select values from in-order
     ///
     /// - Returns: The generator of Arrays containing values selected in order from the provided generators
-    static func collect(_ generators: [Gen<T>]) -> Gen<[T]> {
+    static func collect(_ generators: [Gen<T>]) -> AnyGeneratable<[T]> {
         collect(generators) { $0 }
     }
 
@@ -20,11 +20,11 @@ public extension Gen {
     ///    - transform: Transformation to be applied to each value
     ///
     /// - Returns: The generator of Arrays containing values selected in order from the provided generators
-    static func collect<R>(_ generators: [Gen<T>], _ transform: @escaping (T) -> R) -> Gen<[R]> {
+    static func collect<R>(_ generators: [Gen<T>], _ transform: @escaping (T) -> R) -> AnyGeneratable<[R]> {
         Gen<[R]> { ctx in
             generators.map {
                 $0.generate(context: ctx)
             }.map(transform)
-        }
+        }.eraseToAnyGeneratable()
     }
 }

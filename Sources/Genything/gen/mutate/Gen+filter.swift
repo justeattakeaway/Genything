@@ -14,37 +14,29 @@ public extension Gen {
     ///   - isIncluded: A function which returns true if the value should be included
     ///
     /// - Returns: A `Gen` generator.
-    func filter(_ isIncluded: @escaping (T) -> Bool) -> Gen<T> {
-        Gen<T> { ctx in
-            let value = (0...ctx.maxDepth).lazy.map { _ in
-                generate(context: ctx)
-            }.first {
-                isIncluded($0)
-            }
-
-            guard let value = value else {
-                throw GenError.maxDepthReached
-            }
-            return value
-        }
+    func filter(_ isIncluded: @escaping (T) -> Bool) -> Generatables.Filter<T> {
+        Generatables.Filter(source: self, isIncluded: isIncluded)
     }
+}
 
-    /// Returns: A generator that only produces values which pass the test `isIncluded`
-    ///
-    /// - Warning: If the filtered condition is rare enough this function will become infinitely complex and will run forever
-    /// e.g. `Int.arbitrary.filter { $0 == 999 }` has a `$1/Int.max$` probability of occuring and will be nearly infinite
-    ///
-    /// - Parameters:
-    ///   - isIncluded: A function which returns true if the value should be included
-    ///
-    /// - Returns: A `Gen` generator.
-    func filterForever(_ isIncluded: @escaping (T) -> Bool) -> Gen<T> {
-        Gen<T> { ctx in
-            while(true) {
-                let value = generate(context: ctx)
-                if isIncluded(value) {
-                    return value
+extension Generatables {
+    public struct Filter<T>: Generatable {
+        let source: Gen<T>
+        let isIncluded: (T) -> Bool
+
+        public func start() -> Gen<T> {
+            let sourceGen = source.start()
+            return Gen<T> { ctx in
+                let value = (0...ctx.maxDepth).lazy.map { _ in
+                    sourceGen.generate(context: ctx)
+                }.first {
+                    isIncluded($0)
                 }
+
+                guard let value = value else {
+                    throw GenError.maxDepthReached
+                }
+                return value
             }
         }
     }

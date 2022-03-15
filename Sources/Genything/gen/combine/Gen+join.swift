@@ -10,7 +10,7 @@ public extension Gen {
     ///    - separator: A string to insert between each of the elements in this collection. The default separator is an empty string
     ///
     /// - Returns: The generator
-    static func join(_ generators: [Gen<String>], separator: String = "") -> Gen<String> {
+    static func join(_ generators: [Gen<String>], separator: String = "") -> Generatables.Map<[String], String> {
         Gen<String>
             .collect(generators)
             .map { $0.joined(separator: separator) }

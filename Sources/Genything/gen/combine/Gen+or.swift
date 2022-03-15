@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: Combine
 
-public extension Gen {
+public extension Generatable {
     /// Returns: A generator which randomly selects values from either the receiver or the `other` generator
     ///
     /// - Parameters:
@@ -10,19 +10,7 @@ public extension Gen {
     ///    - otherProbability: The probability that the the right generator will be selected from
     ///
     /// - Returns: The generator
-    func or(_ other: Gen<T>, otherProbability: Double = 0.5) -> Gen<T> {
-        let probabilityRange = 0.0...1.0
-        assert(
-            probabilityRange.contains(otherProbability),
-            "A probability between 0.0 and 1.0 must be specified. Found: \(otherProbability)"
-        )
-
-        return Gen<Double>.from(probabilityRange).flatMap {
-            if $0 <= otherProbability {
-                return other
-            } else {
-                return self
-            }
-        }
+    func or(_ other: Gen<T>, otherProbability: Double = 0.5) -> Generatables.Either<T> {
+        Generatables.Either(primarySource: start(), otherSource: other, probability: otherProbability)
     }
 }

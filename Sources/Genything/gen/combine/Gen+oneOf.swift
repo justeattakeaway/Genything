@@ -9,7 +9,7 @@ public extension Gen {
     ///    - generators: The generators which can be selected from to produce a value
     ///
     /// - Returns: The generator
-    static func one(of generators: [Gen<T>]) -> Gen<T> {
+    static func one<T>(of generators: [Gen<T>]) -> AnyGeneratable<T> {
         assert(!generators.isEmpty, "List of generators cannot be empty")
 
         return Gen<Int>
@@ -17,5 +17,6 @@ public extension Gen {
             .flatMap {
                 generators[$0]
             }
+            .eraseToAnyGeneratable()
     }
 }

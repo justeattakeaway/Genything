@@ -13,7 +13,9 @@ public extension Gen {
     /// - Returns: A `Gen` generator producing the final accumulated value. If the collection has no elements, the result will be initialResult.
     static func reduce<R>(_ generators: [Gen<T>],
                           _ initialResult: R,
-                          _ nextPartialResult: @escaping (R, T) throws -> R) rethrows -> Gen<R> {
-        collect(generators).map { try $0.reduce(initialResult, nextPartialResult) }
+                          _ nextPartialResult: @escaping (R, T) throws -> R) rethrows -> AnyGeneratable<R> {
+        collect(generators)
+            .map { try $0.reduce(initialResult, nextPartialResult) }
+            .eraseToAnyGeneratable()
     }
 }

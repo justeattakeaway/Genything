@@ -10,11 +10,11 @@ public extension Gen {
     /// - Parameter values: The values which this generator will randomly select from
     ///
     /// - Returns: The generator
-    static func of(_ values: [T]) -> Gen<T> {
+    static func of(_ values: [T]) -> AnyGeneratable<T> {
         assert(!values.isEmpty, "`Gen.of(values:)` was invoked with an empty list of values")
 
         return Gen<T> {
             values.randomElement(using: &$0.rng)!
-        }
+        }.eraseToAnyGeneratable()
     }
 }
