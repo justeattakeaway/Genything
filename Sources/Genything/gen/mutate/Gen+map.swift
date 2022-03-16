@@ -15,13 +15,13 @@ public extension Generatable {
 }
 
 extension Generatables {
-    public struct Map<SourceType, OutputType>: Generatable {
+    public struct Map<SourceType, T>: Generatable {
         let startSource: () -> Gen<SourceType>
-        let transform: (SourceType) throws -> OutputType
+        let transform: (SourceType) throws -> T
 
-        public func start() -> Gen<OutputType> {
+        public func start() -> Gen<T> {
             let source = startSource()
-            return Gen<OutputType> { ctx -> OutputType in
+            return Gen { ctx in
                 try transform(source.generate(context: ctx))
             }
         }

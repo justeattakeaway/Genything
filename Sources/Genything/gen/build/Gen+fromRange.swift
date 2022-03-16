@@ -112,3 +112,11 @@ private extension ClosedRange {
         return min...max
     }
 }
+
+extension Range where Bound: RandomInRangeable {
+    var generatable: AnyGeneratable<Bound> {
+        Gen { ctx in
+            Bound.random(in: self, using: &ctx.rng)
+        }.eraseToAnyGeneratable()
+    }
+}

@@ -10,7 +10,7 @@ public extension Generatable {
     ///    - otherProbability: The probability that the the right generator will be selected from
     ///
     /// - Returns: The generator
-    func or(_ other: Gen<T>, otherProbability: Double = 0.5) -> Generatables.Either<T> {
+    func or<B>(_ other: B, otherProbability: Double = 0.5) -> Generatables.Either<Self, B> where B: Generatable {
         Generatables.Either(startPrimary: start, startOther: other.start, probability: otherProbability)
     }
 }

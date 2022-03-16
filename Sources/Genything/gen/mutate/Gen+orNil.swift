@@ -9,8 +9,8 @@ public extension Generatable {
     ///   - nilProbability: The probability that the optional will be `nil`
     ///
     /// - Returns: A `Gen` generator
-    func orNil(nilProbability: Double = 0.5) -> Generatables.Either<T?> {
-        Gen<T?>.either(left: map { a -> T? in a },
+    func orNil(nilProbability: Double = 0.5) -> Generatables.Either<Self, T?> {
+        Generatables<T?>.either(left: map { a -> T? in a },
                        right: Gen<T?>.constant(nil),
                        rightProbability: nilProbability)
     }

@@ -1,16 +1,14 @@
 // MARK: Combine - Zip
 
-public extension Gen {
+public extension Generatable {
     /// Returns: A generator by zipping together the values produced by the receiver and `other`
     ///
     /// - Parameters:
     ///    - other: Another generator to zip with
     ///
     /// - Returns: A generator of Tuples
-    func zip<R>(with other: Gen<R>) -> Gen<(T, R)> {
-        Gen<(T, R)> { ctx in
-            (self.generate(context: ctx), other.generate(context: ctx))
-        }
+    func zip<A>(with other: A) -> Generatables.Zip<Self, A> where A: Generatable {
+        Generatables.Zip(self, other)
     }
 
     /// Returns: A generator by zipping together the values produced by the receiver and `other`
@@ -20,12 +18,11 @@ public extension Gen {
     ///    - transform: Transforms the values produced by the resulting zipped generator
     ///
     /// - Returns: A generator of Tuples
-    func zip<U, R>(with other: Gen<U>, transform: @escaping (T, U) -> R) -> Gen<R> {
-        self.zip(with: other).map({ t in transform(t.0, t.1) })
+    func zip<A, R>(with other: A, transform: @escaping (T, A.T) -> R) -> Generatables.Map<(Self.T, A.T), R>
+    where A: Generatable {
+        self.zip(with: other).map(transform)
     }
-}
 
-public extension Gen {
     /// Returns: A generator by zipping together the values produced by the supplied generators
     ///
     /// - Parameters:
@@ -33,16 +30,53 @@ public extension Gen {
     ///    - gen2: Second generator
     ///
     /// - Returns: A generator of Tuples
-    static func zip<T1, T2>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>
-    ) -> Gen<(T1, T2)> where T == (T1, T2) {
-        Gen.compose {
-            (
-                $0.generate(gen1),
-                $0.generate(gen2)
-            )
-        }
+    static func zip<A, B>(
+        _ a: A,
+        _ b: B
+    ) -> Generatables.Zip<A, B> where A: Generatable, B: Generatable {
+        Generatables.Zip(a, b)
+    }
+
+    /// Returns: A generator by zipping together the values produced by the supplied generators
+    ///
+    /// - Parameters:
+    ///    - a: First generatable
+    ///    - b: Second generatable
+    ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
+    ///
+    /// - Returns: A generatable of tuple values
+    static func zip<A, B>(
+        _ a: A,
+        _ b: B,
+        transform: @escaping (A.T, B.T) -> T
+    ) -> Generatables.Zip<A, B> where A: Generatable, B: Generatable {
+        a.zip(with: b, transform: transform)
+    }
+}
+
+// MARK: Combine - Zip3
+
+public extension Generatable {
+    /// Returns: A generator by zipping together the values produced by the receiver and `other`
+    ///
+    /// - Parameters:
+    ///    - other: Another generator to zip with
+    ///
+    /// - Returns: A generator of Tuples
+    func zip<B, C>(_ b: B, _ c: C) -> Generatables.Zip3<Self, B, C> where B: Generatable, C: Generatable {
+        Generatables.Zip3(self, b, c)
+    }
+
+    /// Returns: A generator by zipping together the values produced by the receiver and `other`
+    ///
+    /// - Parameters:
+    ///    - other: Another generator to zip with
+    ///    - transform: Transforms the values produced by the resulting zipped generator
+    ///
+    /// - Returns: A generator of Tuples
+    func zip<B, C, R>(_ b: B, _ c: C, transform: @escaping (T, B.T, C.T) -> R) -> Generatables.Zip3<Self.T, B.T, C.T>
+    where B: Generatable, C: Generatable {
+        zip(b, c).map(transform)
     }
 
     /// Returns: A generator by zipping together the values produced by the supplied generators
@@ -50,39 +84,117 @@ public extension Gen {
     /// - Parameters:
     ///    - gen1: First generator
     ///    - gen2: Second generator
+    ///
+    /// - Returns: A generator of Tuples
+    static func zip<A, B, C>(
+        _ a: A,
+        _ b: B,
+        _ c: C
+    ) -> Generatables.Zip3<A, B, C> where A: Generatable, B: Generatable, C: Generatable {
+        Generatables.Zip3(a, b, c)
+    }
+
+    /// Returns: A generator by zipping together the values produced by the supplied generators
+    ///
+    /// - Parameters:
+    ///    - a: First generatable
+    ///    - b: Second generatable
     ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
     ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        transform: @escaping (T1, T2) -> T
-    ) -> Gen {
-        Gen<(T1, T2)>.zip(gen1, gen2).map({ t in transform(t.0, t.1) })
+    /// - Returns: A generatable of tuple values
+    static func zip<A, B, C>(
+        _ a: A,
+        _ b: B,
+        _ c: C,
+        transform: @escaping (A.T, B.T, C.T) -> T
+    ) -> Generatables.Zip3<A, B, C> where A: Generatable, B: Generatable, C: Generatable {
+        a.zip(b, c, transform: transform)
+    }
+}
+
+// MARK: Combine - Zip4
+
+public extension Gen {
+    /// Returns: A generator by zipping together the values produced by the receiver and `other`
+    ///
+    /// - Parameters:
+    ///    - other: Another generator to zip with
+    ///
+    /// - Returns: A generator of Tuples
+    func zip<B, C, D>(_ b: B, _ c: C, _ d: D) -> Generatables.Zip3<Self, B, C>
+    where B: Generatable, C: Generatable, D: Generatable {
+        Generatables.Zip4(self, b, c, d)
+    }
+
+    /// Returns: A generator by zipping together the values produced by the receiver and `other`
+    ///
+    /// - Parameters:
+    ///    - other: Another generator to zip with
+    ///    - transform: Transforms the values produced by the resulting zipped generator
+    ///
+    /// - Returns: A generator of Tuples
+    func zip<B, C, D, R>(_ b: B, _ c: C, _ d: D, transform: @escaping (T, B.T, C.T, D.T) -> R) -> Generatables.Zip4<Self.T, B.T, C.T, D.T>
+    where B: Generatable, C: Generatable, D: Generatable {
+        zip(b, c, d).map(transform)
+    }
+
+    /// Returns: A generator by zipping together the values produced by the supplied generators
+    ///
+    /// - Parameters:
+    ///    - gen1: First generator
+    ///    - gen2: Second generator
+    ///
+    /// - Returns: A generator of Tuples
+    static func zip<A, B, C, D>(
+        _ a: A,
+        _ b: B,
+        _ c: C,
+        _ d: D
+    ) -> Generatables.Zip4<A, B, C, D> where A: Generatable, B: Generatable, C: Generatable, D: Generatable {
+        Generatables.Zip4(a, b, c, d)
+    }
+
+    /// Returns: A generator by zipping together the values produced by the supplied generators
+    ///
+    /// - Parameters:
+    ///    - a: First generatable
+    ///    - b: Second generatable
+    ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
+    ///
+    /// - Returns: A generatable of tuple values
+    static func zip<A, B, C, D>(
+        _ a: A,
+        _ b: B,
+        _ c: C,
+        _ d: D,
+        transform: @escaping (A.T, B.T, C.T, D.T) -> T
+    ) -> Generatables.Zip4<A, B, C, D> where A: Generatable, B: Generatable, C: Generatable, D: Generatable {
+        a.zip(b, c, d, transform: transform)
     }
 }
 
 public extension Gen {
-    /// Returns: A generator by zipping together the values produced by the supplied generators
+    /// Returns: A generator by zipping together the values produced by the receiver and `other`
     ///
     /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
+    ///    - other: Another generator to zip with
     ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>
-    ) -> Gen<(T1, T2, T3)> where T == (T1, T2, T3) {
-        Gen.compose {
-            (
-                $0.generate(gen1),
-                $0.generate(gen2),
-                $0.generate(gen3)
-            )
-        }
+    /// - Returns: A generator of Tuples
+    func zip<B, C, D, E>(_ b: B, _ c: C, _ d: D, _ e: E) -> Generatables.Zip5<Self, B, C, D, E>
+    where B: Generatable, C: Generatable, D: Generatable, E: Generatable {
+        Generatables.Zip5(self, b, c, d e)
+    }
+
+    /// Returns: A generator by zipping together the values produced by the receiver and `other`
+    ///
+    /// - Parameters:
+    ///    - other: Another generator to zip with
+    ///    - transform: Transforms the values produced by the resulting zipped generator
+    ///
+    /// - Returns: A generator of Tuples
+    func zip<B, C, D, E, R>(_ b: B, _ c: C, _ d: D, _ e: E, transform: @escaping (T, B.T, C.T, D.T, E.T) -> R) -> Generatables.Zip5<Self.T, B.T, C.T, D.T, E.T>
+    where B: Generatable, C: Generatable, D: Generatable, E: Generatable {
+        zip(b, c, d, e).map(transform)
     }
 
     /// Returns: A generator by zipping together the values produced by the supplied generators
@@ -90,482 +202,200 @@ public extension Gen {
     /// - Parameters:
     ///    - gen1: First generator
     ///    - gen2: Second generator
-    ///    - gen3: Third generator
+    ///
+    /// - Returns: A generator of Tuples
+    static func zip<A, B, C, D, E>(
+        _ a: A,
+        _ b: B,
+        _ c: C,
+        _ d: D,
+        _ e: E
+    ) -> Generatables.Zip5<A, B, C, D, E>
+    where A: Generatable, B: Generatable, C: Generatable, D: Generatable, E: Generatable {
+        Generatables.Zip5(a, b, c, d, e)
+    }
+
+    /// Returns: A generator by zipping together the values produced by the supplied generators
+    ///
+    /// - Parameters:
+    ///    - a: First generatable
+    ///    - b: Second generatable
     ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
     ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        transform: @escaping (T1, T2, T3) -> T
-    ) -> Gen<T> {
-        Gen<(T1, T2, T3)>.zip(gen1, gen2, gen3).map({ t in transform(t.0, t.1, t.2) })
+    /// - Returns: A generatable of tuple values
+    static func zip<A, B, C, D, E>(
+        _ a: A,
+        _ b: B,
+        _ c: C,
+        _ d: D,
+        _ e: E,
+        transform: @escaping (A.T, B.T, C.T, D.T, E.T) -> T
+    ) -> Generatables.Zip5<A, B, C, D, E>
+    where A: Generatable, B: Generatable, C: Generatable, D: Generatable, E: Generatable {
+        a.zip(b, c, d, e, transform: transform)
     }
 }
 
-public extension Gen {
+extension Generatables {
+    public struct Zip<A, B>: Generatable where A: Generatable, B: Generatable, A.T == B.T {
 
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>
-    ) -> Gen<(T1, T2, T3, T4)> where T == (T1, T2, T3, T4) {
-        Gen.compose {
-            (
-                $0.generate(gen1),
-                $0.generate(gen2),
-                $0.generate(gen3),
-                $0.generate(gen4)
-            )
+        /// A generatable to zip.
+        public let a: A
+
+        /// Another generatable to zip.
+        public let b: B
+
+        /// Creates a generatable that applies the zip function to two upstream generatables.
+        /// - Parameters:
+        ///   - a: A generatable to zip.
+        ///   - b: Another generatable to zip.
+        public init(_ a: A, _ b: B) {
+            self.a = a
+            self.b = b
+        }
+
+        public func start() -> Gen<(A.T, B.T)> {
+            let gens = (a.start(), b.start())
+            return Gen { ctx in
+                (gens.0.generate(context: ctx), gens.1.generate(context: ctx))
+            }
         }
     }
 
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        transform: @escaping (T1, T2, T3, T4) -> T
-    ) -> Gen<T> {
-        Gen<(T1, T2, T3, T4)>.zip(gen1, gen2, gen3, gen4).map({ t in transform(t.0, t.1, t.2, t.3) })
-    }
-}
+    public struct Zip3<A, B, C>: Generatable where A: Generatable,
+                                                   B: Generatable,
+                                                   C: Generatable,
+                                                   A.T == B.T,
+                                                   B.T == C.T
+    {
 
-public extension Gen {
+        /// A generatable to zip.
+        public let a: A
 
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>
-    ) -> Gen<(T1, T2, T3, T4, T5)> where T == (T1, T2, T3, T4, T5) {
-        Gen.compose {
-            (
-                $0.generate(gen1),
-                $0.generate(gen2),
-                $0.generate(gen3),
-                $0.generate(gen4),
-                $0.generate(gen5)
-            )
+        /// Another generatable to zip.
+        public let b: B
+
+        /// Another generatable to zip.
+        public let c: C
+
+        /// Creates a generatable that applies the zip function to two upstream generatables.
+        /// - Parameters:
+        ///   - a: A generatable to zip.
+        ///   - b: Another generatable to zip.
+        ///   - c: Another generatable to zip.
+        public init(_ a: A, _ b: B, _ c: C) {
+            self.a = a
+            self.b = b
+            self.c = c
+        }
+
+        public func start() -> Gen<(A.T, B.T, C.T)> {
+            let gens = (a.start(), b.start(), c.start())
+            return Gen { ctx in
+                (
+                    gens.0.generate(context: ctx),
+                    gens.1.generate(context: ctx),
+                    gens.2.generate(context: ctx)
+                )
+            }
         }
     }
 
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        transform: @escaping (T1, T2, T3, T4, T5) -> T
-    ) -> Gen<T> {
-        Gen<(T1, T2, T3, T4, T5)>.zip(gen1, gen2, gen3, gen4, gen5).map({ t in transform(t.0, t.1, t.2, t.3, t.4) })
-    }
-}
+    public struct Zip4<A, B, C, D>: Generatable
+    where A: Generatable,
+          B: Generatable, A.T == B.T,
+          C: Generatable, B.T == C.T,
+          D: Generatable, C.T == D.T
+    {
 
-public extension Gen {
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///    - gen6: Sixth generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5, T6>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>
-    ) -> Gen<(T1, T2, T3, T4, T5, T6)> where T == (T1, T2, T3, T4, T5, T6) {
-        Gen.compose {
-            (
-                $0.generate(gen1),
-                $0.generate(gen2),
-                $0.generate(gen3),
-                $0.generate(gen4),
-                $0.generate(gen5),
-                $0.generate(gen6)
-            )
+        /// A generatable to zip.
+        public let a: A
+
+        /// Another generatable to zip.
+        public let b: B
+
+        /// Another generatable to zip.
+        public let c: C
+
+        /// Another generatable to zip.
+        public let d: D
+
+        /// Creates a generatable that applies the zip function to two upstream generatables.
+        /// - Parameters:
+        ///   - a: A generatable to zip.
+        ///   - b: Another generatable to zip.
+        ///   - c: Another generatable to zip.
+        ///   - d: Another generatable to zip.
+        public init(_ a: A, _ b: B, _ c: C, _ d: D) {
+            self.a = a
+            self.b = b
+            self.c = c
+            self.d = d
+        }
+
+        public func start() -> Gen<(A.T, B.T, C.T, D.T)> {
+            let gens = (a.start(), b.start(), c.start(), d.start())
+            return Gen { ctx in
+                (
+                    gens.0.generate(context: ctx),
+                    gens.1.generate(context: ctx),
+                    gens.2.generate(context: ctx),
+                    gens.4.generate(context: ctx)
+                )
+            }
         }
     }
 
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///    - gen6: Sixth generator
-    ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5, T6>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        transform: @escaping (T1, T2, T3, T4, T5, T6) -> T
-    ) -> Gen<T> {
-        Gen<(T1, T2, T3, T4, T5, T6)>
-            .zip(gen1, gen2, gen3, gen4, gen5, gen6)
-            .map({ t in transform(t.0, t.1, t.2, t.3, t.4, t.5) })
-    }
-}
 
-public extension Gen {
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///    - gen6: Sixth generator
-    ///    - gen7: Seventh generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5, T6, T7>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>
-    ) -> Gen<(T1, T2, T3, T4, T5, T6, T7)> where T == (T1, T2, T3, T4, T5, T6, T7) {
-        Gen.compose {
-            (
-                $0.generate(gen1),
-                $0.generate(gen2),
-                $0.generate(gen3),
-                $0.generate(gen4),
-                $0.generate(gen5),
-                $0.generate(gen6),
-                $0.generate(gen7)
-            )
+    public struct Zip5<A, B, C, D, E>: Generatable
+    where A: Generatable,
+          B: Generatable, A.T == B.T,
+          C: Generatable, B.T == C.T,
+          D: Generatable, C.T == D.T,
+          E: Generatable, D.T == E.T
+    {
+
+        /// A generatable to zip.
+        public let a: A
+
+        /// Another generatable to zip.
+        public let b: B
+
+        /// Another generatable to zip.
+        public let c: C
+
+        /// Another generatable to zip.
+        public let d: D
+
+        /// Another generatable to zip.
+        public let e: E
+
+        /// Creates a generatable that applies the zip function to two upstream generatables.
+        /// - Parameters:
+        ///   - a: A generatable to zip.
+        ///   - b: Another generatable to zip.
+        ///   - c: Another generatable to zip.
+        ///   - d: Another generatable to zip.
+        ///   - e: Another generatable to zip.
+        public init(_ a: A, _ b: B, _ c: C, _ d: D, _ e: E) {
+            self.a = a
+            self.b = b
+            self.c = c
+            self.d = d
+            self.e = e
         }
-    }
 
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///    - gen5: Sixth generator
-    ///    - gen7: Seventh generator
-    ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5, T6, T7>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>,
-        transform: @escaping (T1, T2, T3, T4, T5, T6, T7) -> T
-    ) -> Gen<T> {
-        Gen<(T1, T2, T3, T4, T5, T6, T7)>
-            .zip(gen1, gen2, gen3, gen4, gen5, gen6, gen7)
-            .map({ t in transform(t.0, t.1, t.2, t.3, t.4, t.5, t.6) })
-    }
-}
-
-public extension Gen {
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///    - gen6: Sixth generator
-    ///    - gen7: Seventh generator
-    ///    - gen8: Eighth generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5, T6, T7, T8>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>,
-        _ gen8: Gen<T8>
-    ) -> Gen<(T1, T2, T3, T4, T5, T6, T7, T8)> where T == (T1, T2, T3, T4, T5, T6, T7, T8) {
-        Gen.compose {
-            (
-                $0.generate(gen1),
-                $0.generate(gen2),
-                $0.generate(gen3),
-                $0.generate(gen4),
-                $0.generate(gen5),
-                $0.generate(gen6),
-                $0.generate(gen7),
-                $0.generate(gen8)
-            )
+        public func start() -> Gen<(A.T, B.T, C.T, D.T)> {
+            let gens = (a.start(), b.start(), c.start(), d.start(), e.start())
+            return Gen { ctx in
+                (
+                    gens.0.generate(context: ctx),
+                    gens.1.generate(context: ctx),
+                    gens.2.generate(context: ctx),
+                    gens.4.generate(context: ctx),
+                    gens.5.generate(context: ctx)
+                )
+            }
         }
-    }
-
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///    - gen5: Sixth generator
-    ///    - gen7: Seventh generator
-    ///    - gen8: Eighth generator
-    ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5, T6, T7, T8>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>,
-        _ gen8: Gen<T8>,
-        transform: @escaping (T1, T2, T3, T4, T5, T6, T7, T8) -> T
-    ) -> Gen<T> {
-        Gen<(T1, T2, T3, T4, T5, T6, T7, T8)>
-            .zip(gen1, gen2, gen3, gen4, gen5, gen6, gen7, gen8)
-            .map({ t in transform(t.0, t.1, t.2, t.3, t.4, t.5, t.6, t.7) })
-    }
-}
-
-public extension Gen {
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///    - gen6: Sixth generator
-    ///    - gen7: Seventh generator
-    ///    - gen8: Eighth generator
-    ///    - gen9: Ninth generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>,
-        _ gen8: Gen<T8>,
-        _ gen9: Gen<T9>
-    ) -> Gen<(T1, T2, T3, T4, T5, T6, T7, T8, T9)> where T == (T1, T2, T3, T4, T5, T6, T7, T8, T9) {
-        Gen.compose {
-            (
-                $0.generate(gen1),
-                $0.generate(gen2),
-                $0.generate(gen3),
-                $0.generate(gen4),
-                $0.generate(gen5),
-                $0.generate(gen6),
-                $0.generate(gen7),
-                $0.generate(gen8),
-                $0.generate(gen9)
-            )
-        }
-    }
-
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///    - gen5: Sixth generator
-    ///    - gen7: Seventh generator
-    ///    - gen8: Eighth generator
-    ///    - gen9: Ninth generator
-    ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>,
-        _ gen8: Gen<T8>,
-        _ gen9: Gen<T9>,
-        transform: @escaping (T1, T2, T3, T4, T5, T6, T7, T8, T9) -> T
-    ) -> Gen<T> {
-        Gen<(T1, T2, T3, T4, T5, T6, T7, T8, T9)>
-            .zip(gen1, gen2, gen3, gen4, gen5, gen6, gen7, gen8, gen9)
-            .map({ t in transform(t.0, t.1, t.2, t.3, t.4, t.5, t.6, t.7, t.8) })
-    }
-}
-
-public extension Gen {
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///    - gen6: Sixth generator
-    ///    - gen7: Seventh generator
-    ///    - gen8: Eighth generator
-    ///    - gen9: Ninth generator
-    ///    - gen10: Tenth generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>,
-        _ gen8: Gen<T8>,
-        _ gen9: Gen<T9>,
-        _ gen10: Gen<T10>
-    ) -> Gen<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)> where T == (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10) {
-        Gen.compose {
-            (
-                $0.generate(gen1),
-                $0.generate(gen2),
-                $0.generate(gen3),
-                $0.generate(gen4),
-                $0.generate(gen5),
-                $0.generate(gen6),
-                $0.generate(gen7),
-                $0.generate(gen8),
-                $0.generate(gen9),
-                $0.generate(gen10)
-            )
-        }
-    }
-
-    /// Returns: A generator by zipping together the values produced by the supplied generators
-    ///
-    /// - Note: This is a very complex zip operation. Perhaps you should consider using `Gen.compose` instead!
-    ///
-    /// - Parameters:
-    ///    - gen1: First generator
-    ///    - gen2: Second generator
-    ///    - gen3: Third generator
-    ///    - gen4: Fourth generator
-    ///    - gen5: Fifth generator
-    ///    - gen5: Sixth generator
-    ///    - gen7: Seventh generator
-    ///    - gen8: Eighth generator
-    ///    - gen9: Ninth generator
-    ///    - gen10: Tenth generator
-    ///    - transform: A function capable of transforming the values produced by the resulting zipped generator
-    ///
-    /// - Returns: A generator of values
-    static func zip<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
-        _ gen1: Gen<T1>,
-        _ gen2: Gen<T2>,
-        _ gen3: Gen<T3>,
-        _ gen4: Gen<T4>,
-        _ gen5: Gen<T5>,
-        _ gen6: Gen<T6>,
-        _ gen7: Gen<T7>,
-        _ gen8: Gen<T8>,
-        _ gen9: Gen<T9>,
-        _ gen10: Gen<T10>,
-        transform: @escaping (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10) -> T
-    ) -> Gen<T> {
-        Gen<(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)>
-            .zip(gen1, gen2, gen3, gen4, gen5, gen6, gen7, gen8, gen9, gen10)
-            .map({ t in transform(t.0, t.1, t.2, t.3, t.4, t.5, t.6, t.7, t.8, t.9) })
     }
 }
