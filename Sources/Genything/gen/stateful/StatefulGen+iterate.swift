@@ -2,26 +2,19 @@ import Foundation
 
 // MARK: Build
 
-public extension StatefulGen {
-    /// Returns: A generator which produces elements by iterating over the provided sequence
-    ///
-    /// - Parameters:
-    ///    - sequence: Sequence which will be iterated over to produce elements
-    ///
-    /// - Returns: The generator
-    static func iterate<S: Sequence>(_ sequence: S) -> StatefulGen<T?> where S.Element == T {
-        StatefulGen<T?> {
-            var iterator = sequence.makeIterator()
-            return Gen { _ in
-                iterator.next()
-            }
-        }
-    }
-}
-
 extension Generatables {
-    public struct Iterate<T, S: Sequence>: Generatable where S.Element == T {
-        let sequence: S
+    /// A generatable that generates a given sequence of elements.
+    ///
+    /// When the generator exhausts the elements in the sequence, it will begin to return nil.
+    public struct Sequence<T, Elements>: Generatable where Elements: Swift.Sequence, Elements.Element == T {
+        public let sequence: Elements
+
+        /// Creates a generatables for a sequence of elements.
+        ///
+        /// - Parameter sequence: The sequence of elements to generate.
+        public init(sequence: Elements) {
+            self.sequence = sequence
+        }
 
         public func start() -> Gen<T?> {
             var iterator = sequence.makeIterator()

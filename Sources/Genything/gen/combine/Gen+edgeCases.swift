@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: Combine
 
-public extension Gen {
+public extension Generatable {
     /// Returns: A generator which randomly selects values from either the receiver or the edge cases
     ///
     /// - Note: The probability is determined by `Context.edgeCaseProbability`
@@ -17,9 +17,10 @@ public extension Gen {
     /// - Note: The probability is determined by `Context.edgeCaseProbability`
     /// - Parameter edgeCases: Another generator which may get selected to produce values
     /// - Returns: The generator
-    func withEdgeCases<G: Generatable>(_ edgeCases: G) -> G where G.T == T {
+    func withEdgeCases<G: Generatable>(_ edgeCases: G) -> AnyGeneratable<T> where G.T == T {
         Gen<T> { ctx in
             or(edgeCases, otherProbability: ctx.edgeCaseProbability)
+                .start() // TODO: No good
                 .generate(context: ctx)
         }.eraseToAnyGeneratable()
     }

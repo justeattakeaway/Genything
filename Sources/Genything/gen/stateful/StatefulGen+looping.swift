@@ -2,36 +2,31 @@ import Foundation
 
 // MARK: Build
 
-public extension StatefulGen {
-    /// Returns: A generator which produces values from the collection in sequential order.
-    /// If the collection is exhausted it will be restarted.
-    ///
-    /// e.g. `Gen.looping(["a", "b"])` will always output "abababababab"...
-    /// e.g. `Gen.looping(0...1)` will always output "0101010101"...
-    ///
-    /// - Parameters:
-    ///    - sequence: Collection of values which will be produced in order. Looping if necessary.
-    ///
-    /// - Returns: The generator
-    static func looping<S: Sequence>(
-        _ sequence: S
-    ) -> StatefulGen<T> where S.Element == T {
-        iterate(sequence).switchUnwrap(iterate(sequence))
-    }
-}
+extension Generatables {
+    /// A generatable that generates by looping over a collection of elements.
+    public struct Loop<T, Elements>: Generatable where Elements: Swift.Collection, Elements.Element == T {
+        public let collection: Elements
 
-extension StatefulGen {
-    /// Returns: A generator which loops a Generator of optional elements. Calling again to refresh the generator when nil is produced.
-    ///
-    /// - Warning: Can lead to infinite loops. Internal.
-    ///
-    /// - Parameters:
-    ///    - refresh: Autoclosure capable of refreshing the loop with a new generator after the previous has been exhausted
-    ///
-    /// - Returns: The generator
-    static func looping<R>(
-        _ refresh: @escaping @autoclosure () -> StatefulGen<R?>
-    ) -> StatefulGen<R> where T == R? {
-        refresh().switchTo(refresh()) { $0 == nil }.map { $0! }
+        /// Creates a looping generatable for a collection of elements.
+        ///
+        /// - Parameter collection: The collection of elements to loop.
+        public init(collection: Elements) {
+            assert(collection.startIndex != collection.endIndex)
+
+            self.collection = collection
+        }
+
+        public func start() -> Gen<T> {
+            var i = collection.startIndex
+            return Gen { ctx in
+                defer {
+                    collection.formIndex(after: &i)
+                }
+                if i >= collection.endIndex {
+                    i = collection.startIndex
+                }
+                return collection[i]
+            }
+        }
     }
 }

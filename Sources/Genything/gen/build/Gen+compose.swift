@@ -32,14 +32,14 @@ public extension Gen {
         ///
         /// - Returns: An arbitrary value of type `T`
         public func arbitrary<T>() -> T where T: Arbitrary {
-            generate(T.arbitrary)
+            generate(T.arbitrary.start())
         }
 
         /// Generates an arbitrary value of type `T` where `T` conforms to `CaseIterable`
         ///
         /// - Returns: An arbitrary value of type `T`
         public func ofCases<T>() -> T where T: CaseIterable {
-            generate(.ofCases())
+            generate(Generatables.Cases<T>().start())
         }
     }
 
