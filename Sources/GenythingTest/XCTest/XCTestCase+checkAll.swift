@@ -62,7 +62,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T, G1: Generatable>(_ gen1: G1,
+    func checkAll<T, G1: Generator>(_ gen1: G1,
                      context: Context = .default,
                      file: StaticString = #filePath,
                      line: UInt = #line,
@@ -93,7 +93,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T1, T2, G1: Generatable, G2: Generatable>(
+    func checkAll<T1, T2, G1: Generator, G2: Generator>(
         _ gen1: G1,
         _ gen2: G2,
         context: Context = .default,
@@ -128,9 +128,9 @@ public extension XCTestCase {
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
     func checkAll<
-        T1, G1: Generatable,
-        T2, G2: Generatable,
-        T3, G3: Generatable
+        T1, G1: Generator,
+        T2, G2: Generator,
+        T3, G3: Generator
     >(
         _ gen1: G1,
         _ gen2: G2,
@@ -169,10 +169,10 @@ public extension XCTestCase {
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
     func checkAll<
-        T1, G1: Generatable,
-        T2, G2: Generatable,
-        T3, G3: Generatable,
-        T4, G4: Generatable
+        T1, G1: Generator,
+        T2, G2: Generator,
+        T3, G3: Generator,
+        T4, G4: Generator
     >(
         _ gen1: G1,
         _ gen2: G2,
@@ -214,11 +214,11 @@ public extension XCTestCase {
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
     func checkAll<
-        T1, G1: Generatable,
-        T2, G2: Generatable,
-        T3, G3: Generatable,
-        T4, G4: Generatable,
-        T5, G5: Generatable
+        T1, G1: Generator,
+        T2, G2: Generator,
+        T3, G3: Generator,
+        T4, G4: Generator,
+        T5, G5: Generator
     >(
         _ gen1: G1,
         _ gen2: G2,
@@ -271,12 +271,12 @@ public extension XCTestCase {
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
     func checkAll<
-        T1, G1: Generatable,
-        T2, G2: Generatable,
-        T3, G3: Generatable,
-        T4, G4: Generatable,
-        T5, G5: Generatable,
-        T6, G6: Generatable
+        T1, G1: Generator,
+        T2, G2: Generator,
+        T3, G3: Generator,
+        T4, G4: Generator,
+        T5, G5: Generator,
+        T6, G6: Generator
     >(
         _ gen1: G1,
         _ gen2: G2,
@@ -334,13 +334,13 @@ public extension XCTestCase {
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
     func checkAll<
-        T1, G1: Generatable,
-        T2, G2: Generatable,
-        T3, G3: Generatable,
-        T4, G4: Generatable,
-        T5, G5: Generatable,
-        T6, G6: Generatable,
-        T7, G7: Generatable
+        T1, G1: Generator,
+        T2, G2: Generator,
+        T3, G3: Generator,
+        T4, G4: Generator,
+        T5, G5: Generator,
+        T6, G6: Generator,
+        T7, G7: Generator
     >(
         _ gen1: G1,
         _ gen2: G2,
@@ -401,14 +401,14 @@ public extension XCTestCase {
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
     func checkAll<
-        T1, G1: Generatable,
-        T2, G2: Generatable,
-        T3, G3: Generatable,
-        T4, G4: Generatable,
-        T5, G5: Generatable,
-        T6, G6: Generatable,
-        T7, G7: Generatable,
-        T8, G8: Generatable
+        T1, G1: Generator,
+        T2, G2: Generator,
+        T3, G3: Generator,
+        T4, G4: Generator,
+        T5, G5: Generator,
+        T6, G6: Generator,
+        T7, G7: Generator,
+        T8, G8: Generator
     >(
         _ gen1: G1,
         _ gen2: G2,
@@ -473,15 +473,15 @@ public extension XCTestCase {
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
     func checkAll<
-        T1, G1: Generatable,
-        T2, G2: Generatable,
-        T3, G3: Generatable,
-        T4, G4: Generatable,
-        T5, G5: Generatable,
-        T6, G6: Generatable,
-        T7, G7: Generatable,
-        T8, G8: Generatable,
-        T9, G9: Generatable
+        T1, G1: Generator,
+        T2, G2: Generator,
+        T3, G3: Generator,
+        T4, G4: Generator,
+        T5, G5: Generator,
+        T6, G6: Generator,
+        T7, G7: Generator,
+        T8, G8: Generator,
+        T9, G9: Generator
     >(
         _ gen1: G1,
         _ gen2: G2,
@@ -550,16 +550,16 @@ public extension XCTestCase {
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
     func checkAll<
-        T1, G1: Generatable,
-        T2, G2: Generatable,
-        T3, G3: Generatable,
-        T4, G4: Generatable,
-        T5, G5: Generatable,
-        T6, G6: Generatable,
-        T7, G7: Generatable,
-        T8, G8: Generatable,
-        T9, G9: Generatable,
-        T10, G10: Generatable
+        T1, G1: Generator,
+        T2, G2: Generator,
+        T3, G3: Generator,
+        T4, G4: Generator,
+        T5, G5: Generator,
+        T6, G6: Generator,
+        T7, G7: Generator,
+        T8, G8: Generator,
+        T9, G9: Generator,
+        T10, G10: Generator
     >(
         _ gen1: G1,
         _ gen2: G2,

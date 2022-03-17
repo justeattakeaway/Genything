@@ -2,10 +2,10 @@ import Foundation
 
 extension Date: Arbitrary {
     /// A generator of arbitrary `Date`s
-    public static var arbitrary: AnyGeneratable<Date> {
+    public static var arbitrary: AnyGenerator<Date> {
         Double.arbitrary
             .map { Date(timeIntervalSince1970: $0) }
-            .eraseToAnyGeneratable()
+            .eraseToAnyGenerator()
     }
 }
 
@@ -17,7 +17,7 @@ extension Date: Arbitrary {
 
 extension UUID: Arbitrary {
     /// A generator of arbitrary `UUID`s
-    public static var arbitrary: AnyGeneratable<UUID> = Gen {
+    public static var arbitrary: AnyGenerator<UUID> = AnyGenerator {
         UUID(bits: ($0.rng.next(), $0.rng.next()), version: 4)
-    }.eraseToAnyGeneratable()
+    }
 }

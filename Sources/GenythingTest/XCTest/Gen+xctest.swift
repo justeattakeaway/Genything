@@ -4,7 +4,7 @@ import XCTest
 
 // - MARK: Test
 
-public extension Gen {
+public extension Generator {
     /// Iterates (lazily) over a generator sequence and tests that all values satisfy the given `predicate`
     ///
     /// Will run a maximum of n times, where n is the provided `iterations` or the context's value

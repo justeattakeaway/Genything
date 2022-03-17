@@ -2,7 +2,7 @@
 import Foundation
 import Genything
 
-extension Gen {
+extension Generator {
     /// Iterates (lazily) over a generator sequence and tests that all values satisfy the given `predicate`
     ///
     /// Will run n times, where n is the provided `iterations` or the context's value
@@ -23,7 +23,7 @@ extension Gen {
 
         while index < iterations {
             do {
-                let value: T = try safe.generate(context: context)
+                let value: T = try safe.next(context)
 
                 if try !predicate(value) {
                     return .failure(
