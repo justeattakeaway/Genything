@@ -1,5 +1,3 @@
-import Foundation
-
 // MARK: Mutate
 
 public extension Gen {
