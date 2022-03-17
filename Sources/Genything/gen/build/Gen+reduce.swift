@@ -1,6 +1,6 @@
 import Foundation
 
-// MARK: Mutate
+// MARK: Build
 
 public extension Gen {
     /// Returns: A generator resulting from combining generated elements from the generators collection using the given closure
@@ -13,7 +13,7 @@ public extension Gen {
     /// - Returns: A `Gen` generator producing the final accumulated value. If the collection has no elements, the result will be initialResult.
     static func reduce<R>(_ generators: [Gen<T>],
                           _ initialResult: R,
-                          _ nextPartialResult: @escaping (R, T) throws -> R) rethrows -> Gen<R> {
+                          _ nextPartialResult: @escaping (R, T) throws -> R) -> Gen<R> {
         collect(generators).map { try $0.reduce(initialResult, nextPartialResult) }
     }
 }
