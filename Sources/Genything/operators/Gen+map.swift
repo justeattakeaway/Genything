@@ -9,18 +9,16 @@ public extension Generator {
     ///   - transform: A function capable of transforming the receiver's values to type `R`
     ///
     /// - Returns: A `Gen` generator of values of type `R`
-    func map<R>(_ transform: @escaping (T) -> R) -> Generators.Map<Self, R> {
-        Generators.Map(source: self, transform: transform)
+    func map<R>(_ transform: @escaping (T) -> R) -> AnyGenerator<R> {
+        Map(source: self, transform: transform).eraseToAnyGenerator()
     }
 }
 
-extension Generators {
-    public struct Map<Source, T>: Generator where Source: Generator {
-        let source: Source
-        let transform: (Source.T) -> T
+private struct Map<Source, T>: Generator where Source: Generator {
+    let source: Source
+    let transform: (Source.T) -> T
 
-        public func next(_ context: Context) -> T {
-            transform(source.next(context))
-        }
+    public func next(_ context: Context) -> T {
+        transform(source.next(context))
     }
 }

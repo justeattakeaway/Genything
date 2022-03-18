@@ -45,7 +45,7 @@ extension Fake {
         }
 
         public static var personal: AnyGenerator<String> {
-            Generators.Composer { gen -> String in
+            AnyGenerator.compose { gen -> String in
                 let transformedName = gen(Fake.PersonNames.full).replacingOccurrences(of: " ", with: gen(separator)).lowercased()
                 return "\(transformedName)@\(gen(personalDomains)).\(gen(topLevelDomains))"
             }.eraseToAnyGenerator()
@@ -58,7 +58,7 @@ extension Fake {
                 }
                 return Fake.BusinessNames.any
             }()
-            return Generators.Composer { gen -> String in
+            return AnyGenerator.compose { gen -> String in
                 let transformedName = String(gen(nameGen).filter { $0.isLetter }).lowercased()
                 return "\(gen(contacts))@\(transformedName).\(gen(topLevelDomains))"
             }.eraseToAnyGenerator()

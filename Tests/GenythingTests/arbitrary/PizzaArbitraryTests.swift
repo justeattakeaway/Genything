@@ -9,7 +9,7 @@ import XCTest
  */
 final internal class PizzaArbitraryTests: XCTestCase {
     func test_usingFixtures_withNoToppings_itIsACheesePizza() {
-        let pizzaGen = Gen.compose {
+        let pizzaGen = AnyGenerator.compose {
             Pizza(name: $0.arbitrary(),
                   size: $0.arbitrary(),
                   toppings: []) // No toppings => Cheese pizza!
@@ -31,9 +31,8 @@ final internal class PizzaArbitraryTests: XCTestCase {
 
         // Read as:
         // For any pizza produced by `pizzaGen`, the pizza is not a cheese pizza
-        pizzaGen.take() /// Takes 100 random pizzas
-            .forEach { (pizza: Pizza) in
-                XCTAssertFalse(pizza.isCheesePizza)
+        pizzaGen.assertForAll { (pizza: Pizza) in
+            !pizza.isCheesePizza
         }
     }
 
@@ -41,20 +40,20 @@ final internal class PizzaArbitraryTests: XCTestCase {
         let pepperoni = "Pepperoni"
 
 
-        let pepperoniPizzaGen = Gen.compose {
+        let pepperoniPizzaGen = AnyGenerator.compose {
             Pizza(name: pepperoni,
                   size: $0.arbitrary(),
                   toppings: [pepperoni].map { Pizza.Topping(name: $0) })
         }
 
         let hawaiian = "Hawaiian"
-        let hawaiianPizzaGen = Gen.compose {
+        let hawaiianPizzaGen = AnyGenerator.compose {
             Pizza(name: hawaiian,
                   size: $0.arbitrary(),
                   toppings: ["ham", "pineapple"].map { Pizza.Topping(name: $0) })
         }
 
-        let pizzaDistribution = Gen<Pizza>.either(left: hawaiianPizzaGen, right: pepperoniPizzaGen, rightProbability: 0.75)
+        let pizzaDistribution = Generators.either(left: hawaiianPizzaGen, right: pepperoniPizzaGen, rightProbability: 0.75)
 
         // Take a statistical sample of pizzas
         let pizzas = pizzaDistribution.take(1000)

@@ -3,7 +3,7 @@ import XCTest
 
 class FakePhoneNumberTests: XCTestCase {
     func test_phoneNumber() {
-        Fake.PhoneNumbers.formatted.forEach { phoneNumber in
+        Fake.PhoneNumbers.formatted.forEach(1000) { phoneNumber in
             let subject = Array(phoneNumber)
 
             XCTAssertEqual(14, subject.count)

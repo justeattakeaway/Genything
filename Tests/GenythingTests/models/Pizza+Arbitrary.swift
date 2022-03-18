@@ -2,7 +2,7 @@
 
 extension Pizza: Arbitrary {
     public static var arbitrary: AnyGenerator<Pizza> {
-        Generators.Composer {
+        AnyGenerator.compose {
             Pizza(
                 name: $0.arbitrary(),
                 size: $0.arbitrary(),

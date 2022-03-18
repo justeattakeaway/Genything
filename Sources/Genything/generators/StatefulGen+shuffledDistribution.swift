@@ -24,7 +24,7 @@ extension Generators {
         /// Creates a shuffled loop Generator for a collection of elements.
         ///
         /// - Parameter collection: The collection of elements to loop.
-        public init(collection: Elements, context: Context) {
+        public init(_ collection: Elements, context: Context) {
             assert(collection.startIndex != collection.endIndex)
 
             self.collection = collection.shuffled(using: &context.rng)

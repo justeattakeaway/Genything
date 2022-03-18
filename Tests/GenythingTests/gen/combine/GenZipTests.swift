@@ -15,7 +15,7 @@ final internal class GenZipTests: XCTestCase {
         let secondGen = Generators.from(secondRange)
 
         let zipped = firstGen.zip(secondGen)
-        zipped.forEach { (first, second) in
+        zipped.forEach(1000) { (first, second) in
             XCTAssertTrue(firstRange.contains(first))
             XCTAssertTrue(secondRange.contains(second))
 
@@ -29,7 +29,7 @@ final internal class GenZipTests: XCTestCase {
         let secondGen = Generators.from(Character("A")...Character("Z"))
 
         let zipped = firstGen.zip(secondGen) { "\($0)\($1)" }
-        zipped.forEach { combined in
+        zipped.forEach(1000) { combined in
             XCTAssertTrue(combined.first?.isLowercase ?? false)
             XCTAssertTrue(combined.last?.isUppercase ?? false)
         }
@@ -127,7 +127,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_3Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 3) { gens in
-            Gen.zip(
+            Generators.zip(
                 gens[0], gens[1], gens[2]
             ){ a, b, c in
                 a+b+c
@@ -138,7 +138,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_4Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 4) { gens in
-            Gen.zip(
+            Generators.zip(
                 gens[0], gens[1], gens[2], gens[3]
             ){ a, b, c, d in
                 a+b+c+d
@@ -149,7 +149,7 @@ final internal class GenZipTests: XCTestCase {
 
     func test_5Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 5) { gens in
-            Gen.zip(
+            Generators.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4]
             ){ a, b, c, d, e in
                 a+b+c+d+e

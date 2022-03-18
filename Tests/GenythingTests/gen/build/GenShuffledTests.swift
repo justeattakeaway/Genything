@@ -1,5 +1,6 @@
 import Foundation
 @testable import Genything
+import GenythingTest
 import XCTest
 
 final internal class GenShuffledTests: XCTestCase {
@@ -11,7 +12,7 @@ final internal class GenShuffledTests: XCTestCase {
         let context = Context(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
 
         // Take 100 shuffles
-        let shuffledViaGeneratorList = Gen.shuffled(source)
+        let shuffledViaGeneratorList = Generators.shuffled(source)
             .take(100, context: context)
 
         // Make sure that these shuffles match doing normal shuffles without a generator
@@ -22,11 +23,11 @@ final internal class GenShuffledTests: XCTestCase {
     }
 
     func test_shuffledDistribution() {
-        let d6shuffle = StatefulGen<Int>.shuffledDistribution(Array(1...6)).start()
+        let d6shuffle = Generators.ShuffleLoop(Array(1...6), context: .default)
 
         var history = [Int]()
 
-        d6shuffle.forEach {
+        checkAll(d6shuffle) {
             if history.count >= 6 {
                 history.removeAll()
             }
@@ -52,7 +53,7 @@ final internal class GenShuffledTests: XCTestCase {
         }
 
         let cardGen = Generators.ShuffleLoop(
-            collection: Rank.allCases.map { rank in
+            Rank.allCases.map { rank in
                 Suit.allCases.map { suit in Card(suit: suit, rank: rank) }
             }.flatMap { $0 },
             context: .default

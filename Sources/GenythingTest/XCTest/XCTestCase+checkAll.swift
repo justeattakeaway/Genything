@@ -101,7 +101,7 @@ public extension XCTestCase {
             G2.T == T2
     {
         checkAll(
-            Generators.Zip(gen1, gen2),
+            gen1.zip(gen2),
             context: context,
             file: file,
             line: line,
@@ -141,7 +141,7 @@ public extension XCTestCase {
             G3.T == T3
     {
         checkAll(
-            Generators.Zip3(gen1, gen2, gen3),
+            gen1.zip(gen2, gen3),
             context: context,
             file: file,
             line: line,
@@ -185,7 +185,7 @@ public extension XCTestCase {
             G4.T == T4
     {
         checkAll(
-            Generators.Zip4(gen1, gen2, gen3, gen4),
+            gen1.zip(gen2, gen3, gen4),
             context: context,
             file: file,
             line: line,
@@ -233,7 +233,7 @@ public extension XCTestCase {
             G5.T == T5
     {
         checkAll(
-            Generators.Zip5(gen1, gen2, gen3, gen4, gen5),
+            gen1.zip(gen2, gen3, gen4, gen5),
             context: context,
             file: file,
             line: line,
@@ -287,7 +287,7 @@ public extension XCTestCase {
             G6.T == T6
     {
         checkAll(
-            Generators.Composer {
+            AnyGenerator.compose {
                 (
                     $0(gen1),
                     $0(gen2),
@@ -355,7 +355,7 @@ public extension XCTestCase {
             G7.T == T7
     {
         checkAll(
-            Generators.Composer {
+            AnyGenerator.compose {
                 (
                     $0(gen1),
                     $0(gen2),
@@ -427,7 +427,7 @@ public extension XCTestCase {
             G8.T == T8
     {
         checkAll(
-            Generators.Composer {
+            AnyGenerator.compose {
                 (
                     $0(gen1),
                     $0(gen2),
@@ -504,7 +504,7 @@ public extension XCTestCase {
             G9.T == T9
     {
         checkAll(
-            Generators.Composer {
+            AnyGenerator.compose {
                 (
                     $0(gen1),
                     $0(gen2),
@@ -586,7 +586,7 @@ public extension XCTestCase {
             G10.T == T10
     {
         checkAll(
-            Generators.Composer {
+            AnyGenerator.compose {
                 (
                     $0(gen1),
                     $0(gen2),

@@ -14,10 +14,10 @@ extension CGFloat: Arbitrary {
 extension CGVector: Arbitrary {
     /// A generator of `CGVector`s
     public static var arbitrary: AnyGenerator<CGVector> {
-        Generators.Composer {
+        AnyGenerator.compose {
             let cgFloatGen: () -> CGFloat = $0.arbitrary
             return CGVector(dx: cgFloatGen(), dy: cgFloatGen())
-        }.eraseToAnyGenerator()
+        }
     }
 }
 #endif

@@ -22,19 +22,25 @@ final internal class GenFromRangeTests: XCTestCase {
     }
 
     func test_fromElements_usingClosedRangeOf_Characters_IncludesCorrectElements() {
-        Gen<Character>.from("a"..."z").assertForAll {
+        /*
+         // TODO
+         Gen<Character>.from("a"..."z").assertForAll {
+             $0.isLowercase
+         }
+         */
+        Generators.from(Character("a")...Character("z")).assertForAll {
             $0.isLowercase
         }
     }
 
     func test_fromElements_usingClosedRangeOf_Characters_IncludesAllElements() {
-        Gen<Character>.from("a"..."b").assertForAll {
+        Generators.from(Character("a")...Character("b")).assertForAll {
             $0 == "a" || $0 == "b"
         }
     }
 
     func test_fromElements_usingRangeOf_Characters_DoesNotIncludeLastElement() {
-        Gen<Character>.from("a"..<"b").assertForAll {
+        Generators.from(Character("a")..<Character("b")).assertForAll {
             $0 == "a"
         }
     }

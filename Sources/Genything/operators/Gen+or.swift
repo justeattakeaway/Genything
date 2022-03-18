@@ -10,7 +10,7 @@ public extension Generator {
     ///    - otherProbability: The probability that the the right generator will be selected from
     ///
     /// - Returns: The generator
-    func or<B>(_ other: B, otherProbability: Double = 0.5) -> Generators.Either<Self, B> where B: Generator {
-        Generators.Either(self, other, probability: otherProbability)
+    func or<Other>(_ other: Other, otherProbability: Double = 0.5) -> AnyGenerator<T> where Other: Generator, Other.T == Self.T {
+        Generators.either(left: self, right: other, rightProbability: otherProbability)
     }
 }

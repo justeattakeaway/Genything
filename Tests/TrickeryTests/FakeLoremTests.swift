@@ -3,13 +3,13 @@ import XCTest
 
 class FakeLoremTests: XCTestCase {
     func test_lorem_word() {
-        Fake.Lorem.word.take().forEach {
+        checkAll(Fake.Lorem.word){
             XCTAssertFalse($0.isEmpty)
         }
     }
 
     func test_lorem_sentence() {
-        Fake.Lorem.sentence().take().forEach {
+        checkAll(Fake.Lorem.sentence()) {
             XCTAssertFalse($0.isEmpty)
             XCTAssertEqual(true, $0.first?.isUppercase)
             XCTAssertEqual(".", $0.last)

@@ -3,19 +3,19 @@ import XCTest
 
 class FakeCharactersTests: XCTestCase {
     func test_lowercase() {
-        Fake.Characters.lowercase.take().forEach {
+        checkAll(Fake.Characters.lowercase) {
             XCTAssertTrue($0.isLowercase)
         }
     }
 
     func test_uppercase() {
-        Fake.Characters.uppercase.take().forEach {
+        checkAll(Fake.Characters.uppercase) {
             XCTAssertTrue($0.isUppercase)
         }
     }
 
     func test_alphanumeric() {
-        Fake.Characters.alphanumeric.take().forEach {
+        checkAll(Fake.Characters.alphanumeric) {
             XCTAssertTrue($0.isNumber || $0.isLetter)
         }
     }

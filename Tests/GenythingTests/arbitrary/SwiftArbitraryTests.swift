@@ -12,7 +12,7 @@ final internal class SwiftArbitraryTests: XCTestCase {
 
     func test_optional_createsOptionals_andRealValues() {
         let arb = (String?).arbitrary
-        let samples = arb.samples()
+        let samples = arb.take(10)
 
         XCTAssert(samples.contains(nil))
 
@@ -22,7 +22,7 @@ final internal class SwiftArbitraryTests: XCTestCase {
     }
 
     func test_boolGeneration_createsRandomBool() {
-        let bools = Bool.arbitrary.take()
+        let bools = Bool.arbitrary.take(10)
         XCTAssertTrue(bools.contains(true))
         XCTAssertTrue(bools.contains(false))
     }

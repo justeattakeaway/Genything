@@ -9,7 +9,7 @@ final internal class GenOneOfTests: XCTestCase {
         let iterations = 10000
 
         // Count which bucket we are taking from
-        let countGen0 = Gen
+        let countGen0 = Generators
             .one(of: [gen0, gen1])
             .take(iterations)
             .filter { $0 == 0 }

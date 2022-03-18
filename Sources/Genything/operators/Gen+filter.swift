@@ -12,22 +12,20 @@ public extension Generator {
     ///   - isIncluded: A function which returns true if the value should be included
     ///
     /// - Returns: The filtered generator
-    func filter(_ isIncluded: @escaping (T) -> Bool) -> Generators.Filter<Self> {
-        Generators.Filter(source: self, isIncluded: isIncluded)
+    func filter(_ isIncluded: @escaping (T) -> Bool) -> AnyGenerator<T> {
+        Filter(source: self, isIncluded: isIncluded).eraseToAnyGenerator()
     }
 }
 
-extension Generators {
-    public struct Filter<Source>: Generator where Source: Generator {
-        let source: Source
-        let isIncluded: (Source.T) -> Bool
+private struct Filter<Source>: Generator where Source: Generator {
+    let source: Source
+    let isIncluded: (Source.T) -> Bool
 
-        public func next(_ context: Context) -> Source.T {
-            while(true) {
-                let value = source.next(context)
-                if isIncluded(value) {
-                    return value
-                }
+    public func next(_ context: Context) -> Source.T {
+        while(true) {
+            let value = source.next(context)
+            if isIncluded(value) {
+                return value
             }
         }
     }

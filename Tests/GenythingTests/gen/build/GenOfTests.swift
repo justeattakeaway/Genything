@@ -1,10 +1,11 @@
 import XCTest
 @testable import Genything
+import GenythingTest
 
 final internal class GenOfTests: XCTestCase {
     func test_of_createGenerator() {
-        let gen = Gen.of([0, 1, 2])
-        let sample = gen.take()
+        let gen = Generators.of([0, 1, 2])
+        let sample = gen.take(1000)
 
         XCTAssert(sample.contains(0))
         XCTAssert(sample.contains(1))
