@@ -5,7 +5,7 @@ import Foundation
 /// It's main purpose is to hold onto the Random Number Generator `rng`, so that as generations occur the RNG's state changes are propogated to each generator
 ///
 /// - Note: The context can be held onto by a user to keep track of `rng`'s state between generations
-public class Context {
+public class Context { // TODO: Random Source
 
     // MARK: Randomness
 

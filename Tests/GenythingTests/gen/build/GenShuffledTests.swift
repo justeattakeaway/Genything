@@ -23,7 +23,7 @@ final internal class GenShuffledTests: XCTestCase {
     }
 
     func test_shuffledDistribution() {
-        let d6shuffle = Generators.ShuffleLoop(Array(1...6), context: .default)
+        let d6shuffle = Exhaustive.ShuffleLoop(Array(1...6), context: .default)
 
         var history = [Int]()
 
@@ -52,7 +52,7 @@ final internal class GenShuffledTests: XCTestCase {
             var rank: Rank
         }
 
-        let cardGen = Generators.ShuffleLoop(
+        let cardGen = Exhaustive.ShuffleLoop(
             Rank.allCases.map { rank in
                 Suit.allCases.map { suit in Card(suit: suit, rank: rank) }
             }.flatMap { $0 },

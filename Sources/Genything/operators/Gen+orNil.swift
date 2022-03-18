@@ -10,8 +10,7 @@ public extension Generator {
     ///
     /// - Returns: A `Gen` generator
     func orNil(nilProbability: Double = 0.5) -> AnyGenerator<T?> {
-        Generators.either(left: map { a -> T? in a },
-                          right: Generators.Constant(nil),
-                          rightProbability: nilProbability)
+        map { a -> T? in a }
+            .or(Generators.Constant(nil), otherProbability: nilProbability)
     }
 }

@@ -11,10 +11,19 @@ public extension Generators {
     ///
     /// - Returns: The generator
     static func of<T>(_ values: [T]) -> AnyGenerator<T> {
-        assert(!values.isEmpty, "`Gen.of(values:)` was invoked with an empty list of values")
+        Of(values).eraseToAnyGenerator()
+    }
+}
 
-        return AnyGenerator {
-            values.randomElement(using: &$0.rng)!
-        }
+private struct Of<T>: Generator {
+    let values: [T]
+
+    init(_ values: [T]) {
+        assert(!values.isEmpty, "`Gen.of(values:)` was invoked with an empty list of values")
+        self.values = values
+    }
+
+    func next(_ context: Context) -> T {
+        values.randomElement(using: &context.rng)!
     }
 }

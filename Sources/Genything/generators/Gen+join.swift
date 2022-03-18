@@ -14,6 +14,5 @@ public extension Generators {
         Generators
             .collect(generators)
             .map { $0.joined(separator: separator) }
-            .eraseToAnyGenerator()
     }
 }

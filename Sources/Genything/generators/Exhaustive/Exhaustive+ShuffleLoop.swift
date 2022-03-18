@@ -1,6 +1,4 @@
-// MARK: Build
-
-extension Generators {
+extension Exhaustive {
     /// A generator which produces results by shuffling the provided list and drawing values until empty, then reshuffles
     ///
     /// - Warning: In order to provide the shuffling functionality the Generator is stateful and requires a context up-front

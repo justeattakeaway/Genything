@@ -1,8 +1,4 @@
-import Foundation
-
-// MARK: Build
-
-extension Generators {
+extension Exhaustive {
     /// A Generator that generates by looping over a collection of elements.
     final public class Loop<Elements>: Generator where Elements: Swift.Collection {
 

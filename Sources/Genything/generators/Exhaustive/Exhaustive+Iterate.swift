@@ -1,6 +1,4 @@
-// MARK: Build
-
-extension Generators {
+extension Exhaustive {
     /// A Generator that generates a given sequence of elements.
     ///
     /// When the generator exhausts the elements in the sequence, it will begin to return nil.

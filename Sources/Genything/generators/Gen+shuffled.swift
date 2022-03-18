@@ -11,10 +11,19 @@ public extension Generators {
     ///
     /// - Returns: The generator
     static func shuffled<T>(_ values: [T]) -> AnyGenerator<[T]> {
-        assert(!values.isEmpty, "`Gen.shuffled(values:)` was invoked with an empty list of values")
+        Shuffled(values).eraseToAnyGenerator()
+    }
+}
 
-        return AnyGenerator<[T]> { ctx in
-            values.shuffled(using: &ctx.rng)
-        }
+private struct Shuffled<T>: Generator {
+    let values: [T]
+
+    init(_ values: [T]) {
+        assert(!values.isEmpty, "`Gen.shuffled(values:)` was invoked with an empty list of values")
+        self.values = values
+    }
+
+    func next(_ context: Context) -> [T] {
+        values.shuffled(using: &context.rng)
     }
 }
