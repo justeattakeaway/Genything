@@ -20,6 +20,7 @@ extension Fake {
                 .map {
                     $0.prefix(1).capitalized + $0.dropFirst() + "."
                 }
+                .eraseToAnyGenerator()
         }
     }
 }

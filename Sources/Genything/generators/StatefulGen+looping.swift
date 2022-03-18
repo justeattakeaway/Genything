@@ -14,7 +14,7 @@ extension Generators {
         /// Creates a looping Generator for a collection of elements.
         ///
         /// - Parameter collection: The collection of elements to loop.
-        public init(collection: Elements) {
+        public init(_ collection: Elements) {
             assert(collection.startIndex != collection.endIndex)
 
             self.collection = collection

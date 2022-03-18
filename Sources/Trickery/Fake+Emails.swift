@@ -47,8 +47,8 @@ extension Fake {
         public static var personal: AnyGenerator<String> {
             Generators.Composer { gen -> String in
                 let transformedName = gen(Fake.PersonNames.full).replacingOccurrences(of: " ", with: gen(separator)).lowercased()
-                return "\(transformedName)@\(gen(personalDomain)).\(gen(topLevelDomain))"
-            }
+                return "\(transformedName)@\(gen(personalDomains)).\(gen(topLevelDomains))"
+            }.eraseToAnyGenerator()
         }
 
         public static func business(_ name: String? = nil) -> AnyGenerator<String> {
@@ -61,7 +61,7 @@ extension Fake {
             return Generators.Composer { gen -> String in
                 let transformedName = String(gen(nameGen).filter { $0.isLetter }).lowercased()
                 return "\(gen(contacts))@\(transformedName).\(gen(topLevelDomains))"
-            }
+            }.eraseToAnyGenerator()
         }
     }
 }

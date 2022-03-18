@@ -10,7 +10,7 @@ final internal class FoundationArbitraryTests: XCTestCase {
 
     func test_dateAbitraryCanGenerateRandomDates() {
         var datesSet: Set<Date> = Set()
-        Date.arbitrary.unique().take(arbitraryCount).forEach {
+        Date.arbitrary.take(arbitraryCount).forEach {
             datesSet.insert($0)
         }
         XCTAssertEqual(datesSet.count, arbitraryCount)

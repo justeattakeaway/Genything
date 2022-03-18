@@ -10,7 +10,7 @@ public extension Generator {
     /// - Parameters:
     ///   - iterations: The amount of times the sequence should iterate, default's to the context's `maxIterations` value
     ///   - context: The context to be used for generation
-    func forEach(iterations: Int,
+    func forEach(_ iterations: Int,
                  context: Context = .default,
                  _ body: (T) throws -> Void) rethrows {
         try asSequence(size: iterations, context: context).forEach(body)

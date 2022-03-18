@@ -6,9 +6,9 @@ class Gen_FilterTests: XCTestCase {
     func test_filtering_where_it_is_obviously_not_possible() {
         XCTAssertThrowsError(
             /// `false` will never be `true` and filter will reach max depth
-            try Gen.constant(false)
+            try Generators.Constant(false)
                 .filter { $0 == true }
-                .safe.take()
+                .take(1000)
         )
     }
 
@@ -18,7 +18,7 @@ class Gen_FilterTests: XCTestCase {
             /// Without `maxDepth` this test would run at 100% cpu for many minutes before generating even **one** value
             try Int.arbitrary
                 .filter { $0 == 999 }
-                .safe.take()
+                .take(1000)
         )
     }
 
@@ -27,8 +27,7 @@ class Gen_FilterTests: XCTestCase {
             value == 0
         }
 
-        StatefulGen.looping([0, 1])
-            .start()
+        Generators.Loop([0, 1])
             .filter { check($0) }
             .assertForAll {
                 check($0)

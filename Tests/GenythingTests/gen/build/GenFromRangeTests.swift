@@ -4,19 +4,19 @@ import GenythingTest
 
 final internal class GenFromRangeTests: XCTestCase {
     func test_fromElements_usingClosedRangeOf_Integers_IncludesCorrectElements() {
-        Gen.from(0...100).assertForAll {
+        Generators.from(0...100).assertForAll {
             $0 >= 0 && $0 <= 100
         }
     }
 
     func test_fromElements_usingClosedRangeOf_Integers_IncludesAllElements() {
-        Gen.from(0...1).assertForAll {
+        Generators.from(0...1).assertForAll {
             $0 == 0 || $0 == 1
         }
     }
 
     func test_fromElements_usingRangeOf_Integers_DoesNotIncludeLastElement() {
-        Gen.from(0..<1).assertForAll {
+        Generators.from(0..<1).assertForAll {
             $0 == 0
         }
     }

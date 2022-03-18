@@ -4,7 +4,7 @@ import GenythingTest
 
 final internal class GenWeightedTests: XCTestCase {
     func test_weighted_with_equal_weights() {
-        let values = Gen.weighted([
+        let values = Generators.weighted([
             (1, "A"),
             (1, "B"),
         ]).take(1000).countDistinct()
@@ -20,7 +20,7 @@ final internal class GenWeightedTests: XCTestCase {
     }
 
     func test_weighted_with_uneven_weights() {
-        let values = Gen.weighted([
+        let values = Generators.weighted([
             (2, "A"),
             (1, "B"),
         ]).take(1000).countDistinct()

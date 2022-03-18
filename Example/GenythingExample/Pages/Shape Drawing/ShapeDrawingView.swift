@@ -24,11 +24,11 @@ private let colorGen: Gen<Color> = {
 private let polygonGen = Gen<PolygonShape>.compose {
     PolygonShape(
             id: UUID(),
-            sides: $0.generate(Gen.from(3...8)),
-            scale: $0.generate(Gen.from(0.3...0.9)),
+            sides: $0.generate(Generators.from(3...8)),
+            scale: $0.generate(Generators.from(0.3...0.9)),
             color: $0.generate(colorGen),
-            offset: CGFloat($0.generate(Gen.from(-250.0...250.0))),
-            xOffset:CGFloat($0.generate(Gen.from(-150.0...150.0)))
+            offset: CGFloat($0.generate(Generators.from(-250.0...250.0))),
+            xOffset:CGFloat($0.generate(Generators.from(-150.0...150.0)))
         )
 }.expand(toSizeInRange: 6...12)
 

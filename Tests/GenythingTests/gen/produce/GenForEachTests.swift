@@ -3,20 +3,9 @@ import XCTest
 
 final internal class GenForEachTests: XCTestCase {
     func test_forEach_iterations_parameter() {
-        Gen.from(0...100).forEach { count in
+        Generators.from(0...100).forEach(100) { count in
             var i = 0
-            Int.arbitrary.forEach(iterations: count) { _ in
-                i += 1
-            }
-
-            XCTAssertEqual(i, count)
-        }
-    }
-
-    func test_forEach_meta() {
-        Gen.from(0...100).forEach { count in
-            var i = 0
-            Int.arbitrary.forEach(iterations: count) { _ in
+            Int.arbitrary.forEach(count) { _ in
                 i += 1
             }
 
@@ -25,11 +14,11 @@ final internal class GenForEachTests: XCTestCase {
     }
 
     func test_forEach_practical() {
-        let foodMod = Gen.of(["Cheese", "Banana", "Chicken", "Crispy", "Smoked", "Vegan"])
+        let foodMod = Generators.of(["Cheese", "Banana", "Chicken", "Crispy", "Smoked", "Vegan"])
 
-        let foodType = Gen.of(["Pizza", "Burrito", "Donair", "Toast", "Salad", "Sandwich"])
+        let foodType = Generators.of(["Pizza", "Burrito", "Donair", "Toast", "Salad", "Sandwich"])
 
-        Gen.zip(foodMod, foodType).forEach {
+        Generators.zip(foodMod, foodType).forEach(1000) {
             let menuItem = $0 + " " + $1
             XCTAssertNotNil($0)
             XCTAssertNotNil($1)

@@ -69,10 +69,8 @@ public extension XCTestCase {
                     _ body: (T) throws -> Void) where G1.T == T {
         setupCheck(context)
 
-        // TODO: Maybe test options and default iterations
-
         do {
-            try gen1.forEach(iterations: 100, context: context, body)
+            try gen1.forEach(TestConfig.maxIterations, context: context, body)
         } catch {
             fail(error, context: context, file: file, line: line)
         }

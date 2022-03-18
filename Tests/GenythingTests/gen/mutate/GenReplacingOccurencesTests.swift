@@ -4,7 +4,7 @@ import GenythingTest
 
 class Gen_ReplacingOccurencesTests: XCTestCase {
     func test_replacing_occurences_to_create_a_phone_number() {
-        let digits = Gen<Int>.from(0...9)
+        let digits = Generators.from(0...9)
         let gen = digits.replacingOccurrences(of: "#", in: "(###) ###-####")
 
         checkAll(gen) { phoneNumber in

@@ -7,7 +7,7 @@ class Gen_AlsoTests: XCTestCase {
         let iterations = 100
 
         var count = 0
-        _ = Gen.constant(()).also {
+        _ = Generators.Constant(()).also {
             count += 1
         }.take(iterations)
 

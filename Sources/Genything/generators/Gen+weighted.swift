@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: Build
 
-public extension Generator {
+public extension Generators {
 
     /// Alias pairing a weighted probability to a generator
     typealias WeightedGenerator<T> = (weight: Int, generator: AnyGenerator<T>)
@@ -14,7 +14,7 @@ public extension Generator {
     /// - Parameter weights: Pairing of generators with their weights
     ///
     /// - Returns: The generator
-    static func weighted(_ weights: [WeightedGenerator<T>]) -> AnyGenerator<T> {
+    static func weighted<T>(_ weights: [WeightedGenerator<T>]) -> AnyGenerator<T> {
         assert(weights.allSatisfy { $0.weight > 0 }, "`Gen.weighted(weights:)` called with impossible weights. Ratios must be one or greater.")
 
         let total = weights.map { $0.weight }.reduce(0, +)
@@ -36,7 +36,7 @@ public extension Generator {
     /// - Parameter weights: Pairing of generators with their weights
     ///
     /// - Returns: The generator
-    static func weighted(_ weights: [(Int, T)]) -> AnyGenerator<T> {
+    static func weighted<T>(_ weights: [(Int, T)]) -> AnyGenerator<T> {
         weighted(
             weights.map { (weight, value) in
                 (weight, Generators.Constant(value).eraseToAnyGenerator())

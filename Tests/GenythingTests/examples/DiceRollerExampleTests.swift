@@ -62,8 +62,8 @@ final internal class DiceRollerExampleTests: XCTestCase {
     }
 
     /// Create a dice rolling helper function using the knowledge gained from `test_ways_of_creating_a_dice_bag`
-    func diceRoller(_ dice: [Gen<Int>], modifier: Int = 0) -> Gen<Int> {
-        Gen.reduce(dice, modifier, +)
+    func diceRoller(_ dice: [AnyGenerator<Int>], modifier: Int = 0) -> AnyGenerator<Int> {
+        Generators.reduce(dice, modifier, +)
     }
 
     /// Simulate a pen and paper roleplaying dice role

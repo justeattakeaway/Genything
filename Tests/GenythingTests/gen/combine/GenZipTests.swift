@@ -11,10 +11,10 @@ final internal class GenZipTests: XCTestCase {
     func test_anyGen_zippedWithAnotherGen_generateTupleOfExpectedValues() {
         let firstRange = 0..<100
         let secondRange = 100..<200
-        let firstGen = Gen.from(firstRange)
-        let secondGen = Gen.from(secondRange)
+        let firstGen = Generators.from(firstRange)
+        let secondGen = Generators.from(secondRange)
 
-        let zipped = firstGen.zip(with: secondGen)
+        let zipped = firstGen.zip(secondGen)
         zipped.forEach { (first, second) in
             XCTAssertTrue(firstRange.contains(first))
             XCTAssertTrue(secondRange.contains(second))
@@ -25,10 +25,10 @@ final internal class GenZipTests: XCTestCase {
     }
 
     func test_anyGen_zipAndTransformAnotherGen_generateExpectedValues() {
-        let firstGen = Gen<Character>.from("a"..."z")
-        let secondGen = Gen<Character>.from("A"..."Z")
+        let firstGen = Generators.from(Character("a")...Character("z"))
+        let secondGen = Generators.from(Character("A")...Character("Z"))
 
-        let zipped = firstGen.zip(with: secondGen) { "\($0)\($1)" }
+        let zipped = firstGen.zip(secondGen) { "\($0)\($1)" }
         zipped.forEach { combined in
             XCTAssertTrue(combined.first?.isLowercase ?? false)
             XCTAssertTrue(combined.last?.isUppercase ?? false)
@@ -39,25 +39,25 @@ final internal class GenZipTests: XCTestCase {
 
     func test_3Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 3) { gens in
-            Gen.zip(
+            Generators.zip(
                 gens[0], gens[1], gens[2]
-            ).generate()
+            ).next(.default)
         }
     }
 
     func test_4Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 4) { gens in
-            Gen.zip(
+            Generators.zip(
                 gens[0], gens[1], gens[2], gens[3]
-            ).generate()
+            ).next(.default)
         }
     }
 
     func test_5Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 5) { gens in
-            Gen.zip(
+            Generators.zip(
                 gens[0], gens[1], gens[2], gens[3], gens[4]
-            ).generate()
+            ).next(.default)
         }
     }
 //
@@ -66,7 +66,7 @@ final internal class GenZipTests: XCTestCase {
 //            Gen.zip(
 //                gens[0], gens[1], gens[2], gens[3], gens[4],
 //                gens[5]
-//            ).generate()
+//            ).next(.default)
 //        }
 //    }
 //
@@ -75,7 +75,7 @@ final internal class GenZipTests: XCTestCase {
 //            Gen.zip(
 //                gens[0], gens[1], gens[2], gens[3], gens[4],
 //                gens[5], gens[6]
-//            ).generate()
+//            ).next(.default)
 //        }
 //    }
 //
@@ -84,7 +84,7 @@ final internal class GenZipTests: XCTestCase {
 //            Gen.zip(
 //                gens[0], gens[1], gens[2], gens[3], gens[4],
 //                gens[5], gens[6], gens[7]
-//            ).generate()
+//            ).next(.default)
 //        }
 //    }
 //
@@ -93,7 +93,7 @@ final internal class GenZipTests: XCTestCase {
 //            Gen.zip(
 //                gens[0], gens[1], gens[2], gens[3], gens[4],
 //                gens[5], gens[6], gens[7], gens[8]
-//            ).generate()
+//            ).next(.default)
 //        }
 //    }
 //
@@ -102,19 +102,19 @@ final internal class GenZipTests: XCTestCase {
 //            Gen.zip(
 //                gens[0], gens[1], gens[2], gens[3], gens[4],
 //                gens[5], gens[6], gens[7], gens[8], gens[9]
-//            ).generate()
+//            ).next(.default)
 //        }
 //    }
 
-    private func testZip(argsCount: Int, zipCall: ([Gen<Int>]) -> Any) {
+    private func testZip(argsCount: Int, zipCall: ([AnyGenerator<Int>]) -> Any) {
         let gens = createGens(argsCount)
         let tuple = zipCall(gens)
         validate(tuple, argsCount)
     }
 
-    private func createGens(_ count: Int) -> [Gen<Int>] {
+    private func createGens(_ count: Int) -> [AnyGenerator<Int>] {
         (0..<count).map { index in
-            Gen<Int>.constant(index)
+            Generators.Constant(index).eraseToAnyGenerator()
         }
     }
 
@@ -132,7 +132,7 @@ final internal class GenZipTests: XCTestCase {
             ){ a, b, c in
                 a+b+c
             }
-            .generate()
+            .next(.default)
         }
     }
 
@@ -143,7 +143,7 @@ final internal class GenZipTests: XCTestCase {
             ){ a, b, c, d in
                 a+b+c+d
             }
-            .generate()
+            .next(.default)
         }
     }
 
@@ -154,7 +154,7 @@ final internal class GenZipTests: XCTestCase {
             ){ a, b, c, d, e in
                 a+b+c+d+e
             }
-            .generate()
+            .next(.default)
         }
     }
 //
@@ -166,7 +166,7 @@ final internal class GenZipTests: XCTestCase {
 //            ){ a, b, c, d, e, f in
 //                a+b+c+d+e+f
 //            }
-//            .generate()
+//            .next(.default)
 //        }
 //    }
 //
@@ -178,7 +178,7 @@ final internal class GenZipTests: XCTestCase {
 //            ){ a, b, c, d, e, f, g in
 //                a+b+c+d+e+f+g
 //            }
-//            .generate()
+//            .next(.default)
 //        }
 //    }
 //
@@ -190,7 +190,7 @@ final internal class GenZipTests: XCTestCase {
 //            ){ a, b, c, d, e, f, g, h in
 //                a+b+c+d+e+f+g+h
 //            }
-//            .generate()
+//            .next(.default)
 //        }
 //    }
 //
@@ -202,7 +202,7 @@ final internal class GenZipTests: XCTestCase {
 //            ){ a, b, c, d, e, f, g, h, i in
 //                a+b+c+d+e+f+g+h+i
 //            }
-//            .generate()
+//            .next(.default)
 //        }
 //    }
 //
@@ -214,11 +214,11 @@ final internal class GenZipTests: XCTestCase {
 //            ){ a, b, c, d, e, f, g, h, i, j in
 //                a+b+c+d+e+f+g+h+i+j
 //            }
-//            .generate()
+//            .next(.default)
 //        }
 //    }
 
-    private func testZipTransform(argsCount: Int, zipCall: ([Gen<Int>]) -> Int) {
+    private func testZipTransform(argsCount: Int, zipCall: ([AnyGenerator<Int>]) -> Int) {
         let gens = createGens(argsCount)
         let total = zipCall(gens)
         XCTAssertEqual(total, (0..<argsCount).reduce(0, +))

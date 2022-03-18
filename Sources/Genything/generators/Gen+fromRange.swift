@@ -9,7 +9,7 @@ public extension Generators {
     ///
     /// - Returns: The generator
     static func from<T>(_ range: Range<T>) -> AnyGenerator<T> where T: RandomInRangeable {
-        assert(!range.isEmpty, "`Gen.from(range:)` was invoked with an empty interval")
+        assert(!range.isEmpty, "`Generators.from(range:)` was invoked with an empty interval")
 
         return AnyGenerator<T> {
             .random(in: range, using: &$0.rng)
@@ -22,7 +22,7 @@ public extension Generators {
     ///
     /// - Returns: The generator
     static func from<T>(_ range: ClosedRange<T>) -> AnyGenerator<T> where T: RandomInRangeable {
-        assert(!range.isEmpty, "`Gen.from(range:)` was invoked with an empty interval")
+        assert(!range.isEmpty, "`Generators.from(range:)` was invoked with an empty interval")
 
         return AnyGenerator<T> {
             .random(in: range, using: &$0.rng)
