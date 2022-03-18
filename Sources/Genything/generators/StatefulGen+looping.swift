@@ -4,7 +4,7 @@ import Foundation
 
 extension Generators {
     /// A Generator that generates by looping over a collection of elements.
-    public class Loop<Elements>: Generator where Elements: Swift.Collection {
+    final public class Loop<Elements>: Generator where Elements: Swift.Collection {
 
         public typealias T = Elements.Element
 

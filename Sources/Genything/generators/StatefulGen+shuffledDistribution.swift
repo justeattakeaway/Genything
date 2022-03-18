@@ -12,7 +12,7 @@ extension Generators {
     /// The same `value` cannot be redrawn until all other values are drawn
     ///
     /// - SeeAlso: https://developer.apple.com/documentation/gameplaykit/gkshuffleddistribution
-    class ShuffleLoop<Elements>: Generator where Elements: Swift.Collection {
+    final class ShuffleLoop<Elements>: Generator where Elements: Swift.Collection {
 
         public typealias T = Elements.Element
 

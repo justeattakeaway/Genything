@@ -15,8 +15,8 @@ final internal class GenAssertForAllTests: XCTestCase {
 
     func test_that_assertForAll_fails_when_it_should() {
         XCTExpectFailure()
-        Generators.from(1...100).assertForAll { a in
-            a < 1 || a > 100
+        Generators.from(1...100).assertForAll {
+            $0 < 1 || $0 > 100
         }
     }
 

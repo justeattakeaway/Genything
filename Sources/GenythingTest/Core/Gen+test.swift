@@ -13,11 +13,11 @@ extension Generator {
     ///
     /// - Returns: A `Result` indicating wether the test passed or failed, with accompanying `TestReport` information
     ///
-    func test(iterations: Int? = nil, // TODO: Maybe add TestOptions here for default iterations
+    func test(iterations: Int? = nil,
               context: Context = .default,
               _ predicate: (T) throws -> Bool) -> Result<SuccessfulTestReport, FailedTestReport<T>> {
 
-        let iterations = iterations ?? 100 // TODO: hardcoded iterations
+        let iterations = iterations ?? TestConfig.maxIterations
         var index = 0
 
         while index < iterations {

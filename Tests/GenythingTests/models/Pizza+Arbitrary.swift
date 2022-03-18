@@ -14,7 +14,7 @@ extension Pizza: Arbitrary {
 
 extension Pizza.Size: Arbitrary {
     public static var arbitrary: AnyGenerator<Pizza.Size> {
-        Generators.Cases().eraseToAnyGenerator()
+        AnyGenerator<Pizza.Size>.ofCases()
     }
 }
 

@@ -4,8 +4,8 @@ extension Generators {
     /// A Generator that generates a given sequence of elements.
     ///
     /// When the generator exhausts the elements in the sequence, it will begin to return nil.
-    public class Iterate<T, Elements>: Generator where Elements: Swift.Sequence, Elements.Element == T {
-        public var iterator: Elements.Iterator
+    final public class Iterate<T, Elements>: Generator where Elements: Swift.Sequence, Elements.Element == T {
+        var iterator: Elements.Iterator
 
         /// Creates a Generators for a sequence of elements.
         ///
