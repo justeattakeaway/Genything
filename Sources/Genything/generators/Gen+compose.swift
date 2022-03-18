@@ -44,7 +44,7 @@ public struct Composer {
     ///
     /// - Returns: An arbitrary value of type `T`
     public func ofCases<T>() -> T where T: CaseIterable {
-        generate(AnyGenerator.ofCases())
+        generate(Generators.ofCases())
     }
 }
 

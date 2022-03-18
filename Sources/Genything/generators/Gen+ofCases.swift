@@ -1,12 +1,12 @@
 import Foundation
 
-public extension Generator where T: CaseIterable {
-    static func ofCases() -> AnyGenerator<T> {
-        Cases().eraseToAnyGenerator()
+public extension Generators {
+    static func ofCases<T: CaseIterable>() -> AnyGenerator<T> {
+        OfCases().eraseToAnyGenerator()
     }
 }
 
-private struct Cases<T>: Generator where T: CaseIterable {
+private struct OfCases<T>: Generator where T: CaseIterable {
     public init() {
         assert(!T.allCases.isEmpty, "`Generators.Cases()` created with empty CaseIterable.")
     }
