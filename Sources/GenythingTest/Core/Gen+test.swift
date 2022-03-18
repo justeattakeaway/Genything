@@ -1,4 +1,3 @@
-// Note: No specific dependency on XCTest and _could_ be moved to the main library
 import Foundation
 import Genything
 
@@ -14,16 +13,16 @@ extension Generator {
     ///
     /// - Returns: A `Result` indicating wether the test passed or failed, with accompanying `TestReport` information
     ///
-    func test(iterations: Int? = nil,
+    func test(iterations: Int? = nil, // TODO: Maybe add TestOptions here for default iterations
               context: Context = .default,
               _ predicate: (T) throws -> Bool) -> Result<SuccessfulTestReport, FailedTestReport<T>> {
 
-        let iterations = iterations ?? context.maxIterations
+        let iterations = iterations ?? 100 // TODO: hardcoded iterations
         var index = 0
 
         while index < iterations {
             do {
-                let value: T = try safe.next(context)
+                let value: T = next(context)
 
                 if try !predicate(value) {
                     return .failure(

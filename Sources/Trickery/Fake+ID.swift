@@ -3,7 +3,14 @@ import Genything
 
 extension Fake {
     public enum ID {
-        public static let uuid: Gen<UUID> = UUID.arbitrary
-        public static let uuidString: Gen<String> = uuid.map { $0.uuidString }
+        public static var uuid: AnyGenerator<UUID> {
+            UUID.arbitrary
+                .eraseToAnyGenerator()
+        }
+        public static var uuidString: AnyGenerator<String> {
+            uuid
+                .map { $0.uuidString }
+                .eraseToAnyGenerator()
+        }
     }
 }

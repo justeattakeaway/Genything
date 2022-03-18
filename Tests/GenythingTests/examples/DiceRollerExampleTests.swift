@@ -5,7 +5,7 @@ import GenythingTest
 
 final internal class DiceRollerExampleTests: XCTestCase {
     /// An extremely simple dice
-    private let d6 = Gen<Int>.from(1...6)
+    private let d6 = Generators.from(1...6)
 
     func test_d6_bounds() {
         // All values are within the expected bounds
@@ -34,27 +34,27 @@ final internal class DiceRollerExampleTests: XCTestCase {
 
     /// Experiment with some ways of creating a dice roll with multiple die
     func test_ways_of_creating_a_dice_bag() {
-        let d6 = Gen<Int>.from(1...6)
+        let d6 = Generators.from(1...6)
 
-        let two_d6 = d6.zip(with: d6).map { $0 + $1 }
+        let two_d6 = d6.zip(d6) { $0 + $1 }
 
         two_d6.assertForAll {
             2...12 ~= $0
         }
 
-        let two_d6_2 = Gen.compose { $0.generate(d6) + $0.generate(d6) }
+        let two_d6_2 = Generators.Composer { $0(d6) + $0(d6) }
 
         two_d6_2.assertForAll {
             2...12 ~= $0
         }
 
-        let two_d6_3 = Gen.collect([d6, d6]).map { $0.reduce(0, +) }
+        let two_d6_3 = Generators.collect([d6, d6]).map { $0.reduce(0, +) }
 
         two_d6_3.assertForAll {
             2...12 ~= $0
         }
 
-        let two_d6_4 = Gen.reduce([d6, d6], 0, +)
+        let two_d6_4 = Generators.reduce([d6, d6], 0, +)
 
         two_d6_4.assertForAll {
             2...12 ~= $0
@@ -68,7 +68,7 @@ final internal class DiceRollerExampleTests: XCTestCase {
 
     /// Simulate a pen and paper roleplaying dice role
     func test_a_damage_roll_using_two_daggers_with_a_modifier() {
-        let d4 = Gen<Int>.from(1...4)
+        let d4 = Generators.from(1...4)
         let twoDaggers = diceRoller([d4, d4], modifier: 2)
 
         twoDaggers.assertForAll {

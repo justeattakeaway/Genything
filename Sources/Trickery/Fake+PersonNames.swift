@@ -5,20 +5,31 @@ extension Fake {
     public enum PersonNames {
         private static let data: PersonNamesData = PersonNamesData.loadJson()
         
-        public static let first: Gen<String> = .of(data.names)
+        public static var first: AnyGenerator<String> {
+            Generators
+                .of(data.names)
+                .eraseToAnyGenerator()
+        }
 
-        public static let middle: Gen<String> =
-            .of(data.names)
-            .expand(toSizeInRange: 0...1)
-            .map { $0.joined(separator: " ") }
+        public static var middle: AnyGenerator<String> {
+            Generators
+                .of(data.names)
+                .expand(toSizeInRange: 0...1)
+                .map { $0.joined(separator: " ") }
+                .eraseToAnyGenerator()
+        }
 
-        public static let last: Gen<String> = first
 
-        public static let full: Gen<String> =
-            .zip(first, middle, last) {
-                [$0, $1, $2]
-                    .filter { !$0.isEmpty }
-                    .joined(separator: " ")
-            }
+        public static var last: AnyGenerator<String> { first }
+
+        public static var full: AnyGenerator<String> {
+            first
+                .zip(middle, last) {
+                    [$0, $1, $2]
+                        .filter { !$0.isEmpty }
+                        .joined(separator: " ")
+                }
+                .eraseToAnyGenerator()
+        }
     }
 }

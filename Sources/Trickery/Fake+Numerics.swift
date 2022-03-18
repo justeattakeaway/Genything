@@ -3,6 +3,10 @@ import Genything
 
 extension Fake {
     public enum Numerics {
-        public static let digits: Gen<Int> = Gen<Int>.from(0...9)
+        public static var digits: AnyGenerator<Int> {
+            Generators
+                .from(0...9)
+                .eraseToAnyGenerator()
+        }
     }
 }

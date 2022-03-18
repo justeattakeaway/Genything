@@ -60,51 +60,51 @@ final internal class GenZipTests: XCTestCase {
             ).generate()
         }
     }
-
-    func test_6Gen_staticZip_generateExpectedValues() {
-        testZip(argsCount: 6) { gens in
-            Gen.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4],
-                gens[5]
-            ).generate()
-        }
-    }
-
-    func test_7Gen_staticZip_generateExpectedValues() {
-        testZip(argsCount: 7) { gens in
-            Gen.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4],
-                gens[5], gens[6]
-            ).generate()
-        }
-    }
-
-    func test_8Gen_staticZip_generateExpectedValues() {
-        testZip(argsCount: 8) { gens in
-            Gen.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4],
-                gens[5], gens[6], gens[7]
-            ).generate()
-        }
-    }
-
-    func test_9Gen_staticZip_generateExpectedValues() {
-        testZip(argsCount: 9) { gens in
-            Gen.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4],
-                gens[5], gens[6], gens[7], gens[8]
-            ).generate()
-        }
-    }
-
-    func test_10Gen_staticZip_generateExpectedValues() {
-        testZip(argsCount: 10) { gens in
-            Gen.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4],
-                gens[5], gens[6], gens[7], gens[8], gens[9]
-            ).generate()
-        }
-    }
+//
+//    func test_6Gen_staticZip_generateExpectedValues() {
+//        testZip(argsCount: 6) { gens in
+//            Gen.zip(
+//                gens[0], gens[1], gens[2], gens[3], gens[4],
+//                gens[5]
+//            ).generate()
+//        }
+//    }
+//
+//    func test_7Gen_staticZip_generateExpectedValues() {
+//        testZip(argsCount: 7) { gens in
+//            Gen.zip(
+//                gens[0], gens[1], gens[2], gens[3], gens[4],
+//                gens[5], gens[6]
+//            ).generate()
+//        }
+//    }
+//
+//    func test_8Gen_staticZip_generateExpectedValues() {
+//        testZip(argsCount: 8) { gens in
+//            Gen.zip(
+//                gens[0], gens[1], gens[2], gens[3], gens[4],
+//                gens[5], gens[6], gens[7]
+//            ).generate()
+//        }
+//    }
+//
+//    func test_9Gen_staticZip_generateExpectedValues() {
+//        testZip(argsCount: 9) { gens in
+//            Gen.zip(
+//                gens[0], gens[1], gens[2], gens[3], gens[4],
+//                gens[5], gens[6], gens[7], gens[8]
+//            ).generate()
+//        }
+//    }
+//
+//    func test_10Gen_staticZip_generateExpectedValues() {
+//        testZip(argsCount: 10) { gens in
+//            Gen.zip(
+//                gens[0], gens[1], gens[2], gens[3], gens[4],
+//                gens[5], gens[6], gens[7], gens[8], gens[9]
+//            ).generate()
+//        }
+//    }
 
     private func testZip(argsCount: Int, zipCall: ([Gen<Int>]) -> Any) {
         let gens = createGens(argsCount)
@@ -157,66 +157,66 @@ final internal class GenZipTests: XCTestCase {
             .generate()
         }
     }
-
-    func test_6Gen_staticZipTransform_generateExpectedValues() {
-        testZipTransform(argsCount: 6) { gens in
-            Gen.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4],
-                gens[5]
-            ){ a, b, c, d, e, f in
-                a+b+c+d+e+f
-            }
-            .generate()
-        }
-    }
-
-    func test_7Gen_staticZipTransform_generateExpectedValues() {
-        testZipTransform(argsCount: 7) { gens in
-            Gen.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4],
-                gens[5], gens[6]
-            ){ a, b, c, d, e, f, g in
-                a+b+c+d+e+f+g
-            }
-            .generate()
-        }
-    }
-
-    func test_8Gen_staticZipTransform_generateExpectedValues() {
-        testZipTransform(argsCount: 8) { gens in
-            Gen.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4],
-                gens[5], gens[6], gens[7]
-            ){ a, b, c, d, e, f, g, h in
-                a+b+c+d+e+f+g+h
-            }
-            .generate()
-        }
-    }
-
-    func test_9Gen_staticZipTransform_generateExpectedValues() {
-        testZipTransform(argsCount: 9) { gens in
-            Gen.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4],
-                gens[5], gens[6], gens[7], gens[8]
-            ){ a, b, c, d, e, f, g, h, i in
-                a+b+c+d+e+f+g+h+i
-            }
-            .generate()
-        }
-    }
-
-    func test_10Gen_staticZipTransform_generateExpectedValues() {
-        testZipTransform(argsCount: 10) { gens in
-            Gen.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4],
-                gens[5], gens[6], gens[7], gens[8], gens[9]
-            ){ a, b, c, d, e, f, g, h, i, j in
-                a+b+c+d+e+f+g+h+i+j
-            }
-            .generate()
-        }
-    }
+//
+//    func test_6Gen_staticZipTransform_generateExpectedValues() {
+//        testZipTransform(argsCount: 6) { gens in
+//            Gen.zip(
+//                gens[0], gens[1], gens[2], gens[3], gens[4],
+//                gens[5]
+//            ){ a, b, c, d, e, f in
+//                a+b+c+d+e+f
+//            }
+//            .generate()
+//        }
+//    }
+//
+//    func test_7Gen_staticZipTransform_generateExpectedValues() {
+//        testZipTransform(argsCount: 7) { gens in
+//            Gen.zip(
+//                gens[0], gens[1], gens[2], gens[3], gens[4],
+//                gens[5], gens[6]
+//            ){ a, b, c, d, e, f, g in
+//                a+b+c+d+e+f+g
+//            }
+//            .generate()
+//        }
+//    }
+//
+//    func test_8Gen_staticZipTransform_generateExpectedValues() {
+//        testZipTransform(argsCount: 8) { gens in
+//            Gen.zip(
+//                gens[0], gens[1], gens[2], gens[3], gens[4],
+//                gens[5], gens[6], gens[7]
+//            ){ a, b, c, d, e, f, g, h in
+//                a+b+c+d+e+f+g+h
+//            }
+//            .generate()
+//        }
+//    }
+//
+//    func test_9Gen_staticZipTransform_generateExpectedValues() {
+//        testZipTransform(argsCount: 9) { gens in
+//            Gen.zip(
+//                gens[0], gens[1], gens[2], gens[3], gens[4],
+//                gens[5], gens[6], gens[7], gens[8]
+//            ){ a, b, c, d, e, f, g, h, i in
+//                a+b+c+d+e+f+g+h+i
+//            }
+//            .generate()
+//        }
+//    }
+//
+//    func test_10Gen_staticZipTransform_generateExpectedValues() {
+//        testZipTransform(argsCount: 10) { gens in
+//            Gen.zip(
+//                gens[0], gens[1], gens[2], gens[3], gens[4],
+//                gens[5], gens[6], gens[7], gens[8], gens[9]
+//            ){ a, b, c, d, e, f, g, h, i, j in
+//                a+b+c+d+e+f+g+h+i+j
+//            }
+//            .generate()
+//        }
+//    }
 
     private func testZipTransform(argsCount: Int, zipCall: ([Gen<Int>]) -> Int) {
         let gens = createGens(argsCount)

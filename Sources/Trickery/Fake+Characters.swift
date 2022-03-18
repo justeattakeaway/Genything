@@ -3,35 +3,77 @@ import Genything
 
 extension Fake {
     public enum Characters {
-        public static let lowercase: Gen<Character> = .from("a"..."z")
-        public static let uppercase: Gen<Character> = .from("A"..."Z")
-        public static let digits: Gen<Character> = Numerics.digits.map { Character("\($0)") }
-        public static let alphanumeric: Gen<Character> = .one(of: [
-            lowercase,
-            uppercase,
-            digits
-        ])
+        public static var lowercase: AnyGenerator<Character> {
+            Generators
+                .from("a"..."z")
+                .eraseToAnyGenerator()
+        }
+        public static var uppercase: AnyGenerator<Character> {
+            Generators
+                .from("A"..."Z")
+                .eraseToAnyGenerator()
+        }
+        public static var digits: AnyGenerator<Character> {
+            Numerics.digits
+                .map { Character("\($0)") }
+                .eraseToAnyGenerator()
+        }
+        public static var alphanumeric: AnyGenerator<Character> {
+            Generators
+                .one(of: [
+                    lowercase,
+                    uppercase,
+                    digits
+                ])
+        }
 
         // Categories Taken from https://en.wikipedia.org/wiki/List_of_Unicode_characters
-        public static let punctuationAndSymbols: Gen<Character> = .one(of: [
-            .from(" "..."/"),
-            .from(":"..."@"),
-            .from("["..."`"),
-            .from("{"..."~"),
-            .from("¡"..."¿")
-        ])
-        public static let latinAccentsAndDiacritcs: Gen<Character> = .from("À"..."ÿ")
-        public static let latinExtended: Gen<Character> = .from("Ā"..."ỳ")
-        public static let ipaExtensions: Gen<Character> = .from("ə"..."ʒ")
-        public static let spacingModifier: Gen<Character> = .from("ʰ"..."˿")
-        public static let greekAndCoptic: Gen<Character> = .from("Ͱ"..."Ͽ")
-        public static let allButAlphanumeric: Gen<Character> = .one(of: [
-            punctuationAndSymbols,
-            latinAccentsAndDiacritcs,
-            latinExtended,
-            ipaExtensions,
-            spacingModifier,
-            greekAndCoptic,
-        ])
+        public static var punctuationAndSymbols: AnyGenerator<Character> {
+            Generators
+                .one(of: [
+                    Generators.from(" "..."/"),
+                    Generators.from(":"..."@"),
+                    Generators.from("["..."`"),
+                    Generators.from("{"..."~"),
+                    Generators.from("¡"..."¿")
+                ])
+        }
+        public static var latinAccentsAndDiacritcs: AnyGenerator<Character> {
+            Generators
+                .from("À"..."ÿ")
+                .eraseToAnyGenerator()
+        }
+        public static var latinExtended: AnyGenerator<Character> {
+            Generators
+                .from("Ā"..."ỳ")
+                .eraseToAnyGenerator()
+        }
+        public static var ipaExtensions: AnyGenerator<Character> {
+            Generators
+                .from("ə"..."ʒ")
+                .eraseToAnyGenerator()
+        }
+        public static var spacingModifier: AnyGenerator<Character> {
+            Generators
+                .from("ʰ"..."˿")
+                .eraseToAnyGenerator()
+        }
+        public static var greekAndCoptic: AnyGenerator<Character> {
+            Generators
+                .from("Ͱ"..."Ͽ")
+                .eraseToAnyGenerator()
+        }
+        public static var allButAlphanumeric: AnyGenerator<Character> {
+            Generators
+                .one(of: [
+                    punctuationAndSymbols,
+                    latinAccentsAndDiacritcs,
+                    latinExtended,
+                    ipaExtensions,
+                    spacingModifier,
+                    greekAndCoptic,
+                ])
+                .eraseToAnyGenerator()
+        }
     }
 }

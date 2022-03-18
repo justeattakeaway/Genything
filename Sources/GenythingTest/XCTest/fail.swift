@@ -19,10 +19,5 @@ func fail(_ error: Error,
           file: StaticString = #filePath,
           line: UInt = #line
 ) {
-    switch error as? GenError {
-        case .some(.maxDepthReached):
-            XCTFail("[Genything] - Reached maximum generator depth `\(context.maxDepth)`! Check that any calls to `filter` or `unique` are possible with the provided iteration count of `\(context.maxIterations)`. \(rerunInfo(context))", file: file, line: line)
-        default:
-            XCTFail("[Genything] - Failed with exception `\(error)`. \(rerunInfo(context))", file: file, line: line)
-    }
+    XCTFail("[Genything] - Failed with exception `\(error)`. \(rerunInfo(context))", file: file, line: line)
 }

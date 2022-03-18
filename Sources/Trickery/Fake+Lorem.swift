@@ -5,9 +5,13 @@ extension Fake {
     public enum Lorem {
         private static let data: LoremData = LoremData.loadJson()
         
-        public static let word: Gen<String> = .of(data.words)
+        public static var word: AnyGenerator<String> {
+            Generators
+                .of(data.words)
+                .eraseToAnyGenerator()
+        }
 
-        public static func sentence(wordCountRange: ClosedRange<Int> = 5...20) -> Gen<String> {
+        public static func sentence(wordCountRange: ClosedRange<Int> = 5...20) -> AnyGenerator<String> {
             word
                 .expand(toSizeInRange: wordCountRange)
                 .map {

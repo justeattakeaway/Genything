@@ -69,11 +69,10 @@ public extension XCTestCase {
                     _ body: (T) throws -> Void) where G1.T == T {
         setupCheck(context)
 
+        // TODO: Maybe test options and default iterations
+
         do {
-            try gen1
-                .start()
-                .safe
-                .forEach(context: context, body)
+            try gen1.forEach(iterations: 100, context: context, body)
         } catch {
             fail(error, context: context, file: file, line: line)
         }
@@ -104,7 +103,7 @@ public extension XCTestCase {
             G2.T == T2
     {
         checkAll(
-            Gen<(T1, T2)>.zip(gen1.start(), gen2.start()),
+            Generators.Zip(gen1, gen2),
             context: context,
             file: file,
             line: line,
@@ -144,7 +143,7 @@ public extension XCTestCase {
             G3.T == T3
     {
         checkAll(
-            Gen.zip(gen1.start(), gen2.start(), gen3.start()),
+            Generators.Zip3(gen1, gen2, gen3),
             context: context,
             file: file,
             line: line,
@@ -188,7 +187,7 @@ public extension XCTestCase {
             G4.T == T4
     {
         checkAll(
-            Gen.zip(gen1.start(), gen2.start(), gen3.start(), gen4.start()),
+            Generators.Zip4(gen1, gen2, gen3, gen4),
             context: context,
             file: file,
             line: line,
@@ -236,13 +235,7 @@ public extension XCTestCase {
             G5.T == T5
     {
         checkAll(
-            Gen.zip(
-                gen1.start(),
-                gen2.start(),
-                gen3.start(),
-                gen4.start(),
-                gen5.start()
-            ),
+            Generators.Zip5(gen1, gen2, gen3, gen4, gen5),
             context: context,
             file: file,
             line: line,
@@ -296,14 +289,16 @@ public extension XCTestCase {
             G6.T == T6
     {
         checkAll(
-            Gen.zip(
-                gen1.start(),
-                gen2.start(),
-                gen3.start(),
-                gen4.start(),
-                gen5.start(),
-                gen6.start()
-            ),
+            Generators.Composer {
+                (
+                    $0(gen1),
+                    $0(gen2),
+                    $0(gen3),
+                    $0(gen4),
+                    $0(gen5),
+                    $0(gen6)
+                )
+            },
             context: context,
             file: file,
             line: line,
@@ -362,15 +357,17 @@ public extension XCTestCase {
             G7.T == T7
     {
         checkAll(
-            Gen.zip(
-                gen1.start(),
-                gen2.start(),
-                gen3.start(),
-                gen4.start(),
-                gen5.start(),
-                gen6.start(),
-                gen7.start()
-            ),
+            Generators.Composer {
+                (
+                    $0(gen1),
+                    $0(gen2),
+                    $0(gen3),
+                    $0(gen4),
+                    $0(gen5),
+                    $0(gen6),
+                    $0(gen7)
+                )
+            },
             context: context,
             file: file,
             line: line,
@@ -432,16 +429,18 @@ public extension XCTestCase {
             G8.T == T8
     {
         checkAll(
-            Gen.zip(
-                gen1.start(),
-                gen2.start(),
-                gen3.start(),
-                gen4.start(),
-                gen5.start(),
-                gen6.start(),
-                gen7.start(),
-                gen8.start()
-            ),
+            Generators.Composer {
+                (
+                    $0(gen1),
+                    $0(gen2),
+                    $0(gen3),
+                    $0(gen4),
+                    $0(gen5),
+                    $0(gen6),
+                    $0(gen7),
+                    $0(gen8)
+                )
+            },
             context: context,
             file: file,
             line: line,
@@ -507,17 +506,19 @@ public extension XCTestCase {
             G9.T == T9
     {
         checkAll(
-            Gen.zip(
-                gen1.start(),
-                gen2.start(),
-                gen3.start(),
-                gen4.start(),
-                gen5.start(),
-                gen6.start(),
-                gen7.start(),
-                gen8.start(),
-                gen9.start()
-            ),
+            Generators.Composer {
+                (
+                    $0(gen1),
+                    $0(gen2),
+                    $0(gen3),
+                    $0(gen4),
+                    $0(gen5),
+                    $0(gen6),
+                    $0(gen7),
+                    $0(gen8),
+                    $0(gen9)
+                )
+            },
             context: context,
             file: file,
             line: line,
@@ -587,18 +588,20 @@ public extension XCTestCase {
             G10.T == T10
     {
         checkAll(
-            Gen.zip(
-                gen1.start(),
-                gen2.start(),
-                gen3.start(),
-                gen4.start(),
-                gen5.start(),
-                gen6.start(),
-                gen7.start(),
-                gen8.start(),
-                gen9.start(),
-                gen10.start()
-            ),
+            Generators.Composer {
+                (
+                    $0(gen1),
+                    $0(gen2),
+                    $0(gen3),
+                    $0(gen4),
+                    $0(gen5),
+                    $0(gen6),
+                    $0(gen7),
+                    $0(gen8),
+                    $0(gen9),
+                    $0(gen10)
+                )
+            },
             context: context,
             file: file,
             line: line,

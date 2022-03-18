@@ -4,8 +4,8 @@ import GenythingTest
 
 final internal class CheckAllTests: XCTestCase {
 
-    private var genVoid = Gen.constant(())
-    private var genTrue = Gen.constant(true)
+    private var genVoid = Generators.Constant(())
+    private var genTrue = Generators.Constant(true)
 
     func test_check_passes_when_it_should_with_correct_iterations() {
         let context = Context.default
