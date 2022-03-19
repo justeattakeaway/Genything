@@ -40,11 +40,29 @@ public struct Composer {
         generate(T.arbitrary)
     }
 
+    /// Generates an arbitrary value of type `T` where `T` conforms to `ArbitraryGeneratable`
+    ///
+    /// - Note: Duplicates `arbitrary()`
+    ///
+    /// - Returns: An arbitrary value of type `T`
+    public func callAsFunction<T>() -> T where T: ArbitraryGeneratable {
+        generate(T.arbitrary)
+    }
+
     /// Generates an arbitrary value of type `T` where `T` conforms to `CaseIterable`
     ///
     /// - Returns: An arbitrary value of type `T`
     public func ofCases<T>() -> T where T: CaseIterable {
-        generate(Generators.ofCases())
+        generate(T.arbitrary)
+    }
+
+    /// Generates an arbitrary value of type `T` where `T` conforms to `CaseIterable`
+    ///
+    /// - Note: Duplicates `ofCases()`
+    ///
+    /// - Returns: An arbitrary value of type `T`
+    public func callAsFunction<T>() -> T where T: CaseIterable {
+        generate(T.arbitrary)
     }
 }
 

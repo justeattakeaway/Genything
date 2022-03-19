@@ -2,19 +2,13 @@
 
 extension Pizza: ArbitraryGeneratable {
     public static var arbitrary: AnyGenerator<Pizza> {
-        AnyGenerator.compose {
+        AnyGenerator.compose { generate in
             Pizza(
-                name: $0.arbitrary(),
-                size: $0.arbitrary(),
-                toppings: $0.arbitrary()
+                name: generate(),
+                size: generate(),
+                toppings: generate()
             )
         }.eraseToAnyGenerator()
-    }
-}
-
-extension Pizza.Size: ArbitraryGeneratable {
-    public static var arbitrary: AnyGenerator<Pizza.Size> {
-        Generators.ofCases()
     }
 }
 
