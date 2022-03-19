@@ -1,6 +1,6 @@
 @testable import Genything
 
-extension Pizza: Arbitrary {
+extension Pizza: ArbitraryGeneratable {
     public static var arbitrary: AnyGenerator<Pizza> {
         AnyGenerator.compose {
             Pizza(
@@ -12,13 +12,13 @@ extension Pizza: Arbitrary {
     }
 }
 
-extension Pizza.Size: Arbitrary {
+extension Pizza.Size: ArbitraryGeneratable {
     public static var arbitrary: AnyGenerator<Pizza.Size> {
         Generators.ofCases()
     }
 }
 
-extension Pizza.Topping: Arbitrary {
+extension Pizza.Topping: ArbitraryGeneratable {
     public static var arbitrary: AnyGenerator<Pizza.Topping> {
         String.arbitrary
             .map(Pizza.Topping.init)

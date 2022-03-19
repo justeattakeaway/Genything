@@ -12,7 +12,7 @@ public enum TestConfig {
 
     /// The default probability to generate edge cases included by `withEdgecases(edgeCases:)`
     ///
-    /// - Note: The included Arbitrary generators will contain edge cases by default
+    /// - Note: The included ArbitraryGeneratable generators will contain edge cases by default
     ///
     /// - SeeAlso: `Gen.withEdgecases(edgeCases:)`
     public static var edgeCaseProbability: Double = 0.05

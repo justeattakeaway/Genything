@@ -2,7 +2,7 @@
 import CoreLocation
 import Foundation
 
-extension CLLocationCoordinate2D: Arbitrary {
+extension CLLocationCoordinate2D: ArbitraryGeneratable {
     /// A generator of arbitrary `CLLocationCoordinate2D`s
     /// `latitude` and `longitude` are bounded by underlying assertions
     public static var arbitrary: AnyGenerator<CLLocationCoordinate2D> {

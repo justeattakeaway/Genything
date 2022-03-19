@@ -1,7 +1,7 @@
 import XCTest
 @testable import Genything
 
-final internal class FoundationArbitraryTests: XCTestCase {
+final internal class FoundationArbitraryGeneratableTests: XCTestCase {
     // MARK: - Constants
 
     let arbitraryCount = 100
