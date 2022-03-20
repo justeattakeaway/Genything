@@ -1,6 +1,6 @@
 import Foundation
 
-// MARK: Mutate
+// MARK: Build
 
 public extension Generators {
     /// Returns: A generator resulting from combining generated elements from the generators collection using the given closure
@@ -16,6 +16,5 @@ public extension Generators {
                              _ nextPartialResult: @escaping (R, G.T) -> R) -> AnyGenerator<R> where G: Generator {
         collect(generators)
             .map { $0.reduce(initialResult, nextPartialResult) }
-            .eraseToAnyGenerator()
     }
 }
