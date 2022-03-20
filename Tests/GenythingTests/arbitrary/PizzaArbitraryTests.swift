@@ -26,8 +26,11 @@ final internal class PizzaArbitraryGeneratableTests: XCTestCase {
     }
 
     func test_usingFixtures_withToppings_itIsNotACheesePizza() {
-        let pizzaGen = Pizza.arbitrary          /// Pseudo-random pizzas
-            .filter { !$0.toppings.isEmpty }    /// Reject pizzas without toppings
+        let pizzaGen = Pizza.arbitrary
+            .recompose { pizza, compose in
+                /// Be sure that `toppings` is not empty
+                pizza.toppings = compose([Pizza.Topping].arbitrary(in: 1...10))
+            }
 
         // Read as:
         // For any pizza produced by `pizzaGen`, the pizza is not a cheese pizza
