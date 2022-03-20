@@ -1,5 +1,5 @@
 import XCTest
-import Genything
+@testable import Genything
 import GenythingTest
 
 class Gen_ScanTests: XCTestCase {
