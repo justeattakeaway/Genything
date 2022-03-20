@@ -2,8 +2,8 @@ import Foundation
 
 // MARK: Build
 
-public extension AnyGenerator {
-    static func compose(_ compose: @escaping (Composer) -> T) -> AnyGenerator<T> {
+public extension Generators {
+    static func compose<T>(_ compose: @escaping (Composer) -> T) -> AnyGenerator<T> {
         ComposingGenerator(compose).eraseToAnyGenerator()
     }
 }

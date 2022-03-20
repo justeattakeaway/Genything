@@ -42,7 +42,7 @@ final internal class DiceRollerExampleTests: XCTestCase {
             2...12 ~= $0
         }
 
-        let two_d6_2 = AnyGenerator.compose { $0(d6) + $0(d6) }
+        let two_d6_2 = Generators.compose { $0(d6) + $0(d6) }
 
         two_d6_2.assertForAll {
             2...12 ~= $0

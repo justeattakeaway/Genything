@@ -4,55 +4,48 @@ extension Bool: ArbitraryGeneratable {
         AnyGenerator { ctx in
             Bool.random(using: &ctx.rng)
         }
-        .eraseToAnyGenerator()
     }
 }
 
 extension Double: ArbitraryGeneratable {
     /// A generator of arbitrary `Doubles`s
     public static var arbitrary: AnyGenerator<Double> {
-        Generators.from(Double.leastNormalMagnitude...Double.greatestFiniteMagnitude)
-            .eraseToAnyGenerator()
+        (Self.leastNormalMagnitude...Self.greatestFiniteMagnitude).arbitrary
     }
 }
 
 extension Int: ArbitraryGeneratable {
     /// A generator of arbitrary `Int`s
     public static var arbitrary: AnyGenerator<Int> {
-        Generators.from(Int.min...Int.max)
-            .eraseToAnyGenerator()
+        (Self.min...Self.max).arbitrary
     }
 }
 
 extension UInt: ArbitraryGeneratable {
     /// A generator of arbitrary `UInt`s
     public static var arbitrary: AnyGenerator<UInt> {
-        Generators.from(UInt.min...UInt.max)
-            .eraseToAnyGenerator()
+        (Self.min...Self.max).arbitrary
     }
 }
 
 extension Int32: ArbitraryGeneratable {
     /// A generator of arbitrary `Int32`s
     public static var arbitrary: AnyGenerator<Int32> {
-        Generators.from(Int32.min...Int32.max)
-            .eraseToAnyGenerator()
+        (Self.min...Self.max).arbitrary
     }
 }
 
 extension UInt32: ArbitraryGeneratable {
     /// A generator of arbitrary `UInt32`s
     public static var arbitrary: AnyGenerator<UInt32> {
-        Generators.from(UInt32.min...UInt32.max)
-            .eraseToAnyGenerator()
+        (Self.min...Self.max).arbitrary
     }
 }
 
 extension UnicodeScalar: ArbitraryGeneratable {
     /// A generator of arbitrary `UnicodeScalar`s
     public static var arbitrary: AnyGenerator<UnicodeScalar> {
-        Generators.from(UnicodeScalar(32)...UnicodeScalar(255))
-            .eraseToAnyGenerator()
+        (UnicodeScalar(32)...UnicodeScalar(255)).arbitrary
     }
 }
 
@@ -61,7 +54,6 @@ extension Character: ArbitraryGeneratable {
     public static var arbitrary: AnyGenerator<Character> {
         UnicodeScalar.arbitrary
             .map { Character($0) }
-            .eraseToAnyGenerator()
     }
 }
 
@@ -76,7 +68,6 @@ extension String: ArbitraryGeneratable {
         Character.arbitrary
             .expand(toSizeInRange: range)
             .map { String($0) }
-            .eraseToAnyGenerator()
     }
 }
 
@@ -90,7 +81,6 @@ extension Array: ArbitraryGeneratable where Element: ArbitraryGeneratable {
     public static func arbitrary(in range: ClosedRange<Int> = 0...33) -> AnyGenerator<Array> {
         Element.arbitrary
             .expand(toSizeInRange: range)
-            .eraseToAnyGenerator()
     }
 }
 
@@ -107,7 +97,6 @@ extension AnySequence: ArbitraryGeneratable where Element : ArbitraryGeneratable
     public static var arbitrary: AnyGenerator<AnySequence> {
         [Element].arbitrary
             .map(AnySequence.init)
-            .eraseToAnyGenerator()
     }
 }
 
@@ -116,7 +105,6 @@ extension AnyBidirectionalCollection: ArbitraryGeneratable where Element : Arbit
     public static var arbitrary: AnyGenerator<AnyBidirectionalCollection> {
         [Element].arbitrary
             .map(AnyBidirectionalCollection.init)
-            .eraseToAnyGenerator()
     }
 }
 
@@ -125,7 +113,6 @@ extension ArraySlice: ArbitraryGeneratable where Element : ArbitraryGeneratable 
     public static var arbitrary: AnyGenerator<ArraySlice> {
         [Element].arbitrary
             .map(ArraySlice.init)
-            .eraseToAnyGenerator()
     }
 }
 
@@ -136,15 +123,14 @@ extension Dictionary: ArbitraryGeneratable where Key : ArbitraryGeneratable, Val
             [Value].arbitrary.flatMap { (v : [Value]) in
                 Generators.Constant(Dictionary(zip(k, v)) { $1 })
             }
-        }.eraseToAnyGenerator()
+        }
     }
 }
 
 extension EmptyCollection: ArbitraryGeneratable {
     /// A generator of `EmptyCollection`s
     public static var arbitrary: AnyGenerator<EmptyCollection> {
-        Generators.Constant(EmptyCollection())
-            .eraseToAnyGenerator()
+        Generators.Constant(EmptyCollection()).eraseToAnyGenerator()
     }
 }
 
@@ -155,7 +141,7 @@ extension Range: ArbitraryGeneratable where Bound: ArbitraryGeneratable {
             Bound.arbitrary.flatMap { r in
                 Generators.Constant((Swift.min(l, r) ..< Swift.max(l, r)))
             }
-        }.eraseToAnyGenerator()
+        }
     }
 }
 
@@ -164,7 +150,6 @@ extension LazySequence: ArbitraryGeneratable where Base: ArbitraryGeneratable {
     public static var arbitrary: AnyGenerator<LazySequence> {
         Base.arbitrary
             .map({ $0.lazy })
-            .eraseToAnyGenerator()
     }
 }
 
@@ -178,7 +163,6 @@ extension Repeated: ArbitraryGeneratable where Element: ArbitraryGeneratable {
         return Element.arbitrary
             .zip(Int.arbitrary)
             .map({ t in constructor(t.0, t.1) })
-            .eraseToAnyGenerator()
     }
 }
 
@@ -187,7 +171,6 @@ extension Set: ArbitraryGeneratable where Element : ArbitraryGeneratable {
     public static var arbitrary: AnyGenerator<Set> {
         AnySequence<Element>.arbitrary
             .map { Set($0) }
-            .eraseToAnyGenerator()
     }
 }
 
@@ -195,8 +178,8 @@ extension Result: ArbitraryGeneratable where Success: ArbitraryGeneratable, Fail
     /// A generator of `Result`s where `Success` and `Failure` conform to `ArbitraryGeneratable`
     public static var arbitrary: AnyGenerator<Result<Success, Failure>> {
         Generators.one(of: [
-            Success.arbitrary.map(Result<Success, Failure>.success).eraseToAnyGenerator(),
-            Failure.arbitrary.map(Result<Success, Failure>.failure).eraseToAnyGenerator(),
+            Success.arbitrary.map(Result<Success, Failure>.success),
+            Failure.arbitrary.map(Result<Success, Failure>.failure),
         ])
     }
 }

@@ -5,7 +5,6 @@ extension Date: ArbitraryGeneratable {
     public static var arbitrary: AnyGenerator<Date> {
         Double.arbitrary
             .map { Date(timeIntervalSince1970: $0) }
-            .eraseToAnyGenerator()
     }
 }
 

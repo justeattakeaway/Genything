@@ -8,19 +8,16 @@ extension Fake {
         public static var restaurant: AnyGenerator<String> {
             Fake.PersonNames.name
                 .zip(Generators.of(data.restaurantEndings)) { "\($0)'s \($1)" }
-                .eraseToAnyGenerator()
         }
         public static var general: AnyGenerator<String> {
             Generators.one(of: [
                 Generators.zip(Fake.PersonNames.name, Generators.of(data.generalEndings)) { "\($0)'s \($1)" },
                 Generators.zip(Fake.PersonNames.name, Generators.of(data.abreviations)) {  "\($0) \($1)" }
             ])
-            .eraseToAnyGenerator()
         }
         public static var any: AnyGenerator<String> {
             Generators
-                .one(of: [ restaurant, general ])
-                .eraseToAnyGenerator()
+                .one(of: [restaurant, general])
         }
     }
 }

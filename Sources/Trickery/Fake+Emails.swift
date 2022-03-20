@@ -4,51 +4,43 @@ import Genything
 extension Fake {
     public enum Emails {
         public static var topLevelDomains: AnyGenerator<String> {
-            Generators
-                .of([
-                    "com",
-                    "ca",
-                    "gov",
-                    "tv",
-                    "org"
-                ])
-                .eraseToAnyGenerator()
+            [
+                "com",
+                "ca",
+                "gov",
+                "tv",
+                "org"
+            ].arbitrary
         }
         public static var personalDomains: AnyGenerator<String> {
-            Generators
-                .of([
-                    "gmail",
-                    "yahoo",
-                    "hotmail",
-                    "aol",
-                    "msn"
-                ])
-                .eraseToAnyGenerator()
+            [
+                "gmail",
+                "yahoo",
+                "hotmail",
+                "aol",
+                "msn"
+            ].arbitrary
         }
         public static var contacts: AnyGenerator<String> {
-            Generators
-                .of([
-                    "contact",
-                    "info",
-                    "help",
-                    "about",
-                    "general",
-                    "sales",
-                    "emailus"
-                ])
-                .eraseToAnyGenerator()
+            [
+                "contact",
+                "info",
+                "help",
+                "about",
+                "general",
+                "sales",
+                "emailus"
+            ].arbitrary
         }
         public static var separator: AnyGenerator<String> {
-            Generators
-                .of([".", "_", "-", ""])
-                .eraseToAnyGenerator()
+            [".", "_", "-", ""].arbitrary
         }
 
         public static var personal: AnyGenerator<String> {
-            AnyGenerator.compose { gen -> String in
+            Generators.compose { gen -> String in
                 let transformedName = gen(Fake.PersonNames.full()).replacingOccurrences(of: " ", with: gen(separator)).lowercased()
                 return "\(transformedName)@\(gen(personalDomains)).\(gen(topLevelDomains))"
-            }.eraseToAnyGenerator()
+            }
         }
 
         public static func business(_ name: String? = nil) -> AnyGenerator<String> {
@@ -58,10 +50,10 @@ extension Fake {
                 }
                 return Fake.BusinessNames.any
             }()
-            return AnyGenerator.compose { gen -> String in
+            return Generators.compose { gen -> String in
                 let transformedName = String(gen(nameGen).filter { $0.isLetter }).lowercased()
                 return "\(gen(contacts))@\(transformedName).\(gen(topLevelDomains))"
-            }.eraseToAnyGenerator()
+            }
         }
     }
 }

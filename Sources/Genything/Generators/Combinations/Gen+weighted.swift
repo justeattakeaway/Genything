@@ -24,7 +24,7 @@ public extension Generators {
                 currWeight += weight
                 return roll < currWeight
             }!.generator
-        }.eraseToAnyGenerator()
+        }
     }
 
     /// Returns: A generator which produces values from the provided constant values according to their weights

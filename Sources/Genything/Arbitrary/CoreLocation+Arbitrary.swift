@@ -8,7 +8,7 @@ extension CLLocationCoordinate2D: ArbitraryGeneratable {
     public static var arbitrary: AnyGenerator<CLLocationCoordinate2D> {
         Generators.from(-90.0...90).zip(Generators.from(-180.0...180)) { latitude, longitude in
             CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        }.eraseToAnyGenerator()
+        }
     }
 }
 #endif

@@ -10,13 +10,6 @@ public extension Generators {
     ///
     /// - Returns: The generator
     static func one<G>(of generators: [G]) -> AnyGenerator<G.T> where G: Generator {
-        assert(!generators.isEmpty, "List of generators cannot be empty")
-
-        return Generators
-            .from(0..<generators.count)
-            .flatMap {
-                generators[$0]
-            }
-            .eraseToAnyGenerator()
+        generators.arbitrary.flatMap { $0 }
     }
 }

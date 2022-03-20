@@ -287,7 +287,7 @@ public extension XCTestCase {
             G6.T == T6
     {
         checkAll(
-            AnyGenerator.compose {
+            Generators.compose {
                 (
                     $0(gen1),
                     $0(gen2),
@@ -355,7 +355,7 @@ public extension XCTestCase {
             G7.T == T7
     {
         checkAll(
-            AnyGenerator.compose {
+            Generators.compose {
                 (
                     $0(gen1),
                     $0(gen2),
@@ -427,7 +427,7 @@ public extension XCTestCase {
             G8.T == T8
     {
         checkAll(
-            AnyGenerator.compose {
+            Generators.compose {
                 (
                     $0(gen1),
                     $0(gen2),
@@ -504,7 +504,7 @@ public extension XCTestCase {
             G9.T == T9
     {
         checkAll(
-            AnyGenerator.compose {
+            Generators.compose {
                 (
                     $0(gen1),
                     $0(gen2),
@@ -586,7 +586,7 @@ public extension XCTestCase {
             G10.T == T10
     {
         checkAll(
-            AnyGenerator.compose {
+            Generators.compose {
                 (
                     $0(gen1),
                     $0(gen2),

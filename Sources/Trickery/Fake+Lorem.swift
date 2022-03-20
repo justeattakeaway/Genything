@@ -6,9 +6,7 @@ extension Fake {
         private static let data: LoremData = LoremData.loadJson()
         
         public static var word: AnyGenerator<String> {
-            Generators
-                .of(data.words)
-                .eraseToAnyGenerator()
+            data.words.arbitrary
         }
 
         public static func sentence(wordCountRange: ClosedRange<Int> = 5...20) -> AnyGenerator<String> {
@@ -20,7 +18,6 @@ extension Fake {
                 .map {
                     $0.prefix(1).capitalized + $0.dropFirst() + "."
                 }
-                .eraseToAnyGenerator()
         }
     }
 }
