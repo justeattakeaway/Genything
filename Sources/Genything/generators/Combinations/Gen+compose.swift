@@ -11,7 +11,7 @@ public extension AnyGenerator {
 /// The composer class which passes in the context and allows us to generate more complex data with ease
 public struct Composer {
     /// Forwards the `Context` to be used by the generators
-    fileprivate var context: Context
+    var context: Context
 
     /// Generates a value using the provided `Generator`
     ///

@@ -3,19 +3,19 @@ import Genything
 
 // MARK: Model
 
-struct Pizza {
+struct Pizza: Equatable {
     var name: String
     var size: Size
     var toppings: [Topping]
 
-    enum Size {
+    enum Size: Equatable {
         case small
         case medium
         case large
         case xl
     }
 
-    struct Topping {
+    struct Topping: Equatable {
         let name: String
     }
 }
