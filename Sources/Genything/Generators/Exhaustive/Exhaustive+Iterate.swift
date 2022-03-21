@@ -12,7 +12,7 @@ extension Exhaustive {
             self.iterator = sequence.makeIterator()
         }
 
-        public func next(_ context: Context) -> T? {
+        public func next(_ randomSource: RandomSource) -> T? {
             iterator.next()
         }
     }

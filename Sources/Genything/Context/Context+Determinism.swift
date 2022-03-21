@@ -3,16 +3,16 @@ import Foundation
 /// The `Determinism` affects the relative randomness of value generation
 public enum Determinism {
     /// A random `Determinism` seeded by `seed`
-    /// Subsequent runs using the same `Context` are guaranteed to produce values in the same order
+    /// Subsequent runs using the same `RandomSource` are guaranteed to produce values in the same order
     case predetermined(seed: UInt64)
 
     /// A random `Determinism` seeded by a random value
-    /// Subsequent runs using the same `Context` will generate completely different random values
+    /// Subsequent runs using the same `RandomSource` will generate completely different random values
     case random
 }
 
-public extension Context {
-    /// Initializes a `Context` with a `Determinism`
+public extension RandomSource {
+    /// Initializes a `RandomSource` with a `Determinism`
     convenience init(determinism: Determinism) {
         switch determinism {
             case let .predetermined(seed):

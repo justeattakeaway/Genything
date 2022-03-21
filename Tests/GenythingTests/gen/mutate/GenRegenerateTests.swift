@@ -10,8 +10,8 @@ final internal class GenRegenerateTests: XCTestCase {
         }.arbitrary
 
         Pizza.arbitrary
-            .regenerate { pizza, context in
-                pizza.size = sizeFilter.next(context)
+            .regenerate { pizza, randomSource in
+                pizza.size = sizeFilter.next(randomSource)
             }
             .assertForAll {
                 $0.size == .large || $0.size == .medium

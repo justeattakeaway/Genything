@@ -2,22 +2,22 @@ import Foundation
 import XCTest
 import Genything
 
-private func rerunInfo(_ context: Context) -> String {
-    "Re-run test with seed `\(context.originalSeed)`."
+private func rerunInfo(_ randomSource: RandomSource) -> String {
+    "Re-run test with seed `\(randomSource.originalSeed)`."
 }
 
 func fail(_ message: String,
-          context: Context,
+          randomSource: RandomSource,
           file: StaticString = #filePath,
           line: UInt = #line
 ) {
-    XCTFail("[Genything] - \(message) \(rerunInfo(context))", file: file, line: line)
+    XCTFail("[Genything] - \(message) \(rerunInfo(randomSource))", file: file, line: line)
 }
 
 func fail(_ error: Error,
-          context: Context,
+          randomSource: RandomSource,
           file: StaticString = #filePath,
           line: UInt = #line
 ) {
-    XCTFail("[Genything] - Failed with exception `\(error)`. \(rerunInfo(context))", file: file, line: line)
+    XCTFail("[Genything] - Failed with exception `\(error)`. \(rerunInfo(randomSource))", file: file, line: line)
 }

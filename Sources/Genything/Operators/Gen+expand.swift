@@ -48,9 +48,9 @@ private struct Expand<Source>: Generator where Source: Generator {
     let source: Source
     let size: Int
 
-    public func next(_ context: Context) -> [Source.T] {
+    public func next(_ randomSource: RandomSource) -> [Source.T] {
         Array(repeating: source, count: size).map {
-            $0.next(context)
+            $0.next(randomSource)
         }
     }
 }

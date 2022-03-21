@@ -31,13 +31,13 @@ private struct Either<A, B>: Generator where A: Generator, B: Generator, A.T == 
         self.probability = probability
     }
 
-    public func next(_ context: Context) -> A.T {
-        let value = Double.random(in: probabilityRange, using: &context.rng)
+    public func next(_ randomSource: RandomSource) -> A.T {
+        let value = Double.random(in: probabilityRange, using: &randomSource.rng)
 
         if value <= probability {
-            return b.next(context)
+            return b.next(randomSource)
         }
 
-        return a.next(context)
+        return a.next(randomSource)
     }
 }

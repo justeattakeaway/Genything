@@ -28,8 +28,8 @@ final private class Scan<Source, R>: Generator where Source: Generator {
 
     lazy var previousResult = initialResult
 
-    public func next(_ context: Context) -> R {
-        let nextResult = nextPartialResult(previousResult, source.next(context))
+    public func next(_ randomSource: RandomSource) -> R {
+        let nextResult = nextPartialResult(previousResult, source.next(randomSource))
         previousResult = nextResult
         return nextResult
     }

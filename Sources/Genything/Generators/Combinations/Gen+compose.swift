@@ -8,10 +8,10 @@ public extension Generators {
     }
 }
 
-/// The composer class which passes in the context and allows us to generate more complex data with ease
+/// The composer class which passes in the randomSource and allows us to generate more complex data with ease
 public struct Composer {
-    /// Forwards the `Context` to be used by the generators
-    var context: Context
+    /// Forwards the `RandomSource` to be used by the generators
+    var randomSource: RandomSource
 
     /// Generates a value using the provided `Generator`
     ///
@@ -20,7 +20,7 @@ public struct Composer {
     ///
     /// - Returns: A value of type `T`
     public func callAsFunction<G>(_ gen: G) -> G.T where G: Generator {
-        gen.next(context)
+        gen.next(randomSource)
     }
 
     /// Generates a value using the provided `Gen<T>`
@@ -30,7 +30,7 @@ public struct Composer {
     ///
     /// - Returns: A value of type `T`
     public func generate<G>(_ gen: G) -> G.T where G: Generator {
-        gen.next(context)
+        gen.next(randomSource)
     }
 
     /// Generates an arbitrary value of type `T` where `T` conforms to `ArbitraryGeneratable`
@@ -73,7 +73,7 @@ private struct ComposingGenerator<T>: Generator {
         self.compose = compose
     }
 
-    public func next(_ context: Context) -> T {
-        compose(Composer(context: context))
+    public func next(_ randomSource: RandomSource) -> T {
+        compose(Composer(randomSource: randomSource))
     }
 }

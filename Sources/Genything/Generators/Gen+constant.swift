@@ -13,7 +13,7 @@ public extension Generators {
             self.value = value
         }
 
-        public func next(_ context: Context) -> T {
+        public func next(_ randomSource: RandomSource) -> T {
             value
         }
     }

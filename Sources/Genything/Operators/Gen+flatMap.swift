@@ -18,7 +18,7 @@ private struct FlatMap<Source, Output>: Generator where Source: Generator, Outpu
     let source: Source
     let transform: (Source.T) -> Output
 
-    public func next(_ context: Context) -> Output.T {
-        transform(source.next(context)).next(context)
+    public func next(_ randomSource: RandomSource) -> Output.T {
+        transform(source.next(randomSource)).next(randomSource)
     }
 }

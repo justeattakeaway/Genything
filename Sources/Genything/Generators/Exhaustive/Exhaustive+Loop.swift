@@ -17,7 +17,7 @@ extension Exhaustive {
             self.index = collection.startIndex
         }
 
-        public func next(_ context: Context) -> T {
+        public func next(_ randomSource: RandomSource) -> T {
             defer {
                 collection.formIndex(after: &index)
             }

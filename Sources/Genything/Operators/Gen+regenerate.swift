@@ -1,8 +1,8 @@
 public extension Generator {
-    func regenerate(_ generate: @escaping (inout T, Context) -> Void) -> AnyGenerator<T> {
-        AnyGenerator { context in
-            var next = next(context)
-            generate(&next, context)
+    func regenerate(_ generate: @escaping (inout T, RandomSource) -> Void) -> AnyGenerator<T> {
+        AnyGenerator { randomSource in
+            var next = next(randomSource)
+            generate(&next, randomSource)
             return next
         }
     }

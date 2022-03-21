@@ -263,10 +263,10 @@ private struct Zip<A, B>: Generator where A: Generator, B: Generator {
         self.b = b
     }
 
-    public func next(_ context: Context) -> (A.T, B.T) {
+    public func next(_ randomSource: RandomSource) -> (A.T, B.T) {
         (
-            a.next(context),
-            b.next(context)
+            a.next(randomSource),
+            b.next(randomSource)
         )
     }
 }
@@ -297,11 +297,11 @@ private struct Zip3<A, B, C>: Generator where A: Generator,
     }
 
 
-    public func next(_ context: Context) -> (A.T, B.T, C.T) {
+    public func next(_ randomSource: RandomSource) -> (A.T, B.T, C.T) {
         (
-            a.next(context),
-            b.next(context),
-            c.next(context)
+            a.next(randomSource),
+            b.next(randomSource),
+            c.next(randomSource)
         )
     }
 }
@@ -338,12 +338,12 @@ where A: Generator,
         self.d = d
     }
 
-    public func next(_ context: Context) -> (A.T, B.T, C.T, D.T) {
+    public func next(_ randomSource: RandomSource) -> (A.T, B.T, C.T, D.T) {
         (
-            a.next(context),
-            b.next(context),
-            c.next(context),
-            d.next(context)
+            a.next(randomSource),
+            b.next(randomSource),
+            c.next(randomSource),
+            d.next(randomSource)
         )
     }
 }
@@ -387,13 +387,13 @@ where A: Generator,
         self.e = e
     }
 
-    public func next(_ context: Context) -> (A.T, B.T, C.T, D.T, E.T) {
+    public func next(_ randomSource: RandomSource) -> (A.T, B.T, C.T, D.T, E.T) {
         (
-            a.next(context),
-            b.next(context),
-            c.next(context),
-            d.next(context),
-            e.next(context)
+            a.next(randomSource),
+            b.next(randomSource),
+            c.next(randomSource),
+            d.next(randomSource),
+            e.next(randomSource)
         )
     }
 }

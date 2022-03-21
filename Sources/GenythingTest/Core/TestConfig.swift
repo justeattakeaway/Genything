@@ -4,9 +4,9 @@
 public enum TestConfig {
     /// The default iterations that will be used for operations which consume a generator's values
     ///
-    /// - SeeAlso: `Gen.take(count:context:)`
-    /// - SeeAlso: `Gen.forEach(iterations:context:)`
-    /// - SeeAlso: `Gen.allSatisfy(iterations:context:)`
+    /// - SeeAlso: `Gen.take(count:randomSource:)`
+    /// - SeeAlso: `Gen.forEach(iterations:randomSource:)`
+    /// - SeeAlso: `Gen.allSatisfy(iterations:randomSource:)`
 
     public static var maxIterations: Int = 1000
 

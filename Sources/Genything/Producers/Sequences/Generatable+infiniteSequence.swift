@@ -8,12 +8,12 @@ extension Generator {
     /// - Warning: The resulting sequence is infinite
     ///
     /// - Parameters:
-    ///   - context: The context to be used for generation
+    ///   - randomSource: The randomSource to be used for generation
     ///
     /// - Returns: The Sequence
-    func asInfiniteSequence(context: Context = .default) -> InfiniteSequence<T> {
+    func asInfiniteSequence(randomSource: RandomSource = .default) -> InfiniteSequence<T> {
         InfiniteSequence {
-            next(context)
+            next(randomSource)
         }
     }
 }

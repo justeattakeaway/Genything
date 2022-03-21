@@ -21,7 +21,7 @@ final private class StartWith<Source, Elements>: Generator where Elements: Swift
         self.iterator = sequence.makeIterator()
     }
 
-    public func next(_ context: Context) -> Source.T {
-        iterator.next() ?? source.next(context)
+    public func next(_ randomSource: RandomSource) -> Source.T {
+        iterator.next() ?? source.next(randomSource)
     }
 }

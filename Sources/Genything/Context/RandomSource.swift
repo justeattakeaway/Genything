@@ -1,11 +1,11 @@
 import Foundation
 
-/// The context will be passed through all generators
+/// The randomSource will be passed through all generators
 ///
 /// It's main purpose is to hold onto the Random Number Generator `rng`, so that as generations occur the RNG's state changes are propogated to each generator
 ///
-/// - Note: The context can be held onto by a user to keep track of `rng`'s state between generations
-public class Context { // TODO: Random Source
+/// - Note: The source can be held onto by a user to keep track of `rng`'s state between generations
+public class RandomSource {
 
     // MARK: Randomness
 
@@ -19,7 +19,7 @@ public class Context { // TODO: Random Source
 
     // MARK: Init
 
-    /// Creates a `Context`
+    /// Creates a `RandomSource`
     ///
     /// - Parameters:
     ///   - rng: The Random Number Generator to be used to produce values
@@ -31,12 +31,12 @@ public class Context { // TODO: Random Source
     }
 }
 
-// MARK: Convenience Context creators
+// MARK: Convenience RandomSource Creators
 
-public extension Context {
-    /// Creates a `Context` initialized to default values, with random `Determinism`
-    static var random: Context { .init(determinism: .random) }
+public extension RandomSource {
+    /// Creates a `RandomSource` initialized to default values, with random `Determinism`
+    class var random: RandomSource { .init(determinism: .random) }
 
-    /// Creates a  default`Context`
-    static var `default`: Context { ContextDefaults.defaultContextFactory() }
+    /// Creates a  default`RandomSource`
+    class var `default`: RandomSource { ContextDefaults.defaultContextFactory() }
 }

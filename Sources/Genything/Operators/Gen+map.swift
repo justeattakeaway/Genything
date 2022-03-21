@@ -18,7 +18,7 @@ private struct Map<Source, T>: Generator where Source: Generator {
     let source: Source
     let transform: (Source.T) -> T
 
-    public func next(_ context: Context) -> T {
-        transform(source.next(context))
+    public func next(_ randomSource: RandomSource) -> T {
+        transform(source.next(randomSource))
     }
 }

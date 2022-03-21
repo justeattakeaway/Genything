@@ -7,13 +7,13 @@ final internal class GenShuffledTests: XCTestCase {
     func test_shuffled() {
         let source = [0,1,2,3,4,5,6,7,8,9]
 
-        // Seed the context such that we can reproduce results with or without the generator
+        // Seed the randomSource such that we can reproduce results with or without the generator
         let seed: UInt64 = 1234
-        let context = Context(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
+        let randomSource = RandomSource(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
 
         // Take 100 shuffles
         let shuffledViaGeneratorList = Generators.shuffled(source)
-            .take(100, context: context)
+            .take(100, randomSource: randomSource)
 
         // Make sure that these shuffles match doing normal shuffles without a generator
         var collectionsLCRNG = LinearCongruentialRandomNumberGenerator(seed: seed)
@@ -23,7 +23,7 @@ final internal class GenShuffledTests: XCTestCase {
     }
 
     func test_shuffledDistribution() {
-        let d6shuffle = Exhaustive.ShuffleLoop(Array(1...6), context: .default)
+        let d6shuffle = Exhaustive.ShuffleLoop(Array(1...6), randomSource: .default)
 
         var history = [Int]()
 
@@ -56,7 +56,7 @@ final internal class GenShuffledTests: XCTestCase {
             Rank.allCases.map { rank in
                 Suit.allCases.map { suit in Card(suit: suit, rank: rank) }
             }.flatMap { $0 },
-            context: .default
+            randomSource: .default
         )
 
         // All cards of the deck are drawn, and they are all unique

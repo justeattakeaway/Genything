@@ -32,7 +32,7 @@ final internal class GenAssertForAllTests: XCTestCase {
         XCTAssertEqual(iterations, count)
     }
 
-    func test_that_assertForAll_runs_the_correct_iteration_amount_from_context() {
+    func test_that_assertForAll_runs_the_correct_iteration_amount_from_randomSource() {
         var count = 0
         Generators.Constant(()).assertForAll() { _ in
             count += 1

@@ -23,7 +23,7 @@ private struct Shuffled<T>: Generator {
         self.values = values
     }
 
-    func next(_ context: Context) -> [T] {
-        values.shuffled(using: &context.rng)
+    func next(_ randomSource: RandomSource) -> [T] {
+        values.shuffled(using: &randomSource.rng)
     }
 }

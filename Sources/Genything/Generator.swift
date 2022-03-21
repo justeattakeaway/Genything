@@ -1,12 +1,12 @@
 /// Represents a type which can be generated from
 public protocol Generator {
     associatedtype T
-    func next(_ context: Context) -> T
+    func next(_ randomSource: RandomSource) -> T
 }
 
 /// A type-erased Generator
 public struct AnyGenerator<T>: Generator {
-    private let _next: (Context) -> T
+    private let _next: (RandomSource) -> T
 
     /// Creates a type-erasing Generator to wrap the provided Generator
     ///
@@ -15,12 +15,12 @@ public struct AnyGenerator<T>: Generator {
         self._next = generator.next
     }
 
-    public init(_ next: @escaping (Context) -> T) {
+    public init(_ next: @escaping (RandomSource) -> T) {
         self._next = next
     }
 
-    public func next(_ context: Context) -> T {
-        _next(context)
+    public func next(_ randomSource: RandomSource) -> T {
+        _next(randomSource)
     }
 }
 

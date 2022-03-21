@@ -13,12 +13,12 @@ public extension Generator {
     ///
     /// - Parameters:
     ///   - size: The amount of iterations before this sequence will begin to return `nil`
-    ///   - context: The context to be used for generation
+    ///   - randomSource: The randomSource to be used for generation
     ///
     /// - Returns: The Sequence
-    func asSequence(size: Int, context: Context = .default) -> FiniteSequence<T> {
+    func asSequence(size: Int, randomSource: RandomSource = .default) -> FiniteSequence<T> {
         FiniteSequence(size: size) {
-            next(context)
+            next(randomSource)
         }
     }
 }
