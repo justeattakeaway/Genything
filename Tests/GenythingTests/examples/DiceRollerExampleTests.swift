@@ -5,7 +5,7 @@ import GenythingTest
 
 final internal class DiceRollerExampleTests: XCTestCase {
     /// An extremely simple dice
-    private let d6 = Generators.from(1...6)
+    private let d6 = (1...6).arbitrary
 
     func test_d6_bounds() {
         // All values are within the expected bounds
@@ -34,7 +34,7 @@ final internal class DiceRollerExampleTests: XCTestCase {
 
     /// Experiment with some ways of creating a dice roll with multiple die
     func test_ways_of_creating_a_dice_bag() {
-        let d6 = Generators.from(1...6)
+        let d6 = (1...6).arbitrary
 
         let two_d6 = d6.zip(d6) { $0 + $1 }
 
@@ -68,7 +68,7 @@ final internal class DiceRollerExampleTests: XCTestCase {
 
     /// Simulate a pen and paper roleplaying dice role
     func test_a_damage_roll_using_two_daggers_with_a_modifier() {
-        let d4 = Generators.from(1...4)
+        let d4 = (1...4).arbitrary
         let twoDaggers = diceRoller([d4, d4], modifier: 2)
 
         twoDaggers.assertForAll {

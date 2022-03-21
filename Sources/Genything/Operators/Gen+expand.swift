@@ -24,7 +24,7 @@ public extension Generator {
     ///
     /// - Returns: A `Gen` generator
     func expand(toSizeInRange range: Range<Int>) -> AnyGenerator<[T]> {
-        Generators.from(range).flatMap {
+        range.arbitrary.flatMap {
             expand(toSize: $0)
         }
     }
@@ -38,7 +38,7 @@ public extension Generator {
     ///
     /// - Returns: A `Gen` generator
     func expand(toSizeInRange range: ClosedRange<Int>) -> AnyGenerator<[T]> {
-        Generators.from(range).flatMap {
+        range.arbitrary.flatMap {
             expand(toSize: $0)
         }
     }

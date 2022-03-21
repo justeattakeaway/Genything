@@ -18,7 +18,7 @@ public extension Generators {
         assert(weights.allSatisfy { $0.weight > 0 }, "`Gen.weighted(weights:)` called with impossible weights. Ratios must be one or greater.")
 
         let total = weights.map { $0.weight }.reduce(0, +)
-        return Generators.from(0..<total).flatMap { roll -> AnyGenerator<T> in
+        return (0..<total).arbitrary.flatMap { roll -> AnyGenerator<T> in
             var currWeight = 0
             return weights.first { (weight, _) in
                 currWeight += weight
