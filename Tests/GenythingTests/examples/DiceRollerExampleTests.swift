@@ -16,7 +16,7 @@ final internal class DiceRollerExampleTests: XCTestCase {
 
     func test_d6_occurences() {
         // All values occur in a small sample size
-        let occurences = d6.take(50)
+        let occurences = d6.asSequence(size: 50)
         XCTAssertTrue(occurences.contains(1))
         XCTAssertTrue(occurences.contains(2))
         XCTAssertTrue(occurences.contains(3))

@@ -1,18 +1,16 @@
 import XCTest
+import GenythingTest
 @testable import Genything
 
 final internal class FoundationArbitraryGeneratableTests: XCTestCase {
-    // MARK: - Constants
-
-    let arbitraryCount = 100
-
-    // MARK: - Tests
-
     func test_dateAbitraryCanGenerateRandomDates() {
+        let expectedCount = 100
+
         var datesSet: Set<Date> = Set()
-        Date.arbitrary.take(arbitraryCount).forEach {
-            datesSet.insert($0)
+        for date in Date.arbitrary.asSequence(size: expectedCount) {
+            datesSet.insert(date)
         }
-        XCTAssertEqual(datesSet.count, arbitraryCount)
+
+        XCTAssertEqual(datesSet.count, expectedCount)
     }
 }

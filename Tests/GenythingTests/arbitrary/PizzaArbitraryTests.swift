@@ -1,4 +1,5 @@
 import XCTest
+import GenythingTest
 @testable import Genything
 
 /*
@@ -17,9 +18,8 @@ final internal class PizzaArbitraryGeneratableTests: XCTestCase {
 
         // Read as:
         // For any pizza produced by `pizzaGen`, the pizza is a cheese pizza
-        pizzaGen.take(100) /// Takes 100 random pizzas
-            .forEach { (pizza: Pizza) in
-                XCTAssertTrue(pizza.isCheesePizza)
+        pizzaGen.assertForAll { pizza in
+            pizza.isCheesePizza
         }
         // Note how we gain an extra level of confidence!
         // Thanks to checking edge-cases that could result from different sizes & names
@@ -34,7 +34,7 @@ final internal class PizzaArbitraryGeneratableTests: XCTestCase {
 
         // Read as:
         // For any pizza produced by `pizzaGen`, the pizza is not a cheese pizza
-        pizzaGen.assertForAll { (pizza: Pizza) in
+        pizzaGen.assertForAll { pizza in
             !pizza.isCheesePizza
         }
     }
