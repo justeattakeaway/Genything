@@ -1,9 +1,10 @@
 import XCTest
+import GenythingTest
 @testable import Trickery
 
 class FakePhoneNumberTests: XCTestCase {
     func test_phoneNumber() {
-        Fake.PhoneNumbers.formatted.forEach(1000) { phoneNumber in
+        checkAll(Fake.PhoneNumbers.formatted) { phoneNumber in
             let subject = Array(phoneNumber)
 
             XCTAssertEqual(14, subject.count)

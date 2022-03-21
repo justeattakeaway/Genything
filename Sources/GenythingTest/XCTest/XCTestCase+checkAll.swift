@@ -70,7 +70,7 @@ public extension XCTestCase {
         setupCheck(context)
 
         do {
-            try gen1.forEach(TestConfig.maxIterations, context: context, body)
+            try gen1.asSequence(size: TestConfig.maxIterations, context: context).forEach(body)
         } catch {
             fail(error, context: context, file: file, line: line)
         }

@@ -1,5 +1,6 @@
 import XCTest
 @testable import Genything
+import GenythingTest
 
 final internal class GenZipTests: XCTestCase {
     override func setUp() {
@@ -15,7 +16,7 @@ final internal class GenZipTests: XCTestCase {
         let secondGen = Generators.from(secondRange)
 
         let zipped = firstGen.zip(secondGen)
-        zipped.forEach(1000) { (first, second) in
+        checkAll(zipped) { (first, second) in
             XCTAssertTrue(firstRange.contains(first))
             XCTAssertTrue(secondRange.contains(second))
 
@@ -29,7 +30,7 @@ final internal class GenZipTests: XCTestCase {
         let secondGen = Generators.from(Character("A")...Character("Z"))
 
         let zipped = firstGen.zip(secondGen) { "\($0)\($1)" }
-        zipped.forEach(1000) { combined in
+        checkAll(zipped) { combined in
             XCTAssertTrue(combined.first?.isLowercase ?? false)
             XCTAssertTrue(combined.last?.isUppercase ?? false)
         }

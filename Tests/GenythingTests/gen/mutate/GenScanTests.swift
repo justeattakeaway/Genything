@@ -46,6 +46,6 @@ class Gen_ScanTests: XCTestCase {
                 average * 0.5 + Double(newValue) * 0.5
             }
             .debug("average")
-            .forEach(100) { _ in }
+            .asSequence(size: 100).forEach { _ in }
     }
 }
