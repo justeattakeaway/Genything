@@ -5,8 +5,8 @@ internal final class RandomSourceTests: XCTestCase {
     func test_using_a_RandomSource() {
         // A new randomSource is created each execution
         XCTAssertEqual(
-            Int.arbitrary.next(.default),
-            Int.arbitrary.next(.default)
+            Int.arbitrary.next(.default()),
+            Int.arbitrary.next(.default())
         )
 
         // To introduce randomness we need to track our randomSource
@@ -20,7 +20,7 @@ internal final class RandomSourceTests: XCTestCase {
 
     func test_generate_one_with_same_seed_produces_same() {
         let calls = (1 ... 100).map { _ in
-            (1 ... 100).arbitrary.next(.default)
+            (1 ... 100).arbitrary.next(.default())
         }
 
         let allCallsAreSame = calls.allSatisfy {

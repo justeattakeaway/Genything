@@ -16,7 +16,7 @@ extension Generator {
     ///   - randomSource: The randomSource to be used for generation
     ///
     /// - Returns: The Sequence
-    public func asSequence(size: Int, randomSource: RandomSource = .default) -> FiniteSequence<T> {
+    public func asSequence(size: Int, randomSource: RandomSource = .default()) -> FiniteSequence<T> {
         FiniteSequence(size: size) {
             next(randomSource)
         }

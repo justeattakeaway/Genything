@@ -43,19 +43,19 @@ internal final class Generator_ZipTests: XCTestCase {
 
     func test_3Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 3) { gens in
-            Generators.zip(gens[0], gens[1], gens[2]).next(.default)
+            Generators.zip(gens[0], gens[1], gens[2]).next(.default())
         }
     }
 
     func test_4Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 4) { gens in
-            Generators.zip(gens[0], gens[1], gens[2], gens[3]).next(.default)
+            Generators.zip(gens[0], gens[1], gens[2], gens[3]).next(.default())
         }
     }
 
     func test_5Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 5) { gens in
-            Generators.zip(gens[0], gens[1], gens[2], gens[3], gens[4]).next(.default)
+            Generators.zip(gens[0], gens[1], gens[2], gens[3], gens[4]).next(.default())
         }
     }
 
@@ -66,7 +66,7 @@ internal final class Generator_ZipTests: XCTestCase {
             Generators.zip(gens[0], gens[1], gens[2]) { a, b, c in
                 a + b + c
             }
-            .next(.default)
+            .next(.default())
         }
     }
 
@@ -75,7 +75,7 @@ internal final class Generator_ZipTests: XCTestCase {
             Generators.zip(gens[0], gens[1], gens[2], gens[3]) { a, b, c, d in
                 a + b + c + d
             }
-            .next(.default)
+            .next(.default())
         }
     }
 
@@ -84,7 +84,7 @@ internal final class Generator_ZipTests: XCTestCase {
             Generators.zip(gens[0], gens[1], gens[2], gens[3], gens[4]) { a, b, c, d, e in
                 a + b + c + d + e
             }
-            .next(.default)
+            .next(.default())
         }
     }
 
@@ -96,7 +96,7 @@ internal final class Generator_ZipTests: XCTestCase {
 //            Gen.zip(
 //                gens[0], gens[1], gens[2], gens[3], gens[4],
 //                gens[5]
-//            ).next(.default)
+//            ).next(.default())
 //        }
 //    }
 //
@@ -105,7 +105,7 @@ internal final class Generator_ZipTests: XCTestCase {
 //            Gen.zip(
 //                gens[0], gens[1], gens[2], gens[3], gens[4],
 //                gens[5], gens[6]
-//            ).next(.default)
+//            ).next(.default())
 //        }
 //    }
 //
@@ -114,7 +114,7 @@ internal final class Generator_ZipTests: XCTestCase {
 //            Gen.zip(
 //                gens[0], gens[1], gens[2], gens[3], gens[4],
 //                gens[5], gens[6], gens[7]
-//            ).next(.default)
+//            ).next(.default())
 //        }
 //    }
 //
@@ -123,7 +123,7 @@ internal final class Generator_ZipTests: XCTestCase {
 //            Gen.zip(
 //                gens[0], gens[1], gens[2], gens[3], gens[4],
 //                gens[5], gens[6], gens[7], gens[8]
-//            ).next(.default)
+//            ).next(.default())
 //        }
 //    }
 //
@@ -132,7 +132,7 @@ internal final class Generator_ZipTests: XCTestCase {
 //            Gen.zip(
 //                gens[0], gens[1], gens[2], gens[3], gens[4],
 //                gens[5], gens[6], gens[7], gens[8], gens[9]
-//            ).next(.default)
+//            ).next(.default())
 //        }
 //    }
 
@@ -162,7 +162,7 @@ internal final class Generator_ZipTests: XCTestCase {
 //            ){ a, b, c, d, e, f in
 //                a+b+c+d+e+f
 //            }
-//            .next(.default)
+//            .next(.default())
 //        }
 //    }
 //
@@ -174,7 +174,7 @@ internal final class Generator_ZipTests: XCTestCase {
 //            ){ a, b, c, d, e, f, g in
 //                a+b+c+d+e+f+g
 //            }
-//            .next(.default)
+//            .next(.default())
 //        }
 //    }
 //
@@ -186,7 +186,7 @@ internal final class Generator_ZipTests: XCTestCase {
 //            ){ a, b, c, d, e, f, g, h in
 //                a+b+c+d+e+f+g+h
 //            }
-//            .next(.default)
+//            .next(.default())
 //        }
 //    }
 //
@@ -198,7 +198,7 @@ internal final class Generator_ZipTests: XCTestCase {
 //            ){ a, b, c, d, e, f, g, h, i in
 //                a+b+c+d+e+f+g+h+i
 //            }
-//            .next(.default)
+//            .next(.default())
 //        }
 //    }
 //
@@ -210,7 +210,7 @@ internal final class Generator_ZipTests: XCTestCase {
 //            ){ a, b, c, d, e, f, g, h, i, j in
 //                a+b+c+d+e+f+g+h+i+j
 //            }
-//            .next(.default)
+//            .next(.default())
 //        }
 //    }
 

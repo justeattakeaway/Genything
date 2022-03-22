@@ -43,9 +43,13 @@ public class RandomSource {
 // MARK: Convenience RandomSource Creators
 
 extension RandomSource {
-    /// Creates a `RandomSource` initialized to default values, with random `Determinism`
-    public class var random: RandomSource { .init(determinism: .random) }
+    /// Returns: An independent `RandomSource` initialized from a nondeterministic seed
+    public static func random() -> RandomSource {
+        .init(determinism: .random)
+    }
 
-    /// Creates a  default`RandomSource`
-    public class var `default`: RandomSource { ContextDefaults.defaultContextFactory() }
+    /// Returns: An independent `RandomSource` initialized from a predetermined shared seed
+    public static func `default`() -> RandomSource {
+        .init(determinism: .predetermined(seed: 2022))
+    }
 }

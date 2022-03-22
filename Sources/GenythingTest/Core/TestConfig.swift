@@ -17,7 +17,7 @@ extension GenythingTestConfig {
     private static var `defaultFactory`: () -> GenythingTestConfig = {
         GenythingTestConfig(
             maxIterations: 1000,
-            randomSource: .default
+            randomSource: .default()
         )
     }
 

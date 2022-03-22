@@ -5,7 +5,7 @@ import XCTest
 
 internal final class ExhaustiveShuffleLoopTests: XCTestCase {
     func test_ExhaustiveShuffleLoop() {
-        let d6shuffle = Exhaustive.ShuffleLoop(Array(1 ... 6), randomSource: .default)
+        let d6shuffle = Exhaustive.ShuffleLoop(Array(1 ... 6), randomSource: .default())
 
         var history = [Int]()
 
@@ -38,7 +38,7 @@ internal final class ExhaustiveShuffleLoopTests: XCTestCase {
             Rank.allCases.map { rank in
                 Suit.allCases.map { suit in Card(suit: suit, rank: rank) }
             }.flatMap { $0 },
-            randomSource: .default
+            randomSource: .default()
         )
 
         // All cards of the deck are drawn, and they are all unique

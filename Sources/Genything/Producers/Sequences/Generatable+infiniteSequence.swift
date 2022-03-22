@@ -11,7 +11,7 @@ extension Generator {
     ///   - randomSource: The randomSource to be used for generation
     ///
     /// - Returns: The Sequence
-    func asInfiniteSequence(randomSource: RandomSource = .default) -> InfiniteSequence<T> {
+    func asInfiniteSequence(randomSource: RandomSource = .default()) -> InfiniteSequence<T> {
         InfiniteSequence {
             next(randomSource)
         }
