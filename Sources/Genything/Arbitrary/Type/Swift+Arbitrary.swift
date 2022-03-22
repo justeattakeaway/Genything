@@ -1,4 +1,4 @@
-extension Bool: ArbitraryGeneratable {
+extension Bool: Arbitrary {
     /// A generator of arbitrary `Bool`eans
     public static var arbitrary: AnyGenerator<Bool> {
         AnyGenerator { ctx in
@@ -7,49 +7,49 @@ extension Bool: ArbitraryGeneratable {
     }
 }
 
-extension Double: ArbitraryGeneratable {
+extension Double: Arbitrary {
     /// A generator of arbitrary `Doubles`s
     public static var arbitrary: AnyGenerator<Double> {
         (Self.leastNormalMagnitude...Self.greatestFiniteMagnitude).arbitrary
     }
 }
 
-extension Int: ArbitraryGeneratable {
+extension Int: Arbitrary {
     /// A generator of arbitrary `Int`s
     public static var arbitrary: AnyGenerator<Int> {
         (Self.min...Self.max).arbitrary
     }
 }
 
-extension UInt: ArbitraryGeneratable {
+extension UInt: Arbitrary {
     /// A generator of arbitrary `UInt`s
     public static var arbitrary: AnyGenerator<UInt> {
         (Self.min...Self.max).arbitrary
     }
 }
 
-extension Int32: ArbitraryGeneratable {
+extension Int32: Arbitrary {
     /// A generator of arbitrary `Int32`s
     public static var arbitrary: AnyGenerator<Int32> {
         (Self.min...Self.max).arbitrary
     }
 }
 
-extension UInt32: ArbitraryGeneratable {
+extension UInt32: Arbitrary {
     /// A generator of arbitrary `UInt32`s
     public static var arbitrary: AnyGenerator<UInt32> {
         (Self.min...Self.max).arbitrary
     }
 }
 
-extension UnicodeScalar: ArbitraryGeneratable {
+extension UnicodeScalar: Arbitrary {
     /// A generator of arbitrary `UnicodeScalar`s
     public static var arbitrary: AnyGenerator<UnicodeScalar> {
         (UnicodeScalar(32)...UnicodeScalar(255)).arbitrary
     }
 }
 
-extension Character: ArbitraryGeneratable {
+extension Character: Arbitrary {
     /// A generator of arbitrary `Character`s
     public static var arbitrary: AnyGenerator<Character> {
         UnicodeScalar.arbitrary
@@ -57,7 +57,7 @@ extension Character: ArbitraryGeneratable {
     }
 }
 
-extension String: ArbitraryGeneratable {
+extension String: Arbitrary {
     /// A generator of arbitrary `String`s of random sizes
     public static var arbitrary: AnyGenerator<String> {
         arbitrary()
@@ -71,7 +71,7 @@ extension String: ArbitraryGeneratable {
     }
 }
 
-extension Array: ArbitraryGeneratable where Element: ArbitraryGeneratable {
+extension Array: Arbitrary where Element: Arbitrary {
     /// A generator of arbitrary `Array`s of random sizes
     public static var arbitrary: AnyGenerator<Array> {
         arbitrary()
@@ -84,40 +84,40 @@ extension Array: ArbitraryGeneratable where Element: ArbitraryGeneratable {
     }
 }
 
-extension Optional: ArbitraryGeneratable where Wrapped: ArbitraryGeneratable {
-    /// A generator of `Optional`s where `Wrapped` conforms to `ArbitraryGeneratable`
+extension Optional: Arbitrary where Wrapped: Arbitrary {
+    /// A generator of `Optional`s where `Wrapped` conforms to `Arbitrary`
     public static var arbitrary: AnyGenerator<Wrapped?> {
         Wrapped.arbitrary
             .orNil()
     }
 }
 
-extension AnySequence: ArbitraryGeneratable where Element : ArbitraryGeneratable {
-    /// A generator of `AnySequence`s where `Element` conforms to `ArbitraryGeneratable`
+extension AnySequence: Arbitrary where Element : Arbitrary {
+    /// A generator of `AnySequence`s where `Element` conforms to `Arbitrary`
     public static var arbitrary: AnyGenerator<AnySequence> {
         [Element].arbitrary
             .map(AnySequence.init)
     }
 }
 
-extension AnyBidirectionalCollection: ArbitraryGeneratable where Element : ArbitraryGeneratable {
-    /// A generator of `AnyBidirectionalCollection`s where `Element` conforms to `ArbitraryGeneratable`
+extension AnyBidirectionalCollection: Arbitrary where Element : Arbitrary {
+    /// A generator of `AnyBidirectionalCollection`s where `Element` conforms to `Arbitrary`
     public static var arbitrary: AnyGenerator<AnyBidirectionalCollection> {
         [Element].arbitrary
             .map(AnyBidirectionalCollection.init)
     }
 }
 
-extension ArraySlice: ArbitraryGeneratable where Element : ArbitraryGeneratable {
-    /// A generator of `ArraySlice`s where `Element` conforms to `ArbitraryGeneratable`
+extension ArraySlice: Arbitrary where Element : Arbitrary {
+    /// A generator of `ArraySlice`s where `Element` conforms to `Arbitrary`
     public static var arbitrary: AnyGenerator<ArraySlice> {
         [Element].arbitrary
             .map(ArraySlice.init)
     }
 }
 
-extension Dictionary: ArbitraryGeneratable where Key : ArbitraryGeneratable, Value : ArbitraryGeneratable {
-    /// A generator of `Dictionary`s where `Key` and `Value` conform to `ArbitraryGeneratable`
+extension Dictionary: Arbitrary where Key : Arbitrary, Value : Arbitrary {
+    /// A generator of `Dictionary`s where `Key` and `Value` conform to `Arbitrary`
     public static var arbitrary: AnyGenerator<Dictionary> {
         [Key].arbitrary.flatMap { (k : [Key]) in
             [Value].arbitrary.flatMap { (v : [Value]) in
@@ -127,15 +127,15 @@ extension Dictionary: ArbitraryGeneratable where Key : ArbitraryGeneratable, Val
     }
 }
 
-extension EmptyCollection: ArbitraryGeneratable {
+extension EmptyCollection: Arbitrary {
     /// A generator of `EmptyCollection`s
     public static var arbitrary: AnyGenerator<EmptyCollection> {
         Generators.constant(EmptyCollection()).eraseToAnyGenerator()
     }
 }
 
-extension Range: ArbitraryGeneratable where Bound: ArbitraryGeneratable {
-    /// A generator of `Range`s where `Bound` conforms to `ArbitraryGeneratable`
+extension Range: Arbitrary where Bound: Arbitrary {
+    /// A generator of `Range`s where `Bound` conforms to `Arbitrary`
     public static var arbitrary: AnyGenerator<Range> {
         Bound.arbitrary.flatMap { l in
             Bound.arbitrary.flatMap { r in
@@ -145,16 +145,16 @@ extension Range: ArbitraryGeneratable where Bound: ArbitraryGeneratable {
     }
 }
 
-extension LazySequence: ArbitraryGeneratable where Base: ArbitraryGeneratable {
-    /// A generator of `LazySequence`s where `Base` conforms to `ArbitraryGeneratable`
+extension LazySequence: Arbitrary where Base: Arbitrary {
+    /// A generator of `LazySequence`s where `Base` conforms to `Arbitrary`
     public static var arbitrary: AnyGenerator<LazySequence> {
         Base.arbitrary
             .map({ $0.lazy })
     }
 }
 
-extension Repeated: ArbitraryGeneratable where Element: ArbitraryGeneratable {
-    /// A generator of `Repeated`s where `Element` conforms to `ArbitraryGeneratable`
+extension Repeated: Arbitrary where Element: Arbitrary {
+    /// A generator of `Repeated`s where `Element` conforms to `Arbitrary`
     public static var arbitrary: AnyGenerator<Repeated> {
         let constructor: (Element, Int) -> Repeated<Element> = { (element, count) in
             return repeatElement(element , count: count)
@@ -166,16 +166,16 @@ extension Repeated: ArbitraryGeneratable where Element: ArbitraryGeneratable {
     }
 }
 
-extension Set: ArbitraryGeneratable where Element : ArbitraryGeneratable {
-    /// A generator of `Set`s where `Element` conforms to `ArbitraryGeneratable`
+extension Set: Arbitrary where Element : Arbitrary {
+    /// A generator of `Set`s where `Element` conforms to `Arbitrary`
     public static var arbitrary: AnyGenerator<Set> {
         AnySequence<Element>.arbitrary
             .map { Set($0) }
     }
 }
 
-extension Result: ArbitraryGeneratable where Success: ArbitraryGeneratable, Failure: ArbitraryGeneratable {
-    /// A generator of `Result`s where `Success` and `Failure` conform to `ArbitraryGeneratable`
+extension Result: Arbitrary where Success: Arbitrary, Failure: Arbitrary {
+    /// A generator of `Result`s where `Success` and `Failure` conform to `Arbitrary`
     public static var arbitrary: AnyGenerator<Result<Success, Failure>> {
         Generators.one(of: [
             Success.arbitrary.map(Result<Success, Failure>.success),

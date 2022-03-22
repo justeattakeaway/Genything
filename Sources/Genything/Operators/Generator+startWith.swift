@@ -1,6 +1,8 @@
 extension Generator {
     /// Returns: A generator which iterates the elements of `sequence`. When exhausted the generator will switch to producing values from the receiving generator.
     ///
+    /// - Warning: The resulting generator will become stateful
+    ///
     /// - Parameters:
     ///    - values: Array of values which will be produced in order before the receiver takes over
     ///

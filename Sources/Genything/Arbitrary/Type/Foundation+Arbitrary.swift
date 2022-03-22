@@ -1,6 +1,6 @@
 import Foundation
 
-extension Date: ArbitraryGeneratable {
+extension Date: Arbitrary {
     /// A generator of arbitrary `Date`s
     public static var arbitrary: AnyGenerator<Date> {
         Double.arbitrary
@@ -8,13 +8,13 @@ extension Date: ArbitraryGeneratable {
     }
 }
 
-//extension URL: ArbitraryGeneratable {
+//extension URL: Arbitrary {
 //    public static var arbitrary: Gen<URL> {
 //        // TODO: https://datatracker.ietf.org/doc/html/rfc3986
 //    }
 //}
 
-extension UUID: ArbitraryGeneratable {
+extension UUID: Arbitrary {
     /// A generator of arbitrary `UUID`s
     public static var arbitrary: AnyGenerator<UUID> = AnyGenerator {
         UUID(bits: ($0.rng.next(), $0.rng.next()), version: 4)

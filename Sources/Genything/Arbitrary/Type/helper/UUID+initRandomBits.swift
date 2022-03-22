@@ -1,6 +1,6 @@
 import Foundation
 
-internal extension UUID {
+extension UUID {
 
     typealias UInt128 = (UInt64, UInt64)
 

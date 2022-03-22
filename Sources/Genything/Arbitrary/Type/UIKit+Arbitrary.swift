@@ -2,7 +2,7 @@
 import CoreGraphics
 import Foundation
 
-extension CGFloat: ArbitraryGeneratable {
+extension CGFloat: Arbitrary {
     /// A generator of `CGFloat`s
     public static var arbitrary: AnyGenerator<CGFloat> {
         Double.arbitrary
@@ -10,7 +10,7 @@ extension CGFloat: ArbitraryGeneratable {
     }
 }
 
-extension CGVector: ArbitraryGeneratable {
+extension CGVector: Arbitrary {
     /// A generator of `CGVector`s
     public static var arbitrary: AnyGenerator<CGVector> {
         Generators.compose {

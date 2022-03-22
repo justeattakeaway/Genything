@@ -33,19 +33,19 @@ public struct Composer {
         gen.next(randomSource)
     }
 
-    /// Generates an arbitrary value of type `T` where `T` conforms to `ArbitraryGeneratable`
+    /// Generates an arbitrary value of type `T` where `T` conforms to `Arbitrary`
     ///
     /// - Returns: An arbitrary value of type `T`
-    public func arbitrary<T>() -> T where T: ArbitraryGeneratable {
+    public func arbitrary<T>() -> T where T: Arbitrary {
         generate(T.arbitrary)
     }
 
-    /// Generates an arbitrary value of type `T` where `T` conforms to `ArbitraryGeneratable`
+    /// Generates an arbitrary value of type `T` where `T` conforms to `Arbitrary`
     ///
     /// - Note: Duplicates `arbitrary()`
     ///
     /// - Returns: An arbitrary value of type `T`
-    public func callAsFunction<T>() -> T where T: ArbitraryGeneratable {
+    public func callAsFunction<T>() -> T where T: Arbitrary {
         generate(T.arbitrary)
     }
 

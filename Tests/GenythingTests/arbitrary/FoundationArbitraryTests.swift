@@ -2,7 +2,7 @@ import XCTest
 import GenythingTest
 @testable import Genything
 
-final internal class FoundationArbitraryGeneratableTests: XCTestCase {
+final internal class FoundationArbitraryTests: XCTestCase {
     func test_dateAbitraryCanGenerateRandomDates() {
         let expectedCount = 100
 
