@@ -9,7 +9,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_passes_when_it_should_with_correct_iterations() {
         var count = 0
-        checkAll(genTrue) {
+        testAll(genTrue) {
             count += 1
             XCTAssertTrue($0)
         }
@@ -19,7 +19,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_passes_when_it_should_2() {
         var count = 0
-        checkAll(genTrue, genTrue) {
+        testAll(genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1)
         }
@@ -29,7 +29,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_passes_when_it_should_3() {
         var count = 0
-        checkAll(genTrue, genTrue, genTrue) {
+        testAll(genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2)
         }
@@ -39,7 +39,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_passes_when_it_should_4() {
         var count = 0
-        checkAll(genTrue, genTrue, genTrue, genTrue) {
+        testAll(genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3)
         }
@@ -49,7 +49,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_passes_when_it_should_5() {
         var count = 0
-        checkAll(genTrue, genTrue, genTrue, genTrue, genTrue) {
+        testAll(genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4)
         }
@@ -59,7 +59,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_passes_when_it_should_6() {
         var count = 0
-        checkAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
+        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5)
         }
@@ -69,7 +69,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_passes_when_it_should_7() {
         var count = 0
-        checkAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
+        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6)
         }
@@ -79,7 +79,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_passes_when_it_should_8() {
         var count = 0
-        checkAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
+        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6 && $7)
         }
@@ -89,7 +89,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_passes_when_it_should_9() {
         var count = 0
-        checkAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
+        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6 && $7 && $8)
         }
@@ -100,7 +100,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_passes_when_it_should_10() {
         var count = 0
-        checkAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
+        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6 && $7 && $8 && $9)
         }
@@ -110,7 +110,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_fails_when_it_should() {
         XCTExpectFailure()
-        checkAll(Generators.from(1...100)) { a in
+        testAll(Generators.from(1...100)) { a in
             XCTAssert(a < 1)
         }
     }

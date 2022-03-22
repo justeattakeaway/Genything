@@ -4,7 +4,7 @@ import GenythingTest
 
 class FakePhoneNumberTests: XCTestCase {
     func test_phoneNumber() {
-        checkAll(Fake.PhoneNumbers.formatted) { phoneNumber in
+        testAll(Fake.PhoneNumbers.formatted) { phoneNumber in
             let subject = Array(phoneNumber)
 
             XCTAssertEqual(14, subject.count)

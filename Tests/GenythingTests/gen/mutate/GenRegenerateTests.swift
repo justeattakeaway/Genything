@@ -9,12 +9,13 @@ final internal class GenRegenerateTests: XCTestCase {
             [Pizza.Size.medium, .large].contains($0)
         }.arbitrary
 
-        Pizza.arbitrary
+        let pizzas = Pizza.arbitrary
             .regenerate { pizza, randomSource in
                 pizza.size = sizeFilter.next(randomSource)
             }
-            .assertForAll {
-                $0.size == .large || $0.size == .medium
-            }
+
+        testAllSatisfy(pizzas) {
+            $0.size == .large || $0.size == .medium
+        }
     }
 }

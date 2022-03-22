@@ -4,21 +4,21 @@ import CoreLocation
 
 class FakeLocationTests: XCTestCase {
     func test_latitude() {
-        checkAll(Fake.Locations.latitude) {
+        testAll(Fake.Locations.latitude) {
             XCTAssertTrue($0 >= -90.0)
             XCTAssertTrue($0 <= 90.0)
         }
     }
 
     func test_longitude() {
-        checkAll(Fake.Locations.longitude) {
+        testAll(Fake.Locations.longitude) {
             XCTAssertTrue($0 >= -180.0)
             XCTAssertTrue($0 <= 180.0)
         }
     }
 
     func test_coordinate() {
-        checkAll(Fake.Locations.coordinate) {
+        testAll(Fake.Locations.coordinate) {
             CLLocationCoordinate2DIsValid($0)
         }
     }

@@ -18,7 +18,7 @@ final internal class PizzaArbitraryGeneratableTests: XCTestCase {
 
         // Read as:
         // For any pizza produced by `pizzaGen`, the pizza is a cheese pizza
-        pizzaGen.assertForAll { pizza in
+        testAllSatisfy(pizzaGen) { pizza in
             pizza.isCheesePizza
         }
         // Note how we gain an extra level of confidence!
@@ -34,7 +34,7 @@ final internal class PizzaArbitraryGeneratableTests: XCTestCase {
 
         // Read as:
         // For any pizza produced by `pizzaGen`, the pizza is not a cheese pizza
-        pizzaGen.assertForAll { pizza in
+        testAllSatisfy(pizzaGen) { pizza in
             !pizza.isCheesePizza
         }
     }

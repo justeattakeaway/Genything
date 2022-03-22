@@ -62,7 +62,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T, G1: Generator>(_ gen1: G1,
+    func testAll<T, G1: Generator>(_ gen1: G1,
                      randomSource: RandomSource = .default,
                      file: StaticString = #filePath,
                      line: UInt = #line,
@@ -90,7 +90,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<T1, T2, G1: Generator, G2: Generator>(
+    func testAll<T1, T2, G1: Generator, G2: Generator>(
         _ gen1: G1,
         _ gen2: G2,
         randomSource: RandomSource = .default,
@@ -100,7 +100,7 @@ public extension XCTestCase {
     ) where G1.T == T1,
             G2.T == T2
     {
-        checkAll(
+        testAll(
             gen1.zip(gen2),
             randomSource: randomSource,
             file: file,
@@ -124,7 +124,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<
+    func testAll<
         T1, G1: Generator,
         T2, G2: Generator,
         T3, G3: Generator
@@ -140,7 +140,7 @@ public extension XCTestCase {
             G2.T == T2,
             G3.T == T3
     {
-        checkAll(
+        testAll(
             gen1.zip(gen2, gen3),
             randomSource: randomSource,
             file: file,
@@ -165,7 +165,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<
+    func testAll<
         T1, G1: Generator,
         T2, G2: Generator,
         T3, G3: Generator,
@@ -184,7 +184,7 @@ public extension XCTestCase {
             G3.T == T3,
             G4.T == T4
     {
-        checkAll(
+        testAll(
             gen1.zip(gen2, gen3, gen4),
             randomSource: randomSource,
             file: file,
@@ -210,7 +210,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<
+    func testAll<
         T1, G1: Generator,
         T2, G2: Generator,
         T3, G3: Generator,
@@ -232,7 +232,7 @@ public extension XCTestCase {
             G4.T == T4,
             G5.T == T5
     {
-        checkAll(
+        testAll(
             gen1.zip(gen2, gen3, gen4, gen5),
             randomSource: randomSource,
             file: file,
@@ -261,7 +261,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<
+    func testAll<
         T1, G1: Generator,
         T2, G2: Generator,
         T3, G3: Generator,
@@ -286,7 +286,7 @@ public extension XCTestCase {
             G5.T == T5,
             G6.T == T6
     {
-        checkAll(
+        testAll(
             Generators.compose {
                 (
                     $0(gen1),
@@ -326,7 +326,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<
+    func testAll<
         T1, G1: Generator,
         T2, G2: Generator,
         T3, G3: Generator,
@@ -354,7 +354,7 @@ public extension XCTestCase {
             G6.T == T6,
             G7.T == T7
     {
-        checkAll(
+        testAll(
             Generators.compose {
                 (
                     $0(gen1),
@@ -395,7 +395,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<
+    func testAll<
         T1, G1: Generator,
         T2, G2: Generator,
         T3, G3: Generator,
@@ -426,7 +426,7 @@ public extension XCTestCase {
             G7.T == T7,
             G8.T == T8
     {
-        checkAll(
+        testAll(
             Generators.compose {
                 (
                     $0(gen1),
@@ -469,7 +469,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<
+    func testAll<
         T1, G1: Generator,
         T2, G2: Generator,
         T3, G3: Generator,
@@ -503,7 +503,7 @@ public extension XCTestCase {
             G8.T == T8,
             G9.T == T9
     {
-        checkAll(
+        testAll(
             Generators.compose {
                 (
                     $0(gen1),
@@ -548,7 +548,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func checkAll<
+    func testAll<
         T1, G1: Generator,
         T2, G2: Generator,
         T3, G3: Generator,
@@ -585,7 +585,7 @@ public extension XCTestCase {
             G9.T == T9,
             G10.T == T10
     {
-        checkAll(
+        testAll(
             Generators.compose {
                 (
                     $0(gen1),

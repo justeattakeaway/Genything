@@ -27,7 +27,7 @@ final internal class GenShuffledTests: XCTestCase {
 
         var history = [Int]()
 
-        checkAll(d6shuffle) {
+        testAll(d6shuffle) {
             if history.count >= 6 {
                 history.removeAll()
             }

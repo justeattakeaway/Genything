@@ -9,12 +9,13 @@ final internal class GenRecomposeTests: XCTestCase {
             [Pizza.Size.medium, .large].contains($0)
         }.arbitrary
 
-        Pizza.arbitrary
+        let gen = Pizza.arbitrary
             .recompose { pizza, compose in
                 pizza.size = compose(sizeFilter)
             }
-            .assertForAll {
-                $0.size == .large || $0.size == .medium
-            }
+
+        testAllSatisfy(gen) {
+            $0.size == .large || $0.size == .medium
+        }
     }
 }

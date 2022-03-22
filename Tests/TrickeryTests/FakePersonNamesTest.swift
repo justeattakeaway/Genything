@@ -3,7 +3,7 @@ import XCTest
 
 class FakeNamesTests: XCTestCase {
     func test_names_full() {
-        checkAll(Fake.PersonNames.full()) {
+        testAll(Fake.PersonNames.full()) {
             let names = $0.components(separatedBy: .whitespaces)
             names.forEach {
                 XCTAssertEqual(true, $0.first?.isUppercase)
@@ -12,7 +12,7 @@ class FakeNamesTests: XCTestCase {
     }
     
     func test_names_full_number_of_words() {
-        Fake.PersonNames.full().assertForAll {
+        testAllSatisfy(Fake.PersonNames.full()) {
             // Some names like "Jo Ann" can have 2 words
             let numberOfWords = $0.components(separatedBy: .whitespaces).count
 

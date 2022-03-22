@@ -9,7 +9,7 @@ final internal class DiceRollerExampleTests: XCTestCase {
 
     func test_d6_bounds() {
         // All values are within the expected bounds
-        d6.assertForAll {
+        testAllSatisfy(d6) {
             1...6 ~= $0
         }
     }
@@ -38,25 +38,25 @@ final internal class DiceRollerExampleTests: XCTestCase {
 
         let two_d6 = d6.zip(d6) { $0 + $1 }
 
-        two_d6.assertForAll {
+        testAllSatisfy(two_d6) {
             2...12 ~= $0
         }
 
         let two_d6_2 = Generators.compose { $0(d6) + $0(d6) }
 
-        two_d6_2.assertForAll {
+        testAllSatisfy(two_d6_2) {
             2...12 ~= $0
         }
 
         let two_d6_3 = Generators.collect([d6, d6]).map { $0.reduce(0, +) }
 
-        two_d6_3.assertForAll {
+        testAllSatisfy(two_d6_3) {
             2...12 ~= $0
         }
 
         let two_d6_4 = Generators.reduce([d6, d6], 0, +)
 
-        two_d6_4.assertForAll {
+        testAllSatisfy(two_d6_4) {
             2...12 ~= $0
         }
     }
@@ -71,7 +71,7 @@ final internal class DiceRollerExampleTests: XCTestCase {
         let d4 = (1...4).arbitrary
         let twoDaggers = diceRoller([d4, d4], modifier: 2)
 
-        twoDaggers.assertForAll {
+        testAllSatisfy(twoDaggers) {
             4...10 ~= $0
         }
 

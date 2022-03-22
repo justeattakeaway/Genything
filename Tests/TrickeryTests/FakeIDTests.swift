@@ -3,7 +3,7 @@ import XCTest
 
 class FakeIDTests: XCTestCase {
     func test_length() {
-        checkAll(Fake.ID.uuid) {
+        testAll(Fake.ID.uuid) {
             XCTAssertTrue($0.uuidString.count == 36)
         }
     }
