@@ -14,12 +14,12 @@ extension XCTestCase {
     ///   - predicate: A closure that takes an element of the sequence as its argument and returns a Boolean value that indicates whether the passed element satisfies a condition
     public func testAllSatisfy<G1>(
         _ generator: G1,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         predicate: @escaping (G1.T) throws -> Bool
     ) where G1: Generator {
-        let result = generator.test(iterations: TestConfig.maxIterations, randomSource: randomSource, predicate)
+        let result = generator.test(config: config, predicate)
 
         switch result {
         case .success: return
@@ -28,12 +28,12 @@ extension XCTestCase {
             case .predicate(let value):
                 fail(
                     "testAllSatisfy failed for generated value: `\(value)` after `\(info.iteration) iterations.",
-                    randomSource: randomSource,
+                    randomSource: config.randomSource,
                     file: file,
                     line: line
                 )
             case .error(let error):
-                fail(error, randomSource: randomSource, file: file, line: line)
+                fail(error, randomSource: config.randomSource, file: file, line: line)
             }
         }
     }
@@ -48,19 +48,17 @@ extension XCTestCase {
     public func testAllSatisfy<G1, G2>(
         _ gen1: G1,
         _ gen2: G2,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         predicate: @escaping (G1.T, G2.T) throws -> Bool
     ) where G1: Generator, G2: Generator {
         testAllSatisfy(
             gen1.zip(gen2),
-            randomSource: randomSource,
+            config: config,
             file: file,
             line: line,
             predicate: predicate
         )
     }
-
-    // TODO: Add more
 }

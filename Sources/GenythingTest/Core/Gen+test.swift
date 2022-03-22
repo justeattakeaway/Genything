@@ -15,27 +15,27 @@ extension Generator {
     ///
     func test(
         iterations: Int? = nil,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         _ predicate: (T) throws -> Bool
     ) -> Result<SuccessfulTestReport, FailedTestReport<T>> {
-        let iterations = iterations ?? TestConfig.maxIterations
+        let iterations = iterations ?? config.maxIterations
         var index = 0
 
         while index < iterations {
             do {
-                let value: T = next(randomSource)
+                let value: T = next(config.randomSource)
 
                 if try !predicate(value) {
                     return .failure(FailedTestReport(
                         iteration: index,
-                        seed: randomSource.originalSeed,
+                        seed: config.randomSource.originalSeed,
                         reason: .predicate(value: value)
                     ))
                 }
             } catch {
                 return .failure(FailedTestReport(
                     iteration: index,
-                    seed: randomSource.originalSeed,
+                    seed: config.randomSource.originalSeed,
                     reason: .error(error: error)
                 ))
             }
@@ -45,7 +45,7 @@ extension Generator {
 
         return .success(SuccessfulTestReport(
             iteration: index,
-            seed: randomSource.originalSeed
+            seed: config.randomSource.originalSeed
         ))
     }
 }

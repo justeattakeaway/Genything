@@ -1,19 +1,37 @@
-/// Global mutable defaults which will be used when initializing a `TestConfig`
+import Genything
+
+/// Configuration that will be used for Genything tests
 ///
-/// - SeeAlso: `TestConfig`
-public enum TestConfig {
-    /// The default iterations that will be used for operations which consume a generator's values
-    ///
-    /// - SeeAlso: `Gen.take(count:randomSource:)`
-    /// - SeeAlso: `Gen.forEach(iterations:randomSource:)`
-    /// - SeeAlso: `Gen.allSatisfy(iterations:randomSource:)`
+/// - SeeAlso: `XCTestCase+testAll`
+/// - SeeAlso: `XCTestCase+testAllSatisfy`
+public struct GenythingTestConfig {
+    /// The maximum iterations that can be run by a test function
+    public var maxIterations: Int
 
-    public static var maxIterations = 1000
+    /// The random source to be used by testing functions
+    public var randomSource: RandomSource
+}
 
-    /// The default probability to generate edge cases included by `withEdgecases(edgeCases:)`
+extension GenythingTestConfig {
+    /// Storage for the factory capable of creating a `GenythingTestConfig` which will be used by default
+    private static var `defaultFactory`: () -> GenythingTestConfig = {
+        GenythingTestConfig(
+            maxIterations: 1000,
+            randomSource: .default
+        )
+    }
+
+    /// Registers a function capable of creating a `GenythingTestConfig` which will be used by default
+    public static func registerDefault(_ factory: @escaping () -> GenythingTestConfig) {
+        defaultFactory = factory
+    }
+
+    /// Produces a new instance of the default test config
     ///
-    /// - Note: The included Arbitrary generators will contain edge cases by default
+    /// Can be overriden globally by calling to `GenythingTestConfig.registerDefault(factory:)`
     ///
-    /// - SeeAlso: `Gen.withEdgecases(edgeCases:)`
-    public static var edgeCaseProbability = 0.05
+    /// By default returns a configuration with `maxIterations = 1000` and a random source which is both deterministic (the order of values produced is predictible and repeatable) and independent (each test will have no affect on any other test)
+    public static func `default`() -> GenythingTestConfig {
+        defaultFactory()
+    }
 }

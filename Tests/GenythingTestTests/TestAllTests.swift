@@ -13,7 +13,7 @@ internal final class TestAllTests: XCTestCase {
             XCTAssertTrue($0)
         }
 
-        XCTAssertEqual(TestConfig.maxIterations, count)
+        XCTAssertEqual(GenythingTestConfig.default().maxIterations, count)
     }
 
     func test_all_passes_when_it_should_2() {
@@ -23,7 +23,7 @@ internal final class TestAllTests: XCTestCase {
             XCTAssertTrue($0 && $1)
         }
 
-        XCTAssertEqual(TestConfig.maxIterations, count)
+        XCTAssertEqual(GenythingTestConfig.default().maxIterations, count)
     }
 
     func test_all_passes_when_it_should_3() {
@@ -33,7 +33,7 @@ internal final class TestAllTests: XCTestCase {
             XCTAssertTrue($0 && $1 && $2)
         }
 
-        XCTAssertEqual(TestConfig.maxIterations, count)
+        XCTAssertEqual(GenythingTestConfig.default().maxIterations, count)
     }
 
     func test_all_passes_when_it_should_4() {
@@ -43,7 +43,7 @@ internal final class TestAllTests: XCTestCase {
             XCTAssertTrue($0 && $1 && $2 && $3)
         }
 
-        XCTAssertEqual(TestConfig.maxIterations, count)
+        XCTAssertEqual(GenythingTestConfig.default().maxIterations, count)
     }
 
     func test_all_passes_when_it_should_5() {
@@ -53,7 +53,7 @@ internal final class TestAllTests: XCTestCase {
             XCTAssertTrue($0 && $1 && $2 && $3 && $4)
         }
 
-        XCTAssertEqual(TestConfig.maxIterations, count)
+        XCTAssertEqual(GenythingTestConfig.default().maxIterations, count)
     }
 
     func test_all_passes_when_it_should_6() {
@@ -63,7 +63,7 @@ internal final class TestAllTests: XCTestCase {
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5)
         }
 
-        XCTAssertEqual(TestConfig.maxIterations, count)
+        XCTAssertEqual(GenythingTestConfig.default().maxIterations, count)
     }
 
     func test_all_passes_when_it_should_7() {
@@ -73,7 +73,7 @@ internal final class TestAllTests: XCTestCase {
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6)
         }
 
-        XCTAssertEqual(TestConfig.maxIterations, count)
+        XCTAssertEqual(GenythingTestConfig.default().maxIterations, count)
     }
 
     func test_all_passes_when_it_should_8() {
@@ -83,7 +83,7 @@ internal final class TestAllTests: XCTestCase {
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6 && $7)
         }
 
-        XCTAssertEqual(TestConfig.maxIterations, count)
+        XCTAssertEqual(GenythingTestConfig.default().maxIterations, count)
     }
 
     func test_all_passes_when_it_should_9() {
@@ -93,7 +93,7 @@ internal final class TestAllTests: XCTestCase {
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6 && $7 && $8)
         }
 
-        XCTAssertEqual(TestConfig.maxIterations, count)
+        XCTAssertEqual(GenythingTestConfig.default().maxIterations, count)
     }
 
     func test_all_passes_when_it_should_10() {
@@ -103,7 +103,7 @@ internal final class TestAllTests: XCTestCase {
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6 && $7 && $8 && $9)
         }
 
-        XCTAssertEqual(TestConfig.maxIterations, count)
+        XCTAssertEqual(GenythingTestConfig.default().maxIterations, count)
     }
 
     func test_all_fails_when_it_should() {

@@ -30,10 +30,10 @@ extension XCTestCase {
         }
     }
 
-    private func setupCheck(_ randomSource: RandomSource) {
+    private func setupCheck(_ config: GenythingTestConfig) {
         continueAfterFailure = false
 
-        randomSourceStore = randomSource
+        randomSourceStore = config.randomSource
 
         addTeardownBlock {
             defer {
@@ -68,17 +68,17 @@ extension XCTestCase {
     ///
     public func testAll<G1>(
         _ gen1: G1,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T) throws -> Void
     ) where G1: Generator {
-        setupCheck(randomSource)
+        setupCheck(config)
 
         do {
-            try gen1.asSequence(size: TestConfig.maxIterations, randomSource: randomSource).forEach(body)
+            try gen1.asSequence(size: config.maxIterations, randomSource: config.randomSource).forEach(body)
         } catch {
-            fail(error, randomSource: randomSource, file: file, line: line)
+            fail(error, randomSource: config.randomSource, file: file, line: line)
         }
     }
 
@@ -99,14 +99,14 @@ extension XCTestCase {
     public func testAll<G1, G2>(
         _ gen1: G1,
         _ gen2: G2,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T) throws -> Void
     ) where G1: Generator, G2: Generator {
         testAll(
             gen1.zip(gen2),
-            randomSource: randomSource,
+            config: config,
             file: file,
             line: line,
             body
@@ -132,14 +132,14 @@ extension XCTestCase {
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T) throws -> Void
     ) where G1: Generator, G2: Generator, G3: Generator {
         testAll(
             gen1.zip(gen2, gen3),
-            randomSource: randomSource,
+            config: config,
             file: file,
             line: line,
             body
@@ -167,14 +167,14 @@ extension XCTestCase {
         _ gen2: G2,
         _ gen3: G3,
         _ gen4: G4,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T) throws -> Void
     ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator {
         testAll(
             gen1.zip(gen2, gen3, gen4),
-            randomSource: randomSource,
+            config: config,
             file: file,
             line: line,
             body
@@ -204,7 +204,7 @@ extension XCTestCase {
         _ gen3: G3,
         _ gen4: G4,
         _ gen5: G5,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T) throws -> Void
@@ -212,7 +212,7 @@ extension XCTestCase {
         G5: Generator {
         testAll(
             gen1.zip(gen2, gen3, gen4, gen5),
-            randomSource: randomSource,
+            config: config,
             file: file,
             line: line,
             body
@@ -246,7 +246,7 @@ extension XCTestCase {
         _ gen4: G4,
         _ gen5: G5,
         _ gen6: G6,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T) throws -> Void
@@ -264,7 +264,7 @@ extension XCTestCase {
                     $0(gen6)
                 )
             },
-            randomSource: randomSource,
+            config: config,
             file: file,
             line: line,
             body
@@ -300,7 +300,7 @@ extension XCTestCase {
         _ gen5: G5,
         _ gen6: G6,
         _ gen7: G7,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T) throws -> Void
@@ -318,7 +318,7 @@ extension XCTestCase {
                     $0(gen7)
                 )
             },
-            randomSource: randomSource,
+            config: config,
             file: file,
             line: line,
             body
@@ -356,7 +356,7 @@ extension XCTestCase {
         _ gen6: G6,
         _ gen7: G7,
         _ gen8: G8,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T) throws -> Void
@@ -381,7 +381,7 @@ extension XCTestCase {
                     $0(gen8)
                 )
             },
-            randomSource: randomSource,
+            config: config,
             file: file,
             line: line,
             body
@@ -421,7 +421,7 @@ extension XCTestCase {
         _ gen7: G7,
         _ gen8: G8,
         _ gen9: G9,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T) throws -> Void
@@ -448,7 +448,7 @@ extension XCTestCase {
                     $0(gen9)
                 )
             },
-            randomSource: randomSource,
+            config: config,
             file: file,
             line: line,
             body
@@ -490,7 +490,7 @@ extension XCTestCase {
         _ gen8: G8,
         _ gen9: G9,
         _ gen10: G10,
-        randomSource: RandomSource = .default,
+        config: GenythingTestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T, G10.T) throws -> Void
@@ -511,7 +511,7 @@ extension XCTestCase {
                     $0(gen10)
                 )
             },
-            randomSource: randomSource,
+            config: config,
             file: file,
             line: line,
             body

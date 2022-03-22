@@ -21,6 +21,22 @@ internal final class TestAllSatisfyTests: XCTestCase {
     }
 
     func test_that_testAllSatisfy_runs_the_correct_iteration_amount_from_randomSource() {
+        var config = GenythingTestConfig.default()
+        config.maxIterations = 999
+
+        let gen = Generators.constant(())
+
+        var count = 0
+        testAllSatisfy(gen, config: config) { _ in
+            count += 1
+            return true
+        }
+
+        XCTAssertEqual(config.maxIterations, count)
+    }
+
+    func test_that_testAllSatisfy_runs_the_correct_iteration_amount_from_default_randomSource() {
+        let config = GenythingTestConfig.default()
         let gen = Generators.constant(())
 
         var count = 0
@@ -29,6 +45,6 @@ internal final class TestAllSatisfyTests: XCTestCase {
             return true
         }
 
-        XCTAssertEqual(TestConfig.maxIterations, count)
+        XCTAssertEqual(config.maxIterations, count)
     }
 }
