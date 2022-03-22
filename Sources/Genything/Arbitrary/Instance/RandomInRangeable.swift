@@ -56,17 +56,15 @@ extension Float: RandomInRangeable {}
 extension Character: RandomInRangeable {
     public static func random<RNG>(in range: ClosedRange<Character>, using generator: inout RNG) -> Character
         where RNG: RandomNumberGenerator {
-        Character(
-            UnicodeScalar.random(in: range.mapBound {
-                $0.unicodeScalars.first!
-            }, using: &generator))
+        Character(UnicodeScalar.random(in: range.mapBound {
+            $0.unicodeScalars.first!
+        }, using: &generator))
     }
 
     public static func random<RNG>(in range: Range<Self>, using generator: inout RNG) -> Self where RNG: RandomNumberGenerator {
-        Character(
-            UnicodeScalar.random(in: range.mapBound {
-                $0.unicodeScalars.first!
-            }, using: &generator))
+        Character(UnicodeScalar.random(in: range.mapBound {
+            $0.unicodeScalars.first!
+        }, using: &generator))
     }
 }
 

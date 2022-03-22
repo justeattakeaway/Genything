@@ -43,22 +43,19 @@ internal final class Generator_ZipTests: XCTestCase {
 
     func test_3Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 3) { gens in
-            Generators.zip(
-                gens[0], gens[1], gens[2]).next(.default)
+            Generators.zip(gens[0], gens[1], gens[2]).next(.default)
         }
     }
 
     func test_4Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 4) { gens in
-            Generators.zip(
-                gens[0], gens[1], gens[2], gens[3]).next(.default)
+            Generators.zip(gens[0], gens[1], gens[2], gens[3]).next(.default)
         }
     }
 
     func test_5Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 5) { gens in
-            Generators.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4]).next(.default)
+            Generators.zip(gens[0], gens[1], gens[2], gens[3], gens[4]).next(.default)
         }
     }
 
@@ -66,31 +63,28 @@ internal final class Generator_ZipTests: XCTestCase {
 
     func test_3Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 3) { gens in
-            Generators.zip(
-                gens[0], gens[1], gens[2]) { a, b, c in
-                    a + b + c
-                }
-                .next(.default)
+            Generators.zip(gens[0], gens[1], gens[2]) { a, b, c in
+                a + b + c
+            }
+            .next(.default)
         }
     }
 
     func test_4Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 4) { gens in
-            Generators.zip(
-                gens[0], gens[1], gens[2], gens[3]) { a, b, c, d in
-                    a + b + c + d
-                }
-                .next(.default)
+            Generators.zip(gens[0], gens[1], gens[2], gens[3]) { a, b, c, d in
+                a + b + c + d
+            }
+            .next(.default)
         }
     }
 
     func test_5Gen_staticZipTransform_generateExpectedValues() {
         testZipTransform(argsCount: 5) { gens in
-            Generators.zip(
-                gens[0], gens[1], gens[2], gens[3], gens[4]) { a, b, c, d, e in
-                    a + b + c + d + e
-                }
-                .next(.default)
+            Generators.zip(gens[0], gens[1], gens[2], gens[3], gens[4]) { a, b, c, d, e in
+                a + b + c + d + e
+            }
+            .next(.default)
         }
     }
 

@@ -59,7 +59,8 @@ extension Fake {
                 with: [
                     (replace: "&", by: Fake.Characters.uppercase.map(String.init)),
                     (replace: "#", by: Fake.Characters.digits.map(String.init)),
-                ])
+                ]
+            )
         }
 
         public static var streetLine: AnyGenerator<String> {

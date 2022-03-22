@@ -38,7 +38,8 @@ internal final class ExhaustiveShuffleLoopTests: XCTestCase {
             Rank.allCases.map { rank in
                 Suit.allCases.map { suit in Card(suit: suit, rank: rank) }
             }.flatMap { $0 },
-            randomSource: .default)
+            randomSource: .default
+        )
 
         // All cards of the deck are drawn, and they are all unique
         XCTAssertEqual(52, Set<Card>(cardGen.take(52)).count)

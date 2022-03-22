@@ -6,7 +6,8 @@ internal final class TestAllSatisfyTests: XCTestCase {
     func test_that_testAllSatisfy_succeeds_when_it_should() {
         let gen = Generators.zip(
             (1 ... 100).arbitrary,
-            (1 ... 100).arbitrary)
+            (1 ... 100).arbitrary
+        )
 
         testAllSatisfy(gen) { a, b in
             a >= 1 && a <= 100 &&

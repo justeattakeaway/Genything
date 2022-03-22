@@ -34,7 +34,8 @@ extension Generators {
     /// - Returns: A generator of Tuples
     public static func zip<A, B>(
         _ a: A,
-        _ b: B) -> AnyGenerator<(A.T, B.T)> where A: Generator, B: Generator {
+        _ b: B
+    ) -> AnyGenerator<(A.T, B.T)> where A: Generator, B: Generator {
         a.zip(b)
     }
 
@@ -49,7 +50,8 @@ extension Generators {
     public static func zip<A, B, R>(
         _ a: A,
         _ b: B,
-        transform: @escaping (A.T, B.T) -> R) -> AnyGenerator<R> where A: Generator, B: Generator {
+        transform: @escaping (A.T, B.T) -> R
+    ) -> AnyGenerator<R> where A: Generator, B: Generator {
         a.zip(b, transform: transform)
     }
 }
@@ -91,7 +93,8 @@ extension Generators {
     public static func zip<A, B, C>(
         _ a: A,
         _ b: B,
-        _ c: C) -> AnyGenerator<(A.T, B.T, C.T)> where A: Generator, B: Generator, C: Generator {
+        _ c: C
+    ) -> AnyGenerator<(A.T, B.T, C.T)> where A: Generator, B: Generator, C: Generator {
         a.zip(b, c)
     }
 
@@ -107,7 +110,8 @@ extension Generators {
         _ a: A,
         _ b: B,
         _ c: C,
-        transform: @escaping (A.T, B.T, C.T) -> R) -> AnyGenerator<R> where A: Generator, B: Generator, C: Generator {
+        transform: @escaping (A.T, B.T, C.T) -> R
+    ) -> AnyGenerator<R> where A: Generator, B: Generator, C: Generator {
         a.zip(b, c, transform: transform)
     }
 }
@@ -151,7 +155,8 @@ extension Generators {
         _ a: A,
         _ b: B,
         _ c: C,
-        _ d: D) -> AnyGenerator<(A.T, B.T, C.T, D.T)>
+        _ d: D
+    ) -> AnyGenerator<(A.T, B.T, C.T, D.T)>
         where A: Generator, B: Generator, C: Generator, D: Generator {
         Zip4(a, b, c, d).eraseToAnyGenerator()
     }
@@ -169,7 +174,8 @@ extension Generators {
         _ b: B,
         _ c: C,
         _ d: D,
-        transform: @escaping (A.T, B.T, C.T, D.T) -> R) -> AnyGenerator<R>
+        transform: @escaping (A.T, B.T, C.T, D.T) -> R
+    ) -> AnyGenerator<R>
         where A: Generator, B: Generator, C: Generator, D: Generator {
         a.zip(b, c, d, transform: transform)
     }
@@ -199,7 +205,8 @@ extension Generator {
         _ c: C,
         _ d: D,
         _ e: E,
-        transform: @escaping (Self.T, B.T, C.T, D.T, E.T) -> R) -> AnyGenerator<R>
+        transform: @escaping (Self.T, B.T, C.T, D.T, E.T) -> R
+    ) -> AnyGenerator<R>
         where B: Generator, C: Generator, D: Generator, E: Generator {
         zip(b, c, d, e).map(transform)
     }
@@ -218,7 +225,8 @@ extension Generators {
         _ b: B,
         _ c: C,
         _ d: D,
-        _ e: E) -> AnyGenerator<(A.T, B.T, C.T, D.T, E.T)>
+        _ e: E
+    ) -> AnyGenerator<(A.T, B.T, C.T, D.T, E.T)>
         where A: Generator, B: Generator, C: Generator, D: Generator, E: Generator {
         a.zip(b, c, d, e)
     }
@@ -237,7 +245,8 @@ extension Generators {
         _ c: C,
         _ d: D,
         _ e: E,
-        transform: @escaping (A.T, B.T, C.T, D.T, E.T) -> R) -> AnyGenerator<R>
+        transform: @escaping (A.T, B.T, C.T, D.T, E.T) -> R
+    ) -> AnyGenerator<R>
         where A: Generator, B: Generator, C: Generator, D: Generator, E: Generator {
         a.zip(b, c, d, e, transform: transform)
     }
@@ -269,7 +278,8 @@ private struct Zip<A, B>: Generator where A: Generator, B: Generator {
     public func next(_ randomSource: RandomSource) -> (A.T, B.T) {
         (
             a.next(randomSource),
-            b.next(randomSource))
+            b.next(randomSource)
+        )
     }
 }
 
@@ -307,7 +317,8 @@ private struct Zip3<A, B, C>: Generator where A: Generator,
         (
             a.next(randomSource),
             b.next(randomSource),
-            c.next(randomSource))
+            c.next(randomSource)
+        )
     }
 }
 
@@ -353,7 +364,8 @@ private struct Zip4<A, B, C, D>: Generator
             a.next(randomSource),
             b.next(randomSource),
             c.next(randomSource),
-            d.next(randomSource))
+            d.next(randomSource)
+        )
     }
 }
 
@@ -406,6 +418,7 @@ private struct Zip5<A, B, C, D, E>: Generator
             b.next(randomSource),
             c.next(randomSource),
             d.next(randomSource),
-            e.next(randomSource))
+            e.next(randomSource)
+        )
     }
 }

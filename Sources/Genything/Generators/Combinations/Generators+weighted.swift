@@ -16,7 +16,8 @@ extension Generators {
     public static func weighted<T>(_ weights: [WeightedGenerator<T>]) -> AnyGenerator<T> {
         assert(
             weights.allSatisfy { $0.weight > 0 },
-            "`Gen.weighted(weights:)` called with impossible weights. Ratios must be one or greater.")
+            "`Gen.weighted(weights:)` called with impossible weights. Ratios must be one or greater."
+        )
 
         let total = weights
             .map { $0.weight }
@@ -41,9 +42,8 @@ extension Generators {
     ///
     /// - Returns: The generator
     public static func weighted<T>(_ weights: [(Int, T)]) -> AnyGenerator<T> {
-        weighted(
-            weights.map { weight, value in
-                (weight, Generators.constant(value).eraseToAnyGenerator())
-            })
+        weighted(weights.map { weight, value in
+            (weight, Generators.constant(value).eraseToAnyGenerator())
+        })
     }
 }

@@ -6,14 +6,16 @@ internal final class RandomSourceTests: XCTestCase {
         // A new randomSource is created each execution
         XCTAssertEqual(
             Int.arbitrary.next(.default),
-            Int.arbitrary.next(.default))
+            Int.arbitrary.next(.default)
+        )
 
         // To introduce randomness we need to track our randomSource
         let randomSource = RandomSource(determinism: .predetermined(seed: 0))
 
         XCTAssertNotEqual(
             Int.arbitrary.next(randomSource),
-            Int.arbitrary.next(randomSource))
+            Int.arbitrary.next(randomSource)
+        )
     }
 
     func test_generate_one_with_same_seed_produces_same() {
@@ -61,10 +63,12 @@ internal final class RandomSourceTests: XCTestCase {
     func test_zipped_generators_draw_from_the_same_rng_and_produce_differently() {
         let result = Generators.zip(
             (1 ... 100).arbitrary,
-            (1 ... 100).arbitrary).take(1000)
+            (1 ... 100).arbitrary
+        ).take(1000)
 
         XCTAssertNotEqual(
             result.map { $0.0 },
-            result.map { $0.1 })
+            result.map { $0.1 }
+        )
     }
 }

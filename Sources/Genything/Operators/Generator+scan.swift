@@ -21,7 +21,8 @@ private final class Scan<Source, R>: Generator where Source: Generator {
     init(
         source: Source,
         initialResult: R,
-        nextPartialResult: @escaping (R, Source.T) -> R) {
+        nextPartialResult: @escaping (R, Source.T) -> R
+    ) {
         self.source = source
         self.initialResult = initialResult
         self.nextPartialResult = nextPartialResult

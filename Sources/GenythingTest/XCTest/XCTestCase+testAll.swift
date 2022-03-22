@@ -71,7 +71,8 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T) throws -> Void) where G1: Generator {
+        _ body: (G1.T) throws -> Void
+    ) where G1: Generator {
         setupCheck(randomSource)
 
         do {
@@ -101,13 +102,15 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T) throws -> Void) where G1: Generator, G2: Generator {
+        _ body: (G1.T, G2.T) throws -> Void
+    ) where G1: Generator, G2: Generator {
         testAll(
             gen1.zip(gen2),
             randomSource: randomSource,
             file: file,
             line: line,
-            body)
+            body
+        )
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -132,13 +135,15 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T) throws -> Void) where G1: Generator, G2: Generator, G3: Generator {
+        _ body: (G1.T, G2.T, G3.T) throws -> Void
+    ) where G1: Generator, G2: Generator, G3: Generator {
         testAll(
             gen1.zip(gen2, gen3),
             randomSource: randomSource,
             file: file,
             line: line,
-            body)
+            body
+        )
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -165,13 +170,15 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T) throws -> Void) where G1: Generator, G2: Generator, G3: Generator, G4: Generator {
+        _ body: (G1.T, G2.T, G3.T, G4.T) throws -> Void
+    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator {
         testAll(
             gen1.zip(gen2, gen3, gen4),
             randomSource: randomSource,
             file: file,
             line: line,
-            body)
+            body
+        )
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -200,14 +207,16 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T) throws -> Void) where G1: Generator, G2: Generator, G3: Generator, G4: Generator,
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T) throws -> Void
+    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator,
         G5: Generator {
         testAll(
             gen1.zip(gen2, gen3, gen4, gen5),
             randomSource: randomSource,
             file: file,
             line: line,
-            body)
+            body
+        )
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -240,7 +249,8 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T) throws -> Void) where G1: Generator, G2: Generator, G3: Generator,
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T) throws -> Void
+    ) where G1: Generator, G2: Generator, G3: Generator,
         G4: Generator,
         G5: Generator, G6: Generator {
         testAll(
@@ -251,12 +261,14 @@ extension XCTestCase {
                     $0(gen3),
                     $0(gen4),
                     $0(gen5),
-                    $0(gen6))
+                    $0(gen6)
+                )
             },
             randomSource: randomSource,
             file: file,
             line: line,
-            body)
+            body
+        )
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -291,7 +303,8 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T) throws -> Void) where G1: Generator, G2: Generator, G3: Generator,
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T) throws -> Void
+    ) where G1: Generator, G2: Generator, G3: Generator,
         G4: Generator, G5: Generator, G6: Generator, G7: Generator {
         testAll(
             Generators.compose {
@@ -302,12 +315,14 @@ extension XCTestCase {
                     $0(gen4),
                     $0(gen5),
                     $0(gen6),
-                    $0(gen7))
+                    $0(gen7)
+                )
             },
             randomSource: randomSource,
             file: file,
             line: line,
-            body)
+            body
+        )
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -344,7 +359,8 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T) throws -> Void) where G1: Generator,
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T) throws -> Void
+    ) where G1: Generator,
         G2: Generator,
         G3: Generator,
         G4: Generator,
@@ -362,12 +378,14 @@ extension XCTestCase {
                     $0(gen5),
                     $0(gen6),
                     $0(gen7),
-                    $0(gen8))
+                    $0(gen8)
+                )
             },
             randomSource: randomSource,
             file: file,
             line: line,
-            body)
+            body
+        )
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -406,7 +424,8 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T) throws -> Void) where G1: Generator,
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T) throws -> Void
+    ) where G1: Generator,
         G2: Generator,
         G3: Generator,
         G4: Generator,
@@ -426,12 +445,14 @@ extension XCTestCase {
                     $0(gen6),
                     $0(gen7),
                     $0(gen8),
-                    $0(gen9))
+                    $0(gen9)
+                )
             },
             randomSource: randomSource,
             file: file,
             line: line,
-            body)
+            body
+        )
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -472,7 +493,8 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T, G10.T) throws -> Void) where G1: Generator, G2: Generator,
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T, G10.T) throws -> Void
+    ) where G1: Generator, G2: Generator,
         G3: Generator, G4: Generator, G5: Generator, G6: Generator, G7: Generator, G8: Generator, G9: Generator, G10: Generator {
         testAll(
             Generators.compose {
@@ -486,11 +508,13 @@ extension XCTestCase {
                     $0(gen7),
                     $0(gen8),
                     $0(gen9),
-                    $0(gen10))
+                    $0(gen10)
+                )
             },
             randomSource: randomSource,
             file: file,
             line: line,
-            body)
+            body
+        )
     }
 }

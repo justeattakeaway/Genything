@@ -11,7 +11,8 @@ extension Fake {
 
         public static func full(
             parts: ClosedRange<Int> = 2 ... 4,
-            separator: String = " ") -> AnyGenerator<String> {
+            separator: String = " "
+        ) -> AnyGenerator<String> {
             name
                 .expand(toSizeInRange: parts)
                 .map {

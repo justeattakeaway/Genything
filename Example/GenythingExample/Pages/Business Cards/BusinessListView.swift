@@ -63,7 +63,8 @@ struct BusinessListView: View {
             email: Fake.Emails.business(name).generate(context: ctx),
             symbolName: Gen<SFSymbol>.ofCases().generate(context: ctx),
             addressLine1: Fake.Addresses.streetLine.generate(context: ctx),
-            addressLine2: addressLine2Gen.generate(context: ctx))
+            addressLine2: addressLine2Gen.generate(context: ctx)
+        )
     }.take(50)
 
     var body: some View {

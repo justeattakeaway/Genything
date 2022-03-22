@@ -16,7 +16,8 @@ extension JsonResourceCodable {
         getBundle()
             .url(
                 forResource: String(describing: self),
-                withExtension: "json")
+                withExtension: "json"
+            )
             .flatMap {
                 try? Data(contentsOf: $0)
             }

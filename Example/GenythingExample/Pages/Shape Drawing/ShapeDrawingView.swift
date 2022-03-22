@@ -28,7 +28,8 @@ private let polygonGen = Gen<PolygonShape>.compose {
         scale: $0.generate(Generators.from(0.3 ... 0.9)),
         color: $0.generate(colorGen),
         offset: CGFloat($0.generate(Generators.from(-250.0 ... 250.0))),
-        xOffset: CGFloat($0.generate(Generators.from(-150.0 ... 150.0))))
+        xOffset: CGFloat($0.generate(Generators.from(-150.0 ... 150.0)))
+    )
 }.expand(toSizeInRange: 6 ... 12)
 
 // MARK: - ShapeDrawingView

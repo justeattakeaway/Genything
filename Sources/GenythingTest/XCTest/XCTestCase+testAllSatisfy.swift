@@ -17,8 +17,8 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        predicate: @escaping (G1.T) throws -> Bool)
-        where G1: Generator {
+        predicate: @escaping (G1.T) throws -> Bool
+    ) where G1: Generator {
         let result = generator.test(iterations: TestConfig.maxIterations, randomSource: randomSource, predicate)
 
         switch result {
@@ -30,7 +30,8 @@ extension XCTestCase {
                     "testAllSatisfy failed for generated value: `\(value)` after `\(info.iteration) iterations.",
                     randomSource: randomSource,
                     file: file,
-                    line: line)
+                    line: line
+                )
             case .error(let error):
                 fail(error, randomSource: randomSource, file: file, line: line)
             }
@@ -50,14 +51,15 @@ extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        predicate: @escaping (G1.T, G2.T) throws -> Bool)
-        where G1: Generator, G2: Generator {
+        predicate: @escaping (G1.T, G2.T) throws -> Bool
+    ) where G1: Generator, G2: Generator {
         testAllSatisfy(
             gen1.zip(gen2),
             randomSource: randomSource,
             file: file,
             line: line,
-            predicate: predicate)
+            predicate: predicate
+        )
     }
 
     // TODO: Add more

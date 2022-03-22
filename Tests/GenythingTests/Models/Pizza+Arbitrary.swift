@@ -8,7 +8,8 @@ extension Pizza: Arbitrary {
             Pizza(
                 name: .arbitrary.next(rs),
                 size: .arbitrary.next(rs),
-                toppings: .arbitrary.next(rs))
+                toppings: .arbitrary.next(rs)
+            )
         }
     }
 }

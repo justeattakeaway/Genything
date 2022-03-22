@@ -14,7 +14,8 @@ extension Generators {
     public static func reduce<G, R>(
         _ generators: [G],
         _ initialResult: R,
-        _ nextPartialResult: @escaping (R, G.T) -> R) -> AnyGenerator<R> where G: Generator {
+        _ nextPartialResult: @escaping (R, G.T) -> R
+    ) -> AnyGenerator<R> where G: Generator {
         collect(generators)
             .map { $0.reduce(initialResult, nextPartialResult) }
     }

@@ -12,7 +12,8 @@ internal final class PizzaArbitraryTests: XCTestCase {
             Pizza(
                 name: $0(),
                 size: $0(),
-                toppings: []) // No toppings => Cheese pizza!
+                toppings: []
+            ) // No toppings => Cheese pizza!
         }
 
         // Read as:
@@ -45,7 +46,8 @@ internal final class PizzaArbitraryTests: XCTestCase {
             Pizza(
                 name: pepperoni,
                 size: $0(),
-                toppings: [pepperoni].map { Pizza.Topping(name: $0) })
+                toppings: [pepperoni].map { Pizza.Topping(name: $0) }
+            )
         }
 
         let hawaiian = "Hawaiian"
@@ -53,7 +55,8 @@ internal final class PizzaArbitraryTests: XCTestCase {
             Pizza(
                 name: hawaiian,
                 size: $0(),
-                toppings: ["ham", "pineapple"].map { Pizza.Topping(name: $0) })
+                toppings: ["ham", "pineapple"].map { Pizza.Topping(name: $0) }
+            )
         }
 
         let pizzaDistribution = Generators.either(left: hawaiianPizzaGen, right: pepperoniPizzaGen, rightProbability: 0.75)
