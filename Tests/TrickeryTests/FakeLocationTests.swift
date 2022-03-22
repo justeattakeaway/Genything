@@ -1,5 +1,5 @@
-import XCTest
 import CoreLocation
+import XCTest
 @testable import Trickery
 
 class FakeLocationTests: XCTestCase {

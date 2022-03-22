@@ -1,6 +1,8 @@
 import Foundation
 import Genything
 
+// MARK: - GenLibData
+
 private struct GenLibData: Codable {
     /// A template which supports the following substitutions:
     /// `verb`: A past tense verb
@@ -22,6 +24,8 @@ private struct GenLibData: Codable {
         }
     }
 }
+
+// MARK: - GenLibsScriptGenerator
 
 struct GenLibsScriptGenerator {
     private static let data = Bundle.main.url(forResource: "genlib", withExtension: "json")

@@ -1,12 +1,14 @@
 // MARK: Build
 
-public extension Generators {
+extension Generators {
     /// Returns: A Generator that constantly produces the provided value
     /// - Parameter value: The value which will constantly be generated
-    static func constant<T>(_ value: T) -> AnyGenerator<T> {
+    public static func constant<T>(_ value: T) -> AnyGenerator<T> {
         Constant(value).eraseToAnyGenerator()
     }
 }
+
+// MARK: - Constant
 
 /// A Generator that **constantly** produces the provided value
 private struct Constant<T>: Generator {
@@ -20,7 +22,7 @@ private struct Constant<T>: Generator {
         self.value = value
     }
 
-    public func next(_ randomSource: RandomSource) -> T {
+    public func next(_: RandomSource) -> T {
         value
     }
 }

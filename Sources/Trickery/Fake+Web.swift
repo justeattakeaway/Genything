@@ -9,7 +9,7 @@ extension Fake {
 
         public static var urlDomain: AnyGenerator<String> {
             Characters.alphanumeric
-                .expand(toSizeInRange: 1...63)
+                .expand(toSizeInRange: 1 ... 63)
                 .map { (chars: [Character]) -> String in String(chars) }
         }
 
@@ -31,10 +31,15 @@ extension Fake {
 
         public static var urlString: AnyGenerator<String> {
             Generators
-                .join([urlScheme, Generators.constant("://").eraseToAnyGenerator(),
-                       urlSubdomain, Generators.constant(".").eraseToAnyGenerator(),
-                       urlDomain, Generators.constant(".").eraseToAnyGenerator(),
-                       urlTld])
+                .join([
+                    urlScheme,
+                    Generators.constant("://").eraseToAnyGenerator(),
+                    urlSubdomain,
+                    Generators.constant(".").eraseToAnyGenerator(),
+                    urlDomain,
+                    Generators.constant(".").eraseToAnyGenerator(),
+                    urlTld,
+                ])
         }
     }
 }

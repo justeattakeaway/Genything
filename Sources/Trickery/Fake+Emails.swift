@@ -9,18 +9,20 @@ extension Fake {
                 "ca",
                 "gov",
                 "tv",
-                "org"
+                "org",
             ].arbitrary
         }
+
         public static var personalDomains: AnyGenerator<String> {
             [
                 "gmail",
                 "yahoo",
                 "hotmail",
                 "aol",
-                "msn"
+                "msn",
             ].arbitrary
         }
+
         public static var contacts: AnyGenerator<String> {
             [
                 "contact",
@@ -29,16 +31,18 @@ extension Fake {
                 "about",
                 "general",
                 "sales",
-                "emailus"
+                "emailus",
             ].arbitrary
         }
+
         public static var separator: AnyGenerator<String> {
             [".", "_", "-", ""].arbitrary
         }
 
         public static var personal: AnyGenerator<String> {
             Generators.compose { gen -> String in
-                let transformedName = gen(Fake.PersonNames.full()).replacingOccurrences(of: " ", with: gen(separator)).lowercased()
+                let transformedName = gen(Fake.PersonNames.full()).replacingOccurrences(of: " ", with: gen(separator))
+                    .lowercased()
                 return "\(transformedName)@\(gen(personalDomains)).\(gen(topLevelDomains))"
             }
         }

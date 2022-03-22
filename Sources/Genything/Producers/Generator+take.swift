@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: Produce
 
-public extension Generator {
+extension Generator {
     /// Returns: An array of values from the generator
     ///
     /// - Parameters:
@@ -10,8 +10,9 @@ public extension Generator {
     ///   - randomSource: The randomSource to be used for generation
     ///
     /// - Returns: An array of generated values
-    func take(_ count: Int,
-              randomSource: RandomSource = .default) -> [T] {
+    public func take(
+        _ count: Int,
+        randomSource: RandomSource = .default) -> [T] {
         Array(asSequence(size: count, randomSource: randomSource))
     }
 }

@@ -2,16 +2,18 @@ import Foundation
 
 // MARK: Build
 
-public extension Generators {
-    static func compose<T>(_ compose: @escaping (Composer) -> T) -> AnyGenerator<T> {
+extension Generators {
+    public static func compose<T>(_ compose: @escaping (Composer) -> T) -> AnyGenerator<T> {
         ComposingGenerator(compose).eraseToAnyGenerator()
     }
 }
 
+// MARK: - Composer
+
 /// The composer class which passes in the randomSource and allows us to generate more complex data with ease
 public struct Composer {
-    /// Forwards the `RandomSource` to be used by the generators
-    var randomSource: RandomSource
+
+    // MARK: Public
 
     /// Generates a value using the provided `Generator`
     ///
@@ -64,7 +66,15 @@ public struct Composer {
     public func callAsFunction<T>() -> T where T: CaseIterable {
         generate(T.arbitrary)
     }
+
+    // MARK: Internal
+
+    /// Forwards the `RandomSource` to be used by the generators
+    var randomSource: RandomSource
+
 }
+
+// MARK: - ComposingGenerator
 
 private struct ComposingGenerator<T>: Generator {
     let compose: (Composer) -> T

@@ -3,14 +3,12 @@ import Genything
 
 extension Fake {
     public enum Addresses {
-        private static let streetData = StreetData.loadJson()
-        private static let cityData = CityData.loadJson()
-        private static let stateData = StateData.loadJson()
-        private static let countryData = CountryData.loadJson()
+
+        // MARK: Public
 
         public static var streetNumber: AnyGenerator<String> {
             Fake.Characters.digits
-                .expand(toSizeInRange: 1...4)
+                .expand(toSizeInRange: 1 ... 4)
                 .map { String($0) }
         }
 
@@ -60,20 +58,21 @@ extension Fake {
                 "&#& #&#",
                 with: [
                     (replace: "&", by: Fake.Characters.uppercase.map(String.init)),
-                    (replace: "#", by: Fake.Characters.digits.map(String.init))
-                ]
-            )
+                    (replace: "#", by: Fake.Characters.digits.map(String.init)),
+                ])
         }
 
         public static var streetLine: AnyGenerator<String> {
             Generators
                 .join([streetNumber, streetName], separator: " ")
         }
+
         public static var usLastLine: AnyGenerator<String> {
             Generators
                 .join([usCity, stateCode], separator: ", ")
                 .zip(zipCode, transform: { "\($0) \($1)" })
         }
+
         public static var caLastLine: AnyGenerator<String> {
             Generators
                 .join([caCity, provinceCode], separator: " ")
@@ -89,5 +88,13 @@ extension Fake {
             Generators
                 .join([streetLine, caLastLine], separator: "\n")
         }
+
+        // MARK: Private
+
+        private static let streetData = StreetData.loadJson()
+        private static let cityData = CityData.loadJson()
+        private static let stateData = StateData.loadJson()
+        private static let countryData = CountryData.loadJson()
+
     }
 }

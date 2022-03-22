@@ -1,10 +1,10 @@
-import XCTest
 import Genything
 import GenythingTest
+import XCTest
 
 class Generator_ReplacingOccurencesTests: XCTestCase {
     func test_replacing_occurences_to_create_a_phone_number() {
-        let digits = (0...9).arbitrary
+        let digits = (0 ... 9).arbitrary
         let gen = digits.replacingOccurrences(of: "#", in: "(###) ###-####")
 
         testAll(gen) { phoneNumber in

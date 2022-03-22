@@ -1,8 +1,12 @@
+// MARK: - Generator
+
 /// Represents a type which can be generated from
 public protocol Generator {
     associatedtype T
     func next(_ randomSource: RandomSource) -> T
 }
+
+// MARK: - AnyGenerator
 
 /// A type-erased Generator
 public struct AnyGenerator<T>: Generator {
@@ -12,11 +16,11 @@ public struct AnyGenerator<T>: Generator {
     ///
     /// - Parameter Generator: A Generator to wrap with a type-eraser.
     public init<G>(_ generator: G) where T == G.T, G: Generator {
-        self._next = generator.next
+        _next = generator.next
     }
 
     public init(_ next: @escaping (RandomSource) -> T) {
-        self._next = next
+        _next = next
     }
 
     public func next(_ randomSource: RandomSource) -> T {
@@ -24,8 +28,8 @@ public struct AnyGenerator<T>: Generator {
     }
 }
 
-public extension Generator {
-    func eraseToAnyGenerator() -> AnyGenerator<T> {
+extension Generator {
+    public func eraseToAnyGenerator() -> AnyGenerator<T> {
         AnyGenerator(self)
     }
 }

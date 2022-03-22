@@ -1,19 +1,18 @@
-import XCTest
 import GenythingTest
+import XCTest
 @testable import Genything
 
-/*
- Using generators we can generate ARBITRARY test data.
-    We call it "arbitrary" instead of "random" because the Generation is smart!
-    - You can specify a seed value, so that the tests run with the same "randomness" in repeated executions.
-    - You can alter the chances of conditions. Increase the likelyhood of conditions. Filter only certain conditions.
- */
-final internal class PizzaArbitraryTests: XCTestCase {
+// Using generators we can generate ARBITRARY test data.
+//   We call it "arbitrary" instead of "random" because the Generation is smart!
+//   - You can specify a seed value, so that the tests run with the same "randomness" in repeated executions.
+//   - You can alter the chances of conditions. Increase the likelyhood of conditions. Filter only certain conditions.
+internal final class PizzaArbitraryTests: XCTestCase {
     func test_usingFixtures_withNoToppings_itIsACheesePizza() {
         let pizzaGen = Generators.compose {
-            Pizza(name: $0(),
-                  size: $0(),
-                  toppings: []) // No toppings => Cheese pizza!
+            Pizza(
+                name: $0(),
+                size: $0(),
+                toppings: []) // No toppings => Cheese pizza!
         }
 
         // Read as:
@@ -29,7 +28,7 @@ final internal class PizzaArbitraryTests: XCTestCase {
         let pizzaGen = Pizza.arbitrary
             .recompose { pizza, compose in
                 /// Be sure that `toppings` is not empty
-                pizza.toppings = compose([Pizza.Topping].arbitrary(in: 1...10))
+                pizza.toppings = compose([Pizza.Topping].arbitrary(in: 1 ... 10))
             }
 
         // Read as:
@@ -42,18 +41,19 @@ final internal class PizzaArbitraryTests: XCTestCase {
     func test_pizzaGeneration_usingEither_generatesWithCorrectFrequency() {
         let pepperoni = "Pepperoni"
 
-
         let pepperoniPizzaGen = Generators.compose {
-            Pizza(name: pepperoni,
-                  size: $0(),
-                  toppings: [pepperoni].map { Pizza.Topping(name: $0) })
+            Pizza(
+                name: pepperoni,
+                size: $0(),
+                toppings: [pepperoni].map { Pizza.Topping(name: $0) })
         }
 
         let hawaiian = "Hawaiian"
         let hawaiianPizzaGen = Generators.compose {
-            Pizza(name: hawaiian,
-                  size: $0(),
-                  toppings: ["ham", "pineapple"].map { Pizza.Topping(name: $0) })
+            Pizza(
+                name: hawaiian,
+                size: $0(),
+                toppings: ["ham", "pineapple"].map { Pizza.Topping(name: $0) })
         }
 
         let pizzaDistribution = Generators.either(left: hawaiianPizzaGen, right: pepperoniPizzaGen, rightProbability: 0.75)

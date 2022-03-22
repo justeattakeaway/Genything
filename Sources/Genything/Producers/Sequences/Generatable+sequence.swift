@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: Produce
 
-public extension Generator {
+extension Generator {
     /// Returns: A sequence of this generator's values which will produce `nil` after `size` iterations
     ///
     /// - Warning: The sequence is destructively consumed by iteration.
@@ -16,7 +16,7 @@ public extension Generator {
     ///   - randomSource: The randomSource to be used for generation
     ///
     /// - Returns: The Sequence
-    func asSequence(size: Int, randomSource: RandomSource = .default) -> FiniteSequence<T> {
+    public func asSequence(size: Int, randomSource: RandomSource = .default) -> FiniteSequence<T> {
         FiniteSequence(size: size) {
             next(randomSource)
         }

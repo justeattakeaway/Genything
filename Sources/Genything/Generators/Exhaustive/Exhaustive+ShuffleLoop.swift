@@ -12,12 +12,7 @@ extension Exhaustive {
     /// - SeeAlso: https://developer.apple.com/documentation/gameplaykit/gkshuffleddistribution
     final class ShuffleLoop<Elements>: Generator where Elements: Swift.Collection {
 
-        public typealias T = Elements.Element
-
-        private(set) public var collection: [T]
-        private(set) public var index: Int = 0
-
-        private let randomSource: RandomSource
+        // MARK: Lifecycle
 
         /// Creates a shuffled loop Generator for a collection of elements.
         ///
@@ -29,6 +24,13 @@ extension Exhaustive {
             self.randomSource = randomSource
         }
 
+        // MARK: Public
+
+        public typealias T = Elements.Element
+
+        public private(set) var collection: [T]
+        public private(set) var index = 0
+
         public func next(_: RandomSource) -> T {
             defer {
                 collection.formIndex(after: &index)
@@ -39,5 +41,10 @@ extension Exhaustive {
             }
             return collection[index]
         }
+
+        // MARK: Private
+
+        private let randomSource: RandomSource
+
     }
 }

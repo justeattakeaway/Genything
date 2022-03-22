@@ -1,4 +1,4 @@
-public extension Generators {
+extension Generators {
     /// Returns: A generator of strings which modify the `source` by replacing all occurence of `replace` strings by their associated generator
     ///
     /// - Parameters:
@@ -6,11 +6,12 @@ public extension Generators {
     ///   - generators: Tuple of substring to replace with associated generator
     ///
     /// - Returns: The `String` generator
-    static func replacing<G>(_ source: String, with generators: [(replace: String, by: G)]) -> AnyGenerator<String> where G: Generator, G.T == String {
+    public static func replacing<G>(_ source: String, with generators: [(replace: String, by: G)]) -> AnyGenerator<String>
+        where G: Generator, G.T == String {
         AnyGenerator { ctx in
             var result = source
 
-            generators.forEach { (substring, gen) in
+            generators.forEach { substring, gen in
                 result = result.replacingOccurences(of: substring) {
                     gen.next(ctx)
                 }

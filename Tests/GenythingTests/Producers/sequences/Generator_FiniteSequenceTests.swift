@@ -1,7 +1,7 @@
 import XCTest
 @testable import Genything
 
-final internal class Generator_FiniteSequenceTests: XCTestCase {
+internal final class Generator_FiniteSequenceTests: XCTestCase {
     func test_sequence_is_finite() {
         // given a generator of any Integer
         let gen = Int.arbitrary

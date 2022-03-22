@@ -3,7 +3,7 @@ import XCTest
 
 class FakeLoremTests: XCTestCase {
     func test_lorem_word() {
-        testAll(Fake.Lorem.word){
+        testAll(Fake.Lorem.word) {
             XCTAssertFalse($0.isEmpty)
         }
     }

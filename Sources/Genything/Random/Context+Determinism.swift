@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: - Determinism
+
 /// The `Determinism` affects the relative randomness of value generation
 public enum Determinism {
     /// A random `Determinism` seeded by `seed`
@@ -11,15 +13,15 @@ public enum Determinism {
     case random
 }
 
-public extension RandomSource {
+extension RandomSource {
     /// Initializes a `RandomSource` with a `Determinism`
-    convenience init(determinism: Determinism) {
+    public convenience init(determinism: Determinism) {
         switch determinism {
-            case let .predetermined(seed):
-                self.init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
-            case .random:
-                let seed = UInt64(arc4random())
-                self.init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
+        case .predetermined(let seed):
+            self.init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
+        case .random:
+            let seed = UInt64(arc4random())
+            self.init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
         }
     }
 }

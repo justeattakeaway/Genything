@@ -15,7 +15,7 @@ public struct FiniteSequence<Element>: Sequence, IteratorProtocol {
     }
 
     /// Returns: The next element in this sequence
-    mutating public func next() -> Element? {
+    public mutating func next() -> Element? {
         guard index < size else { return nil }
 
         index += 1

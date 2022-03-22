@@ -13,10 +13,10 @@ extension Generator {
     ///
     /// - Returns: A `Result` indicating wether the test passed or failed, with accompanying `TestReport` information
     ///
-    func test(iterations: Int? = nil,
-              randomSource: RandomSource = .default,
-              _ predicate: (T) throws -> Bool) -> Result<SuccessfulTestReport, FailedTestReport<T>> {
-
+    func test(
+        iterations: Int? = nil,
+        randomSource: RandomSource = .default,
+        _ predicate: (T) throws -> Bool) -> Result<SuccessfulTestReport, FailedTestReport<T>> {
         let iterations = iterations ?? TestConfig.maxIterations
         var index = 0
 
@@ -29,18 +29,14 @@ extension Generator {
                         FailedTestReport(
                             iteration: index,
                             seed: randomSource.originalSeed,
-                            reason: .predicate(value: value)
-                        )
-                    )
+                            reason: .predicate(value: value)))
                 }
             } catch {
                 return .failure(
                     FailedTestReport(
                         iteration: index,
                         seed: randomSource.originalSeed,
-                        reason: .error(error: error)
-                    )
-                )
+                        reason: .error(error: error)))
             }
 
             index += 1
@@ -48,7 +44,6 @@ extension Generator {
 
         return .success(SuccessfulTestReport(
             iteration: index,
-            seed: randomSource.originalSeed
-        ))
+            seed: randomSource.originalSeed))
     }
 }

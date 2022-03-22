@@ -1,7 +1,7 @@
 import XCTest
 @testable import Genything
 
-final internal class Generator_TakeTests: XCTestCase {
+internal final class Generator_TakeTests: XCTestCase {
     func test_take() {
         let bucket = [1, 2, 3, 4, 5]
         let generator = bucket.arbitrary

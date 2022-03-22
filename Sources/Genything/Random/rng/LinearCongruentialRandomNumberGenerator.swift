@@ -19,8 +19,8 @@ struct LinearCongruentialRandomNumberGenerator: RandomNumberGenerator {
         self.seed = seed
     }
 
-    private let a: UInt64 = 2862933555777941757
-    private let b: UInt64 = 3037000493
+    private let a: UInt64 = 2_862_933_555_777_941_757
+    private let b: UInt64 = 3_037_000_493
     mutating func next() -> UInt64 {
         seed = a &* seed &+ b
         return seed

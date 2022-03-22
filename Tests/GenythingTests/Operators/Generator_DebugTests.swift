@@ -1,10 +1,10 @@
-import XCTest
 import Genything
 import GenythingTest
+import XCTest
 
 class Generator_DebugTests: XCTestCase {
     func test_debug_printsAsExpected() {
-        _ = (1...5).arbitrary
+        _ = (1 ... 5).arbitrary
             .debug()
             .map { $0 * 2 }
             .debug("*2")

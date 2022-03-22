@@ -8,12 +8,12 @@ public enum TestConfig {
     /// - SeeAlso: `Gen.forEach(iterations:randomSource:)`
     /// - SeeAlso: `Gen.allSatisfy(iterations:randomSource:)`
 
-    public static var maxIterations: Int = 1000
+    public static var maxIterations = 1000
 
     /// The default probability to generate edge cases included by `withEdgecases(edgeCases:)`
     ///
     /// - Note: The included Arbitrary generators will contain edge cases by default
     ///
     /// - SeeAlso: `Gen.withEdgecases(edgeCases:)`
-    public static var edgeCaseProbability: Double = 0.05
+    public static var edgeCaseProbability = 0.05
 }

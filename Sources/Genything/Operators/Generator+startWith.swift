@@ -12,18 +12,29 @@ extension Generator {
     }
 }
 
-final private class StartWith<Source, Elements>: Generator where Elements: Swift.Sequence, Source: Generator, Source.T == Elements.Element {
-    let source: Source
-    var iterator: Elements.Iterator
+// MARK: - StartWith
+
+private final class StartWith<Source, Elements>: Generator where Elements: Swift.Sequence, Source: Generator,
+    Source.T == Elements.Element {
+
+    // MARK: Lifecycle
+
     /// Creates a Generators for a sequence of elements.
     ///
     /// - Parameter sequence: The sequence of elements to generate.
     public init(source: Source, sequence: Elements) {
         self.source = source
-        self.iterator = sequence.makeIterator()
+        iterator = sequence.makeIterator()
     }
+
+    // MARK: Public
 
     public func next(_ randomSource: RandomSource) -> Source.T {
         iterator.next() ?? source.next(randomSource)
     }
+
+    // MARK: Internal
+
+    let source: Source
+    var iterator: Elements.Iterator
 }

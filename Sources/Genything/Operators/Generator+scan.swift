@@ -12,17 +12,32 @@ extension Generator {
     }
 }
 
-final private class Scan<Source, R>: Generator where Source: Generator {
+// MARK: - Scan
 
-    typealias T = R
+private final class Scan<Source, R>: Generator where Source: Generator {
 
-    init(source: Source,
-         initialResult: R,
-         nextPartialResult: @escaping (R, Source.T) -> R) {
+    // MARK: Lifecycle
+
+    init(
+        source: Source,
+        initialResult: R,
+        nextPartialResult: @escaping (R, Source.T) -> R) {
         self.source = source
         self.initialResult = initialResult
         self.nextPartialResult = nextPartialResult
     }
+
+    // MARK: Public
+
+    public func next(_ randomSource: RandomSource) -> R {
+        let nextResult = nextPartialResult(previousResult, source.next(randomSource))
+        previousResult = nextResult
+        return nextResult
+    }
+
+    // MARK: Internal
+
+    typealias T = R
 
     let source: Source
     let initialResult: R
@@ -30,9 +45,4 @@ final private class Scan<Source, R>: Generator where Source: Generator {
 
     lazy var previousResult = initialResult
 
-    public func next(_ randomSource: RandomSource) -> R {
-        let nextResult = nextPartialResult(previousResult, source.next(randomSource))
-        previousResult = nextResult
-        return nextResult
-    }
 }

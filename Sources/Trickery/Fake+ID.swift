@@ -6,6 +6,7 @@ extension Fake {
         public static var uuid: AnyGenerator<UUID> {
             UUID.arbitrary
         }
+
         public static var uuidString: AnyGenerator<String> {
             uuid.map { $0.uuidString }
         }

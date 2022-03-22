@@ -1,7 +1,7 @@
 import XCTest
 @testable import Genything
 
-final internal class Generators_OneOfTests: XCTestCase {
+internal final class Generators_OneOfTests: XCTestCase {
     func test_oneOf_generates_equally() {
         let gen0 = Generators.constant(0)
         let gen1 = Generators.constant(1)

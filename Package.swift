@@ -9,22 +9,19 @@ let package = Package(
         .iOS(.v11),
         .tvOS(.v11),
         .watchOS(.v5),
-        .macOS(.v10_14)
+        .macOS(.v10_14),
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "Genything",
-            targets: ["Genything"]
-        ),
+            targets: ["Genything"]),
         .library(
             name: "GenythingTest",
-            targets: ["GenythingTest"]
-        ),
+            targets: ["GenythingTest"]),
         .library(
             name: "Trickery",
-            targets: ["Trickery"]
-        ),        
+            targets: ["Trickery"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -35,30 +32,23 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Genything",
-            dependencies: []
-        ),
+            dependencies: []),
         .testTarget(
             name: "GenythingTests",
-            dependencies: ["Genything", "GenythingTest"]
-        ),
+            dependencies: ["Genything", "GenythingTest"]),
         .target(
             name: "GenythingTest",
-            dependencies: ["Genything"]
-        ),
+            dependencies: ["Genything"]),
         .testTarget(
             name: "GenythingTestTests",
-            dependencies: ["Genything", "GenythingTest"]
-        ),
+            dependencies: ["Genything", "GenythingTest"]),
         .target(
             name: "Trickery",
             dependencies: ["Genything"],
             resources: [
-                .process("Resources")
-            ]
-        ),
+                .process("Resources"),
+            ]),
         .testTarget(
             name: "TrickeryTests",
-            dependencies: ["Genything", "Trickery", "GenythingTest"]
-        ),
-    ]
-)
+            dependencies: ["Genything", "Trickery", "GenythingTest"]),
+    ])

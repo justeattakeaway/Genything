@@ -2,7 +2,7 @@
 public struct InfiniteSequence<Element>: Sequence, IteratorProtocol {
     let generator: () -> Element
     /// Returns: The next element in this sequence
-    mutating public func next() -> Element? {
+    public mutating func next() -> Element? {
         generator()
     }
 }

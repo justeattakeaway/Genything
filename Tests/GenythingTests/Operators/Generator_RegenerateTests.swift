@@ -1,10 +1,9 @@
+import GenythingTest
 import XCTest
 @testable import Genything
-import GenythingTest
 
-final internal class Generator_RegenerateTests: XCTestCase {
+internal final class Generator_RegenerateTests: XCTestCase {
     func test_givenArbitraryPizzas_whenWeAddLimitationsToAField_theLimitationsAreRespected() {
-
         let sizeFilter = Pizza.Size.allCases.filter {
             [Pizza.Size.medium, .large].contains($0)
         }.arbitrary

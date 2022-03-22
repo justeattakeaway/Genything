@@ -1,20 +1,16 @@
-import XCTest
 import Foundation
 import Genything
 import GenythingTest
+import XCTest
 
-final internal class DiceRollerTests: XCTestCase {
+internal final class DiceRollerTests: XCTestCase {
 
-    // Let's create a dice
-    // It generates arbitrary values in the range 1...6 (inclusive)
-    private var d6: AnyGenerator<Int> {
-        (1...6).arbitrary
-    }
+    // MARK: Internal
 
     // Let's verify that all the values are within the expected bounds
     func test_d6_bounds() {
         testAllSatisfy(d6) {
-            1...6 ~= $0
+            1 ... 6 ~= $0
         }
     }
 
@@ -32,7 +28,7 @@ final internal class DiceRollerTests: XCTestCase {
 
         // and we get the expected result
         testAllSatisfy(two_d6) {
-            2...12 ~= $0
+            2 ... 12 ~= $0
         }
 
         // we can collect the die into a collection of results
@@ -41,7 +37,7 @@ final internal class DiceRollerTests: XCTestCase {
 
         // and we get the expected result
         testAllSatisfy(two_d6_2) {
-            2...12 ~= $0
+            2 ... 12 ~= $0
         }
 
         // we can shortcut the above collect + map + reduce
@@ -50,7 +46,7 @@ final internal class DiceRollerTests: XCTestCase {
 
         // and we get the expected result
         testAllSatisfy(two_d6_3) {
-            2...12 ~= $0
+            2 ... 12 ~= $0
         }
     }
 
@@ -66,13 +62,22 @@ final internal class DiceRollerTests: XCTestCase {
         // Will need to roll 2d4+2 to calculate damage
 
         // We create the d4 die
-        let d4 = (1...4).arbitrary
+        let d4 = (1 ... 4).arbitrary
         // Which we can then use to perform a damage roll
         let twoDaggers = roll([d4, d4], modifier: daggerProficiencyBonus)
 
         // Which will only produce results in the expected damage range
         testAllSatisfy(twoDaggers) {
-            4...10 ~= $0
+            4 ... 10 ~= $0
         }
     }
+
+    // MARK: Private
+
+    // Let's create a dice
+    // It generates arbitrary values in the range 1...6 (inclusive)
+    private var d6: AnyGenerator<Int> {
+        (1 ... 6).arbitrary
+    }
+
 }

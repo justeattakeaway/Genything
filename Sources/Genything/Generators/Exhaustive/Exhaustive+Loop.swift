@@ -1,11 +1,8 @@
 extension Exhaustive {
     /// A Generator that generates by looping over a collection of elements.
-    final public class Loop<Elements>: Generator where Elements: Swift.Collection {
+    public final class Loop<Elements>: Generator where Elements: Swift.Collection {
 
-        public typealias T = Elements.Element
-
-        public let collection: Elements
-        private(set) public var index: Elements.Index
+        // MARK: Lifecycle
 
         /// Creates a looping Generator for a collection of elements.
         ///
@@ -14,10 +11,17 @@ extension Exhaustive {
             assert(collection.startIndex != collection.endIndex)
 
             self.collection = collection
-            self.index = collection.startIndex
+            index = collection.startIndex
         }
 
-        public func next(_ randomSource: RandomSource) -> T {
+        // MARK: Public
+
+        public typealias T = Elements.Element
+
+        public let collection: Elements
+        public private(set) var index: Elements.Index
+
+        public func next(_: RandomSource) -> T {
             defer {
                 collection.formIndex(after: &index)
             }

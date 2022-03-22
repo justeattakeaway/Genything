@@ -1,11 +1,10 @@
-import XCTest
 import Genything
 import GenythingTest
+import XCTest
 
-final internal class TestAllTests: XCTestCase {
+internal final class TestAllTests: XCTestCase {
 
-    private var genVoid = Generators.constant(())
-    private var genTrue = Generators.constant(true)
+    // MARK: Internal
 
     func test_all_passes_when_it_should_with_correct_iterations() {
         var count = 0
@@ -97,7 +96,6 @@ final internal class TestAllTests: XCTestCase {
         XCTAssertEqual(TestConfig.maxIterations, count)
     }
 
-
     func test_all_passes_when_it_should_10() {
         var count = 0
         testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
@@ -110,8 +108,14 @@ final internal class TestAllTests: XCTestCase {
 
     func test_all_fails_when_it_should() {
         XCTExpectFailure()
-        testAll((1...100).arbitrary) { a in
+        testAll((1 ... 100).arbitrary) { a in
             XCTAssert(a < 1)
         }
     }
+
+    // MARK: Private
+
+    private var genVoid = Generators.constant(())
+    private var genTrue = Generators.constant(true)
+
 }

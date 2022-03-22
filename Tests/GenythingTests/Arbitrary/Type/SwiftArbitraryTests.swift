@@ -1,7 +1,7 @@
 import XCTest
 @testable import Genything
 
-final internal class SwiftArbitraryTests: XCTestCase {
+internal final class SwiftArbitraryTests: XCTestCase {
     func test_stringGeneration_createsDifferentStrings_withDifferentSizes() throws {
         let strings = String.arbitrary.take(2)
 

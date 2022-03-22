@@ -9,14 +9,19 @@ import XCTest
 ///
 /// - Warning: Great care must be used to clear the randomSource store after a test run
 ///
-private extension XCTestCase {
-    static var _randomSourceStore = [String : RandomSource]()
+extension XCTestCase {
 
-    var address: String {
+    // MARK: Fileprivate
+
+    fileprivate static var _randomSourceStore = [String: RandomSource]()
+
+    // MARK: Private
+
+    private var address: String {
         String(format: "%p", unsafeBitCast(self, to: Int.self))
     }
 
-    var randomSourceStore: RandomSource? {
+    private var randomSourceStore: RandomSource? {
         get {
             XCTestCase._randomSourceStore[address]
         }
@@ -25,7 +30,7 @@ private extension XCTestCase {
         }
     }
 
-    func setupCheck(_ randomSource: RandomSource) {
+    private func setupCheck(_ randomSource: RandomSource) {
         continueAfterFailure = false
 
         randomSourceStore = randomSource
@@ -38,8 +43,7 @@ private extension XCTestCase {
             if
                 let originalSeed = self.randomSourceStore?.originalSeed,
                 let failureCount = self.testRun?.failureCount,
-                failureCount > 0
-            {
+                failureCount > 0 {
                 print("[Genything] - Check failed with seed `\(originalSeed)`.")
             }
         }
@@ -48,7 +52,7 @@ private extension XCTestCase {
 
 // MARK: - Test
 
-public extension XCTestCase {
+extension XCTestCase {
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
     ///
     /// Will run a maximum of n times, where n is the provided `iterations` or the `RandomSource` value
@@ -62,11 +66,12 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<G1>(_ gen1: G1,
-                     randomSource: RandomSource = .default,
-                     file: StaticString = #filePath,
-                     line: UInt = #line,
-                     _ body: (G1.T) throws -> Void) where G1: Generator {
+    public func testAll<G1>(
+        _ gen1: G1,
+        randomSource: RandomSource = .default,
+        file: StaticString = #filePath,
+        line: UInt = #line,
+        _ body: (G1.T) throws -> Void) where G1: Generator {
         setupCheck(randomSource)
 
         do {
@@ -90,21 +95,19 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<G1, G2>(
+    public func testAll<G1, G2>(
         _ gen1: G1,
         _ gen2: G2,
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T) throws -> Void
-    ) where G1: Generator, G2: Generator {
+        _ body: (G1.T, G2.T) throws -> Void) where G1: Generator, G2: Generator {
         testAll(
             gen1.zip(gen2),
             randomSource: randomSource,
             file: file,
             line: line,
-            body
-        )
+            body)
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -122,22 +125,20 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<G1, G2, G3>(
+    public func testAll<G1, G2, G3>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T) throws -> Void
-    ) where G1: Generator, G2: Generator, G3: Generator {
+        _ body: (G1.T, G2.T, G3.T) throws -> Void) where G1: Generator, G2: Generator, G3: Generator {
         testAll(
             gen1.zip(gen2, gen3),
             randomSource: randomSource,
             file: file,
             line: line,
-            body
-        )
+            body)
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -156,7 +157,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<G1, G2, G3, G4>(
+    public func testAll<G1, G2, G3, G4>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -164,15 +165,13 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T) throws -> Void
-    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator {
+        _ body: (G1.T, G2.T, G3.T, G4.T) throws -> Void) where G1: Generator, G2: Generator, G3: Generator, G4: Generator {
         testAll(
             gen1.zip(gen2, gen3, gen4),
             randomSource: randomSource,
             file: file,
             line: line,
-            body
-        )
+            body)
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -192,7 +191,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<G1, G2, G3, G4, G5>(
+    public func testAll<G1, G2, G3, G4, G5>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -201,15 +200,14 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T) throws -> Void
-    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator, G5: Generator {
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T) throws -> Void) where G1: Generator, G2: Generator, G3: Generator, G4: Generator,
+        G5: Generator {
         testAll(
             gen1.zip(gen2, gen3, gen4, gen5),
             randomSource: randomSource,
             file: file,
             line: line,
-            body
-        )
+            body)
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -232,7 +230,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<G1, G2, G3, G4, G5, G6>(
+    public func testAll<G1, G2, G3, G4, G5, G6>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -242,8 +240,9 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T) throws -> Void
-    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator, G5: Generator, G6: Generator {
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T) throws -> Void) where G1: Generator, G2: Generator, G3: Generator,
+        G4: Generator,
+        G5: Generator, G6: Generator {
         testAll(
             Generators.compose {
                 (
@@ -252,16 +251,13 @@ public extension XCTestCase {
                     $0(gen3),
                     $0(gen4),
                     $0(gen5),
-                    $0(gen6)
-                )
+                    $0(gen6))
             },
             randomSource: randomSource,
             file: file,
             line: line,
-            body
-        )
+            body)
     }
-
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
     ///
@@ -284,7 +280,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<G1, G2, G3, G4, G5, G6, G7>(
+    public func testAll<G1, G2, G3, G4, G5, G6, G7>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -295,8 +291,8 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T) throws -> Void
-    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator, G5: Generator, G6: Generator, G7: Generator {
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T) throws -> Void) where G1: Generator, G2: Generator, G3: Generator,
+        G4: Generator, G5: Generator, G6: Generator, G7: Generator {
         testAll(
             Generators.compose {
                 (
@@ -306,14 +302,12 @@ public extension XCTestCase {
                     $0(gen4),
                     $0(gen5),
                     $0(gen6),
-                    $0(gen7)
-                )
+                    $0(gen7))
             },
             randomSource: randomSource,
             file: file,
             line: line,
-            body
-        )
+            body)
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -338,7 +332,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<G1, G2, G3, G4, G5, G6, G7, G8>(
+    public func testAll<G1, G2, G3, G4, G5, G6, G7, G8>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -350,16 +344,14 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T) throws -> Void
-    ) where G1: Generator,
-            G2: Generator,
-            G3: Generator,
-            G4: Generator,
-            G5: Generator,
-            G6: Generator,
-            G7: Generator,
-            G8: Generator
-    {
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T) throws -> Void) where G1: Generator,
+        G2: Generator,
+        G3: Generator,
+        G4: Generator,
+        G5: Generator,
+        G6: Generator,
+        G7: Generator,
+        G8: Generator {
         testAll(
             Generators.compose {
                 (
@@ -370,14 +362,12 @@ public extension XCTestCase {
                     $0(gen5),
                     $0(gen6),
                     $0(gen7),
-                    $0(gen8)
-                )
+                    $0(gen8))
             },
             randomSource: randomSource,
             file: file,
             line: line,
-            body
-        )
+            body)
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -403,7 +393,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<G1, G2, G3, G4, G5, G6, G7, G8, G9>(
+    public func testAll<G1, G2, G3, G4, G5, G6, G7, G8, G9>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -416,17 +406,15 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T) throws -> Void
-    ) where G1: Generator,
-            G2: Generator,
-            G3: Generator,
-            G4: Generator,
-            G5: Generator,
-            G6: Generator,
-            G7: Generator,
-            G8: Generator,
-            G9: Generator
-    {
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T) throws -> Void) where G1: Generator,
+        G2: Generator,
+        G3: Generator,
+        G4: Generator,
+        G5: Generator,
+        G6: Generator,
+        G7: Generator,
+        G8: Generator,
+        G9: Generator {
         testAll(
             Generators.compose {
                 (
@@ -438,14 +426,12 @@ public extension XCTestCase {
                     $0(gen6),
                     $0(gen7),
                     $0(gen8),
-                    $0(gen9)
-                )
+                    $0(gen9))
             },
             randomSource: randomSource,
             file: file,
             line: line,
-            body
-        )
+            body)
     }
 
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
@@ -472,7 +458,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<G1, G2, G3, G4, G5, G6, G7, G8, G9, G10>(
+    public func testAll<G1, G2, G3, G4, G5, G6, G7, G8, G9, G10>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -486,8 +472,8 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T, G10.T) throws -> Void
-    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator, G5: Generator, G6: Generator, G7: Generator, G8: Generator, G9: Generator, G10: Generator {
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T, G10.T) throws -> Void) where G1: Generator, G2: Generator,
+        G3: Generator, G4: Generator, G5: Generator, G6: Generator, G7: Generator, G8: Generator, G9: Generator, G10: Generator {
         testAll(
             Generators.compose {
                 (
@@ -500,13 +486,11 @@ public extension XCTestCase {
                     $0(gen7),
                     $0(gen8),
                     $0(gen9),
-                    $0(gen10)
-                )
+                    $0(gen10))
             },
             randomSource: randomSource,
             file: file,
             line: line,
-            body
-        )
+            body)
     }
 }

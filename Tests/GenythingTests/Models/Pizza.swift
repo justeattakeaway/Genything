@@ -1,7 +1,7 @@
 import Foundation
 import Genything
 
-// MARK: Model
+// MARK: - Pizza
 
 struct Pizza: Equatable {
     var name: String
@@ -20,10 +20,12 @@ struct Pizza: Equatable {
     }
 }
 
+// MARK: - Pizza.Size + CaseIterable
+
 extension Pizza.Size: CaseIterable {}
 
 extension Pizza {
     var isCheesePizza: Bool {
-        return toppings.isEmpty
+        toppings.isEmpty
     }
 }

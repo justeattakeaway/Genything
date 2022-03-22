@@ -1,8 +1,8 @@
-import XCTest
 import GenythingTest
+import XCTest
 @testable import Genything
 
-final internal class FoundationArbitraryTests: XCTestCase {
+internal final class FoundationArbitraryTests: XCTestCase {
     func test_dateAbitraryCanGenerateRandomDates() {
         let expectedCount = 100
 

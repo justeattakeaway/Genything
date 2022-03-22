@@ -1,5 +1,5 @@
-import XCTest
 import GenythingTest
+import XCTest
 @testable import Trickery
 
 class FakePhoneNumberTests: XCTestCase {

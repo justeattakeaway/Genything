@@ -1,16 +1,20 @@
+import Genything
 import SwiftUI
 import Trickery
-import Genything
+
+// MARK: - Contact
 
 private struct Contact: Identifiable {
-    let id: UUID = UUID()
+    let id: UUID = .init()
     let name: String
     let phoneNumber: String
 }
 
+// MARK: - PhoneBookCell
+
 private struct PhoneBookCell: View {
     let contact: Contact
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(contact.name)
@@ -21,14 +25,16 @@ private struct PhoneBookCell: View {
     }
 }
 
+// MARK: - PhoneBookView
+
 struct PhoneBookView: View {
     private let data = Gen.zip(Fake.PersonNames.full, Fake.PhoneNumbers.formatted) {
         Contact(name: $0, phoneNumber: $1)
     }.samples(count: 50)
-    
+
     var body: some View {
         List {
-            ForEach(data){ contact in
+            ForEach(data) { contact in
                 PhoneBookCell(contact: contact)
             }
         }
@@ -36,10 +42,10 @@ struct PhoneBookView: View {
     }
 }
 
+// MARK: - PhoneBookView_Previews
+
 struct PhoneBookView_Previews: PreviewProvider {
     static var previews: some View {
         PhoneBookView()
     }
 }
-
-

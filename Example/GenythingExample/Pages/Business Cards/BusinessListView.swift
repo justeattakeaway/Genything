@@ -1,10 +1,12 @@
-import SwiftUI
-import Trickery
 import Genything
 import SFSafeSymbols
+import SwiftUI
+import Trickery
+
+// MARK: - BusinessCard
 
 struct BusinessCard: Identifiable {
-    let id: UUID = UUID()
+    let id: UUID = .init()
     let name: String
     let email: String
     let symbolName: SFSymbol
@@ -12,9 +14,11 @@ struct BusinessCard: Identifiable {
     let addressLine2: String
 }
 
+// MARK: - BusinessListCell
+
 struct BusinessListCell: View {
     let businessCard: BusinessCard
-    
+
     var body: some View {
         HStack(alignment: .top) {
             Image(systemSymbol: businessCard.symbolName)
@@ -22,7 +26,7 @@ struct BusinessListCell: View {
                 .frame(width: 50, height: 50)
                 .foregroundColor(.orange)
                 .padding()
-            
+
             VStack(alignment: .leading, spacing: 5) {
                 Text(businessCard.name)
                     .font(.title)
@@ -43,11 +47,13 @@ struct BusinessListCell: View {
     }
 }
 
+// MARK: - BusinessListView
+
 struct BusinessListView: View {
     let data = Gen<BusinessCard> { ctx in
         let addressLine2Gen = Gen<String>.one(of: [
             Fake.Addresses.caLastLine,
-            Fake.Addresses.usLastLine
+            Fake.Addresses.usLastLine,
         ])
 
         let name = Fake.BusinessNames.any.generate(context: ctx)
@@ -57,19 +63,20 @@ struct BusinessListView: View {
             email: Fake.Emails.business(name).generate(context: ctx),
             symbolName: Gen<SFSymbol>.ofCases().generate(context: ctx),
             addressLine1: Fake.Addresses.streetLine.generate(context: ctx),
-            addressLine2: addressLine2Gen.generate(context: ctx)
-        )
+            addressLine2: addressLine2Gen.generate(context: ctx))
     }.take(50)
-    
+
     var body: some View {
         List {
-            ForEach(data){ businessCard in
+            ForEach(data) { businessCard in
                 BusinessListCell(businessCard: businessCard)
             }
         }
         .navigationTitle("Business Cards")
     }
 }
+
+// MARK: - BusinessListView_Previews
 
 struct BusinessListView_Previews: PreviewProvider {
     static var previews: some View {

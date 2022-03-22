@@ -1,7 +1,7 @@
 import XCTest
 @testable import Genything
 
-final internal class Generator_OrTests: XCTestCase {
+internal final class Generator_OrTests: XCTestCase {
     func test_or_generates_values_from_either() {
         let totalCount = 10000
         let trueCount = Generators.constant(false)

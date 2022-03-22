@@ -10,7 +10,7 @@ class FakeNamesTests: XCTestCase {
             }
         }
     }
-    
+
     func test_names_full_number_of_words() {
         testAllSatisfy(Fake.PersonNames.full()) {
             // Some names like "Jo Ann" can have 2 words

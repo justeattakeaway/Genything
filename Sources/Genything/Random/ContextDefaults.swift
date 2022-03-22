@@ -5,7 +5,7 @@ import Foundation
 /// - SeeAlso: `RandomSource`
 public enum ContextDefaults {
     /// Stores a factory capable of creating the `RandomSource` which will be used by default
-    private(set) public static var defaultContextFactory: () -> RandomSource = {
+    public private(set) static var defaultContextFactory: () -> RandomSource = {
         RandomSource(determinism: .predetermined(seed: 2022))
     }
 

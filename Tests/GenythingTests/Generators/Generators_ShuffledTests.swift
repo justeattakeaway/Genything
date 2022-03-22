@@ -1,11 +1,11 @@
 import Foundation
-@testable import Genything
 import GenythingTest
 import XCTest
+@testable import Genything
 
-final internal class Generators_ShuffledTests: XCTestCase {
+internal final class Generators_ShuffledTests: XCTestCase {
     func test_shuffled() {
-        let source = [0,1,2,3,4,5,6,7,8,9]
+        let source = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
         // Seed the randomSource such that we can reproduce results with or without the generator
         let seed: UInt64 = 1234

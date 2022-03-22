@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: - Date + Arbitrary
+
 extension Date: Arbitrary {
     /// A generator of arbitrary `Date`s
     public static var arbitrary: AnyGenerator<Date> {
@@ -8,11 +10,13 @@ extension Date: Arbitrary {
     }
 }
 
-//extension URL: Arbitrary {
+// MARK: - UUID + Arbitrary
+
+// extension URL: Arbitrary {
 //    public static var arbitrary: Gen<URL> {
 //        // TODO: https://datatracker.ietf.org/doc/html/rfc3986
 //    }
-//}
+// }
 
 extension UUID: Arbitrary {
     /// A generator of arbitrary `UUID`s
