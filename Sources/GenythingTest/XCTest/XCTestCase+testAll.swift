@@ -62,11 +62,11 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<T, G1: Generator>(_ gen1: G1,
+    func testAll<G1>(_ gen1: G1,
                      randomSource: RandomSource = .default,
                      file: StaticString = #filePath,
                      line: UInt = #line,
-                    _ body: (T) throws -> Void) where G1.T == T {
+                     _ body: (G1.T) throws -> Void) where G1: Generator {
         setupCheck(randomSource)
 
         do {
@@ -90,16 +90,14 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<T1, T2, G1: Generator, G2: Generator>(
+    func testAll<G1, G2>(
         _ gen1: G1,
         _ gen2: G2,
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (T1, T2) throws -> Void
-    ) where G1.T == T1,
-            G2.T == T2
-    {
+        _ body: (G1.T, G2.T) throws -> Void
+    ) where G1: Generator, G2: Generator {
         testAll(
             gen1.zip(gen2),
             randomSource: randomSource,
@@ -124,22 +122,15 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<
-        T1, G1: Generator,
-        T2, G2: Generator,
-        T3, G3: Generator
-    >(
+    func testAll<G1, G2, G3>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (T1, T2, T3) throws -> Void
-    ) where G1.T == T1,
-            G2.T == T2,
-            G3.T == T3
-    {
+        _ body: (G1.T, G2.T, G3.T) throws -> Void
+    ) where G1: Generator, G2: Generator, G3: Generator {
         testAll(
             gen1.zip(gen2, gen3),
             randomSource: randomSource,
@@ -165,12 +156,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<
-        T1, G1: Generator,
-        T2, G2: Generator,
-        T3, G3: Generator,
-        T4, G4: Generator
-    >(
+    func testAll<G1, G2, G3, G4>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -178,12 +164,8 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (T1, T2, T3, T4) throws -> Void
-    ) where G1.T == T1,
-            G2.T == T2,
-            G3.T == T3,
-            G4.T == T4
-    {
+        _ body: (G1.T, G2.T, G3.T, G4.T) throws -> Void
+    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator {
         testAll(
             gen1.zip(gen2, gen3, gen4),
             randomSource: randomSource,
@@ -210,13 +192,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<
-        T1, G1: Generator,
-        T2, G2: Generator,
-        T3, G3: Generator,
-        T4, G4: Generator,
-        T5, G5: Generator
-    >(
+    func testAll<G1, G2, G3, G4, G5>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -225,13 +201,8 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (T1, T2, T3, T4, T5) throws -> Void
-    ) where G1.T == T1,
-            G2.T == T2,
-            G3.T == T3,
-            G4.T == T4,
-            G5.T == T5
-    {
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T) throws -> Void
+    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator, G5: Generator {
         testAll(
             gen1.zip(gen2, gen3, gen4, gen5),
             randomSource: randomSource,
@@ -261,14 +232,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<
-        T1, G1: Generator,
-        T2, G2: Generator,
-        T3, G3: Generator,
-        T4, G4: Generator,
-        T5, G5: Generator,
-        T6, G6: Generator
-    >(
+    func testAll<G1, G2, G3, G4, G5, G6>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -278,14 +242,8 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (T1, T2, T3, T4, T5, T6) throws -> Void
-    ) where G1.T == T1,
-            G2.T == T2,
-            G3.T == T3,
-            G4.T == T4,
-            G5.T == T5,
-            G6.T == T6
-    {
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T) throws -> Void
+    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator, G5: Generator, G6: Generator {
         testAll(
             Generators.compose {
                 (
@@ -326,15 +284,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<
-        T1, G1: Generator,
-        T2, G2: Generator,
-        T3, G3: Generator,
-        T4, G4: Generator,
-        T5, G5: Generator,
-        T6, G6: Generator,
-        T7, G7: Generator
-    >(
+    func testAll<G1, G2, G3, G4, G5, G6, G7>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -345,15 +295,8 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (T1, T2, T3, T4, T5, T6, T7) throws -> Void
-    ) where G1.T == T1,
-            G2.T == T2,
-            G3.T == T3,
-            G4.T == T4,
-            G5.T == T5,
-            G6.T == T6,
-            G7.T == T7
-    {
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T) throws -> Void
+    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator, G5: Generator, G6: Generator, G7: Generator {
         testAll(
             Generators.compose {
                 (
@@ -395,16 +338,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<
-        T1, G1: Generator,
-        T2, G2: Generator,
-        T3, G3: Generator,
-        T4, G4: Generator,
-        T5, G5: Generator,
-        T6, G6: Generator,
-        T7, G7: Generator,
-        T8, G8: Generator
-    >(
+    func testAll<G1, G2, G3, G4, G5, G6, G7, G8>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -416,15 +350,15 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (T1, T2, T3, T4, T5, T6, T7, T8) throws -> Void
-    ) where G1.T == T1,
-            G2.T == T2,
-            G3.T == T3,
-            G4.T == T4,
-            G5.T == T5,
-            G6.T == T6,
-            G7.T == T7,
-            G8.T == T8
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T) throws -> Void
+    ) where G1: Generator,
+            G2: Generator,
+            G3: Generator,
+            G4: Generator,
+            G5: Generator,
+            G6: Generator,
+            G7: Generator,
+            G8: Generator
     {
         testAll(
             Generators.compose {
@@ -469,17 +403,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<
-        T1, G1: Generator,
-        T2, G2: Generator,
-        T3, G3: Generator,
-        T4, G4: Generator,
-        T5, G5: Generator,
-        T6, G6: Generator,
-        T7, G7: Generator,
-        T8, G8: Generator,
-        T9, G9: Generator
-    >(
+    func testAll<G1, G2, G3, G4, G5, G6, G7, G8, G9>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -492,16 +416,16 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (T1, T2, T3, T4, T5, T6, T7, T8, T9) throws -> Void
-    ) where G1.T == T1,
-            G2.T == T2,
-            G3.T == T3,
-            G4.T == T4,
-            G5.T == T5,
-            G6.T == T6,
-            G7.T == T7,
-            G8.T == T8,
-            G9.T == T9
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T) throws -> Void
+    ) where G1: Generator,
+            G2: Generator,
+            G3: Generator,
+            G4: Generator,
+            G5: Generator,
+            G6: Generator,
+            G7: Generator,
+            G8: Generator,
+            G9: Generator
     {
         testAll(
             Generators.compose {
@@ -548,18 +472,7 @@ public extension XCTestCase {
     ///
     /// - Attention: A failing predicate will assert with `XCTFail`
     ///
-    func testAll<
-        T1, G1: Generator,
-        T2, G2: Generator,
-        T3, G3: Generator,
-        T4, G4: Generator,
-        T5, G5: Generator,
-        T6, G6: Generator,
-        T7, G7: Generator,
-        T8, G8: Generator,
-        T9, G9: Generator,
-        T10, G10: Generator
-    >(
+    func testAll<G1, G2, G3, G4, G5, G6, G7, G8, G9, G10>(
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
@@ -573,18 +486,8 @@ public extension XCTestCase {
         randomSource: RandomSource = .default,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10) throws -> Void
-    ) where G1.T == T1,
-            G2.T == T2,
-            G3.T == T3,
-            G4.T == T4,
-            G5.T == T5,
-            G6.T == T6,
-            G7.T == T7,
-            G8.T == T8,
-            G9.T == T9,
-            G10.T == T10
-    {
+        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T, G10.T) throws -> Void
+    ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator, G5: Generator, G6: Generator, G7: Generator, G8: Generator, G9: Generator, G10: Generator {
         testAll(
             Generators.compose {
                 (
