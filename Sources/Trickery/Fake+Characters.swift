@@ -4,12 +4,10 @@ import Genything
 extension Fake {
     public enum Characters {
         public static var lowercase: AnyGenerator<Character> {
-            Generators
-                .from("a"..."z")
+            ("a"..."z").arbitrary
         }
         public static var uppercase: AnyGenerator<Character> {
-            Generators
-                .from("A"..."Z")
+            ("A"..."Z").arbitrary
         }
         public static var digits: AnyGenerator<Character> {
             Numerics.digits
@@ -28,32 +26,27 @@ extension Fake {
         public static var punctuationAndSymbols: AnyGenerator<Character> {
             Generators
                 .one(of: [
-                    Generators.from(" "..."/"),
-                    Generators.from(":"..."@"),
-                    Generators.from("["..."`"),
-                    Generators.from("{"..."~"),
-                    Generators.from("¡"..."¿")
+                    (" "..."/").arbitrary,
+                    (":"..."@").arbitrary,
+                    ("["..."`").arbitrary,
+                    ("{"..."~").arbitrary,
+                    ("¡"..."¿").arbitrary
                 ])
         }
         public static var latinAccentsAndDiacritcs: AnyGenerator<Character> {
-            Generators
-                .from("À"..."ÿ")
+            ("À"..."ÿ").arbitrary
         }
         public static var latinExtended: AnyGenerator<Character> {
-            Generators
-                .from("Ā"..."ỳ")
+            ("Ā"..."ỳ").arbitrary
         }
         public static var ipaExtensions: AnyGenerator<Character> {
-            Generators
-                .from("ə"..."ʒ")
+            ("ə"..."ʒ").arbitrary
         }
         public static var spacingModifier: AnyGenerator<Character> {
-            Generators
-                .from("ʰ"..."˿")
+            ("ʰ"..."˿").arbitrary
         }
         public static var greekAndCoptic: AnyGenerator<Character> {
-            Generators
-                .from("Ͱ"..."Ͽ")
+            ("Ͱ"..."Ͽ").arbitrary
         }
         public static var allButAlphanumeric: AnyGenerator<Character> {
             Generators

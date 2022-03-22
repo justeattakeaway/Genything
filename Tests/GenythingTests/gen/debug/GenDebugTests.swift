@@ -4,7 +4,7 @@ import GenythingTest
 
 class Gen_DebugTests: XCTestCase {
     func test_debug_printsAsExpected() {
-        _ = Generators.from(1...5)
+        _ = (1...5).arbitrary
             .debug()
             .map { $0 * 2 }
             .debug("*2")

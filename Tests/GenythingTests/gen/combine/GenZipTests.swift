@@ -12,8 +12,8 @@ final internal class GenZipTests: XCTestCase {
     func test_anyGen_zippedWithAnotherGen_generateTupleOfExpectedValues() {
         let firstRange = 0..<100
         let secondRange = 100..<200
-        let firstGen = Generators.from(firstRange)
-        let secondGen = Generators.from(secondRange)
+        let firstGen = firstRange.arbitrary
+        let secondGen = secondRange.arbitrary
 
         let zipped = firstGen.zip(secondGen)
         testAll(zipped) { (first, second) in
@@ -26,8 +26,8 @@ final internal class GenZipTests: XCTestCase {
     }
 
     func test_anyGen_zipAndTransformAnotherGen_generateExpectedValues() {
-        let firstGen = Generators.from(Character("a")...Character("z"))
-        let secondGen = Generators.from(Character("A")...Character("Z"))
+        let firstGen = (Character("a")...Character("z")).arbitrary
+        let secondGen = (Character("A")...Character("Z")).arbitrary
 
         let zipped = firstGen.zip(secondGen) { "\($0)\($1)" }
         testAll(zipped) { combined in
@@ -115,7 +115,7 @@ final internal class GenZipTests: XCTestCase {
 
     private func createGens(_ count: Int) -> [AnyGenerator<Int>] {
         (0..<count).map { index in
-            Generators.Constant(index).eraseToAnyGenerator()
+            Generators.constant(index).eraseToAnyGenerator()
         }
     }
 

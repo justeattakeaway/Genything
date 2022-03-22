@@ -26,7 +26,7 @@ import XCTest
 //        let edgecaseValue = "EDGECASE"
 //
 //        XCTAssertTrue(
-//            Generators.Constant(notEdgecaseValue)
+//            Generators.constant(notEdgecaseValue)
 //                .withEdgeCases([edgecaseValue])
 //                .take(1000, randomSource: randomSource)
 //                .filter { $0 == edgecaseValue }.isEmpty

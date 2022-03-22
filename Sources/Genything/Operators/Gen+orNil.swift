@@ -11,6 +11,6 @@ public extension Generator {
     /// - Returns: A `Gen` generator
     func orNil(nilProbability: Double = 0.5) -> AnyGenerator<T?> {
         map { a -> T? in a }
-            .or(Generators.Constant(nil), otherProbability: nilProbability)
+            .or(Generators.constant(nil), otherProbability: nilProbability)
     }
 }

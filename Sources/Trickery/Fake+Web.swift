@@ -16,7 +16,7 @@ extension Fake {
         public static var urlSubdomain: AnyGenerator<String> {
             Generators
                 .one(of: [
-                    Generators.Constant("www").eraseToAnyGenerator(),
+                    Generators.constant("www").eraseToAnyGenerator(),
                     urlDomain,
                 ])
         }
@@ -31,9 +31,9 @@ extension Fake {
 
         public static var urlString: AnyGenerator<String> {
             Generators
-                .join([urlScheme, Generators.Constant("://").eraseToAnyGenerator(),
-                       urlSubdomain, Generators.Constant(".").eraseToAnyGenerator(),
-                       urlDomain, Generators.Constant(".").eraseToAnyGenerator(),
+                .join([urlScheme, Generators.constant("://").eraseToAnyGenerator(),
+                       urlSubdomain, Generators.constant(".").eraseToAnyGenerator(),
+                       urlDomain, Generators.constant(".").eraseToAnyGenerator(),
                        urlTld])
         }
     }

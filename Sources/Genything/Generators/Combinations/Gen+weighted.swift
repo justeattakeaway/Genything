@@ -17,7 +17,10 @@ public extension Generators {
     static func weighted<T>(_ weights: [WeightedGenerator<T>]) -> AnyGenerator<T> {
         assert(weights.allSatisfy { $0.weight > 0 }, "`Gen.weighted(weights:)` called with impossible weights. Ratios must be one or greater.")
 
-        let total = weights.map { $0.weight }.reduce(0, +)
+        let total = weights
+            .map { $0.weight }
+            .reduce(0, +)
+
         return (0..<total).arbitrary.flatMap { roll -> AnyGenerator<T> in
             var currWeight = 0
             return weights.first { (weight, _) in
@@ -39,7 +42,7 @@ public extension Generators {
     static func weighted<T>(_ weights: [(Int, T)]) -> AnyGenerator<T> {
         weighted(
             weights.map { (weight, value) in
-                (weight, Generators.Constant(value).eraseToAnyGenerator())
+                (weight, Generators.constant(value).eraseToAnyGenerator())
             }
         )
     }

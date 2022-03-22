@@ -4,7 +4,7 @@ import GenythingTest
 
 final internal class GenOfTests: XCTestCase {
     func test_of_createGenerator() {
-        let gen = Generators.of([0, 1, 2])
+        let gen = [0, 1, 2].arbitrary
         let sample = gen.take(1000)
 
         XCTAssert(sample.contains(0))

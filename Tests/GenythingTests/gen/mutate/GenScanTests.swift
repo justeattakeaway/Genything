@@ -8,8 +8,7 @@ class Gen_ScanTests: XCTestCase {
     func test_scan_matches_combine_example() {
         let range = 0...5
 
-        let result = Exhaustive
-            .Loop(range)
+        let result = Exhaustive.Loop(range)
             .scan(0) { return $0 + $1 }
             .take(range.count)
 
@@ -19,8 +18,7 @@ class Gen_ScanTests: XCTestCase {
     func test_abusing_scan_to_create_iterator() {
         let range = 0...5
 
-        let result = Generators
-            .Constant(0)
+        let result = Generators.constant(0)
             .scan(0) { acc, _ in return acc + 1 }
             .take(range.count)
 
@@ -30,8 +28,7 @@ class Gen_ScanTests: XCTestCase {
     func test_abusing_scan_to_create_iterator_of_even_values() {
         let range = 0...5
 
-        let result = Generators
-            .Constant(0)
+        let result = Generators.constant(0)
             .scan(0) { acc, _ in return acc + 2 }
             .take(range.count)
 

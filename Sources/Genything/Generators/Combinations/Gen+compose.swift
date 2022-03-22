@@ -52,13 +52,13 @@ public struct Composer {
     /// Generates an arbitrary value of type `T` where `T` conforms to `CaseIterable`
     ///
     /// - Returns: An arbitrary value of type `T`
-    public func ofCases<T>() -> T where T: CaseIterable {
+    public func arbitraryCase<T>() -> T where T: CaseIterable {
         generate(T.arbitrary)
     }
 
     /// Generates an arbitrary value of type `T` where `T` conforms to `CaseIterable`
     ///
-    /// - Note: Duplicates `ofCases()`
+    /// - Note: Duplicates `arbitraryCase()`
     ///
     /// - Returns: An arbitrary value of type `T`
     public func callAsFunction<T>() -> T where T: CaseIterable {

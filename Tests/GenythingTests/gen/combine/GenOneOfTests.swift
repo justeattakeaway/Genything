@@ -3,8 +3,8 @@ import XCTest
 
 final internal class GenOneOfTests: XCTestCase {
     func test_oneOf_generates_equally() {
-        let gen0 = Generators.Constant(0)
-        let gen1 = Generators.Constant(1)
+        let gen0 = Generators.constant(0)
+        let gen1 = Generators.constant(1)
 
         let iterations = 10000
 

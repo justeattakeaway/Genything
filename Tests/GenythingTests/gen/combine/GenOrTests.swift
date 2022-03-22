@@ -4,8 +4,8 @@ import XCTest
 final internal class GenOrTests: XCTestCase {
     func test_or_generates_values_from_either() {
         let totalCount = 10000
-        let trueCount = Generators.Constant(false)
-            .or(Generators.Constant(true))
+        let trueCount = Generators.constant(false)
+            .or(Generators.constant(true))
             .take(totalCount)
             .filter { $0 }
             .count
@@ -15,8 +15,8 @@ final internal class GenOrTests: XCTestCase {
 
     func test_or_with_zero_probability() {
         let totalCount = 10000
-        let trueCount = Generators.Constant(false)
-            .or(Generators.Constant(true), otherProbability: 0.0)
+        let trueCount = Generators.constant(false)
+            .or(Generators.constant(true), otherProbability: 0.0)
             .take(totalCount)
             .filter { $0 }
             .count
@@ -26,8 +26,8 @@ final internal class GenOrTests: XCTestCase {
 
     func test_or_with_one_probability() {
         let totalCount = 10000
-        let trueCount = Generators.Constant(false)
-            .or(Generators.Constant(true), otherProbability: 1.0)
+        let trueCount = Generators.constant(false)
+            .or(Generators.constant(true), otherProbability: 1.0)
             .take(totalCount)
             .filter { $0 }
             .count

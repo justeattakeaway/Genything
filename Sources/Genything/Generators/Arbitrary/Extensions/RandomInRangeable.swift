@@ -1,35 +1,3 @@
-import Foundation
-
-// MARK: Build
-
-public extension Generators {
-    /// Returns: A generator which produces elements in the provided range
-    ///
-    /// - Parameter range: The range in which the generator will randomly select values
-    ///
-    /// - Returns: The generator
-    static func from<T>(_ range: Range<T>) -> AnyGenerator<T> where T: RandomInRangeable {
-        assert(!range.isEmpty, "`Generators.from(range:)` was invoked with an empty interval")
-
-        return AnyGenerator<T> {
-            .random(in: range, using: &$0.rng)
-        }
-    }
-
-    /// Returns: A generator which produces elements in the provided range
-    ///
-    /// - Parameter range: The range in which the generator will randomly select values
-    ///
-    /// - Returns: The generator
-    static func from<T>(_ range: ClosedRange<T>) -> AnyGenerator<T> where T: RandomInRangeable {
-        assert(!range.isEmpty, "`Generators.from(range:)` was invoked with an empty interval")
-
-        return AnyGenerator<T> {
-            .random(in: range, using: &$0.rng)
-        }
-    }
-}
-
 // - MARK: RandomInRangeable
 
 /// Indicates a type which can provide random values within a Range

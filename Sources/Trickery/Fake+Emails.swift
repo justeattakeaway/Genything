@@ -46,7 +46,7 @@ extension Fake {
         public static func business(_ name: String? = nil) -> AnyGenerator<String> {
             let nameGen: AnyGenerator<String> = {
                 if let name = name {
-                    return Generators.Constant(name).eraseToAnyGenerator()
+                    return Generators.constant(name).eraseToAnyGenerator()
                 }
                 return Fake.BusinessNames.any
             }()

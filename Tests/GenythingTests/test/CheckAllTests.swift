@@ -4,8 +4,8 @@ import GenythingTest
 
 final internal class CheckAllTests: XCTestCase {
 
-    private var genVoid = Generators.Constant(())
-    private var genTrue = Generators.Constant(true)
+    private var genVoid = Generators.constant(())
+    private var genTrue = Generators.constant(true)
 
     func test_check_passes_when_it_should_with_correct_iterations() {
         var count = 0
@@ -110,7 +110,7 @@ final internal class CheckAllTests: XCTestCase {
 
     func test_check_fails_when_it_should() {
         XCTExpectFailure()
-        testAll(Generators.from(1...100)) { a in
+        testAll((1...100).arbitrary) { a in
             XCTAssert(a < 1)
         }
     }

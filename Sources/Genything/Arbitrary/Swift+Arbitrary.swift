@@ -121,7 +121,7 @@ extension Dictionary: ArbitraryGeneratable where Key : ArbitraryGeneratable, Val
     public static var arbitrary: AnyGenerator<Dictionary> {
         [Key].arbitrary.flatMap { (k : [Key]) in
             [Value].arbitrary.flatMap { (v : [Value]) in
-                Generators.Constant(Dictionary(zip(k, v)) { $1 })
+                Generators.constant(Dictionary(zip(k, v)) { $1 })
             }
         }
     }
@@ -130,7 +130,7 @@ extension Dictionary: ArbitraryGeneratable where Key : ArbitraryGeneratable, Val
 extension EmptyCollection: ArbitraryGeneratable {
     /// A generator of `EmptyCollection`s
     public static var arbitrary: AnyGenerator<EmptyCollection> {
-        Generators.Constant(EmptyCollection()).eraseToAnyGenerator()
+        Generators.constant(EmptyCollection()).eraseToAnyGenerator()
     }
 }
 
@@ -139,7 +139,7 @@ extension Range: ArbitraryGeneratable where Bound: ArbitraryGeneratable {
     public static var arbitrary: AnyGenerator<Range> {
         Bound.arbitrary.flatMap { l in
             Bound.arbitrary.flatMap { r in
-                Generators.Constant((Swift.min(l, r) ..< Swift.max(l, r)))
+                Generators.constant((Swift.min(l, r) ..< Swift.max(l, r)))
             }
         }
     }

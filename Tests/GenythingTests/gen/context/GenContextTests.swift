@@ -20,7 +20,7 @@ final internal class GenContextTests: XCTestCase {
 
     func test_generate_one_with_same_seed_produces_same() {
         let calls = (1...100).map { _ in
-            Generators.from(1...100).next(.default)
+            (1...100).arbitrary.next(.default)
         }
 
         let allCallsAreSame = calls.allSatisfy {
@@ -34,7 +34,7 @@ final internal class GenContextTests: XCTestCase {
         let ctx = RandomSource(determinism: .predetermined(seed: 0))
 
         let calls = (0..<100).map { _ in
-            Generators.from(1...100).next(ctx)
+            (1...100).arbitrary.next(ctx)
         }
 
         let distribution = calls.reduce(into: [Int:Int]()) { (acc, curr) in
@@ -47,23 +47,23 @@ final internal class GenContextTests: XCTestCase {
     func test_multiple_takes_with_propagated_rng_produce_differently() {
         let ctx = RandomSource(determinism: .predetermined(seed: 0))
 
-        let first = Generators.from(1...100).take(100, randomSource: ctx)
-        let second = Generators.from(1...100).take(100, randomSource: ctx)
+        let first = (1...100).arbitrary.take(100, randomSource: ctx)
+        let second = (1...100).arbitrary.take(100, randomSource: ctx)
 
         XCTAssertNotEqual(first, second)
     }
 
     func test_multiple_calls_with_same_seed_produce_same() {
-        let first = Generators.from(1...100).take(1000)
-        let second = Generators.from(1...100).take(1000)
+        let first = (1...100).arbitrary.take(1000)
+        let second = (1...100).arbitrary.take(1000)
 
         XCTAssertEqual(first, second)
     }
 
     func test_zipped_generators_draw_from_the_same_rng_and_produce_differently() {
         let result = Generators.zip(
-            Generators.from(1...100),
-            Generators.from(1...100)
+            (1...100).arbitrary,
+            (1...100).arbitrary
         ).take(1000)
 
         XCTAssertNotEqual(

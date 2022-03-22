@@ -3,8 +3,7 @@ import XCTest
 
 final internal class GenReplaceNilTests: XCTestCase {
     func test_givenRandomNils_allAreReplaced() {
-        let gen = Generators
-            .Constant(true)
+        let gen = Generators.constant(true)
             .orNil()
             .replaceNil(with: true)
 

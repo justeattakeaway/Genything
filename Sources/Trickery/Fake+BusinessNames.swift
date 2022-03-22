@@ -7,12 +7,12 @@ extension Fake {
 
         public static var restaurant: AnyGenerator<String> {
             Fake.PersonNames.name
-                .zip(Generators.of(data.restaurantEndings)) { "\($0)'s \($1)" }
+                .zip(data.restaurantEndings.arbitrary) { "\($0)'s \($1)" }
         }
         public static var general: AnyGenerator<String> {
             Generators.one(of: [
-                Generators.zip(Fake.PersonNames.name, Generators.of(data.generalEndings)) { "\($0)'s \($1)" },
-                Generators.zip(Fake.PersonNames.name, Generators.of(data.abreviations)) {  "\($0) \($1)" }
+                Generators.zip(Fake.PersonNames.name, data.generalEndings.arbitrary) { "\($0)'s \($1)" },
+                Generators.zip(Fake.PersonNames.name, data.abreviations.arbitrary) {  "\($0) \($1)" }
             ])
         }
         public static var any: AnyGenerator<String> {
