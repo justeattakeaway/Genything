@@ -5,8 +5,8 @@ import GenythingTest
 final internal class GenAssertForAllTests: XCTestCase {
     func test_that_testAllSatisfy_succeeds_when_it_should() {
         let gen = Generators.zip(
-            Generators.from(1...100),
-            Generators.from(1...100)
+            (1...100).arbitrary,
+            (1...100).arbitrary
         )
 
         testAllSatisfy(gen) { a, b in
@@ -17,9 +17,7 @@ final internal class GenAssertForAllTests: XCTestCase {
 
     func test_that_testAllSatisfy_fails_when_it_should() {
         XCTExpectFailure()
-        testAllSatisfy(Generators.from(1...100)) {
-            $0 < 1 || $0 > 100
-        }
+        testAllSatisfy(Generators.Constant(false)) { $0 }
     }
 
     func test_that_testAllSatisfy_runs_the_correct_iteration_amount_from_randomSource() {
