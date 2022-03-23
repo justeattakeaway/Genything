@@ -46,13 +46,13 @@ final class Generator_ObeysMonadLaws: XCTestCase {
             { (modifier: Int) in { (value: Int) in Generators.constant(value + modifier) }},
             { (modifier: Int) in { (value: Int) in Generators.constant(value - modifier) }},
             { (modifier: Int) in { (value: Int) in Generators.constant(value * modifier) }},
-            { (modifier: Int) in { (value: Int) in Generators.constant(value / modifier) }}
+            { (modifier: Int) in { (value: Int) in Generators.constant(value / modifier) }},
         ]
-            .arbitrary
-            .zip(modifier) { fn, modifier in
-                fn(modifier)
-            }
-            .expand(toSize: 2)
+        .arbitrary
+        .zip(modifier) { fn, modifier in
+            fn(modifier)
+        }
+        .expand(toSize: 2)
 
         // the associativity law is satisfied
         testAllSatisfy((-50...50).arbitrary, twoApplyingFunctions) { value, functions in
