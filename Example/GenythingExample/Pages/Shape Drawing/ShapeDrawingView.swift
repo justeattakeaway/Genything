@@ -1,7 +1,7 @@
 import Genything
 import SwiftUI
 
-private let colorGen: Gen<Color> = {
+private let colorGen: AnyGenerator<Color> = {
     var colors = [
         Color.red,
         Color.yellow,
@@ -18,24 +18,26 @@ private let colorGen: Gen<Color> = {
         ])
     }
 
-    return Gen.of(colors)
+    return colors.arbitrary
 }()
 
-private let polygonGen = Gen<PolygonShape>.compose {
+private let polygonGen = Generators.compose {
     PolygonShape(
         id: UUID(),
-        sides: $0.generate(Generators.from(3 ... 8)),
-        scale: $0.generate(Generators.from(0.3 ... 0.9)),
-        color: $0.generate(colorGen),
-        offset: CGFloat($0.generate(Generators.from(-250.0 ... 250.0))),
-        xOffset: CGFloat($0.generate(Generators.from(-150.0 ... 150.0)))
+        sides: $0((3 ... 8).arbitrary),
+        scale: $0((0.3 ... 0.9).arbitrary),
+        color: $0(colorGen),
+        offset: CGFloat($0((-250.0 ... 250.0).arbitrary)),
+        xOffset: CGFloat($0((-150.0 ... 150.0).arbitrary))
     )
 }.expand(toSizeInRange: 6 ... 12)
+
+private let randomSource = RandomSource(determinism: .random)
 
 // MARK: - ShapeDrawingView
 
 struct ShapeDrawingView: View {
-    @State private var polygons: [PolygonShape] = polygonGen.sample()
+    @State private var polygons: [PolygonShape] = polygonGen.next(randomSource)
 
     var body: some View {
         GeometryReader { _ in
@@ -46,7 +48,7 @@ struct ShapeDrawingView: View {
                     .offset(x: polygon.xOffset, y: polygon.offset)
             }
         }.overlay(Button("Again") {
-            polygons = polygonGen.sample()
+            polygons = polygonGen.next(randomSource)
         }.padding(), alignment: .bottom)
     }
 }

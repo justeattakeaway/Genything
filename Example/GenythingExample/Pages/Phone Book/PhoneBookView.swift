@@ -28,9 +28,9 @@ private struct PhoneBookCell: View {
 // MARK: - PhoneBookView
 
 struct PhoneBookView: View {
-    private let data = Gen.zip(Fake.PersonNames.full, Fake.PhoneNumbers.formatted) {
+    private let data = Generators.zip(Fake.PersonNames.full(), Fake.PhoneNumbers.formatted) {
         Contact(name: $0, phoneNumber: $1)
-    }.samples(count: 50)
+    }.take(50, randomSource: .init(determinism: .random))
 
     var body: some View {
         List {
