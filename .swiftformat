@@ -9,6 +9,7 @@
 --indent 4 #indent
 --ifdef no-indent #indent
 --indentstrings true #indent
+--indentcase true #indent
 --wraparguments before-first # wrapArguments
 --wrapparameters before-first # wrapArguments
 --wrapcollections before-first # wrapArguments

@@ -17,11 +17,11 @@ extension RandomSource {
     /// Initializes a `RandomSource` with a `Determinism`
     public convenience init(determinism: Determinism) {
         switch determinism {
-        case .predetermined(let seed):
-            self.init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
-        case .random:
-            let seed = UInt64(arc4random())
-            self.init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
+            case .predetermined(let seed):
+                self.init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
+            case .random:
+                let seed = UInt64(arc4random())
+                self.init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
         }
     }
 }

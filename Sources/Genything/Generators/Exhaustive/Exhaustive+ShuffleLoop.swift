@@ -33,8 +33,8 @@ extension Exhaustive {
         public func next(_ randomSource: RandomSource) -> T {
             defer { collection.formIndex(after: &index) }
             if index >= collection.endIndex || !hasDrawnElements {
-                collection = collection.shuffled(using: &randomSource.rng)
                 index = collection.startIndex
+                collection = collection.shuffled(using: &randomSource.rng)
                 hasDrawnElements = true
             }
             return collection[index]

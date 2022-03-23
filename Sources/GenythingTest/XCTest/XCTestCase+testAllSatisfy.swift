@@ -22,19 +22,19 @@ extension XCTestCase {
         let result = generator.test(config: config, predicate)
 
         switch result {
-        case .success: return
-        case .failure(let info):
-            switch info.reason {
-            case .predicate(let value):
-                fail(
-                    "testAllSatisfy failed for generated value: `\(value)` after `\(info.iteration) iterations.",
-                    randomSource: config.randomSource,
-                    file: file,
-                    line: line
-                )
-            case .error(let error):
-                fail(error, randomSource: config.randomSource, file: file, line: line)
-            }
+            case .success: return
+            case .failure(let info):
+                switch info.reason {
+                    case .predicate(let value):
+                        fail(
+                            "testAllSatisfy failed for generated value: `\(value)` after `\(info.iteration) iterations.",
+                            randomSource: config.randomSource,
+                            file: file,
+                            line: line
+                        )
+                    case .error(let error):
+                        fail(error, randomSource: config.randomSource, file: file, line: line)
+                }
         }
     }
 
