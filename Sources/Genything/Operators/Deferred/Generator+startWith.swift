@@ -1,14 +1,16 @@
 extension Generator {
     /// Returns: A generator which iterates the elements of `sequence`. When exhausted the generator will switch to producing values from the receiving generator.
     ///
-    /// - Warning: The resulting generator will become stateful
+    /// - Warning: The resulting generator will begin to accumulate state. It has been lifted to a `DeferredGenerator` to make this abundantly clear. When sharing the resulting generator share it with it's wrapped `DeferredGenerator` type and only `start()` the generator when you are prepared to store the stateful reference.
     ///
     /// - Parameters:
     ///    - values: Array of values which will be produced in order before the receiver takes over
     ///
     /// - Returns: The generator
-    func startWith<S: Swift.Sequence>(_ sequence: S) -> AnyGenerator<T> where S.Element == T {
-        StartWith(source: self, sequence: sequence).eraseToAnyGenerator()
+    func startWith<S: Swift.Sequence>(_ sequence: S) -> DeferredGenerator<AnyGenerator<T>> where S.Element == T {
+        DeferredGenerator {
+            StartWith(source: self, sequence: sequence).eraseToAnyGenerator()
+        }
     }
 }
 

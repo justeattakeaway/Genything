@@ -1,14 +1,16 @@
 extension Generator {
     /// Returns: A generator that transforms the receivers' values by providing the current element to a closure along with the last value produced by the resulting Generator.
     ///
-    /// - Warning: The resulting generator will become stateful
+    /// - Warning: The resulting generator will begin to accumulate state. It has been lifted to a `DeferredGenerator` to make this abundantly clear. When sharing the resulting generator share it with it's wrapped `DeferredGenerator` type and only `start()` the generator when you are prepared to store the stateful reference.
     ///
     /// - Parameters:
     ///   - initialResult: The first value to combine and transform with the receiver's values.
     ///   - nextPartialResult: A closure which transforms the receiver's current value and the last value produced by the resulting generator.
-    func scan<R>(_ initialResult: R, _ nextPartialResult: @escaping (R, T) -> R) -> AnyGenerator<R> {
-        Scan(source: self, initialResult: initialResult, nextPartialResult: nextPartialResult)
-            .eraseToAnyGenerator()
+    func scan<R>(_ initialResult: R, _ nextPartialResult: @escaping (R, T) -> R) -> DeferredGenerator<AnyGenerator<R>> {
+        DeferredGenerator {
+            Scan(source: self, initialResult: initialResult, nextPartialResult: nextPartialResult)
+                .eraseToAnyGenerator()
+        }
     }
 }
 

@@ -6,7 +6,7 @@ final class Generator_StartWithTests: XCTestCase {
         let gen = Generators.constant(Int.max).startWith(1 ... 10)
 
         var expected = 1
-        testAllSatisfy(gen) {
+        testAllSatisfy(gen.start()) {
             defer {
                 if expected < 10 {
                     expected += 1
@@ -22,7 +22,7 @@ final class Generator_StartWithTests: XCTestCase {
         let gen = Generators.constant(0).startWith(1 ... Int.max)
 
         var expected = 1
-        testAllSatisfy(gen) {
+        testAllSatisfy(gen.start()) {
             defer { expected += 1 }
             return expected == $0
         }
