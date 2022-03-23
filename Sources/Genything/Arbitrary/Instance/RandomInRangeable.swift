@@ -1,7 +1,5 @@
 // - MARK: RandomInRangeable
 
-// MARK: - RandomInRangeable
-
 /// Indicates a type which can provide random values within a Range
 ///
 /// - Note: Many existing Swift classes support this format despite not deriving from a protocol
@@ -22,8 +20,6 @@ public protocol RandomInRangeable: Comparable {
 }
 
 // MARK: - Int + RandomInRangeable
-
-// - MARK: RandomInRangeable Extensions
 
 extension Int: RandomInRangeable {}
 

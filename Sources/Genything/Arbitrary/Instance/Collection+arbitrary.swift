@@ -1,7 +1,7 @@
 extension Collection {
     /// Returns: A generator which randomly produces values form the receiving collection
     ///
-    /// - Warning: The collection must not be empty
+    /// - Precondition: The collection must not be empty
     ///
     /// - Returns: The generator
     public var arbitrary: AnyGenerator<Element> {

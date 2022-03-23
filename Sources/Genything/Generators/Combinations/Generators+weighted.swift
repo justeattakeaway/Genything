@@ -5,8 +5,8 @@ extension Generators {
     ///
     /// The probability of choosing a weighted generator is equal to the generator's weight divided by the total weight
     ///
-    /// - Parameter weights: Pairing of generators with their weights
-    ///
+    /// - Precondition: All weights must be greater than zero
+    /// - Parameter weights: Pairing of generators to their (positive) weights
     /// - Returns: The generator
     public static func weighted<T>(_ weights: [(weight: Int, generator: AnyGenerator<T>)]) -> AnyGenerator<T> {
         assert(

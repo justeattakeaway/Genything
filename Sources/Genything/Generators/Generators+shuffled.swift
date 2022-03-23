@@ -1,10 +1,8 @@
 extension Generators {
     /// Returns: A generator which produces the result of shuffling the provided list
     ///
-    /// - Warning: The values list must not be empty
-    ///
-    /// - Parameter values: The values which this generator will shuffle
-    ///
+    /// - Precondition: Values may not be empty.
+    /// - Parameter values: The (non-empty) values which this generator will shuffle
     /// - Returns: The generator
     public static func shuffled<T>(_ values: [T]) -> AnyGenerator<[T]> {
         Shuffled(values).eraseToAnyGenerator()

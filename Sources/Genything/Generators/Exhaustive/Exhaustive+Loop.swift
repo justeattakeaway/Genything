@@ -6,6 +6,7 @@ extension Exhaustive {
 
         /// Creates a Generator that loops the provided collection of elements.
         ///
+        /// - Precondition: The collection must not be empty.
         /// - Parameter collection: The collection of elements to loop.
         public init(_ collection: Elements) {
             assert(collection.startIndex != collection.endIndex)
