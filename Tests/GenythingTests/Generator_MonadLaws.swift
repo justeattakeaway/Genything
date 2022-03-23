@@ -38,20 +38,32 @@ final class Generator_ObeysMonadLaws: XCTestCase {
     }
 
     func test_associativity() {
-        let value = 10
-        let generator = Generators.constant(value)
+        // given any modifier (avoiding divide by zero and integer overflows)
+        let modifier = (-50...(-1)).arbitrary.or((1...50).arbitrary)
 
-        let addTen = { Generators.constant($0 + 10) }
-        let subtractThree = { Generators.constant($0 - 3) }
+        // and any 2 functions which apply the modifier and wrap the result in a generator
+        let twoApplyingFunctions = [
+            { (modifier: Int) in { (value: Int) in Generators.constant(value + modifier) }},
+            { (modifier: Int) in { (value: Int) in Generators.constant(value - modifier) }},
+            { (modifier: Int) in { (value: Int) in Generators.constant(value * modifier) }},
+            { (modifier: Int) in { (value: Int) in Generators.constant(value / modifier) }}
+        ]
+            .arbitrary
+            .zip(modifier) { fn, modifier in
+                fn(modifier)
+            }
+            .expand(toSize: 2)
 
-        let chain = generator.flatMap(addTen).flatMap(subtractThree)
-        let nest = generator.flatMap {
-            addTen($0).flatMap(subtractThree)
+        // the associativity law is satisfied
+        testAllSatisfy((-50...50).arbitrary, twoApplyingFunctions) { value, functions in
+            let generator = Generators.constant(value)
+
+            let chained = generator.flatMap(functions[0]).flatMap(functions[1])
+            let nested = generator.flatMap {
+                functions[0]($0).flatMap(functions[1])
+            }
+
+            return chained.next(RandomSource()) == nested.next(RandomSource())
         }
-
-        XCTAssertEqual(
-            chain.next(.init()),
-            nest.next(.init())
-        )
     }
 }
