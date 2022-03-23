@@ -265,17 +265,3 @@ Genything stands on the shoulder of giants. Please check out these other librari
 See: [License](./LICENSE)
 
 Apache License Version 2.0, January 2004 http://www.apache.org/licenses/
-
-
-## TODO
-
-Should I be passing Generatables.Map the `start()` result or the `start` function. 
-Probably I am prematurely starting things.
-
-Laws:
-- Generatables are stateless
-- Gens are stateful
-- By default Gens/Generatables do not know anything about each other
-    - But they can:
-        - Share a context
-        - Use the merging solutions
