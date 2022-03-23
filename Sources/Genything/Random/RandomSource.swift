@@ -9,8 +9,6 @@ import Foundation
 /// - Note: The source can be held onto by a user to keep track of `rng`'s state between generations
 public class RandomSource {
 
-    // MARK: Lifecycle
-
     /// Initializes a `RandomSource` from a `RandomNumberGenerator`
     ///
     /// - Parameters:
@@ -28,8 +26,6 @@ public class RandomSource {
     public convenience init() {
         self.init(determinism: .predetermined(seed: 2022))
     }
-
-    // MARK: Public
 
     /// The original seed used to begin random number generation
     ///

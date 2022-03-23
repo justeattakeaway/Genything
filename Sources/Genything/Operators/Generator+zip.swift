@@ -256,8 +256,6 @@ extension Generators {
 
 private struct Zip<A, B>: Generator where A: Generator, B: Generator {
 
-    // MARK: Lifecycle
-
     /// Creates a Generator that applies the zip function to two upstream Generators.
     /// - Parameters:
     ///   - a: A Generator to zip.
@@ -266,8 +264,6 @@ private struct Zip<A, B>: Generator where A: Generator, B: Generator {
         self.a = a
         self.b = b
     }
-
-    // MARK: Public
 
     /// A Generator to zip.
     public let a: A
@@ -289,8 +285,6 @@ private struct Zip3<A, B, C>: Generator where A: Generator,
     B: Generator,
     C: Generator {
 
-    // MARK: Lifecycle
-
     /// Creates a Generator that applies the zip function to two upstream Generators.
     /// - Parameters:
     ///   - a: A Generator to zip.
@@ -301,8 +295,6 @@ private struct Zip3<A, B, C>: Generator where A: Generator,
         self.b = b
         self.c = c
     }
-
-    // MARK: Public
 
     /// A Generator to zip.
     public let a: A
@@ -330,8 +322,6 @@ private struct Zip4<A, B, C, D>: Generator
     C: Generator,
     D: Generator {
 
-    // MARK: Lifecycle
-
     /// Creates a Generator that applies the zip function to two upstream Generators.
     /// - Parameters:
     ///   - a: A Generator to zip.
@@ -344,8 +334,6 @@ private struct Zip4<A, B, C, D>: Generator
         self.c = c
         self.d = d
     }
-
-    // MARK: Public
 
     /// A Generator to zip.
     public let a: A
@@ -378,8 +366,6 @@ private struct Zip5<A, B, C, D, E>: Generator
     D: Generator,
     E: Generator {
 
-    // MARK: Lifecycle
-
     /// Creates a Generator that applies the zip function to two upstream Generators.
     /// - Parameters:
     ///   - a: A Generator to zip.
@@ -394,8 +380,6 @@ private struct Zip5<A, B, C, D, E>: Generator
         self.d = d
         self.e = e
     }
-
-    // MARK: Public
 
     /// A Generator to zip.
     public let a: A

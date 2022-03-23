@@ -22,6 +22,7 @@
 --wrapternary before-operators # wrap
 --structthreshold 20 # organizeDeclarations
 --enumthreshold 20 # organizeDeclarations
+--markcategories false
 --organizetypes class,struct,enum,extension # organizeDeclarations
 --extensionacl on-declarations # extensionAccessControl
 --patternlet inline # hoistPatternLet
@@ -39,7 +40,6 @@
 --rules extensionAccessControl
 --rules hoistPatternLet
 --rules indent
---rules markTypes
 --rules organizeDeclarations
 --rules redundantParens
 --rules redundantReturn

@@ -1,7 +1,3 @@
-import Foundation
-
-// MARK: Combine
-
 extension Generator {
     /// Returns: A generator which randomly selects values from either the receiver or the `other` generator
     ///

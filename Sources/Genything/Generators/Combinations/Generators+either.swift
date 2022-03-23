@@ -21,15 +21,11 @@ extension Generators {
 
 private struct Either<A, B>: Generator where A: Generator, B: Generator, A.T == B.T {
 
-    // MARK: Lifecycle
-
     public init(_ a: A, _ b: B, probability: Double = 0.5) {
         self.a = a
         self.b = b
         self.probability = probability
     }
-
-    // MARK: Public
 
     public let a: A
     public let b: B
@@ -44,8 +40,6 @@ private struct Either<A, B>: Generator where A: Generator, B: Generator, A.T == 
 
         return a.next(randomSource)
     }
-
-    // MARK: Private
 
     private let probabilityRange: ClosedRange<Double> = 0.0 ... 1.0
 

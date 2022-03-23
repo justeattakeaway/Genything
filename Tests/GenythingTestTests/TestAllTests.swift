@@ -4,8 +4,6 @@ import XCTest
 
 internal final class TestAllTests: XCTestCase {
 
-    // MARK: Internal
-
     func test_all_passes_when_it_should_with_correct_iterations() {
         var count = 0
         testAll(genTrue) {
@@ -112,8 +110,6 @@ internal final class TestAllTests: XCTestCase {
             XCTAssert(a < 1)
         }
     }
-
-    // MARK: Private
 
     private var genVoid = Generators.constant(())
     private var genTrue = Generators.constant(true)

@@ -1,7 +1,3 @@
-import Foundation
-
-// MARK: Mutate
-
 extension Generator {
     /// Returns: A generator of strings which replace `character` in `source` by the content of the receiver's generator
     ///

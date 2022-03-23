@@ -1,7 +1,3 @@
-import Foundation
-
-// MARK: Mutate
-
 extension Generator {
     /// Returns: A generator that transforms the receiver into a generator of type `R`
     ///

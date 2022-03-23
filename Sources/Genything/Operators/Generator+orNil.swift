@@ -1,7 +1,3 @@
-import Foundation
-
-// MARK: Mutate
-
 extension Generator {
     /// Returns: A generator that wraps the receivers' values in an optional
     ///

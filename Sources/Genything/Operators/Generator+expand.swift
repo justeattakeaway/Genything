@@ -1,7 +1,3 @@
-import Foundation
-
-// MARK: Mutate
-
 extension Generator {
     /// Returns: The receiver's generator expanded to generate an array of the receiver's values
     ///

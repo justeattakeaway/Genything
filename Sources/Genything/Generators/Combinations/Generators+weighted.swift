@@ -1,9 +1,6 @@
 // MARK: Combine
 
 extension Generators {
-    /// Alias pairing a weighted probability to a generator
-    public typealias WeightedGenerator<T> = (weight: Int, generator: AnyGenerator<T>)
-
     /// Returns: A generator which produces values from the provided generators according to their weights
     ///
     /// The probability of choosing a weighted generator is equal to the generator's weight divided by the total weight
@@ -11,7 +8,7 @@ extension Generators {
     /// - Parameter weights: Pairing of generators with their weights
     ///
     /// - Returns: The generator
-    public static func weighted<T>(_ weights: [WeightedGenerator<T>]) -> AnyGenerator<T> {
+    public static func weighted<T>(_ weights: [(weight: Int, generator: AnyGenerator<T>)]) -> AnyGenerator<T> {
         assert(
             weights.allSatisfy { $0.weight > 0 },
             "`Gen.weighted(weights:)` called with impossible weights. Ratios must be one or greater."

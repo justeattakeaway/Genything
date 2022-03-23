@@ -16,8 +16,6 @@ public struct TestConfig {
 
 extension TestConfig {
 
-    // MARK: Public
-
     /// Registers a function capable of creating a `TestConfig` which will be used by default
     public static func registerDefault(_ factory: @escaping () -> TestConfig) {
         defaultFactory = factory
@@ -31,8 +29,6 @@ extension TestConfig {
     public static func `default`() -> TestConfig {
         defaultFactory()
     }
-
-    // MARK: Private
 
     /// Storage for the factory capable of creating a `TestConfig` which will be used by default
     private static var `defaultFactory`: () -> TestConfig = {

@@ -5,8 +5,6 @@ import XCTest
 
 internal final class DiceRollerTests: XCTestCase {
 
-    // MARK: Internal
-
     // Let's verify that all the values are within the expected bounds
     func test_d6_bounds() {
         testAllSatisfy(d6) {
@@ -71,8 +69,6 @@ internal final class DiceRollerTests: XCTestCase {
             4 ... 10 ~= $0
         }
     }
-
-    // MARK: Private
 
     // Let's create a dice
     // It generates arbitrary values in the range 1...6 (inclusive)

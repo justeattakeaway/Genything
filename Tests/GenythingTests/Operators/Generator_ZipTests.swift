@@ -4,8 +4,6 @@ import XCTest
 
 final class Generator_ZipTests: XCTestCase {
 
-    // MARK: Internal
-
     override func setUp() {
         continueAfterFailure = false
     }
@@ -87,8 +85,6 @@ final class Generator_ZipTests: XCTestCase {
             .next(RandomSource())
         }
     }
-
-    // MARK: Private
 
 //
 //    func test_6Gen_staticZip_generateExpectedValues() {

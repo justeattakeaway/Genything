@@ -4,8 +4,6 @@ import Genything
 extension Fake {
     public enum Addresses {
 
-        // MARK: Public
-
         public static var streetNumber: AnyGenerator<String> {
             Fake.Characters.digits
                 .expand(toSizeInRange: 1 ... 4)
@@ -89,8 +87,6 @@ extension Fake {
             Generators
                 .join([streetLine, caLastLine], separator: "\n")
         }
-
-        // MARK: Private
 
         private static let streetData = StreetData.loadJson()
         private static let cityData = CityData.loadJson()

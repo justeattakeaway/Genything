@@ -2,8 +2,6 @@ import Foundation
 
 extension UUID {
 
-    // MARK: Lifecycle
-
     init(bits randomBits: UInt128, version: UInt8) {
         var factoryBytes = UUID.nil.uuid
 
@@ -18,11 +16,7 @@ extension UUID {
         self.init(uuid: factoryBytes)
     }
 
-    // MARK: Internal
-
     typealias UInt128 = (UInt64, UInt64)
-
-    // MARK: Private
 
     private static var `nil`: UUID {
         UUID(uuid: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0))

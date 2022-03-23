@@ -1,10 +1,10 @@
 extension Exhaustive {
-    /// A Generator that generates by looping over a collection of elements.
-    public final class Loop<Elements>: Generator where Elements: Swift.Collection {
+    /// A stateful Generator which produces elements by looping over a collection of elements.
+    ///
+    /// - Warning: This generator is stateful and cannot be restarted. Pay attention to how it to how the reference is being retained and do not share the generator to unsuspecting consumers.
+    final class Loop<Elements>: Generator where Elements: Swift.Collection {
 
-        // MARK: Lifecycle
-
-        /// Creates a looping Generator for a collection of elements.
+        /// Creates a Generator that loops the provided collection of elements.
         ///
         /// - Parameter collection: The collection of elements to loop.
         public init(_ collection: Elements) {
@@ -14,14 +14,13 @@ extension Exhaustive {
             index = collection.startIndex
         }
 
-        // MARK: Public
-
-        public typealias T = Elements.Element
-
+        /// The collection from which this generator takes it's values
         public let collection: Elements
+        /// An index which tracks our position in the collection
         public private(set) var index: Elements.Index
 
-        public func next(_: RandomSource) -> T {
+        /// Produces the next element from this generator
+        public func next(_: RandomSource) -> Elements.Element {
             defer {
                 collection.formIndex(after: &index)
             }

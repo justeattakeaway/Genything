@@ -1,5 +1,3 @@
-// MARK: Mutate
-
 extension Generator {
     /// Returns: A generator that replaces the receivers' nil values with the replacement
     ///

@@ -10,9 +10,7 @@ extension Exhaustive {
     /// The same `value` cannot be redrawn until all other values are drawn
     ///
     /// - SeeAlso: https://developer.apple.com/documentation/gameplaykit/gkshuffleddistribution
-    public final class ShuffleLoop<Elements>: Generator where Elements: Swift.Collection {
-
-        // MARK: Lifecycle
+    final class ShuffleLoop<Elements>: Generator where Elements: Swift.Collection {
 
         /// Creates a shuffled loop Generator for a collection of elements.
         ///
@@ -23,13 +21,15 @@ extension Exhaustive {
             self.collection = Array(collection)
         }
 
-        // MARK: Public
-
+        /// The element that this generator produces
         public typealias T = Elements.Element
 
+        /// The collection from which this generator takes it's values
         public private(set) var collection: [T]
+        /// An index which tracks our position in the collection
         public private(set) var index = 0
 
+        /// Produces the next element from this generator
         public func next(_ randomSource: RandomSource) -> T {
             defer { collection.formIndex(after: &index) }
             if index >= collection.endIndex || !hasDrawnElements {
@@ -40,8 +40,7 @@ extension Exhaustive {
             return collection[index]
         }
 
-        // MARK: Private
-
+        /// A flag to indicate if this generator has been used to draw a value before. This is used to defer the shuffling until we have a random source.
         private var hasDrawnElements = false
     }
 }

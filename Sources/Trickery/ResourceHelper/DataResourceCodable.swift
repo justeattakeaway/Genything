@@ -10,8 +10,6 @@ protocol JsonResourceCodable: Codable {}
 
 extension JsonResourceCodable {
 
-    // MARK: Internal
-
     static func loadJson() -> Self {
         getBundle()
             .url(
@@ -25,8 +23,6 @@ extension JsonResourceCodable {
                 try? JSONDecoder().decode(Self.self, from: $0)
             }!
     }
-
-    // MARK: Private
 
     private static func getBundle() -> Bundle {
         #if SWIFT_PACKAGE

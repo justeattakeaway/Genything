@@ -1,5 +1,3 @@
-import Foundation
-
 // MARK: Produce
 
 extension Generator {

@@ -11,11 +11,7 @@ import XCTest
 ///
 extension XCTestCase {
 
-    // MARK: Fileprivate
-
     fileprivate static var _randomSourceStore = [String: RandomSource]()
-
-    // MARK: Private
 
     private var address: String {
         String(format: "%p", unsafeBitCast(self, to: Int.self))
