@@ -1,3 +1,5 @@
+// MARK: Combine
+
 extension Generators {
     /// Returns: A generator of strings which modify the `source` by replacing all occurence of `replace` strings by their associated generator
     ///

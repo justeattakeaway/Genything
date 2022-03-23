@@ -1,6 +1,4 @@
-import Foundation
-
-// MARK: Build
+// MARK: Combine
 
 extension Generators {
     /// Alias pairing a weighted probability to a generator

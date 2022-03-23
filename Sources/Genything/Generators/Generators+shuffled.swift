@@ -1,7 +1,3 @@
-import Foundation
-
-// MARK: Build
-
 extension Generators {
     /// Returns: A generator which produces the result of shuffling the provided list
     ///

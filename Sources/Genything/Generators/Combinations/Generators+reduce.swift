@@ -1,6 +1,4 @@
-import Foundation
-
-// MARK: Build
+// MARK: Combine
 
 extension Generators {
     /// Returns: A generator resulting from combining generated elements from the generators collection using the given closure

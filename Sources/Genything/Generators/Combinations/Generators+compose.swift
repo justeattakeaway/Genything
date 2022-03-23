@@ -1,6 +1,6 @@
 import Foundation
 
-// MARK: Build
+// MARK: Combine
 
 extension Generators {
     public static func compose<T>(_ compose: @escaping (Composer) -> T) -> AnyGenerator<T> {

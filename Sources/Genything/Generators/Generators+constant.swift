@@ -1,5 +1,3 @@
-// MARK: Build
-
 extension Generators {
     /// Returns: A Generator that constantly produces the provided value
     /// - Parameter value: The value which will constantly be generated
