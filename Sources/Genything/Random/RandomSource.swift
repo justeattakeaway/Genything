@@ -11,17 +11,22 @@ public class RandomSource {
 
     // MARK: Lifecycle
 
-    // MARK: Init
-
-    /// Creates a `RandomSource`
+    /// Initializes a `RandomSource` from a `RandomNumberGenerator`
     ///
     /// - Parameters:
     ///   - rng: The Random Number Generator to be used to produce values
     ///   - originalSeed: The original seed (start position) of `rng`
     ///
-    public init(using rng: RandomNumberGenerator, originalSeed: UInt64) {
+    public init(using rng: RandomNumberGenerator, originalSeed: UInt64?) {
         self.rng = AnyRandomNumberGenerator(rng: rng)
         self.originalSeed = originalSeed
+    }
+
+    /// Initializes a `RandomSource` from a predetermined shared seed
+    ///
+    /// - Returns: A new, independent random source.
+    public convenience init() {
+        self.init(determinism: .predetermined(seed: 2022))
     }
 
     // MARK: Public
@@ -29,15 +34,10 @@ public class RandomSource {
     /// The original seed used to begin random number generation
     ///
     /// To be used for debugging purposes and to "replay" a generation event
-    public let originalSeed: UInt64
-
-    // MARK: Internal
-
-    // MARK: Randomness
+    public let originalSeed: UInt64?
 
     /// A type-erased random number generator conformed to `RandomNumberGenerator`
-    internal var rng: AnyRandomNumberGenerator
-
+    public var rng: AnyRandomNumberGenerator
 }
 
 // MARK: Convenience RandomSource Creators
@@ -46,10 +46,5 @@ extension RandomSource {
     /// Returns: An independent `RandomSource` initialized from a nondeterministic seed
     public static func random() -> RandomSource {
         .init(determinism: .random)
-    }
-
-    /// Returns: An independent `RandomSource` initialized from a predetermined shared seed
-    public static func `default`() -> RandomSource {
-        .init(determinism: .predetermined(seed: 2022))
     }
 }

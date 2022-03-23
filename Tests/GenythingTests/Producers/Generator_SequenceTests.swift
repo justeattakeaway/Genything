@@ -1,13 +1,13 @@
 import XCTest
 @testable import Genything
 
-internal final class Generator_FiniteSequenceTests: XCTestCase {
+internal final class Generator_SequenceTests: XCTestCase {
     func test_sequence_is_finite() {
         // given a generator of any Integer
         let gen = Int.arbitrary
 
         // when I run a loop of size `100`
-        for _ in gen.asSequence(size: 100) {
+        for _ in gen.sequence(100, randomSource: RandomSource()) {
             // no-op
         }
 
@@ -22,7 +22,7 @@ internal final class Generator_FiniteSequenceTests: XCTestCase {
         // and a counter
         var count = 0
         // when I run a loop and count
-        for _ in gen.asSequence(size: expected) {
+        for _ in gen.sequence(expected, randomSource: RandomSource()) {
             count += 1
         }
         // then count matches expectations
@@ -37,7 +37,7 @@ internal final class Generator_FiniteSequenceTests: XCTestCase {
         // and a counter
         var count = 0
         // when I run a loop and count
-        for _ in gen.asSequence(size: 0) {
+        for _ in gen.sequence(0, randomSource: RandomSource()) {
             count += 1
         }
         // then count matches expectations

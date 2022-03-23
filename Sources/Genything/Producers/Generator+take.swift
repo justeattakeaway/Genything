@@ -12,8 +12,8 @@ extension Generator {
     /// - Returns: An array of generated values
     public func take(
         _ count: Int,
-        randomSource: RandomSource = .default()
+        randomSource: RandomSource
     ) -> [T] {
-        Array(asSequence(size: count, randomSource: randomSource))
+        Array(sequence(count, randomSource: randomSource))
     }
 }

@@ -76,7 +76,7 @@ extension XCTestCase {
         setupCheck(config)
 
         do {
-            try gen1.asSequence(size: config.maxIterations, randomSource: config.randomSource).forEach(body)
+            try gen1.sequence(config.maxIterations, randomSource: config.randomSource).forEach(body)
         } catch {
             fail(error, randomSource: config.randomSource, file: file, line: line)
         }

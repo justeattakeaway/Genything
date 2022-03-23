@@ -3,9 +3,9 @@ import GenythingTest
 import XCTest
 @testable import Genything
 
-internal final class ExhaustiveShuffleLoopTests: XCTestCase {
+final class ExhaustiveShuffleLoopTests: XCTestCase {
     func test_ExhaustiveShuffleLoop() {
-        let d6shuffle = Exhaustive.ShuffleLoop(Array(1 ... 6), randomSource: .default())
+        let d6shuffle = Exhaustive.ShuffleLoop(Array(1 ... 6), randomSource: RandomSource())
 
         var history = [Int]()
 
@@ -38,13 +38,13 @@ internal final class ExhaustiveShuffleLoopTests: XCTestCase {
             Rank.allCases.map { rank in
                 Suit.allCases.map { suit in Card(suit: suit, rank: rank) }
             }.flatMap { $0 },
-            randomSource: .default()
+            randomSource: RandomSource()
         )
 
         // All cards of the deck are drawn, and they are all unique
-        XCTAssertEqual(52, Set<Card>(cardGen.take(52)).count)
+        XCTAssertEqual(52, Set<Card>(cardGen.take(52, randomSource: RandomSource())).count)
 
         // Drawing more from the deck takes from a newly shuffled pile and will repeat values
-        XCTAssertEqual(52, Set<Card>(cardGen.take(53)).count)
+        XCTAssertEqual(52, Set<Card>(cardGen.take(53, randomSource: RandomSource())).count)
     }
 }

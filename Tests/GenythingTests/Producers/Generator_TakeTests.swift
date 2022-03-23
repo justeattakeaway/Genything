@@ -7,7 +7,7 @@ internal final class Generator_TakeTests: XCTestCase {
         let generator = bucket.arbitrary
 
         let count = 100
-        let taken = generator.take(count)
+        let taken = generator.take(count, randomSource: RandomSource())
 
         XCTAssertEqual(count, taken.count)
 

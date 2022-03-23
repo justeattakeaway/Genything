@@ -1,7 +1,7 @@
 import XCTest
 @testable import Genything
 
-internal final class ExhaustiveLoopTests: XCTestCase {
+final class ExhaustiveLoopTests: XCTestCase {
     func test_a_long_sequence_never_loops_but_generates_expected_values() {
         var expected = 0
         testAllSatisfy(Exhaustive.Loop(0 ... Int.max)) {

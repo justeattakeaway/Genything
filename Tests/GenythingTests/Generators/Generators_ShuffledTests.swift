@@ -3,7 +3,7 @@ import GenythingTest
 import XCTest
 @testable import Genything
 
-internal final class Generators_ShuffledTests: XCTestCase {
+final class Generators_ShuffledTests: XCTestCase {
     func test_shuffled() {
         let source = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 

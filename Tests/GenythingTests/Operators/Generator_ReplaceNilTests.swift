@@ -1,7 +1,7 @@
 import XCTest
 @testable import Genything
 
-internal final class Generator_ReplaceNilTests: XCTestCase {
+final class Generator_ReplaceNilTests: XCTestCase {
     func test_givenRandomNils_allAreReplaced() {
         let gen = Generators.constant(true)
             .orNil()

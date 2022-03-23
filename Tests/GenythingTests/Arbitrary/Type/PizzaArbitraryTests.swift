@@ -62,7 +62,7 @@ internal final class PizzaArbitraryTests: XCTestCase {
         let pizzaDistribution = Generators.either(left: hawaiianPizzaGen, right: pepperoniPizzaGen, rightProbability: 0.75)
 
         // Take a statistical sample of pizzas
-        let pizzas = pizzaDistribution.take(1000)
+        let pizzas = pizzaDistribution.take(1000, randomSource: RandomSource())
 
         func pizzaQuotient(_ pizzaName: String) -> Double {
             let countOfPizzaName = pizzas.filter { $0.name == pizzaName }.count

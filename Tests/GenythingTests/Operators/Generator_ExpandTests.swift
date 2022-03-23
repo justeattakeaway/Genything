@@ -2,7 +2,7 @@ import GenythingTest
 import XCTest
 @testable import Genything
 
-internal final class Generator_ExpandTests: XCTestCase {
+final class Generator_ExpandTests: XCTestCase {
     func test_expand_toSize_createsWithCorrectSize() {
         let size = 10
         let gen = String.arbitrary.expand(toSize: size)

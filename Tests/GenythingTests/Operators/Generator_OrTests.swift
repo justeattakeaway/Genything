@@ -1,12 +1,12 @@
 import XCTest
 @testable import Genything
 
-internal final class Generator_OrTests: XCTestCase {
+final class Generator_OrTests: XCTestCase {
     func test_or_generates_values_from_either() {
         let totalCount = 10000
         let trueCount = Generators.constant(false)
             .or(Generators.constant(true))
-            .take(totalCount)
+            .take(totalCount, randomSource: RandomSource())
             .filter { $0 }
             .count
 
@@ -17,7 +17,7 @@ internal final class Generator_OrTests: XCTestCase {
         let totalCount = 10000
         let trueCount = Generators.constant(false)
             .or(Generators.constant(true), otherProbability: 0.0)
-            .take(totalCount)
+            .take(totalCount, randomSource: RandomSource())
             .filter { $0 }
             .count
 
@@ -28,7 +28,7 @@ internal final class Generator_OrTests: XCTestCase {
         let totalCount = 10000
         let trueCount = Generators.constant(false)
             .or(Generators.constant(true), otherProbability: 1.0)
-            .take(totalCount)
+            .take(totalCount, randomSource: RandomSource())
             .filter { $0 }
             .count
 

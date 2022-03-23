@@ -2,7 +2,7 @@ import GenythingTest
 import XCTest
 @testable import Genything
 
-internal final class Generator_ZipTests: XCTestCase {
+final class Generator_ZipTests: XCTestCase {
 
     // MARK: Internal
 
@@ -43,19 +43,19 @@ internal final class Generator_ZipTests: XCTestCase {
 
     func test_3Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 3) { gens in
-            Generators.zip(gens[0], gens[1], gens[2]).next(.default())
+            Generators.zip(gens[0], gens[1], gens[2]).next(RandomSource())
         }
     }
 
     func test_4Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 4) { gens in
-            Generators.zip(gens[0], gens[1], gens[2], gens[3]).next(.default())
+            Generators.zip(gens[0], gens[1], gens[2], gens[3]).next(RandomSource())
         }
     }
 
     func test_5Gen_staticZip_generateExpectedValues() {
         testZip(argsCount: 5) { gens in
-            Generators.zip(gens[0], gens[1], gens[2], gens[3], gens[4]).next(.default())
+            Generators.zip(gens[0], gens[1], gens[2], gens[3], gens[4]).next(RandomSource())
         }
     }
 
@@ -66,7 +66,7 @@ internal final class Generator_ZipTests: XCTestCase {
             Generators.zip(gens[0], gens[1], gens[2]) { a, b, c in
                 a + b + c
             }
-            .next(.default())
+            .next(RandomSource())
         }
     }
 
@@ -75,7 +75,7 @@ internal final class Generator_ZipTests: XCTestCase {
             Generators.zip(gens[0], gens[1], gens[2], gens[3]) { a, b, c, d in
                 a + b + c + d
             }
-            .next(.default())
+            .next(RandomSource())
         }
     }
 
@@ -84,7 +84,7 @@ internal final class Generator_ZipTests: XCTestCase {
             Generators.zip(gens[0], gens[1], gens[2], gens[3], gens[4]) { a, b, c, d, e in
                 a + b + c + d + e
             }
-            .next(.default())
+            .next(RandomSource())
         }
     }
 

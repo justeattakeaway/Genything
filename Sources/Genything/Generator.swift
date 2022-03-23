@@ -10,21 +10,21 @@ public protocol Generator {
 
 /// A type-erased Generator
 public struct AnyGenerator<T>: Generator {
-    private let _next: (RandomSource) -> T
+    private let wrappedNext: (RandomSource) -> T
 
     /// Creates a type-erasing Generator to wrap the provided Generator
     ///
     /// - Parameter Generator: A Generator to wrap with a type-eraser.
     public init<G>(_ generator: G) where T == G.T, G: Generator {
-        _next = generator.next
+        wrappedNext = generator.next
     }
 
     public init(_ next: @escaping (RandomSource) -> T) {
-        _next = next
+        wrappedNext = next
     }
 
     public func next(_ randomSource: RandomSource) -> T {
-        _next(randomSource)
+        wrappedNext(randomSource)
     }
 }
 

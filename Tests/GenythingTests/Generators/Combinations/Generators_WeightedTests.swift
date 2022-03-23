@@ -2,12 +2,12 @@ import GenythingTest
 import XCTest
 @testable import Genything
 
-internal final class Generators_WeightedTests: XCTestCase {
+final class Generators_WeightedTests: XCTestCase {
     func test_weighted_with_equal_weights() {
         let values = Generators.weighted([
             (1, "A"),
             (1, "B"),
-        ]).asSequence(size: 1000).countDistinct()
+        ]).sequence(1000, randomSource: RandomSource()).countDistinct()
 
         guard
             let a = values["A"],
@@ -23,7 +23,7 @@ internal final class Generators_WeightedTests: XCTestCase {
         let values = Generators.weighted([
             (2, "A"),
             (1, "B"),
-        ]).asSequence(size: 1000).countDistinct()
+        ]).sequence(1000, randomSource: RandomSource()).countDistinct()
 
         guard
             let a = values["A"],

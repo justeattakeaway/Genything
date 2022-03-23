@@ -1,7 +1,7 @@
 import XCTest
 @testable import Genything
 
-internal final class Generator_StartWithTests: XCTestCase {
+final class Generator_StartWithTests: XCTestCase {
     func test_after_the_sequence_concludes_we_switch_to_the_receiver() {
         let gen = Generators.constant(Int.max).startWith(1 ... 10)
 

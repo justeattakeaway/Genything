@@ -3,7 +3,10 @@ import Genything
 import XCTest
 
 private func rerunInfo(_ randomSource: RandomSource) -> String {
-    "Re-run test with seed `\(randomSource.originalSeed)`."
+    if let seed = randomSource.originalSeed {
+        return "Re-run test with seed `\(seed)`."
+    }
+    return "Cannot be re-run."
 }
 
 func fail(

@@ -1,5 +1,7 @@
 import Genything
 
+// MARK: - GenythingTestConfig
+
 /// Configuration that will be used for Genything tests
 ///
 /// - SeeAlso: `XCTestCase+testAll`
@@ -13,13 +15,8 @@ public struct GenythingTestConfig {
 }
 
 extension GenythingTestConfig {
-    /// Storage for the factory capable of creating a `GenythingTestConfig` which will be used by default
-    private static var `defaultFactory`: () -> GenythingTestConfig = {
-        GenythingTestConfig(
-            maxIterations: 1000,
-            randomSource: .default()
-        )
-    }
+
+    // MARK: Public
 
     /// Registers a function capable of creating a `GenythingTestConfig` which will be used by default
     public static func registerDefault(_ factory: @escaping () -> GenythingTestConfig) {
@@ -34,4 +31,15 @@ extension GenythingTestConfig {
     public static func `default`() -> GenythingTestConfig {
         defaultFactory()
     }
+
+    // MARK: Private
+
+    /// Storage for the factory capable of creating a `GenythingTestConfig` which will be used by default
+    private static var `defaultFactory`: () -> GenythingTestConfig = {
+        GenythingTestConfig(
+            maxIterations: 1000,
+            randomSource: RandomSource()
+        )
+    }
+
 }
