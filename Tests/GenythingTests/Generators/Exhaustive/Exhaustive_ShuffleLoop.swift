@@ -5,7 +5,7 @@ import XCTest
 
 final class ExhaustiveShuffleLoopTests: XCTestCase {
     func test_ExhaustiveShuffleLoop() {
-        let d6shuffle = Exhaustive.ShuffleLoop(Array(1 ... 6))
+        let d6shuffle = DeferredGenerators.shuffleLoop(Array(1 ... 6)).start()
 
         var history = [Int]()
 
@@ -34,11 +34,11 @@ final class ExhaustiveShuffleLoopTests: XCTestCase {
             var rank: Rank
         }
 
-        let cardGen = Exhaustive.ShuffleLoop(
+        let cardGen = DeferredGenerators.shuffleLoop(
             Rank.allCases.map { rank in
                 Suit.allCases.map { suit in Card(suit: suit, rank: rank) }
             }.flatMap { $0 }
-        )
+        ).start()
 
         // All cards of the deck are drawn, and they are all unique
         XCTAssertEqual(52, Set<Card>(cardGen.take(52, randomSource: RandomSource())).count)

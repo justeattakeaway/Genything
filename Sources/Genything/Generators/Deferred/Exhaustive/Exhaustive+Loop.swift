@@ -1,4 +1,4 @@
-extension Exhaustive {
+extension DeferredGenerators {
     static func loop<Elements>(_ collection: Elements) -> DeferredGenerator<AnyGenerator<Elements.Element>> where Elements: Swift.Collection {
         DeferredGenerator {
             Loop(collection).eraseToAnyGenerator()
