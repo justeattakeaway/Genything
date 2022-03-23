@@ -1,12 +1,12 @@
 import Genything
 
-// MARK: - GenythingTestConfig
+// MARK: - TestConfig
 
 /// Configuration that will be used for Genything tests
 ///
 /// - SeeAlso: `XCTestCase+testAll`
 /// - SeeAlso: `XCTestCase+testAllSatisfy`
-public struct GenythingTestConfig {
+public struct TestConfig {
     /// The maximum iterations that can be run by a test function
     public var maxIterations: Int
 
@@ -14,29 +14,29 @@ public struct GenythingTestConfig {
     public var randomSource: RandomSource
 }
 
-extension GenythingTestConfig {
+extension TestConfig {
 
     // MARK: Public
 
-    /// Registers a function capable of creating a `GenythingTestConfig` which will be used by default
-    public static func registerDefault(_ factory: @escaping () -> GenythingTestConfig) {
+    /// Registers a function capable of creating a `TestConfig` which will be used by default
+    public static func registerDefault(_ factory: @escaping () -> TestConfig) {
         defaultFactory = factory
     }
 
     /// Produces a new instance of the default test config
     ///
-    /// Can be overriden globally by calling to `GenythingTestConfig.registerDefault(factory:)`
+    /// Can be overriden globally by calling to `TestConfig.registerDefault(factory:)`
     ///
     /// By default returns a configuration with `maxIterations = 1000` and a random source which is both deterministic (the order of values produced is predictible and repeatable) and independent (each test will have no affect on any other test)
-    public static func `default`() -> GenythingTestConfig {
+    public static func `default`() -> TestConfig {
         defaultFactory()
     }
 
     // MARK: Private
 
-    /// Storage for the factory capable of creating a `GenythingTestConfig` which will be used by default
-    private static var `defaultFactory`: () -> GenythingTestConfig = {
-        GenythingTestConfig(
+    /// Storage for the factory capable of creating a `TestConfig` which will be used by default
+    private static var `defaultFactory`: () -> TestConfig = {
+        TestConfig(
             maxIterations: 1000,
             randomSource: RandomSource()
         )

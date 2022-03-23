@@ -21,4 +21,10 @@ extension Generator {
             GeneratorSequence(self, randomSource: randomSource).prefix(maxLength)
         )
     }
+
+    public func sequence(_ maxLength: Int, randomSource: RandomSource) -> AnySequence<T> {
+        AnySequence(
+            GeneratorSequence(self, randomSource: randomSource).prefix(maxLength)
+        )
+    }
 }

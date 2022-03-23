@@ -30,7 +30,7 @@ extension XCTestCase {
         }
     }
 
-    private func setupCheck(_ config: GenythingTestConfig) {
+    private func setupCheck(_ config: TestConfig) {
         continueAfterFailure = false
 
         randomSourceStore = config.randomSource
@@ -68,7 +68,7 @@ extension XCTestCase {
     ///
     public func testAll<G1>(
         _ gen1: G1,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T) throws -> Void
@@ -99,7 +99,7 @@ extension XCTestCase {
     public func testAll<G1, G2>(
         _ gen1: G1,
         _ gen2: G2,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T) throws -> Void
@@ -132,7 +132,7 @@ extension XCTestCase {
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T) throws -> Void
@@ -167,7 +167,7 @@ extension XCTestCase {
         _ gen2: G2,
         _ gen3: G3,
         _ gen4: G4,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T) throws -> Void
@@ -204,7 +204,7 @@ extension XCTestCase {
         _ gen3: G3,
         _ gen4: G4,
         _ gen5: G5,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T) throws -> Void
@@ -246,7 +246,7 @@ extension XCTestCase {
         _ gen4: G4,
         _ gen5: G5,
         _ gen6: G6,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T) throws -> Void
@@ -300,7 +300,7 @@ extension XCTestCase {
         _ gen5: G5,
         _ gen6: G6,
         _ gen7: G7,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T) throws -> Void
@@ -356,7 +356,7 @@ extension XCTestCase {
         _ gen6: G6,
         _ gen7: G7,
         _ gen8: G8,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T) throws -> Void
@@ -421,7 +421,7 @@ extension XCTestCase {
         _ gen7: G7,
         _ gen8: G8,
         _ gen9: G9,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T) throws -> Void
@@ -490,7 +490,7 @@ extension XCTestCase {
         _ gen8: G8,
         _ gen9: G9,
         _ gen10: G10,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T, G10.T) throws -> Void

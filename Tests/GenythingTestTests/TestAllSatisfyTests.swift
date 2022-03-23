@@ -21,7 +21,7 @@ internal final class TestAllSatisfyTests: XCTestCase {
     }
 
     func test_that_testAllSatisfy_runs_the_correct_iteration_amount_from_randomSource() {
-        var config = GenythingTestConfig.default()
+        var config = TestConfig.default()
         config.maxIterations = 999
 
         let gen = Generators.constant(())
@@ -36,7 +36,7 @@ internal final class TestAllSatisfyTests: XCTestCase {
     }
 
     func test_that_testAllSatisfy_runs_the_correct_iteration_amount_from_default_randomSource() {
-        let config = GenythingTestConfig.default()
+        let config = TestConfig.default()
         let gen = Generators.constant(())
 
         var count = 0

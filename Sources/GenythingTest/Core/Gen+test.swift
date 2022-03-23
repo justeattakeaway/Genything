@@ -15,7 +15,7 @@ extension Generator {
     ///
     func test(
         iterations: Int? = nil,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         _ predicate: (T) throws -> Bool
     ) -> Result<SuccessfulTestReport, FailedTestReport<T>> {
         let iterations = iterations ?? config.maxIterations

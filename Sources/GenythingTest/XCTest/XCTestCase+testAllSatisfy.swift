@@ -14,7 +14,7 @@ extension XCTestCase {
     ///   - predicate: A closure that takes an element of the sequence as its argument and returns a Boolean value that indicates whether the passed element satisfies a condition
     public func testAllSatisfy<G1>(
         _ generator: G1,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         predicate: @escaping (G1.T) throws -> Bool
@@ -48,7 +48,7 @@ extension XCTestCase {
     public func testAllSatisfy<G1, G2>(
         _ gen1: G1,
         _ gen2: G2,
-        config: GenythingTestConfig = .default(),
+        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         predicate: @escaping (G1.T, G2.T) throws -> Bool
