@@ -1,15 +1,13 @@
-struct GeneratorSequence<Source, Element>: Sequence, IteratorProtocol
-    where Source: Generator, Source.T == Element {
+public struct RandomizedGeneratorSequence<G>: Sequence, IteratorProtocol
+    where G: Generator {
 
-    let generator: Source
-    let randomSource: RandomSource
+    let generator: RandomizedGenerator<G>
 
-    public init(_ generator: Source, randomSource: RandomSource) {
+    public init(_ generator: RandomizedGenerator<G>) {
         self.generator = generator
-        self.randomSource = randomSource
     }
 
-    public func next() -> Element? {
-        generator.next(randomSource)
+    public func next() -> G.T? {
+        generator.next()
     }
 }

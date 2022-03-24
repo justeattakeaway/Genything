@@ -14,7 +14,7 @@ extension Generator {
     ///
     /// - Returns: The Sequence
     public func sequence(_ maxLength: Int, randomSource: RandomSource) -> AnySequence<T> {
-        sequence(randomSource: randomSource).prefix(maxLength)
+        AnySequence(sequence(randomSource: randomSource).prefix(maxLength))
     }
 
     /// Returns: A sequence of this generator's values which will produce infinite elements
@@ -27,9 +27,7 @@ extension Generator {
     ///   - randomSource: The RandomSource to be used for generation
     ///
     /// - Returns: The infinite sequence
-    public func sequence(randomSource: RandomSource) -> AnySequence<T> {
-        AnySequence(
-            GeneratorSequence(self, randomSource: randomSource)
-        )
+    public func sequence(randomSource: RandomSource) -> RandomizedGeneratorSequence<Self> {
+        randomize(with: randomSource).sequence()
     }
 }
