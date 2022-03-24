@@ -7,8 +7,8 @@ extension Generator {
     ///    - values: Array of values which will be produced in order before the receiver takes over
     ///
     /// - Returns: The generator
-    func startWith<S: Swift.Sequence>(_ sequence: S) -> DeferredGenerator<AnyGenerator<T>> where S.Element == T {
-        DeferredGenerator {
+    func startWith<S: Swift.Sequence>(_ sequence: S) -> LazyGenerator<AnyGenerator<T>> where S.Element == T {
+        LazyGenerator {
             StartWith(source: self, sequence: sequence).eraseToAnyGenerator()
         }
     }

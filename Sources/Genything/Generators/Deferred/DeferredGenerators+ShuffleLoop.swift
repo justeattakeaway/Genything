@@ -10,8 +10,8 @@ extension DeferredGenerators {
     /// The same `value` cannot be redrawn until all other values are drawn
     ///
     /// - SeeAlso: https://developer.apple.com/documentation/gameplaykit/gkshuffleddistribution
-    static func shuffleLoop<Elements>(_ collection: Elements) -> DeferredGenerator<AnyGenerator<Elements.Element>> where Elements: Swift.Collection {
-        DeferredGenerator {
+    static func shuffleLoop<Elements>(_ collection: Elements) -> LazyGenerator<AnyGenerator<Elements.Element>> where Elements: Swift.Collection {
+        LazyGenerator {
             ShuffleLoop(collection).eraseToAnyGenerator()
         }
     }

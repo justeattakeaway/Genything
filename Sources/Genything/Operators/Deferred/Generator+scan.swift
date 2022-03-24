@@ -6,8 +6,8 @@ extension Generator {
     /// - Parameters:
     ///   - initialResult: The first value to combine and transform with the receiver's values.
     ///   - nextPartialResult: A closure which transforms the receiver's current value and the last value produced by the resulting generator.
-    func scan<R>(_ initialResult: R, _ nextPartialResult: @escaping (R, T) -> R) -> DeferredGenerator<AnyGenerator<R>> {
-        DeferredGenerator {
+    func scan<R>(_ initialResult: R, _ nextPartialResult: @escaping (R, T) -> R) -> LazyGenerator<AnyGenerator<R>> {
+        LazyGenerator {
             Scan(source: self, initialResult: initialResult, nextPartialResult: nextPartialResult)
                 .eraseToAnyGenerator()
         }

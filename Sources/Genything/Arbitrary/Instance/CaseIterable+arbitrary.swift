@@ -5,8 +5,20 @@ extension CaseIterable {
     ///
     /// - Returns: A generator of the receiver's arbitrary cases
     public static var arbitrary: AnyGenerator<AllCases.Element> {
-        let cases = allCases
+        RandomCase().eraseToAnyGenerator()
+    }
+}
+
+private struct RandomCase<T>: Generator where T: CaseIterable {
+    private let cases: T.AllCases
+
+    public init() {
+        let cases = T.allCases
         assert(!cases.isEmpty, "`CaseIterable.arbitrary` called without cases.")
-        return cases.arbitrary
+        self.cases = cases
+    }
+
+    public func next(_ randomSource: RandomSource) -> T {
+        cases.randomElement(using: &randomSource.rng)!
     }
 }

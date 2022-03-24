@@ -5,9 +5,18 @@ extension Collection {
     ///
     /// - Returns: The generator
     public var arbitrary: AnyGenerator<Element> {
-        assert(!isEmpty, "`arbitrary` was invoked on an empty collection")
-        return AnyGenerator { randomSource in
-            randomElement(using: &randomSource.rng)!
-        }
+        ArbitraryElement(self).eraseToAnyGenerator()
+    }
+}
+
+private struct ArbitraryElement<Elements>: Generator where Elements: Collection {
+    let collection: Elements
+    init(_ collection: Elements) {
+        assert(!collection.isEmpty, "`ArbitraryElement` generator initialized with empty collection")
+        self.collection = collection
+    }
+
+    public func next(_ randomSource: RandomSource) -> Elements.Element {
+        collection.randomElement(using: &randomSource.rng)!
     }
 }

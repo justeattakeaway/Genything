@@ -5,8 +5,8 @@ extension DeferredGenerators {
     ///
     /// - Attention: This generator has been lifted into a deferred generator to make it clear that repeated access will mutate the state of the internal index. When sharing this generator share it as it's wrapped `DeferredGenerator` type and only `start()` the generator when you are ready to store the stateful reference.
 
-    static func loop<Elements>(_ collection: Elements) -> DeferredGenerator<AnyGenerator<Elements.Element>> where Elements: Swift.Collection {
-        DeferredGenerator {
+    static func loop<Elements>(_ collection: Elements) -> LazyGenerator<AnyGenerator<Elements.Element>> where Elements: Swift.Collection {
+        LazyGenerator {
             Loop(collection).eraseToAnyGenerator()
         }
     }
