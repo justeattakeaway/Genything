@@ -1,4 +1,4 @@
-import Genything
+@testable import Genything
 import GenythingTest
 import XCTest
 

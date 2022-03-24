@@ -1,4 +1,4 @@
-public struct GeneratorSequence<Source, Element>: Sequence, IteratorProtocol
+struct GeneratorSequence<Source, Element>: Sequence, IteratorProtocol
     where Source: Generator, Source.T == Element {
 
     let generator: Source
