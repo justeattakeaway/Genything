@@ -39,7 +39,7 @@
 
 /* Begin PBXFileReference section */
 		0331193427458C840053D75E /* GenLibsScriptGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenLibsScriptGenerator.swift; sourceTree = "<group>"; };
-		034D8A3627ECEAE200C46FEF /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		037B099727EE32BB000959ED /* General.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = General.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		03A4EBEA2745B131001A7241 /* genlib.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = genlib.json; sourceTree = "<group>"; };
 		03B06919274C8D4900AC2D71 /* GenLibsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenLibsView.swift; sourceTree = "<group>"; };
 		03BA41012742DECD00B97AA6 /* GenythingExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenythingExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,11 +138,11 @@
 		03BA41032742DECD00B97AA6 /* GenythingExample */ = {
 			isa = PBXGroup;
 			children = (
+				037B099727EE32BB000959ED /* General.playground */,
 				03BA41042742DECD00B97AA6 /* GenythingExampleApp.swift */,
 				770849372742EC8E0044E19E /* Pages */,
 				03BA41082742DED000B97AA6 /* Assets.xcassets */,
 				03BA410A2742DED000B97AA6 /* Preview Content */,
-				034D8A3627ECEAE200C46FEF /* MyPlayground.playground */,
 			);
 			path = GenythingExample;
 			sourceTree = "<group>";
