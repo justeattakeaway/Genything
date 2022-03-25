@@ -4,7 +4,7 @@ import XCTest
 final class ExhaustiveIterateTests: XCTestCase {
     func test_the_sequence_generates_expected_values() {
         var expected = 0
-        testAllSatisfy(DeferredGenerators.iterate(0 ... Int.max).start()) {
+        testAllSatisfy(Generators.iterate(0 ... Int.max).start()) {
             defer { expected += 1 }
             return expected == $0
         }
@@ -13,7 +13,7 @@ final class ExhaustiveIterateTests: XCTestCase {
     func test_exhausted_sequence_generates_nil() {
         let countNonNil = 10
         var i = 0
-        testAllSatisfy(DeferredGenerators.iterate(0 ..< 10).start()) {
+        testAllSatisfy(Generators.iterate(0 ..< 10).start()) {
             defer { i += 1 }
             if i < countNonNil {
                 return $0 != nil
@@ -23,7 +23,7 @@ final class ExhaustiveIterateTests: XCTestCase {
     }
 
     func test_empty_sequence_generates_nil() {
-        testAllSatisfy(DeferredGenerators.iterate([]).start()) {
+        testAllSatisfy(Generators.iterate([]).start()) {
             $0 == nil
         }
     }

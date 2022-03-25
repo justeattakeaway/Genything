@@ -5,7 +5,7 @@ import XCTest
 
 final class ExhaustiveShuffleLoopTests: XCTestCase {
     func test_ExhaustiveShuffleLoop() {
-        let d6shuffle = DeferredGenerators.shuffleLoop(Array(1 ... 6)).start()
+        let d6shuffle = Generators.shuffleLoop(Array(1 ... 6)).start()
 
         var history = [Int]()
 
@@ -34,7 +34,7 @@ final class ExhaustiveShuffleLoopTests: XCTestCase {
             var rank: Rank
         }
 
-        let cardGen = DeferredGenerators.shuffleLoop(
+        let cardGen = Generators.shuffleLoop(
             Rank.allCases.map { rank in
                 Suit.allCases.map { suit in Card(suit: suit, rank: rank) }
             }.flatMap { $0 }

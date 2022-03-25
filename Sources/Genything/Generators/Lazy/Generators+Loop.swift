@@ -1,4 +1,4 @@
-extension DeferredGenerators {
+extension Generators {
     /// A stateful generator which produces elements by looping over a collection of elements.
     ///
     /// Since this generator will comprehensibly examine all elements of the collection it can be used to display all possible configurations or test all possible values when the problem space is small and known.
