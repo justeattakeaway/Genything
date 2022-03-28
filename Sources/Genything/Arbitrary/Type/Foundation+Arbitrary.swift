@@ -5,8 +5,18 @@ import Foundation
 extension Date: Arbitrary {
     /// A generator of arbitrary `Date`s
     public static var arbitrary: AnyGenerator<Date> {
-        Double.arbitrary
-            .map { Date(timeIntervalSince1970: $0) }
+        ArbitraryDateGenerator().eraseToAnyGenerator()
+    }
+}
+
+private struct ArbitraryDateGenerator: Generator {
+    // While `Date(timeIntervalSince1970:)` may take a `TimeInterval` there is a much smaller space where real dates are produced
+    let min = Date.distantPast.timeIntervalSince1970
+    let max = Date.distantFuture.timeIntervalSince1970
+
+    func next(_ randomSource: RandomSource) -> Date {
+        let randomInterval = TimeInterval.random(in: min...max, using: &randomSource.rng)
+        return Date(timeIntervalSince1970: randomInterval)
     }
 }
 
