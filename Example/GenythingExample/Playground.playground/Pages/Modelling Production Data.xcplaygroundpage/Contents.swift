@@ -1,6 +1,7 @@
 import Genything
 import Foundation
 import GenythingTest
+import Trickery
 import XCTest
 
 // Before this, we've seen how Genything can be used to generate mostly numbers. But we're developing real apps, not doing equations!
@@ -117,6 +118,9 @@ TestAgeRouting.defaultTestSuite.run()
 
 // 🧑‍🎨 "This data is still very arbitrary, how can I generate nice previews and example apps"
 
-// In this case you should reach for `Fakery`, a companion library of **realistic** generators.
+// In this case we can reach for `Trickery`, a companion library of **realistic** generators.
 
-// TODO
+User.arbitrary.recompose { user, generate in
+    user.name = generate(Fake.PersonNames.name)
+    user.age = generate((0...100).arbitrary)
+}
