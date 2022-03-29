@@ -1,15 +1,7 @@
 import Genything
 import Foundation
 
-// - Information about how to create your own Generators
-// - Not just using the operators that we offer
-// - Examples of how our current operators are created, and how they are types conforming to Generator
-
-
 // We can do a lot using the generators and composable operators Genything provides
-
-// TODO: Example
-
 // But there may be situations where you'd like to create generators in a more imperative way.
 
 // To do this, one must simply conform to the `Generator` protocol
