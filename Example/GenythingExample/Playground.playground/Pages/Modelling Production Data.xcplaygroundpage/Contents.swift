@@ -75,7 +75,7 @@ extension User: Arbitrary {
 
 // ---
 
-// 🙋 "But this generator is really... arbitrary! I have specific requirements for my Example / Preview / Test."
+// 🙋 > "But this generator is really... arbitrary! I have specific requirements for my Example / Preview / Test."
 
 // We recommend that teams first create arbitrary representations of their models, but then adapt them to the situation at hand.
 
@@ -116,7 +116,7 @@ TestAgeRouting.defaultTestSuite.run()
 
 // ---
 
-// 🧑‍🎨 "This data is still very arbitrary, how can I generate nice previews and example apps"
+// 🧑‍🎨 > "This data is still very arbitrary, how can I generate nice previews and example apps"
 
 // In this case we can reach for `Trickery`, a companion library of **realistic** generators.
 

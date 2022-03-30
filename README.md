@@ -58,28 +58,45 @@ Both of these libraries may be used for code testing, rapid prototyping, demo ap
 - High test coverage
 - [100% Documented](https://justeattakeaway.github.io/Genything)
 
-### Gen
+### Generator
 
-The `Gen` type class is the core of Genything.
-It is nothing more than a generic container that stores a callback capable of generating a value from a `Context`.
+The `Generator` is the core of Genything.
 
 ```swift
-struct Gen<T> {
-    let generator: (Context) throws -> T
+public protocol Generator {
+    associatedtype T
+    func next(_ randomSource: RandomSource) -> T
 }
 ```
 
-The `Context` contains configuration, and a Random Number Generator which you can customize.
+It defines a type with a function capable of generating values using a `RandomSource`.
+The `RandomSource` is used to track and mutate any RandomNumberGenerator instance, allowing you to control just how **much** random you would like.
 
-So a generator of Booleans might look like this:
+A generator of bools might look like this:
 
 ```swift
-Gen<Bool> { context in
-    Bool.random(using: &context.rng)
+struct BoolGenerator: Generator {
+    func next(_ randomSource: RandomSource) -> T {
+        Bool.random(using: &randomSource.rng)
+    }
 }
 ```
 
-This is a good to understand, but in practice you can avoid `Gen`'s initializer altogether and instead use the vast library of extensions to build, combine, and mutate `Gen`s.
+or
+
+```swift
+AnyGenerator<Bool> { randomSource in
+    Bool.random(using: &randomSource.rng)
+}
+```
+
+or (using Genything's preconfigured extensions):
+
+```swift
+Bool.arbitrary
+```
+
+In fact, Genything offers a vast library of extensions to which preconfigure arbitrary generators, as well as many operators to combine, compose, and mutate the resulting generators..
 
 You can find out more about these extensions in the [documentation](https://justeattakeaway.github.io/Genything/Structs/Gen.html)!
 
