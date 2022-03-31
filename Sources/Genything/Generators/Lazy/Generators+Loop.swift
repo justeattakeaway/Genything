@@ -3,12 +3,9 @@ extension Generators {
     ///
     /// Since this generator will comprehensibly examine all elements of the collection it can be used to display all possible configurations or test all possible values when the problem space is small and known.
     ///
-    /// - Attention: This generator has been lifted into a deferred generator to make it clear that repeated access will mutate the state of the internal index. When sharing this generator share it as it's wrapped `DeferredGenerator` type and only `start()` the generator when you are ready to store the stateful reference.
-
-    static func loop<Elements>(_ collection: Elements) -> LazyGenerator<AnyGenerator<Elements.Element>> where Elements: Swift.Collection {
-        LazyGenerator {
-            Loop(collection).eraseToAnyGenerator()
-        }
+    /// - Warning: The resulting generator accumulates state. Shared access of the same instance may have unintended effects. Be careful not to expose this generator as a singleton. When sharing the definition use a computed variable, a function, or wrap it with a `LazyGenerator` so that different generator instanced are always created on access.
+    public static func loop<Elements>(_ collection: Elements) -> AnyGenerator<Elements.Element> where Elements: Swift.Collection {
+        Loop(collection).eraseToAnyGenerator()
     }
 }
 

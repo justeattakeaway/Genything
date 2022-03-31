@@ -1,11 +1,9 @@
 extension Generators {
     /// A Generator that generates a given `Sequence` of elements. When the generator exhausts the elements in the sequence, it will begin to return nil.
     ///
-    /// - Attention: This generator has been lifted into a deferred generator to make it clear that repeated access will mutate the state of the internal index. When sharing this generator share it as it's wrapped `DeferredGenerator` type and only `start()` the generator when you are ready to store the stateful reference.
-    static func iterate<Elements>(_ sequence: Elements) -> LazyGenerator<AnyGenerator<Elements.Element?>> where Elements: Swift.Sequence {
-        LazyGenerator {
-            Iterate(sequence).eraseToAnyGenerator()
-        }
+    /// - Warning: The resulting generator accumulates state. Shared access of the same instance may have unintended effects. Be careful not to expose this generator as a singleton. When sharing the definition use a computed variable, a function, or wrap it with a `LazyGenerator` so that different generator instanced are always created on access.
+    public static func iterate<Elements>(_ sequence: Elements) -> AnyGenerator<Elements.Element?> where Elements: Swift.Sequence {
+        Iterate(sequence).eraseToAnyGenerator()
     }
 }
 

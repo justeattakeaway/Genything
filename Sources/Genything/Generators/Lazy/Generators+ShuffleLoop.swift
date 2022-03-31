@@ -1,8 +1,6 @@
 extension Generators {
     /// A generator which produces results by shuffling the provided list and drawing values until empty, then reshuffles
     ///
-    /// - Attention: This generator has been lifted into a deferred generator to make it clear that repeated access will mutate the state of the internal index. When sharing this generator share it as it's wrapped `DeferredGenerator` type and only `start()` the generator when you are ready to store the stateful reference.
-    ///
     /// Best visualized with a playing card metaphor
     ///     - the dealer shuffles the deck of cards and deals cards 1 by 1 until no more cards remain
     ///     - the dealer reshuffles the deck and repeats
@@ -10,10 +8,9 @@ extension Generators {
     /// The same `value` cannot be redrawn until all other values are drawn
     ///
     /// - SeeAlso: https://developer.apple.com/documentation/gameplaykit/gkshuffleddistribution
-    static func shuffleLoop<Elements>(_ collection: Elements) -> LazyGenerator<AnyGenerator<Elements.Element>> where Elements: Swift.Collection {
-        LazyGenerator {
-            ShuffleLoop(collection).eraseToAnyGenerator()
-        }
+    /// - Warning: The resulting generator accumulates state. Shared access of the same instance may have unintended effects. Be careful not to expose this generator as a singleton. When sharing the definition use a computed variable, a function, or wrap it with a `LazyGenerator` so that different generator instanced are always created on access.
+    public static func shuffleLoop<Elements>(_ collection: Elements) -> AnyGenerator<Elements.Element> where Elements: Swift.Collection {
+        ShuffleLoop(collection).eraseToAnyGenerator()
     }
 }
 
