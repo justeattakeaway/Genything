@@ -118,6 +118,7 @@
 		03BA40F82742DECD00B97AA6 = {
 			isa = PBXGroup;
 			children = (
+				037B099727EE32BB000959ED /* Playground.playground */,
 				03BA412E2742DF4E00B97AA6 /* Packages */,
 				03BA41032742DECD00B97AA6 /* GenythingExample */,
 				03BA41142742DED000B97AA6 /* GenythingExampleTests */,
@@ -138,7 +139,6 @@
 		03BA41032742DECD00B97AA6 /* GenythingExample */ = {
 			isa = PBXGroup;
 			children = (
-				037B099727EE32BB000959ED /* Playground.playground */,
 				03BA41042742DECD00B97AA6 /* GenythingExampleApp.swift */,
 				770849372742EC8E0044E19E /* Pages */,
 				03BA41082742DED000B97AA6 /* Assets.xcassets */,
