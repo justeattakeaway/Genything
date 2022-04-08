@@ -1,5 +1,3 @@
-import Foundation
-
 extension Generator {
     /// Returns: A generator that only produces values which pass the test `isIncluded`
     ///
