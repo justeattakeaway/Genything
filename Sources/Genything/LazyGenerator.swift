@@ -2,8 +2,6 @@
 ///
 /// The wrapped Generator can be safely transformed while retaining the lazy initialization via `map(transform:)`
 public struct LazyGenerator<G: Generator> {
-    private let starter: () -> G
-
     /// Initializes the DeferredGenerator with a starter factory that produces a Generator when started
     public init(_ starter: @escaping () -> G) {
         self.starter = starter
@@ -23,4 +21,7 @@ public struct LazyGenerator<G: Generator> {
             transform(start())
         }
     }
+
+    private let starter: () -> G
+
 }

@@ -5,7 +5,8 @@ import Genything
 // For example, you may want a generator which counts and returns values
 
 class Counter: Generator {
-    var index: Int = 0
+    var index = 0
+
     func next(_: RandomSource) -> Int {
         defer { index += 1 }
         return index

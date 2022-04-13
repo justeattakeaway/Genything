@@ -1,7 +1,5 @@
 /// A type-erased Generator
 public struct AnyGenerator<T>: Generator {
-    private let wrappedNext: (RandomSource) -> T
-
     /// Creates a type-erasing Generator to wrap the provided Generator
     ///
     /// - Parameter Generator: A Generator to wrap with a type-eraser.
@@ -22,6 +20,9 @@ public struct AnyGenerator<T>: Generator {
     public func next(_ randomSource: RandomSource) -> T {
         wrappedNext(randomSource)
     }
+
+    private let wrappedNext: (RandomSource) -> T
+
 }
 
 extension Generator {

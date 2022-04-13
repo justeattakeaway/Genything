@@ -9,7 +9,8 @@ extension Generators {
     ///
     /// - SeeAlso: https://developer.apple.com/documentation/gameplaykit/gkshuffleddistribution
     /// - Warning: The resulting generator accumulates state. Shared access of the same instance may have unintended effects. Be careful not to expose this generator as a singleton. When sharing the definition use a computed variable, a function, or wrap it with a `LazyGenerator` so that different generator instanced are always created on access.
-    public static func shuffleLoop<Elements>(_ collection: Elements) -> AnyGenerator<Elements.Element> where Elements: Swift.Collection {
+    public static func shuffleLoop<Elements>(_ collection: Elements) -> AnyGenerator<Elements.Element>
+        where Elements: Swift.Collection {
         ShuffleLoop(collection).eraseToAnyGenerator()
     }
 }

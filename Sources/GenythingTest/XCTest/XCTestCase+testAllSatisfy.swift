@@ -61,7 +61,7 @@ extension XCTestCase {
             predicate: predicate
         )
     }
-    
+
     /// Iterates over a generator sequence and asserts that all values satisfy the given `predicate`
     ///
     /// - Parameters:
@@ -86,7 +86,7 @@ extension XCTestCase {
             predicate: predicate
         )
     }
-    
+
     /// Iterates over a generator sequence and asserts that all values satisfy the given `predicate`
     ///
     /// - Parameters:
@@ -112,7 +112,7 @@ extension XCTestCase {
             predicate: predicate
         )
     }
-    
+
     /// Iterates over a generator sequence and asserts that all values satisfy the given `predicate`
     ///
     /// - Parameters:

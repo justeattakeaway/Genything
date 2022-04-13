@@ -1,5 +1,5 @@
-import Genything
 import Foundation
+import Genything
 import GenythingTest
 import Trickery
 import XCTest
@@ -107,7 +107,7 @@ under18UserGen.next(RandomSource()) /// Returns: An arbitrary user with age < 18
 class TestAgeRouting: XCTestCase {
     func test_givenUnder18Users_isAdult_returnsFalse() {
         testAllSatisfy(under18UserGen) { user in
-            return !user.isAdult
+            !user.isAdult
         }
     }
 }

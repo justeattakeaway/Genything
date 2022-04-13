@@ -20,7 +20,7 @@ private struct Filter<Source>: Generator where Source: Generator {
     let isIncluded: (Source.T) -> Bool
 
     public func next(_ randomSource: RandomSource) -> Source.T {
-        while(true) {
+        while true {
             let candidate = source.next(randomSource)
             if isIncluded(candidate) {
                 return candidate

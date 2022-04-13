@@ -1,5 +1,5 @@
-import Genything
 import Foundation
+import Genything
 
 // We can do a lot using the generators and composable operators Genything provides
 // But there may be situations where you'd like to create generators in a more imperative way.

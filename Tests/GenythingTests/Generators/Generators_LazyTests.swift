@@ -4,18 +4,18 @@ import XCTest
 final class Generators_LazyTests: XCTestCase {
     func test_a_shared_generator_is_not_independent() {
         let iterator = Generators.iterate(0 ... 10)
-        
+
         XCTAssertNotEqual(
             iterator.take(5, randomSource: RandomSource()),
             iterator.take(5, randomSource: RandomSource())
         )
     }
-    
+
     func test_that_each_lazy_started_generator_is_independent() {
         let lazyIterator = LazyGenerator {
             Generators.iterate(0 ... 10)
         }
-        
+
         XCTAssertEqual(
             lazyIterator.start().take(5, randomSource: RandomSource()),
             lazyIterator.start().take(5, randomSource: RandomSource())
