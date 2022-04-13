@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Generator Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/Generator" class="dashAnchor"></a>
+    <a title="Generator Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Genything 0.0.4 Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/justeattakeaway/Genything"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Genything Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        Generator Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/RandomSource.html">RandomSource</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Determinism.html">Determinism</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Generators.html">Generators</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/AnyBidirectionalCollection.html">AnyBidirectionalCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/AnySequence.html">AnySequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/ArraySlice.html">ArraySlice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Bool.html">Bool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CGFloat.html">CGFloat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CGVector.html">CGVector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CaseIterable.html">CaseIterable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Character.html">Character</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/ClosedRange.html">ClosedRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Collection.html">Collection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Double.html">Double</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/EmptyCollection.html">EmptyCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:Sf">Float</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Int.html">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Int32.html">Int32</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:s5Int64V">Int64</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/LazySequence.html">LazySequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Optional.html">Optional</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Range.html">Range</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Repeated.html">Repeated</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Result.html">Result</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Set.html">Set</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UInt.html">UInt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UInt32.html">UInt32</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UUID.html">UUID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UnicodeScalar.html">UnicodeScalar</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Arbitrary.html">Arbitrary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Generator.html">Generator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RandomInRangeable.html">RandomInRangeable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AnyGenerator.html">AnyGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AnyRandomNumberGenerator.html">AnyRandomNumberGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Composer.html">Composer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LazyGenerator.html">LazyGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RandomizedGenerator.html">RandomizedGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RandomizedGeneratorSequence.html">RandomizedGeneratorSequence</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Generator</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Generator</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents a type which can be generated from. The type is passed a <code><a href="../Classes/RandomSource.html">RandomSource</a></code> and is expected to use this source for any random operations such that the generator is deterministic. By controlling how this <code><a href="../Classes/RandomSource.html">RandomSource</a></code> is shared the generator&rsquo;s values can also be controlled such that they are independent if that is your desire. e.g. One generator does not affect other generators.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    The generator protocol has no requirement to be completely stateless. The type might generate random elements or follow some pattern, and this patterns may rely on this generators previous generations. Therefore, sharing a generator between unrelated contexts should be done with care or consider wrapping the Generator into a <code><a href="../Structs/LazyGenerator.html">LazyGenerator</a></code>.
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorP1TQa"></a>
+                    <a name="//apple_ref/swift/Alias/T" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorP1TQa">T</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of element which this Generator produces</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorP4nexty1TQzAA12RandomSourceCF"></a>
+                    <a name="//apple_ref/swift/Method/next(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorP4nexty1TQzAA12RandomSourceCF">next(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Produces the next element from this generator using the provided random source</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">next</span><span class="p">(</span><span class="n">_</span> <span class="nv">randomSource</span><span class="p">:</span> <span class="kt"><a href="../Classes/RandomSource.html">RandomSource</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>randomSource</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A source of random to be used by upstream generators</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE010eraseToAnyB0AA0eB0Vy1TQzGyF"></a>
+                    <a name="//apple_ref/swift/Method/eraseToAnyGenerator()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE010eraseToAnyB0AA0eB0Vy1TQzGyF">eraseToAnyGenerator()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Erases types conforming to the abstract protocol Generator to the concrete struct AnyGenerator</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">eraseToAnyGenerator</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE5debug_4file4lineAA03AnyB0Vy1TQzGSS_s12StaticStringVSutF"></a>
+                    <a name="//apple_ref/swift/Method/debug(_:file:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE5debug_4file4lineAA03AnyB0Vy1TQzGSS_s12StaticStringVSutF">debug(_:<wbr>file:<wbr>line:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Logs a print statement for each value produced by the receiver</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">debug</span><span class="p">(</span><span class="n">_</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span> <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="kt">ID</span><span class="p">,</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional tag which can be used to easily identify which debug statement a log belongs to</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator which which produces identical values to the receiver</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE6expand6toSizeAA03AnyB0VySay1TQzGGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/expand(toSize:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE6expand6toSizeAA03AnyB0VySay1TQzGGSi_tF">expand(toSize:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: The receiver&rsquo;s generator expanded to generate an array of the receiver&rsquo;s values</p>
+
+<p>The generated arrays will be of size <code>size</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">expand</span><span class="p">(</span><span class="n">toSize</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>size</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The size of the generated arrays</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>Gen</code> generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE6expand13toSizeInRangeAA03AnyB0VySay1TQzGGSnySiG_tF"></a>
+                    <a name="//apple_ref/swift/Method/expand(toSizeInRange:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE6expand13toSizeInRangeAA03AnyB0VySay1TQzGGSnySiG_tF">expand(toSizeInRange:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: The receiver&rsquo;s generator expanded to generate an array of the receiver&rsquo;s values</p>
+
+<p>The generated arrays will be of random sizes in <code>range</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">expand</span><span class="p">(</span><span class="n">toSizeInRange</span> <span class="nv">range</span><span class="p">:</span> <span class="kt">Range</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>range</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>Range</code> of values which will randomly determine the size of the generated arrays</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>Gen</code> generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE6expand13toSizeInRangeAA03AnyB0VySay1TQzGGSNySiG_tF"></a>
+                    <a name="//apple_ref/swift/Method/expand(toSizeInRange:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE6expand13toSizeInRangeAA03AnyB0VySay1TQzGGSNySiG_tF">expand(toSizeInRange:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: The receiver&rsquo;s generator expanded to generate an array of the receiver&rsquo;s values</p>
+
+<p>The generated arrays will be of random sizes in <code>range</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">expand</span><span class="p">(</span><span class="n">toSizeInRange</span> <span class="nv">range</span><span class="p">:</span> <span class="kt">ClosedRange</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>range</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>Range</code> of values which will randomly determine the size of the generated arrays</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>Gen</code> generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE7flatMapyAA03AnyB0Vy1TQyd__Gqd__AGQzcAaBRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/flatMap(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE7flatMapyAA03AnyB0Vy1TQyd__Gqd__AGQzcAaBRd__lF">flatMap(_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator that transforms the receiver into a generator of type <code>R</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">flatMap</span><span class="o">&lt;</span><span class="kt">G</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">G</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt">G</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">G</span> <span class="p">:</span> <span class="kt">Generator</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transform</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A function capable of transforming the receiver to a generator of values of type <code>R</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>Gen</code> generator of values of type <code>R</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE8generateyAA03AnyB0Vy1TQzGAhA12RandomSourceCcF"></a>
+                    <a name="//apple_ref/swift/Method/generate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE8generateyAA03AnyB0Vy1TQzGAhA12RandomSourceCcF">generate(_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">generate</span><span class="p">(</span><span class="n">_</span> <span class="nv">generate</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/RandomSource.html">RandomSource</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator which generates values by returning the result of the provided closure</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE3mapyAA03AnyB0Vyqd__Gqd__1TQzclF"></a>
+                    <a name="//apple_ref/swift/Method/map(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE3mapyAA03AnyB0Vyqd__Gqd__1TQzclF">map(_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator that transforms the receivers&rsquo; values into a value of type <code>R</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">map</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transform</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A function capable of transforming the receiver&rsquo;s values to type <code>R</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>Gen</code> generator of values of type <code>R</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE2or_16otherProbabilityAA03AnyB0Vy1TQzGqd___SdtAaBRd__AHQyd__AIRSlF"></a>
+                    <a name="//apple_ref/swift/Method/or(_:otherProbability:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE2or_16otherProbabilityAA03AnyB0Vy1TQzGqd___SdtAaBRd__AHQyd__AIRSlF">or(_:<wbr>otherProbability:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator which randomly selects values from either the receiver or the <code>other</code> generator</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">or</span><span class="o">&lt;</span><span class="kt">Other</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">Other</span><span class="p">,</span> <span class="nv">otherProbability</span><span class="p">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">Other</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span>
+    <span class="kt">Other</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span> <span class="o">==</span> <span class="k">Self</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another generator which may get selected to produce values</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>otherProbability</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The probability that the the right generator will be selected from</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE5orNil14nilProbabilityAA03AnyB0Vy1TQzSgGSd_tF"></a>
+                    <a name="//apple_ref/swift/Method/orNil(nilProbability:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE5orNil14nilProbabilityAA03AnyB0Vy1TQzSgGSd_tF">orNil(nilProbability:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator that wraps the receivers&rsquo; values in an optional</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">orNil</span><span class="p">(</span><span class="nv">nilProbability</span><span class="p">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">?</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>nilProbability</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The probability that the optional will be <code>nil</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>Gen</code> generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE9recomposeyAA03AnyB0Vy1TQzGyAHz_AA8ComposerVtcF"></a>
+                    <a name="//apple_ref/swift/Method/recompose(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE9recomposeyAA03AnyB0Vy1TQzGyAHz_AA8ComposerVtcF">recompose(_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Apply additional changes to an already created element on the receiving generator</p>
+<div class="aside aside-attention">
+    <p class="aside-title">Attention</p>
+    <p>This composition block is executed for each generated value, only truly arbitrary generators should be created in this block. If a generator which relies on it&rsquo;s own state is created in this block it will be recreated for each generated value. If a stateful generator is desired to be used you must hold the reference outside the block.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">recompose</span><span class="p">(</span><span class="n">_</span> <span class="nv">compose</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt"><a href="../Structs/Composer.html">Composer</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>compose</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which provides the previously generated value as an inout parameter, allowing you to make changes to the properties contained within if they are variable. To do so the composer is also provided as the second argument.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator which produces modified values of type <code><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE10regenerateyAA03AnyB0Vy1TQzGyAHz_AA12RandomSourceCtcF"></a>
+                    <a name="//apple_ref/swift/Method/regenerate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE10regenerateyAA03AnyB0Vy1TQzGyAHz_AA12RandomSourceCtcF">regenerate(_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Apply additional changes to an already created element on the receiving generator</p>
+<div class="aside aside-attention">
+    <p class="aside-title">Attention</p>
+    <p>This generate block is executed for each generated value, only truly arbitrary generators should be created in this block. If a generator which relies on it&rsquo;s own state is created in this block it will be recreated for each generated value. If a stateful generator is desired to be used you must hold the reference outside the block.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">regenerate</span><span class="p">(</span><span class="n">_</span> <span class="nv">generate</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt"><a href="../Classes/RandomSource.html">RandomSource</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>generate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which provides the previously generated value as an inout parameter, allowing you to make changes to the properties contained within if they are variable. To do so the random source is also provided as the second argument.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator which produces modified values of type <code><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE10replaceNil4withAA03AnyB0Vyqd__Gqd___tqd__Sg1TRtzlF"></a>
+                    <a name="//apple_ref/swift/Method/replaceNil(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE10replaceNil4withAA03AnyB0Vyqd__Gqd___tqd__Sg1TRtzlF">replaceNil(with:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator that replaces the receivers&rsquo; nil values with the replacement</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">replaceNil</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">with</span> <span class="nv">replacement</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span> <span class="o">==</span> <span class="kt">R</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>replacement</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A replacement for nil values of the unwrapped type</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE20replacingOccurrences2of2inAA03AnyB0VySSGSS_SStF"></a>
+                    <a name="//apple_ref/swift/Method/replacingOccurrences(of:in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE20replacingOccurrences2of2inAA03AnyB0VySSGSS_SStF">replacingOccurrences(of:<wbr>in:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator of strings which replace <code>character</code> in <code>source</code> by the content of the receiver&rsquo;s generator</p>
+
+<p>The receiver&rsquo;s contents will be coerced by interpolation to type <code>String</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">replacingOccurrences</span><span class="p">(</span><span class="n">of</span> <span class="nv">substring</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="k">in</span> <span class="nv">source</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>substring</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The substring that should be replaced</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>source</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The source or template <code>String</code> that will be modified</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The <code>String</code> generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE4scanyAA03AnyB0Vyqd__Gqd___qd__qd___1TQztctlF"></a>
+                    <a name="//apple_ref/swift/Method/scan(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE4scanyAA03AnyB0Vyqd__Gqd___qd__qd___1TQztctlF">scan(_:<wbr>_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator that transforms the receivers&rsquo; values by providing the current element to a closure along with the last value produced by the resulting Generator.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>The resulting generator accumulates state. Shared access of the same instance may have unintended effects. Be careful not to expose this generator as a singleton. When sharing the definition use a computed variable, a function, or wrap it with a <code><a href="../Structs/LazyGenerator.html">LazyGenerator</a></code> so that different generator instanced are always created on access.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">scan</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">initialResult</span><span class="p">:</span> <span class="kt">R</span><span class="p">,</span> <span class="n">_</span> <span class="nv">nextPartialResult</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">R</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>initialResult</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The first value to combine and transform with the receiver&rsquo;s values.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>nextPartialResult</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure which transforms the receiver&rsquo;s current value and the last value produced by the resulting generator.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE9startWithyAA03AnyB0Vy1TQzGqd__STRd__7ElementQyd__AHRSlF"></a>
+                    <a name="//apple_ref/swift/Method/startWith(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE9startWithyAA03AnyB0Vy1TQzGqd__STRd__7ElementQyd__AHRSlF">startWith(_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator which iterates the elements of <code>sequence</code>. When exhausted the generator will switch to producing values from the receiving generator.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>The resulting generator accumulates state. Shared access of the same instance may have unintended effects. Be careful not to expose this generator as a singleton. When sharing the definition use a computed variable, a function, or wrap it with a <code><a href="../Structs/LazyGenerator.html">LazyGenerator</a></code> so that different generator instanced are always created on access.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">startWith</span><span class="o">&lt;</span><span class="kt">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">sequence</span><span class="p">:</span> <span class="kt">S</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">S</span> <span class="p">:</span> <span class="kt">Sequence</span><span class="p">,</span> <span class="k">Self</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span> <span class="o">==</span> <span class="kt">S</span><span class="o">.</span><span class="kt">Element</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>values</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array of values which will be produced in order before the receiver takes over</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The generator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Combine%20-%20Zip"></a>
+                <a name="//apple_ref/swift/Section/Combine - Zip" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Combine%20-%20Zip"></a>
+                  <h3 class="section-name"><span>Combine - Zip</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE3zipyAA03AnyB0Vy1TQz_AGQyd__tGqd__AaBRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE3zipyAA03AnyB0Vy1TQz_AGQyd__tGqd__AaBRd__lF">zip(_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the receiver and <code>other</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">B</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">B</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="p">(</span><span class="k">Self</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">B</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">B</span> <span class="p">:</span> <span class="kt">Generator</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another generator to zip with</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of Tuples</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE3zip_9transformAA03AnyB0Vyqd_0_Gqd___qd_0_1TQz_AIQyd__tctAaBRd__r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:transform:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE3zip_9transformAA03AnyB0Vyqd_0_Gqd___qd_0_1TQz_AIQyd__tctAaBRd__r0_lF">zip(_:<wbr>transform:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the receiver and <code>other</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">B</span><span class="p">,</span> <span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">B</span><span class="p">,</span> <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">Self</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">B</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span>
+    <span class="k">where</span> <span class="kt">B</span><span class="p">:</span> <span class="kt">Generator</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another generator to zip with</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transform</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Transforms the values produced by the resulting zipped generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of Tuples</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Combine%20-%20Zip3"></a>
+                <a name="//apple_ref/swift/Section/Combine - Zip3" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Combine%20-%20Zip3"></a>
+                  <h3 class="section-name"><span>Combine - Zip3</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE3zipyAA03AnyB0Vy1TQz_AGQyd__AGQyd_0_tGqd___qd_0_tAaBRd__AaBRd_0_r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE3zipyAA03AnyB0Vy1TQz_AGQyd__AGQyd_0_tGqd___qd_0_tAaBRd__AaBRd_0_r0_lF">zip(_:<wbr>_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the receiver and <code>other</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">b</span><span class="p">:</span> <span class="kt">B</span><span class="p">,</span> <span class="n">_</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="p">(</span><span class="k">Self</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">B</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">C</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">B</span> <span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">C</span> <span class="p">:</span> <span class="kt">Generator</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another generator to zip with</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of Tuples</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE3zip__9transformAA03AnyB0Vyqd_1_Gqd___qd_0_qd_1_1TQz_AIQyd__AIQyd_0_tctAaBRd__AaBRd_0_r1_lF"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:_:transform:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE3zip__9transformAA03AnyB0Vyqd_1_Gqd___qd_0_qd_1_1TQz_AIQyd__AIQyd_0_tctAaBRd__AaBRd_0_r1_lF">zip(_:<wbr>_:<wbr>transform:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the receiver and <code>other</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">,</span> <span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">b</span><span class="p">:</span> <span class="kt">B</span><span class="p">,</span> <span class="n">_</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">C</span><span class="p">,</span> <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">B</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">C</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span>
+    <span class="k">where</span> <span class="kt">B</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">C</span><span class="p">:</span> <span class="kt">Generator</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another generator to zip with</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transform</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Transforms the values produced by the resulting zipped generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of Tuples</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Combine%20-%20Zip4"></a>
+                <a name="//apple_ref/swift/Section/Combine - Zip4" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Combine%20-%20Zip4"></a>
+                  <h3 class="section-name"><span>Combine - Zip4</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE3zipyAA03AnyB0Vy1TQz_AGQyd__AGQyd_0_AGQyd_1_tGqd___qd_0_qd_1_tAaBRd__AaBRd_0_AaBRd_1_r1_lF"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE3zipyAA03AnyB0Vy1TQz_AGQyd__AGQyd_0_AGQyd_1_tGqd___qd_0_qd_1_tAaBRd__AaBRd_0_AaBRd_1_r1_lF">zip(_:<wbr>_:<wbr>_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the receiver and <code>other</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">,</span> <span class="kt">D</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">b</span><span class="p">:</span> <span class="kt">B</span><span class="p">,</span> <span class="n">_</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">C</span><span class="p">,</span> <span class="n">_</span> <span class="nv">d</span><span class="p">:</span> <span class="kt">D</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="p">(</span><span class="k">Self</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">B</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">C</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">D</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span><span class="o">&gt;</span>
+    <span class="k">where</span> <span class="kt">B</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">C</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">D</span><span class="p">:</span> <span class="kt">Generator</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another generator to zip with</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of Tuples</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE3zip___9transformAA03AnyB0Vyqd_2_Gqd___qd_0_qd_1_qd_2_1TQz_AIQyd__AIQyd_0_AIQyd_1_tctAaBRd__AaBRd_0_AaBRd_1_r2_lF"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:_:_:transform:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE3zip___9transformAA03AnyB0Vyqd_2_Gqd___qd_0_qd_1_qd_2_1TQz_AIQyd__AIQyd_0_AIQyd_1_tctAaBRd__AaBRd_0_AaBRd_1_r2_lF">zip(_:<wbr>_:<wbr>_:<wbr>transform:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the receiver and <code>other</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">,</span> <span class="kt">D</span><span class="p">,</span> <span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">b</span><span class="p">:</span> <span class="kt">B</span><span class="p">,</span> <span class="n">_</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">C</span><span class="p">,</span> <span class="n">_</span> <span class="nv">d</span><span class="p">:</span> <span class="kt">D</span><span class="p">,</span> <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">B</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">C</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">D</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span>
+    <span class="k">where</span> <span class="kt">B</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">C</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">D</span><span class="p">:</span> <span class="kt">Generator</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another generator to zip with</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transform</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Transforms the values produced by the resulting zipped generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of Tuples</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE3zipyAA03AnyB0Vy1TQz_AGQyd__AGQyd_0_AGQyd_1_AGQyd_2_tGqd___qd_0_qd_1_qd_2_tAaBRd__AaBRd_0_AaBRd_1_AaBRd_2_r2_lF"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:_:_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE3zipyAA03AnyB0Vy1TQz_AGQyd__AGQyd_0_AGQyd_1_AGQyd_2_tGqd___qd_0_qd_1_qd_2_tAaBRd__AaBRd_0_AaBRd_1_AaBRd_2_r2_lF">zip(_:<wbr>_:<wbr>_:<wbr>_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the receiver and <code>other</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">,</span> <span class="kt">D</span><span class="p">,</span> <span class="kt">E</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">b</span><span class="p">:</span> <span class="kt">B</span><span class="p">,</span> <span class="n">_</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">C</span><span class="p">,</span> <span class="n">_</span> <span class="nv">d</span><span class="p">:</span> <span class="kt">D</span><span class="p">,</span> <span class="n">_</span> <span class="nv">e</span><span class="p">:</span> <span class="kt">E</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="p">(</span><span class="k">Self</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">B</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">C</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">D</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">E</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span><span class="o">&gt;</span>
+    <span class="k">where</span> <span class="kt">B</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">C</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">D</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">E</span><span class="p">:</span> <span class="kt">Generator</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another generator to zip with</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of Tuples</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE3zip____9transformAA03AnyB0Vyqd_3_Gqd___qd_0_qd_1_qd_2_qd_3_1TQz_AIQyd__AIQyd_0_AIQyd_1_AIQyd_2_tctAaBRd__AaBRd_0_AaBRd_1_AaBRd_2_r3_lF"></a>
+                    <a name="//apple_ref/swift/Method/zip(_:_:_:_:transform:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE3zip____9transformAA03AnyB0Vyqd_3_Gqd___qd_0_qd_1_qd_2_qd_3_1TQz_AIQyd__AIQyd_0_AIQyd_1_AIQyd_2_tctAaBRd__AaBRd_0_AaBRd_1_AaBRd_2_r3_lF">zip(_:<wbr>_:<wbr>_:<wbr>_:<wbr>transform:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A generator by zipping together the values produced by the receiver and <code>other</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">zip</span><span class="o">&lt;</span><span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">,</span> <span class="kt">D</span><span class="p">,</span> <span class="kt">E</span><span class="p">,</span> <span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">b</span><span class="p">:</span> <span class="kt">B</span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">C</span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">d</span><span class="p">:</span> <span class="kt">D</span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">e</span><span class="p">:</span> <span class="kt">E</span><span class="p">,</span>
+    <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">Self</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">B</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">C</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">D</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">,</span> <span class="kt">E</span><span class="o">.</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">R</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyGenerator.html">AnyGenerator</a></span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span>
+    <span class="k">where</span> <span class="kt">B</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">C</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">D</span><span class="p">:</span> <span class="kt">Generator</span><span class="p">,</span> <span class="kt">E</span><span class="p">:</span> <span class="kt">Generator</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another generator to zip with</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transform</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Transforms the values produced by the resulting zipped generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A generator of Tuples</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Produce"></a>
+                <a name="//apple_ref/swift/Section/Produce" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Produce"></a>
+                  <h3 class="section-name"><span>Produce</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE8sequence_12randomSources11AnySequenceVy1TQzGSi_AA06RandomE0CtF"></a>
+                    <a name="//apple_ref/swift/Method/sequence(_:randomSource:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE8sequence_12randomSources11AnySequenceVy1TQzGSi_AA06RandomE0CtF">sequence(_:<wbr>randomSource:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A sequence of this generator&rsquo;s values which will produce <code>nil</code> after <code>size</code> iterations</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>The sequence (like all sequences) may be destructively consumed by iteration.
+As a consequence, don&rsquo;t assume that multiple for-in loops will restart from the beginning.</p>
+
+</div><div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><a href="https://developer.apple.com/documentation/swift/sequence">https://developer.apple.com/documentation/swift/sequence</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sequence</span><span class="p">(</span><span class="n">_</span> <span class="nv">maxLength</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">randomSource</span><span class="p">:</span> <span class="kt"><a href="../Classes/RandomSource.html">RandomSource</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnySequence</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>size</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount of iterations before this sequence will begin to return <code>nil</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>randomSource</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The RandomSource to be used for generation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The Sequence</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE8sequence12randomSourceAA010RandomizedB8SequenceVyxGAA06RandomE0C_tF"></a>
+                    <a name="//apple_ref/swift/Method/sequence(randomSource:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE8sequence12randomSourceAA010RandomizedB8SequenceVyxGAA06RandomE0C_tF">sequence(randomSource:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A sequence of this generator&rsquo;s values which will produce infinite elements</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>The sequence (like all sequences) may be destructively consumed by iteration. As a consequence, don&rsquo;t assume that multiple for-in loops will restart from the same place. Even if you are re-seeding the random source.</p>
+
+</div><div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><a href="https://developer.apple.com/documentation/swift/sequence">https://developer.apple.com/documentation/swift/sequence</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sequence</span><span class="p">(</span><span class="nv">randomSource</span><span class="p">:</span> <span class="kt"><a href="../Classes/RandomSource.html">RandomSource</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/RandomizedGeneratorSequence.html">RandomizedGeneratorSequence</a></span><span class="o">&lt;</span><span class="k">Self</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>randomSource</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The RandomSource to be used for generation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The infinite sequence</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE4take_12randomSourceSay1TQzGSi_AA06RandomE0CtF"></a>
+                    <a name="//apple_ref/swift/Method/take(_:randomSource:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE4take_12randomSourceSay1TQzGSi_AA06RandomE0CtF">take(_:<wbr>randomSource:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: An array of values from the generator</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">take</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
+    <span class="nv">randomSource</span><span class="p">:</span> <span class="kt"><a href="../Classes/RandomSource.html">RandomSource</a></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Protocols/Generator.html#/s:9Genything9GeneratorP1TQa">T</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>count</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount of values to generate</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>randomSource</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The randomSource to be used for generation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An array of generated values</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9GeneratorPAAE9randomize4withAA010RandomizedB0VyxGAA12RandomSourceC_tF"></a>
+                    <a name="//apple_ref/swift/Method/randomize(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorPAAE9randomize4withAA010RandomizedB0VyxGAA12RandomSourceC_tF">randomize(with:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: The receiver generator binded together with <code>randomSource</code> to produce values without requiring a <code><a href="../Classes/RandomSource.html">RandomSource</a></code> at every call</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">randomize</span><span class="p">(</span><span class="n">with</span> <span class="nv">randomSource</span><span class="p">:</span> <span class="kt"><a href="../Classes/RandomSource.html">RandomSource</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/RandomizedGenerator.html">RandomizedGenerator</a></span><span class="o">&lt;</span><span class="k">Self</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2022 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2022-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

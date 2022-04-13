@@ -90,15 +90,13 @@ AnyGenerator<Bool> { randomSource in
 }
 ```
 
-or (using Genything's preconfigured extensions):
+Or, we can take advantage of Genything's arbitrary conformance for [most standard Swift types](https://justeattakeaway.github.io/Genything/Extensions.html), including `Bool`:
 
 ```swift
 Bool.arbitrary
 ```
 
-In fact, Genything offers a vast library of extensions to which preconfigure arbitrary generators, as well as many operators to combine, compose, and mutate the resulting generators..
-
-You can find out more about these extensions in the [documentation](https://justeattakeaway.github.io/Genything/Structs/Gen.html)!
+Genything provides numerous ways to [create your own Generators](https://justeattakeaway.github.io/Genything/Enums/Generators.html) under the `Generators` namespace, and the `Generator` type is [extended by many operators](https://justeattakeaway.github.io/Genything/Protocols/Generator.html) which you can use to further mutate and control the resulting generator.
 
 ### Arbitrary
 

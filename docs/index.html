@@ -4,10 +4,8 @@
     <title>Genything  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
-    <link rel="stylesheet" type="text/css" href="css/katex.min.css" />
     <meta charset='utf-8'>
     <script src="js/jquery.min.js" defer></script>
-    <script src="js/katex.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
     <script src="js/lunr.min.js" defer></script>
@@ -41,7 +39,7 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/Context.html">Context</a>
+                <a href="Classes/RandomSource.html">RandomSource</a>
               </li>
             </ul>
           </li>
@@ -49,13 +47,10 @@
             <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/ContextDefaults.html">ContextDefaults</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Enums/Determinism.html">Determinism</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/GenError.html">GenError</a>
+                <a href="Enums/Generators.html">Generators</a>
               </li>
             </ul>
           </li>
@@ -87,7 +82,16 @@
                 <a href="Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
               </li>
               <li class="nav-group-task">
+                <a href="Extensions/CaseIterable.html">CaseIterable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Extensions/Character.html">Character</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/ClosedRange.html">ClosedRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Collection.html">Collection</a>
               </li>
               <li class="nav-group-task">
                 <a href="Extensions/Date.html">Date</a>
@@ -155,6 +159,9 @@
                 <a href="Protocols/Arbitrary.html">Arbitrary</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/Generator.html">Generator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/RandomInRangeable.html">RandomInRangeable</a>
               </li>
             </ul>
@@ -163,16 +170,22 @@
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Structs/AnyGenerator.html">AnyGenerator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/AnyRandomNumberGenerator.html">AnyRandomNumberGenerator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/Gen.html">Gen</a>
+                <a href="Structs/Composer.html">Composer</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/Gen/GenComposer.html">– GenComposer</a>
+                <a href="Structs/LazyGenerator.html">LazyGenerator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/SafeGen.html">SafeGen</a>
+                <a href="Structs/RandomizedGenerator.html">RandomizedGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/RandomizedGeneratorSequence.html">RandomizedGeneratorSequence</a>
               </li>
             </ul>
           </li>
@@ -258,24 +271,37 @@
 <li>High test coverage</li>
 <li><a href="https://justeattakeaway.github.io/Genything">100% Documented</a></li>
 </ul>
-<h3 id='gen' class='heading'>Gen</h3>
+<h3 id='generator' class='heading'>Generator</h3>
 
-<p>The <code><a href="Structs/Gen.html">Gen</a></code> type class is the core of Genything.
-It is nothing more than a generic container that stores a callback capable of generating a value from a <code><a href="Classes/Context.html">Context</a></code>.</p>
-<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nv">generator</span><span class="p">:</span> <span class="p">(</span><span class="kt">Context</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span>
+<p>The <code><a href="Protocols/Generator.html">Generator</a></code> is the core of Genything.</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Generator</span> <span class="p">{</span>
+    <span class="kd">associatedtype</span> <span class="kt">T</span>
+    <span class="kd">func</span> <span class="nf">next</span><span class="p">(</span><span class="n">_</span> <span class="nv">randomSource</span><span class="p">:</span> <span class="kt">RandomSource</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span>
 <span class="p">}</span>
 </code></pre>
 
-<p>The <code><a href="Classes/Context.html">Context</a></code> contains configuration, and a Random Number Generator which you can customize.</p>
+<p>It defines a type with a function capable of generating values using a <code><a href="Classes/RandomSource.html">RandomSource</a></code>.
+The <code><a href="Classes/RandomSource.html">RandomSource</a></code> is used to track and mutate any RandomNumberGenerator instance, allowing you to control just how <strong>much</strong> random you would like.</p>
 
-<p>So a generator of Booleans might look like this:</p>
-<pre class="highlight swift"><code><span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">context</span> <span class="k">in</span>
-    <span class="kt">Bool</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">context</span><span class="o">.</span><span class="n">rng</span><span class="p">)</span>
+<p>A generator of bools might look like this:</p>
+<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">BoolGenerator</span><span class="p">:</span> <span class="kt">Generator</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">next</span><span class="p">(</span><span class="n">_</span> <span class="nv">randomSource</span><span class="p">:</span> <span class="kt">RandomSource</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="p">{</span>
+        <span class="kt">Bool</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">randomSource</span><span class="o">.</span><span class="n">rng</span><span class="p">)</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 
-<p>This is a good to understand, but in practice you can avoid <code><a href="Structs/Gen.html">Gen</a></code>&lsquo;s initializer altogether and instead use the vast library of extensions to build, combine, and mutate <code><a href="Structs/Gen.html">Gen</a></code>s.</p>
+<p>or</p>
+<pre class="highlight swift"><code><span class="kt">AnyGenerator</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">randomSource</span> <span class="k">in</span>
+    <span class="kt">Bool</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">randomSource</span><span class="o">.</span><span class="n">rng</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>or (using Genything&rsquo;s preconfigured extensions):</p>
+<pre class="highlight swift"><code><span class="kt">Bool</span><span class="o">.</span><span class="n">arbitrary</span>
+</code></pre>
+
+<p>In fact, Genything offers a vast library of extensions to which preconfigure arbitrary generators, as well as many operators to combine, compose, and mutate the resulting generators..</p>
 
 <p>You can find out more about these extensions in the <a href="https://justeattakeaway.github.io/Genything/Structs/Gen.html">documentation</a>!</p>
 <h3 id='arbitrary' class='heading'>Arbitrary</h3>
@@ -284,23 +310,23 @@ It is nothing more than a generic container that stores a callback capable of ge
 
 <p>Take Swift&rsquo;s <code>Bool</code> as example, it&rsquo;s Arbitrary is defined as:</p>
 <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Bool</span><span class="p">:</span> <span class="kt">Arbitrary</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">arbitrary</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span> <span class="p">{</span>
-        <span class="kt">Gen</span><span class="o">.</span><span class="nf">of</span><span class="p">([</span><span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">])</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">arbitrary</span><span class="p">:</span> <span class="kt">AnyGenerator</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="p">[</span><span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">]</span><span class="o">.</span><span class="n">arbitrary</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 
 <p>We can now use this definition automatically when we are composing a more complex arbitrary type:</p>
-<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">Transaction</span> <span class="p">{</span>
-  <span class="k">let</span> <span class="nv">isComplete</span><span class="p">:</span> <span class="kt">Bool</span>
+<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">Foo</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">bar</span><span class="p">:</span> <span class="kt">Bool</span>
   <span class="c1">// ...</span>
 <span class="p">}</span>
 
 <span class="kd">extension</span> <span class="kt">Transaction</span><span class="p">:</span> <span class="kt">Arbitrary</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">arbitrary</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span> <span class="p">{</span>
-        <span class="kt">Gen</span><span class="o">.</span><span class="n">compose</span> <span class="p">{</span>
-          <span class="kt">Transaction</span><span class="p">(</span>
-            <span class="nv">isComplete</span><span class="p">:</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">generate</span><span class="p">(),</span> <span class="c1">// Will equally generate True or False when the Transaction generator is run</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">arbitrary</span><span class="p">:</span> <span class="kt">AnyGenerator</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="kt">Gen</span><span class="o">.</span><span class="n">compose</span> <span class="p">{</span> <span class="n">generate</span> <span class="k">in</span>
+          <span class="kt">Foo</span><span class="p">(</span>
+            <span class="nv">bar</span><span class="p">:</span> <span class="nf">generate</span><span class="p">(),</span> <span class="c1">// Will return true/false like a coin-flip for each generated value</span>
             <span class="c1">//...</span>
           <span class="p">)</span>
         <span class="p">}</span>
@@ -316,75 +342,24 @@ It is nothing more than a generic container that stores a callback capable of ge
 <p>Consider a phone number. A phone number of type <code>String</code> has rules about length, formatting, allowable characters. Whereas the arbitrary type <code>String</code> contains contains at most a definition of it&rsquo;s length</p>
 <h2 id='genythingtest' class='heading'>GenythingTest</h2>
 
-<p>A key consideration for Genything is that your Generators be usable Genywhere (anywhere). In order to help enforce that  </p>
+<p>Genything provides two extensions for <code>XCTestCase</code> which we suggest that you use as your primary method for property testing.</p>
+
+<ul>
+<li><code>testAll(generator:config:file:line:body)</code></li>
+<li><code>testAllSatisfy(generator:config:file:line:predicate)</code></li>
+</ul>
 <h2 id='examples' class='heading'>Examples</h2>
-<h3 id='examples-gen' class='heading'>Examples: Gen</h3>
-<h4 id='using-genything-to-create-a-dice-roller' class='heading'>Using Genything to create a dice roller</h4>
-<pre class="highlight swift"><code>
-<span class="c1">// A very basic dice roll example</span>
-<span class="k">let</span> <span class="nv">d4</span> <span class="o">=</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;.</span><span class="nf">from</span><span class="p">(</span><span class="mi">1</span><span class="o">...</span><span class="mi">4</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="s">"d4: </span><span class="se">\(</span><span class="n">twoD4Plus2</span><span class="o">.</span><span class="nf">sample</span><span class="p">()</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
 
-<span class="c1">// Getting more complex with an RPG-style multiple dice roll</span>
-<span class="kd">func</span> <span class="nf">diceRoller</span><span class="p">(</span><span class="n">_</span> <span class="nv">dice</span><span class="p">:</span> <span class="p">[</span><span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">],</span> <span class="nv">modifier</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="kt">Gen</span><span class="o">.</span><span class="nf">reduce</span><span class="p">(</span><span class="n">dice</span><span class="p">,</span> <span class="n">modifier</span><span class="p">,</span> <span class="o">+</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">// Roll 2 d4s with a +2 modifier</span>
-<span class="k">let</span> <span class="nv">twoD4Plus2</span> <span class="o">=</span> <span class="nf">diceRoller</span><span class="p">([</span><span class="n">d4</span><span class="p">,</span> <span class="n">d4</span><span class="p">],</span> <span class="nv">modifier</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="s">"2d4+2: </span><span class="se">\(</span><span class="n">twoD4Plus2</span><span class="o">.</span><span class="nf">sample</span><span class="p">()</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
-</code></pre>
-<h4 id='using-genything-to-produce-random-city-names-from-a-list' class='heading'>Using Genything to produce random city names from a list</h4>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Genything</span>
-
-<span class="k">let</span> <span class="nv">cityGen</span> <span class="o">=</span> <span class="kt">Gen</span><span class="o">.</span><span class="nf">of</span><span class="p">([</span><span class="s">"Winnipeg"</span><span class="p">,</span><span class="s">"Calgary"</span><span class="p">,</span><span class="s">"Vancouver"</span><span class="p">,</span><span class="s">"Halifax"</span><span class="p">])</span>
-
-<span class="c1">/// Generates 1 city</span>
-<span class="n">cityGen</span><span class="o">.</span><span class="nf">generate</span><span class="p">()</span>
-
-<span class="c1">/// Takes 100 random cities</span>
-<span class="n">cityGen</span><span class="o">.</span><span class="nf">take</span><span class="p">(</span><span class="nv">count</span><span class="p">:</span> <span class="mi">100</span><span class="p">)</span>
-
-<span class="c1">/// Prints values from the generator until the Context's max iterations is reached</span>
-<span class="n">cityGen</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="n">city</span> <span class="k">in</span> <span class="nf">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span> <span class="p">}</span>
-
-</code></pre>
-<h3 id='examples-arbitrary' class='heading'>Examples: Arbitrary</h3>
-<h4 id='using-arbitrary-to-sanity-check-an-invariant-condition' class='heading'>Using Arbitrary to sanity check an invariant condition</h4>
-<pre class="highlight swift"><code><span class="nf">checkAll</span><span class="p">(</span><span class="kt">UInt</span><span class="o">.</span><span class="n">arbitrary</span><span class="p">)</span> <span class="p">{</span> <span class="n">number</span> <span class="k">in</span>
-    <span class="kt">XCTAssert</span><span class="p">(</span><span class="nf">divideByTwo</span><span class="p">(</span><span class="kt">Int</span><span class="p">(</span><span class="n">number</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">number</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre>
-<h3 id='examples-trickery' class='heading'>Examples: Trickery</h3>
-<h4 id='using-fake-data-to-render-a-swift-ui-preview' class='heading'>Using fake data to render a Swift UI preview</h4>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Trickery</span>
-
-<span class="kd">struct</span> <span class="kt">PhoneBook_Previews</span><span class="p">:</span> <span class="kt">PreviewProvider</span> <span class="p">{</span>
-    <span class="kd">static</span> <span class="k">var</span> <span class="nv">previews</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
-        <span class="kt">PhoneBook</span><span class="p">(</span>
-          <span class="kt">Gen</span><span class="o">.</span><span class="nf">zip</span><span class="p">(</span>
-            <span class="kt">Fake</span><span class="o">.</span><span class="kt">PersonNames</span><span class="o">.</span><span class="n">full</span><span class="p">,</span> 
-            <span class="kt">Fake</span><span class="o">.</span><span class="kt">PhoneNumbers</span><span class="o">.</span><span class="n">formatted</span>
-          <span class="p">)</span> <span class="p">{</span> 
-            <span class="kt">PhoneBookRow</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="nv">$0</span><span class="p">,</span> <span class="nv">number</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> 
-          <span class="p">}</span><span class="o">.</span><span class="nf">take</span><span class="p">(</span><span class="nv">count</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
-        <span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-</code></pre>
+<p>Checkout out our <a href="Example/Playground.playground">Playground guide</a></p>
 <h2 id='mixins' class='heading'>Mixins</h2>
 
-<p>Genything &amp; Trickery are also amazing when combined with other open source libraries!</p>
-<h3 id='a-href-https-github-com-piknotech-sfsafesymbols-sfsafesymbols-a' class='heading'><a href="https://github.com/piknotech/SFSafeSymbols">SFSafeSymbols</a></h3>
+<p>Genything is happy when combined with other open source libraries!</p>
+<h3 id='generate-arbitrary-sfsymbols-with-a-href-https-github-com-piknotech-sfsafesymbols-sfsafesymbols-a' class='heading'>Generate arbitrary SFSymbols with <a href="https://github.com/piknotech/SFSafeSymbols">SFSafeSymbols</a></h3>
 
 <p>Generate any <a href="https://developer.apple.com/sf-symbols/">SF Symbol</a></p>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Fake</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SFSafeSymbols</span> <span class="p">{</span>
-        <span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mf">13.0</span><span class="p">,</span> <span class="n">macOS</span> <span class="mf">10.15</span><span class="p">,</span> <span class="n">tvOS</span> <span class="mf">13.0</span><span class="p">,</span> <span class="n">watchOS</span> <span class="mf">6.0</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
-        <span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">any</span><span class="p">:</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">SFSymbol</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">.</span><span class="nf">ofCases</span><span class="p">()</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">rawValue</span> <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SFSafeSymbols</span>
+
+<span class="k">let</span> <span class="nv">sfSymbolGen</span><span class="p">:</span> <span class="kt">AnyGenerator</span><span class="o">&lt;</span><span class="kt">SFSymbol</span><span class="o">&gt;</span> <span class="o">=</span> <span class="kt">SFSymbol</span><span class="o">.</span><span class="n">arbitrary</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">rawValue</span> <span class="p">}</span>
 </code></pre>
 <h2 id='installation' class='heading'>Installation</h2>
 <h3 id='cocoapods' class='heading'>Cocoapods</h3>
@@ -408,7 +383,7 @@ It is nothing more than a generic container that stores a callback capable of ge
 </ul>
 <h2 id='credits' class='heading'>Credits</h2>
 
-<p>The Genything and Trickery projects are owned and maintained by <a href="https://www.skipthedishes.com/">SkipTheDishes</a>, a <a href="https://www.justeattakeaway.com/">Just Eat Takeaway.com</a> subsidiary.</p>
+<p>The Genything project is owned and maintained by <a href="https://www.skipthedishes.com/">SkipTheDishes</a>, a <a href="https://www.justeattakeaway.com/">Just Eat Takeaway.com</a> subsidiary.</p>
 <h3 id='contributing' class='heading'>Contributing</h3>
 
 <p>Please read the <a href="./CONTRIBUTING.md">Contribution Guide</a></p>
@@ -431,8 +406,8 @@ It is nothing more than a generic container that stores a callback capable of ge
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2022-02-11)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2022 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2022-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

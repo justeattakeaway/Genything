@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RandomizedGenerator Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/RandomizedGenerator" class="dashAnchor"></a>
+    <a title="RandomizedGenerator Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Genything 0.0.4 Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/justeattakeaway/Genything"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Genything Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        RandomizedGenerator Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/RandomSource.html">RandomSource</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Determinism.html">Determinism</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Generators.html">Generators</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/AnyBidirectionalCollection.html">AnyBidirectionalCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/AnySequence.html">AnySequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/ArraySlice.html">ArraySlice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Bool.html">Bool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CGFloat.html">CGFloat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CGVector.html">CGVector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CaseIterable.html">CaseIterable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Character.html">Character</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/ClosedRange.html">ClosedRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Collection.html">Collection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Double.html">Double</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/EmptyCollection.html">EmptyCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:Sf">Float</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Int.html">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Int32.html">Int32</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:s5Int64V">Int64</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/LazySequence.html">LazySequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Optional.html">Optional</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Range.html">Range</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Repeated.html">Repeated</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Result.html">Result</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Set.html">Set</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UInt.html">UInt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UInt32.html">UInt32</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UUID.html">UUID</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UnicodeScalar.html">UnicodeScalar</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Arbitrary.html">Arbitrary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Generator.html">Generator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RandomInRangeable.html">RandomInRangeable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AnyGenerator.html">AnyGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AnyRandomNumberGenerator.html">AnyRandomNumberGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Composer.html">Composer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LazyGenerator.html">LazyGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RandomizedGenerator.html">RandomizedGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RandomizedGeneratorSequence.html">RandomizedGeneratorSequence</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>RandomizedGenerator</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">RandomizedGenerator</span><span class="o">&lt;</span><span class="kt">G</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">G</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Generator.html">Generator</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A Generator binded together with a RandomSource which has copies of Generator functions which produce values. Used to persist the randomness between multiple generated productions of values.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything19RandomizedGeneratorV_12randomSourceACyxGx_AA06RandomE0Ctcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:randomSource:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything19RandomizedGeneratorV_12randomSourceACyxGx_AA06RandomE0Ctcfc">init(_:<wbr>randomSource:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a RandomizedGenerator wrapper, which consists of the <code>wrapped</code> Generator binded together with <code>randomSource</code> to produce values without requiring a <code><a href="../Classes/RandomSource.html">RandomSource</a></code> at every call</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">wrapped</span><span class="p">:</span> <span class="kt">G</span><span class="p">,</span> <span class="nv">randomSource</span><span class="p">:</span> <span class="kt"><a href="../Classes/RandomSource.html">RandomSource</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything19RandomizedGeneratorV4next1TQzyF"></a>
+                    <a name="//apple_ref/swift/Method/next()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything19RandomizedGeneratorV4next1TQzyF">next()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Produces the next element from this generator using the bound random source</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">next</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">G</span><span class="o">.</span><span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything19RandomizedGeneratorV3mapyACyqd__Gqd__xcAA0C0Rd__lF"></a>
+                    <a name="//apple_ref/swift/Method/map(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything19RandomizedGeneratorV3mapyACyqd__Gqd__xcAA0C0Rd__lF">map(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A randomized generator that transforms it&rsquo;s wrapped generator</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">map</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">transform</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">G</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">RandomizedGenerator</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Generator.html">Generator</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transform</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A function which transforms the wrapped generator</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Produce"></a>
+                <a name="//apple_ref/swift/Section/Produce" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Produce"></a>
+                  <h3 class="section-name"><span>Produce</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything19RandomizedGeneratorV8sequenceys11AnySequenceVy1TQzGSiF"></a>
+                    <a name="//apple_ref/swift/Method/sequence(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything19RandomizedGeneratorV8sequenceys11AnySequenceVy1TQzGSiF">sequence(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A sequence of this generator&rsquo;s values which will produce <code>nil</code> after <code>size</code> iterations</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>The sequence (like all sequences) may be destructively consumed by iteration.
+As a consequence, don&rsquo;t assume that multiple for-in loops will restart from the beginning.</p>
+
+</div><div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><a href="https://developer.apple.com/documentation/swift/sequence">https://developer.apple.com/documentation/swift/sequence</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sequence</span><span class="p">(</span><span class="n">_</span> <span class="nv">maxLength</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnySequence</span><span class="o">&lt;</span><span class="kt">G</span><span class="o">.</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>size</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount of iterations before this sequence will begin to return <code>nil</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>randomSource</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The RandomSource to be used for generation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The Sequence</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything19RandomizedGeneratorV8sequenceAA0bC8SequenceVyxGyF"></a>
+                    <a name="//apple_ref/swift/Method/sequence()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything19RandomizedGeneratorV8sequenceAA0bC8SequenceVyxGyF">sequence()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: A sequence of this generator&rsquo;s values which will produce infinite elements</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>The sequence (like all sequences) may be destructively consumed by iteration. As a consequence, don&rsquo;t assume that multiple for-in loops will restart from the same place. Even if you are re-seeding the random source.</p>
+
+</div><div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><a href="https://developer.apple.com/documentation/swift/sequence">https://developer.apple.com/documentation/swift/sequence</a></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sequence</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/RandomizedGeneratorSequence.html">RandomizedGeneratorSequence</a></span><span class="o">&lt;</span><span class="kt">G</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The infinite sequence</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything19RandomizedGeneratorV4takeySay1TQzGSiF"></a>
+                    <a name="//apple_ref/swift/Method/take(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything19RandomizedGeneratorV4takeySay1TQzGSiF">take(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns: An array of values from the generator</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">take</span><span class="p">(</span><span class="n">_</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">G</span><span class="o">.</span><span class="kt">T</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>count</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount of values to generate</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An array of generated values</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2022 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2022-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
