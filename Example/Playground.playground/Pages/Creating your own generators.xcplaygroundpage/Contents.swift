@@ -70,3 +70,11 @@ struct FormatDate<Source>: Generator where Source: Generator, Source.T == Date {
 
 FormatDate(source: CurrentDate()).next(RandomSource()) /// Returns: The current date, formatted
 FormatDate(source: RandomDate()).next(RandomSource()) /// Returns: An arbitrary date, formatted
+
+// And now you can add this operator to Genything's DSL
+
+extension Generator where T == Date {
+    func formatted() -> AnyGenerator<String> {
+        FormatDate(source: self).eraseToAnyGenerator()
+    }
+}
