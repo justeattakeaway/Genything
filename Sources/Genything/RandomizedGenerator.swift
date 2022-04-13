@@ -1,18 +1,24 @@
+/// A Generator binded together with a RandomSource which has copies of Generator functions which produce values. Used to persist the randomness between multiple generated productions of values.
 public struct RandomizedGenerator<G: Generator> {
+    /// The wrapped Generator
     let wrapped: G
+    /// The bound RandomSource
     let randomSource: RandomSource
 
+    /// Initializes a RandomizedGenerator wrapper, which consists of the `wrapped` Generator binded together with `randomSource` to produce values without requiring a `RandomSource` at every call
     public init(_ wrapped: G, randomSource: RandomSource) {
         self.wrapped = wrapped
         self.randomSource = randomSource
     }
 
+    /// Produces the next element from this generator using the bound random source
     public func next() -> G.T {
         wrapped.next(randomSource)
     }
 }
 
 extension Generator {
+    /// Returns: The receiver generator binded together with `randomSource` to produce values without requiring a `RandomSource` at every call
     public func randomize(with randomSource: RandomSource) -> RandomizedGenerator<Self> {
         RandomizedGenerator(self, randomSource: randomSource)
     }
