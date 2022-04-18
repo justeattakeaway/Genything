@@ -1,15 +1,16 @@
+import Genything
 import SwiftUI
 import Trickery
-import Genything
 
 let generator = GenLibsScriptGenerator().generator
 
 private func generateScript() -> String {
-    generator.generate(context: .random)
+    generator.next(RandomSource(determinism: .random))
 }
 
-struct GenLibsView: View {
+// MARK: - GenLibsView
 
+struct GenLibsView: View {
     @State var text: String = generateScript()
 
     var body: some View {
@@ -25,10 +26,10 @@ struct GenLibsView: View {
     }
 }
 
+// MARK: - GenLibsView_Previews
+
 struct GenLibsView_Previews: PreviewProvider {
     static var previews: some View {
         GenLibsView()
     }
 }
-
-

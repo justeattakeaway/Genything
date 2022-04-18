@@ -1,0 +1,23 @@
+{% macro Generator %}
+        AnyGenerator { generate in
+            {{ type.name }}(
+                {% for field in type.storedVariables where not field.defaultValue %}
+                {{ field.name }}: generate(){% ifnot forloop.last %},{% endif %}
+                {% endfor %}
+            )
+        }
+{% endmacro %}
+// MARK: - AutoArbitrary
+
+// swiftlint:disable all
+{% for type in types.structs where type.based.AutoArbitrary or type|annotated:"AutoArbitrary" %}
+extension {{ type.name }} {
+    {{type.accessLevel}} static var arbitrary: AnyGenerator<{{ type.name }}> {
+        {% call Generator %}
+    }
+}
+{% ifnot forloop.last %}
+
+{% endif %}
+{% endfor %}
+// swiftlint:enable all

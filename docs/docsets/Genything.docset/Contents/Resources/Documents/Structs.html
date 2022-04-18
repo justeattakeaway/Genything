@@ -4,10 +4,8 @@
     <title>Structures  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
-    <link rel="stylesheet" type="text/css" href="css/katex.min.css" />
     <meta charset='utf-8'>
     <script src="js/jquery.min.js" defer></script>
-    <script src="js/katex.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
     <script src="js/lunr.min.js" defer></script>
@@ -42,7 +40,7 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/Context.html">Context</a>
+                <a href="Classes/RandomSource.html">RandomSource</a>
               </li>
             </ul>
           </li>
@@ -50,13 +48,10 @@
             <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/ContextDefaults.html">ContextDefaults</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Enums/Determinism.html">Determinism</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/GenError.html">GenError</a>
+                <a href="Enums/Generators.html">Generators</a>
               </li>
             </ul>
           </li>
@@ -88,7 +83,16 @@
                 <a href="Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
               </li>
               <li class="nav-group-task">
+                <a href="Extensions/CaseIterable.html">CaseIterable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Extensions/Character.html">Character</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/ClosedRange.html">ClosedRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Collection.html">Collection</a>
               </li>
               <li class="nav-group-task">
                 <a href="Extensions/Date.html">Date</a>
@@ -156,6 +160,9 @@
                 <a href="Protocols/Arbitrary.html">Arbitrary</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/Generator.html">Generator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/RandomInRangeable.html">RandomInRangeable</a>
               </li>
             </ul>
@@ -164,16 +171,22 @@
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Structs/AnyGenerator.html">AnyGenerator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/AnyRandomNumberGenerator.html">AnyRandomNumberGenerator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/Gen.html">Gen</a>
+                <a href="Structs/Composer.html">Composer</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/Gen/GenComposer.html">– GenComposer</a>
+                <a href="Structs/LazyGenerator.html">LazyGenerator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/SafeGen.html">SafeGen</a>
+                <a href="Structs/RandomizedGenerator.html">RandomizedGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/RandomizedGeneratorSequence.html">RandomizedGeneratorSequence</a>
               </li>
             </ul>
           </li>
@@ -188,22 +201,13 @@
           </section>
           <section class="section task-group-section">
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Gen%20Typeclass"></a>
-                <a name="//apple_ref/swift/Section/Gen Typeclass" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Gen%20Typeclass"></a>
-                  <h3 class="section-name"><span>Gen Typeclass</span>
-</h3>
-                </div>
-              </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything3GenV"></a>
-                    <a name="//apple_ref/swift/Struct/Gen" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything3GenV">Gen</a>
+                    <a name="/s:9Genything12AnyGeneratorV"></a>
+                    <a name="//apple_ref/swift/Struct/AnyGenerator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything12AnyGeneratorV">AnyGenerator</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -211,15 +215,56 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A type class capable of generating a value of type <code>T</code> from a given <code><a href="Classes/Context.html">Context</a></code></p>
+                        <p>A type-erased Generator</p>
 
-                        <a href="Structs/Gen.html" class="slightly-smaller">See more</a>
+                        <a href="Structs/AnyGenerator.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Gen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AnyGenerator</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Generator.html">Generator</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Composer"></a>
+                <a name="//apple_ref/swift/Section/Composer" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Composer"></a>
+                  <h3 class="section-name"><span>Composer</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything8ComposerV"></a>
+                    <a name="//apple_ref/swift/Struct/Composer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything8ComposerV">Composer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The composer class which passes in the randomSource and allows us to generate more complex data with ease</p>
+
+                        <a href="Structs/Composer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Composer</span></code></pre>
 
                         </div>
                       </div>
@@ -229,9 +274,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything7SafeGenV"></a>
-                    <a name="//apple_ref/swift/Struct/SafeGen" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything7SafeGenV">SafeGen</a>
+                    <a name="/s:9Genything13LazyGeneratorV"></a>
+                    <a name="//apple_ref/swift/Struct/LazyGenerator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything13LazyGeneratorV">LazyGenerator</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -239,15 +284,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Wrapper to namespace safe (throwing) extension functions for <code><a href="Structs/Gen.html">Gen</a></code></p>
+                        <p>A LazyGenerator defers the initialization of a generator until a later time. This should be used when generators have state requirements which might cause them to behave in unexpected ways when shared or recreated.</p>
 
-                        <a href="Structs/SafeGen.html" class="slightly-smaller">See more</a>
+<p>The wrapped Generator can be safely transformed while retaining the lazy initialization via <code>map(transform:)</code></p>
+
+                        <a href="Structs/LazyGenerator.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SafeGen</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LazyGenerator</span><span class="o">&lt;</span><span class="kt">G</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">G</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Generator.html">Generator</a></span></code></pre>
 
                         </div>
                       </div>
@@ -282,13 +329,76 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything19RandomizedGeneratorV"></a>
+                    <a name="//apple_ref/swift/Struct/RandomizedGenerator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything19RandomizedGeneratorV">RandomizedGenerator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Generator binded together with a RandomSource which has copies of Generator functions which produce values. Used to persist the randomness between multiple generated productions of values.</p>
+
+                        <a href="Structs/RandomizedGenerator.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">RandomizedGenerator</span><span class="o">&lt;</span><span class="kt">G</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">G</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Generator.html">Generator</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything27RandomizedGeneratorSequenceV"></a>
+                    <a name="//apple_ref/swift/Struct/RandomizedGeneratorSequence" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything27RandomizedGeneratorSequenceV">RandomizedGeneratorSequence</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Structs/RandomizedGenerator.html">RandomizedGenerator</a></code> wrapped as a <code>Sequence</code> which also acts as it&rsquo;s own <code>Iterator</code></p>
+<h1 id='length' class='heading'>Length</h1>
+
+<p>This Sequence is infinite! Do not attempt to for-in the contents without limiting the sequence. To limit the sequence you can make use of Sequence operators such as <code>prefix()</code>.</p>
+<h1 id='repeated-access' class='heading'>Repeated Access</h1>
+
+<p>This sequence is destructively consumed by iteration. As a consequence, don’t assume that multiple for-in loops will either resume iteration or restart from the beginning:</p>
+
+                        <a href="Structs/RandomizedGeneratorSequence.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">RandomizedGeneratorSequence</span><span class="o">&lt;</span><span class="kt">G</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Sequence</span><span class="p">,</span> <span class="kt">IteratorProtocol</span>
+    <span class="k">where</span> <span class="kt">G</span><span class="p">:</span> <span class="kt"><a href="Protocols/Generator.html">Generator</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2022-02-11)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2022 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2022-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

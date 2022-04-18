@@ -3,11 +3,13 @@ import Genything
 
 extension Fake {
     public enum Lorem {
-        private static let data: LoremData = LoremData.loadJson()
-        
-        public static let word: Gen<String> = .of(data.words)
+        private static let data: LoremData = .loadJson()
 
-        public static func sentence(wordCountRange: ClosedRange<Int> = 5...20) -> Gen<String> {
+        public static var word: AnyGenerator<String> {
+            data.words.arbitrary
+        }
+
+        public static func sentence(wordCountRange: ClosedRange<Int> = 5 ... 20) -> AnyGenerator<String> {
             word
                 .expand(toSizeInRange: wordCountRange)
                 .map {

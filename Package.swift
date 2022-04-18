@@ -9,7 +9,7 @@ let package = Package(
         .iOS(.v11),
         .tvOS(.v11),
         .watchOS(.v5),
-        .macOS(.v10_14)
+        .macOS(.v10_14),
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -24,7 +24,7 @@ let package = Package(
         .library(
             name: "Trickery",
             targets: ["Trickery"]
-        ),        
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -45,11 +45,15 @@ let package = Package(
             name: "GenythingTest",
             dependencies: ["Genything"]
         ),
+        .testTarget(
+            name: "GenythingTestTests",
+            dependencies: ["Genything", "GenythingTest"]
+        ),
         .target(
             name: "Trickery",
             dependencies: ["Genything"],
             resources: [
-                .process("Resources")
+                .process("Resources"),
             ]
         ),
         .testTarget(

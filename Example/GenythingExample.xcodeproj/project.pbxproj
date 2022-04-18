@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		0331193427458C840053D75E /* GenLibsScriptGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenLibsScriptGenerator.swift; sourceTree = "<group>"; };
+		037B099727EE32BB000959ED /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		03A4EBEA2745B131001A7241 /* genlib.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = genlib.json; sourceTree = "<group>"; };
 		03B06919274C8D4900AC2D71 /* GenLibsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenLibsView.swift; sourceTree = "<group>"; };
 		03BA41012742DECD00B97AA6 /* GenythingExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenythingExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +118,7 @@
 		03BA40F82742DECD00B97AA6 = {
 			isa = PBXGroup;
 			children = (
+				037B099727EE32BB000959ED /* Playground.playground */,
 				03BA412E2742DF4E00B97AA6 /* Packages */,
 				03BA41032742DECD00B97AA6 /* GenythingExample */,
 				03BA41142742DED000B97AA6 /* GenythingExampleTests */,

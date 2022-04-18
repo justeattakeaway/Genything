@@ -1,16 +1,18 @@
 import SwiftUI
 import Trickery
 
+// MARK: - Destination
+
 private enum Destination: String, CaseIterable, Identifiable {
     case phoneBook
     case businessList
     case genLibs
     case shapeDrawing
-    
+
     var id: String {
         rawValue
     }
-    
+
     var title: String {
         switch self {
             case .genLibs: return "Gen Libs"
@@ -20,6 +22,8 @@ private enum Destination: String, CaseIterable, Identifiable {
         }
     }
 }
+
+// MARK: - IndexView
 
 struct IndexView: View {
     var body: some View {
@@ -42,6 +46,8 @@ struct IndexView: View {
         }
     }
 }
+
+// MARK: - ContentView_Previews
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

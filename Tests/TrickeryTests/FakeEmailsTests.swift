@@ -1,16 +1,17 @@
+import GenythingTest
 import XCTest
 @testable import Trickery
 
 class FakeEmailsTests: XCTestCase {
     func test_personalEmails() {
-        Fake.Emails.personal.forEach { email in
+        testAll(Fake.Emails.personal) { email in
             let parts = email.split(separator: "@")
             XCTAssertEqual(parts.count, 2)
         }
     }
 
     func test_businessEmails() {
-        Fake.Emails.business().forEach { email in
+        testAll(Fake.Emails.business()) { email in
             let parts = email.split(separator: "@")
             XCTAssertEqual(parts.count, 2)
         }

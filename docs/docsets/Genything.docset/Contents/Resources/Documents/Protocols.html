@@ -4,10 +4,8 @@
     <title>Protocols  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
-    <link rel="stylesheet" type="text/css" href="css/katex.min.css" />
     <meta charset='utf-8'>
     <script src="js/jquery.min.js" defer></script>
-    <script src="js/katex.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
     <script src="js/lunr.min.js" defer></script>
@@ -42,7 +40,7 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/Context.html">Context</a>
+                <a href="Classes/RandomSource.html">RandomSource</a>
               </li>
             </ul>
           </li>
@@ -50,13 +48,10 @@
             <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/ContextDefaults.html">ContextDefaults</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Enums/Determinism.html">Determinism</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/GenError.html">GenError</a>
+                <a href="Enums/Generators.html">Generators</a>
               </li>
             </ul>
           </li>
@@ -88,7 +83,16 @@
                 <a href="Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
               </li>
               <li class="nav-group-task">
+                <a href="Extensions/CaseIterable.html">CaseIterable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Extensions/Character.html">Character</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/ClosedRange.html">ClosedRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Collection.html">Collection</a>
               </li>
               <li class="nav-group-task">
                 <a href="Extensions/Date.html">Date</a>
@@ -156,6 +160,9 @@
                 <a href="Protocols/Arbitrary.html">Arbitrary</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/Generator.html">Generator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/RandomInRangeable.html">RandomInRangeable</a>
               </li>
             </ul>
@@ -164,16 +171,22 @@
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Structs/AnyGenerator.html">AnyGenerator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/AnyRandomNumberGenerator.html">AnyRandomNumberGenerator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/Gen.html">Gen</a>
+                <a href="Structs/Composer.html">Composer</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/Gen/GenComposer.html">– GenComposer</a>
+                <a href="Structs/LazyGenerator.html">LazyGenerator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/SafeGen.html">SafeGen</a>
+                <a href="Structs/RandomizedGenerator.html">RandomizedGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/RandomizedGeneratorSequence.html">RandomizedGeneratorSequence</a>
               </li>
             </ul>
           </li>
@@ -192,9 +205,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9Genything9ArbitraryP"></a>
-                    <a name="//apple_ref/swift/Protocol/Arbitrary" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9Genything9ArbitraryP">Arbitrary</a>
+                    <a name="/s:9Genything9GeneratorP"></a>
+                    <a name="//apple_ref/swift/Protocol/Generator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9GeneratorP">Generator</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -202,15 +215,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A type conforming to the Arbitrary protocol can be used to generate arbitrary (random) values</p>
+                        <p>Represents a type which can be generated from. The type is passed a <code><a href="Classes/RandomSource.html">RandomSource</a></code> and is expected to use this source for any random operations such that the generator is deterministic. By controlling how this <code><a href="Classes/RandomSource.html">RandomSource</a></code> is shared the generator&rsquo;s values can also be controlled such that they are independent if that is your desire. e.g. One generator does not affect other generators.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    The generator protocol has no requirement to be completely stateless. The type might generate random elements or follow some pattern, and this patterns may rely on this generators previous generations. Therefore, sharing a generator between unrelated contexts should be done with care or consider wrapping the Generator into a <code><a href="Structs/LazyGenerator.html">LazyGenerator</a></code>.
 
-                        <a href="Protocols/Arbitrary.html" class="slightly-smaller">See more</a>
+</div>
+
+                        <a href="Protocols/Generator.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Arbitrary</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Generator</span></code></pre>
 
                         </div>
                       </div>
@@ -263,13 +281,41 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9Genything9ArbitraryP"></a>
+                    <a name="//apple_ref/swift/Protocol/Arbitrary" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9Genything9ArbitraryP">Arbitrary</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A type conforming to the Arbitrary protocol can be used to generate arbitrary (random) values</p>
+
+                        <a href="Protocols/Arbitrary.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Arbitrary</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2022-02-11)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2022 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2022-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

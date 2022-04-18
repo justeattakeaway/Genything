@@ -4,10 +4,8 @@
     <title>Extensions  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
-    <link rel="stylesheet" type="text/css" href="css/katex.min.css" />
     <meta charset='utf-8'>
     <script src="js/jquery.min.js" defer></script>
-    <script src="js/katex.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
     <script src="js/lunr.min.js" defer></script>
@@ -42,7 +40,7 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/Context.html">Context</a>
+                <a href="Classes/RandomSource.html">RandomSource</a>
               </li>
             </ul>
           </li>
@@ -50,13 +48,10 @@
             <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/ContextDefaults.html">ContextDefaults</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Enums/Determinism.html">Determinism</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/GenError.html">GenError</a>
+                <a href="Enums/Generators.html">Generators</a>
               </li>
             </ul>
           </li>
@@ -88,7 +83,16 @@
                 <a href="Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
               </li>
               <li class="nav-group-task">
+                <a href="Extensions/CaseIterable.html">CaseIterable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Extensions/Character.html">Character</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/ClosedRange.html">ClosedRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Collection.html">Collection</a>
               </li>
               <li class="nav-group-task">
                 <a href="Extensions/Date.html">Date</a>
@@ -156,6 +160,9 @@
                 <a href="Protocols/Arbitrary.html">Arbitrary</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/Generator.html">Generator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/RandomInRangeable.html">RandomInRangeable</a>
               </li>
             </ul>
@@ -164,16 +171,22 @@
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Structs/AnyGenerator.html">AnyGenerator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/AnyRandomNumberGenerator.html">AnyRandomNumberGenerator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/Gen.html">Gen</a>
+                <a href="Structs/Composer.html">Composer</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/Gen/GenComposer.html">– GenComposer</a>
+                <a href="Structs/LazyGenerator.html">LazyGenerator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/SafeGen.html">SafeGen</a>
+                <a href="Structs/RandomizedGenerator.html">RandomizedGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/RandomizedGeneratorSequence.html">RandomizedGeneratorSequence</a>
               </li>
             </ul>
           </li>
@@ -189,6 +202,480 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:s12CaseIterableP"></a>
+                    <a name="//apple_ref/swift/Extension/CaseIterable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s12CaseIterableP">CaseIterable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Extensions/CaseIterable.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">CaseIterable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sl"></a>
+                    <a name="//apple_ref/swift/Extension/Collection" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sl">Collection</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Extensions/Collection.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Collection</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Int%20%2B%20RandomInRangeable"></a>
+                <a name="//apple_ref/swift/Section/Int + RandomInRangeable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Int%20%2B%20RandomInRangeable"></a>
+                  <h3 class="section-name"><span>Int + RandomInRangeable</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Si"></a>
+                    <a name="//apple_ref/swift/Extension/Int" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Si">Int</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Extensions/Int.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Int</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Int</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Int32%20%2B%20RandomInRangeable"></a>
+                <a name="//apple_ref/swift/Section/Int32 + RandomInRangeable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Int32%20%2B%20RandomInRangeable"></a>
+                  <h3 class="section-name"><span>Int32 + RandomInRangeable</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:s5Int32V"></a>
+                    <a name="//apple_ref/swift/Extension/Int32" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s5Int32V">Int32</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Extensions/Int32.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Int32</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Int32</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UInt%20%2B%20RandomInRangeable"></a>
+                <a name="//apple_ref/swift/Section/UInt + RandomInRangeable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/UInt%20%2B%20RandomInRangeable"></a>
+                  <h3 class="section-name"><span>UInt + RandomInRangeable</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Su"></a>
+                    <a name="//apple_ref/swift/Extension/UInt" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Su">UInt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Extensions/UInt.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UInt</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UInt</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UInt32%20%2B%20RandomInRangeable"></a>
+                <a name="//apple_ref/swift/Section/UInt32 + RandomInRangeable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/UInt32%20%2B%20RandomInRangeable"></a>
+                  <h3 class="section-name"><span>UInt32 + RandomInRangeable</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:s6UInt32V"></a>
+                    <a name="//apple_ref/swift/Extension/UInt32" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s6UInt32V">UInt32</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Extensions/UInt32.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UInt32</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UInt32</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Int64%20%2B%20RandomInRangeable"></a>
+                <a name="//apple_ref/swift/Section/Int64 + RandomInRangeable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Int64%20%2B%20RandomInRangeable"></a>
+                  <h3 class="section-name"><span>Int64 + RandomInRangeable</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:s5Int64V"></a>
+                    <a name="//apple_ref/swift/Extension/Int64" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s5Int64V">Int64</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Int64</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Double%20%2B%20RandomInRangeable"></a>
+                <a name="//apple_ref/swift/Section/Double + RandomInRangeable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Double%20%2B%20RandomInRangeable"></a>
+                  <h3 class="section-name"><span>Double + RandomInRangeable</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sd"></a>
+                    <a name="//apple_ref/swift/Extension/Double" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sd">Double</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Extensions/Double.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Double</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Double</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Float%20%2B%20RandomInRangeable"></a>
+                <a name="//apple_ref/swift/Section/Float + RandomInRangeable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Float%20%2B%20RandomInRangeable"></a>
+                  <h3 class="section-name"><span>Float + RandomInRangeable</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sf"></a>
+                    <a name="//apple_ref/swift/Extension/Float" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sf">Float</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Float</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Character%20%2B%20RandomInRangeable"></a>
+                <a name="//apple_ref/swift/Section/Character + RandomInRangeable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Character%20%2B%20RandomInRangeable"></a>
+                  <h3 class="section-name"><span>Character + RandomInRangeable</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:SJ"></a>
+                    <a name="//apple_ref/swift/Extension/Character" class="dashAnchor"></a>
+                    <a class="token" href="#/s:SJ">Character</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Extensions/Character.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Character</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Character</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UnicodeScalar%20%2B%20RandomInRangeable"></a>
+                <a name="//apple_ref/swift/Section/UnicodeScalar + RandomInRangeable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/UnicodeScalar%20%2B%20RandomInRangeable"></a>
+                  <h3 class="section-name"><span>UnicodeScalar + RandomInRangeable</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:s13UnicodeScalara"></a>
+                    <a name="//apple_ref/swift/Extension/UnicodeScalar" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s13UnicodeScalara">UnicodeScalar</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Extensions/UnicodeScalar.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UnicodeScalar</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UnicodeScalar</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Sn"></a>
+                    <a name="//apple_ref/swift/Extension/Range" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sn">Range</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Extensions/Range.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Range</span> <span class="k">where</span> <span class="kt">Bound</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Range</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Bound</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:SN"></a>
+                    <a name="//apple_ref/swift/Extension/ClosedRange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:SN">ClosedRange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Extensions/ClosedRange.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">ClosedRange</span> <span class="k">where</span> <span class="kt">Bound</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -216,6 +703,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Date%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/Date + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Date%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>Date + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -243,6 +743,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UUID%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/UUID + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/UUID%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>UUID + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -270,6 +783,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Bool%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/Bool + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Bool%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>Bool + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -297,202 +823,19 @@
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:Sd"></a>
-                    <a name="//apple_ref/swift/Extension/Double" class="dashAnchor"></a>
-                    <a class="token" href="#/s:Sd">Double</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                        <a href="Extensions/Double.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Double</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Double</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:Si"></a>
-                    <a name="//apple_ref/swift/Extension/Int" class="dashAnchor"></a>
-                    <a class="token" href="#/s:Si">Int</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                        <a href="Extensions/Int.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Int</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Int</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:Su"></a>
-                    <a name="//apple_ref/swift/Extension/UInt" class="dashAnchor"></a>
-                    <a class="token" href="#/s:Su">UInt</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                        <a href="Extensions/UInt.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UInt</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UInt</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:s5Int32V"></a>
-                    <a name="//apple_ref/swift/Extension/Int32" class="dashAnchor"></a>
-                    <a class="token" href="#/s:s5Int32V">Int32</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                        <a href="Extensions/Int32.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Int32</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Int32</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:s6UInt32V"></a>
-                    <a name="//apple_ref/swift/Extension/UInt32" class="dashAnchor"></a>
-                    <a class="token" href="#/s:s6UInt32V">UInt32</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                        <a href="Extensions/UInt32.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UInt32</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UInt32</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:s13UnicodeScalara"></a>
-                    <a name="//apple_ref/swift/Extension/UnicodeScalar" class="dashAnchor"></a>
-                    <a class="token" href="#/s:s13UnicodeScalara">UnicodeScalar</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                        <a href="Extensions/UnicodeScalar.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UnicodeScalar</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UnicodeScalar</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:SJ"></a>
-                    <a name="//apple_ref/swift/Extension/Character" class="dashAnchor"></a>
-                    <a class="token" href="#/s:SJ">Character</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                        <a href="Extensions/Character.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Character</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
-<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Character</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/String%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/String + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/String%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>String + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -520,6 +863,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Array%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/Array + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Array%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>Array + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -547,6 +903,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Optional%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/Optional + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Optional%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>Optional + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -574,6 +943,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/AnySequence%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/AnySequence + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/AnySequence%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>AnySequence + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -594,13 +976,26 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AnySequence</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AnySequence</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Element</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/AnyBidirectionalCollection%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/AnyBidirectionalCollection + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/AnyBidirectionalCollection%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>AnyBidirectionalCollection + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -621,13 +1016,26 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AnyBidirectionalCollection</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AnyBidirectionalCollection</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Element</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/ArraySlice%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/ArraySlice + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ArraySlice%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>ArraySlice + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -648,13 +1056,26 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">ArraySlice</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">ArraySlice</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Element</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Dictionary%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/Dictionary + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Dictionary%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>Dictionary + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -675,13 +1096,26 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Dictionary</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Key</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span><span class="p">,</span> <span class="kt">Value</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Dictionary</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Key</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span><span class="p">,</span> <span class="kt">Value</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/EmptyCollection%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/EmptyCollection + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/EmptyCollection%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>EmptyCollection + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -709,33 +1143,19 @@
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:Sn"></a>
-                    <a name="//apple_ref/swift/Extension/Range" class="dashAnchor"></a>
-                    <a class="token" href="#/s:Sn">Range</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                        <a href="Extensions/Range.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Range</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Bound</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/LazySequence%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/LazySequence + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/LazySequence%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>LazySequence + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -763,6 +1183,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Repeated%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/Repeated + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Repeated%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>Repeated + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -790,6 +1223,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Set%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/Set + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Set%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>Set + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -810,13 +1256,26 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Set</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Set</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span> <span class="k">where</span> <span class="kt">Element</span><span class="p">:</span> <span class="kt"><a href="Protocols/Arbitrary.html">Arbitrary</a></span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Result%20%2B%20Arbitrary"></a>
+                <a name="//apple_ref/swift/Section/Result + Arbitrary" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Result%20%2B%20Arbitrary"></a>
+                  <h3 class="section-name"><span>Result + Arbitrary</span>
+</h3>
+                </div>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -900,76 +1359,11 @@
                 </li>
               </ul>
             </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/RandomInRangeable%20Extensions"></a>
-                <a name="//apple_ref/swift/Section/RandomInRangeable Extensions" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/RandomInRangeable%20Extensions"></a>
-                  <h3 class="section-name"><span>RandomInRangeable Extensions</span>
-</h3>
-                </div>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:s5Int64V"></a>
-                    <a name="//apple_ref/swift/Extension/Int64" class="dashAnchor"></a>
-                    <a class="token" href="#/s:s5Int64V">Int64</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Int64</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:Sf"></a>
-                    <a name="//apple_ref/swift/Extension/Float" class="dashAnchor"></a>
-                    <a class="token" href="#/s:Sf">Float</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Float</span><span class="p">:</span> <span class="kt"><a href="Protocols/RandomInRangeable.html">RandomInRangeable</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2022-02-11)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2022 <a class="link" href="https://www.skipthedishes.com" target="_blank" rel="external noopener">SkipTheDishes</a>. All rights reserved. (Last updated: 2022-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>

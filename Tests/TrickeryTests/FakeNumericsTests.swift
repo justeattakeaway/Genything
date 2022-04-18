@@ -3,9 +3,11 @@ import XCTest
 
 private typealias Numerics = Fake.Numerics
 
+// MARK: - FakeNumericsTests
+
 class FakeNumericsTests: XCTestCase {
     func test_digits() {
-        Numerics.digits.take().forEach {
+        testAll(Numerics.digits) {
             XCTAssertTrue($0 < 10)
             XCTAssertTrue($0 >= 0)
         }

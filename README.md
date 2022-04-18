@@ -58,30 +58,45 @@ Both of these libraries may be used for code testing, rapid prototyping, demo ap
 - High test coverage
 - [100% Documented](https://justeattakeaway.github.io/Genything)
 
-### Gen
+### Generator
 
-The `Gen` type class is the core of Genything.
-It is nothing more than a generic container that stores a callback capable of generating a value from a `Context`.
+The `Generator` is the core of Genything.
 
 ```swift
-struct Gen<T> {
-    let generator: (Context) throws -> T
+public protocol Generator {
+    associatedtype T
+    func next(_ randomSource: RandomSource) -> T
 }
 ```
 
-The `Context` contains configuration, and a Random Number Generator which you can customize.
+It defines a type with a function capable of generating values using a `RandomSource`.
+The `RandomSource` is used to track and mutate any RandomNumberGenerator instance, allowing you to control just how **much** random you would like.
 
-So a generator of Booleans might look like this:
+A generator of bools might look like this:
 
 ```swift
-Gen<Bool> { context in
-    Bool.random(using: &context.rng)
+struct BoolGenerator: Generator {
+    func next(_ randomSource: RandomSource) -> T {
+        Bool.random(using: &randomSource.rng)
+    }
 }
 ```
 
-This is a good to understand, but in practice you can avoid `Gen`'s initializer altogether and instead use the vast library of extensions to build, combine, and mutate `Gen`s.
+or
 
-You can find out more about these extensions in the [documentation](https://justeattakeaway.github.io/Genything/Structs/Gen.html)!
+```swift
+AnyGenerator<Bool> { randomSource in
+    Bool.random(using: &randomSource.rng)
+}
+```
+
+Or, we can take advantage of Genything's arbitrary conformance for [most standard Swift types](https://justeattakeaway.github.io/Genything/Extensions.html), including `Bool`:
+
+```swift
+Bool.arbitrary
+```
+
+Genything provides numerous ways to [create your own Generators](https://justeattakeaway.github.io/Genything/Enums/Generators.html) under the `Generators` namespace, and the `Generator` type is [extended by many operators](https://justeattakeaway.github.io/Genything/Protocols/Generator.html) which you can use to further mutate and control the resulting generator.
 
 ### Arbitrary
 
@@ -91,8 +106,8 @@ Take Swift's `Bool` as example, it's Arbitrary is defined as:
 
 ```swift
 extension Bool: Arbitrary {
-    public static var arbitrary: Gen<Bool> {
-        Gen.of([true, false])
+    public static var arbitrary: AnyGenerator<Bool> {
+        [true, false].arbitrary
     }
 }
 ```
@@ -100,16 +115,16 @@ extension Bool: Arbitrary {
 We can now use this definition automatically when we are composing a more complex arbitrary type:
 
 ```swift
-struct Transaction {
-  let isComplete: Bool
+struct Foo {
+  let bar: Bool
   // ...
 }
 
 extension Transaction: Arbitrary {
-    public static var arbitrary: Gen<Bool> {
-        Gen.compose {
-          Transaction(
-            isComplete: $0.generate(), // Will equally generate True or False when the Transaction generator is run
+    public static var arbitrary: AnyGenerator<Bool> {
+        Gen.compose { generate in
+          Foo(
+            bar: generate(), // Will return true/false like a coin-flip for each generated value
             //...
           )
         }
@@ -127,95 +142,27 @@ Consider a phone number. A phone number of type `String` has rules about length,
 
 ## GenythingTest
 
-A key consideration for Genything is that your Generators be usable Genywhere (anywhere). In order to help enforce that  
+Genything provides two extensions for `XCTestCase` which we suggest that you use as your primary method for property testing.
+
+- `testAll(generator:config:file:line:body)`
+- `testAllSatisfy(generator:config:file:line:predicate)`
 
 ## Examples
 
-### Examples: Gen
-
-#### Using Genything to create a dice roller
-
-```swift
-
-// A very basic dice roll example
-let d4 = Gen<Int>.from(1...4)
-print("d4: \(twoD4Plus2.sample())")
-
-// Getting more complex with an RPG-style multiple dice roll
-func diceRoller(_ dice: [Gen<Int>], modifier: Int = 0) -> Gen<Int> {
-    Gen.reduce(dice, modifier, +)
-}
-
-// Roll 2 d4s with a +2 modifier
-let twoD4Plus2 = diceRoller([d4, d4], modifier: 2)
-print("2d4+2: \(twoD4Plus2.sample())")
-```
-
-#### Using Genything to produce random city names from a list
-
-```swift
-import Genything
-
-let cityGen = Gen.of(["Winnipeg","Calgary","Vancouver","Halifax"])
-
-/// Generates 1 city
-cityGen.generate()
-
-/// Takes 100 random cities
-cityGen.take(count: 100)
-
-/// Prints values from the generator until the Context's max iterations is reached
-cityGen.forEach { city in print(city) }
-
-```
-
-### Examples: Arbitrary
-
-#### Using Arbitrary to sanity check an invariant condition
-
-```swift
-checkAll(UInt.arbitrary) { number in
-    XCTAssert(divideByTwo(Int(number)) < number)
-}
-```
-
-### Examples: Trickery
-
-#### Using fake data to render a Swift UI preview
-
-```swift
-import Trickery
-
-struct PhoneBook_Previews: PreviewProvider {
-    static var previews: some View {
-        PhoneBook(
-          Gen.zip(
-            Fake.PersonNames.full, 
-            Fake.PhoneNumbers.formatted
-          ) { 
-            PhoneBookRow(name: $0, number: $1) 
-          }.take(count: 10)
-        )
-    }
-}
-
-```
+Checkout out our [Playground guide](Example/Playground.playground)
 
 ## Mixins
 
-Genything & Trickery are also amazing when combined with other open source libraries!
+Genything is happy when combined with other open source libraries!
 
-### [SFSafeSymbols](https://github.com/piknotech/SFSafeSymbols)
+### Generate arbitrary SFSymbols with [SFSafeSymbols](https://github.com/piknotech/SFSafeSymbols)
 
 Generate any [SF Symbol](https://developer.apple.com/sf-symbols/)
 
 ```swift
-extension Fake {
-    public enum SFSafeSymbols {
-        @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-        public static let any: Gen<SFSymbol> = .ofCases().map { $0.rawValue }
-    }
-}
+import SFSafeSymbols
+
+let sfSymbolGen: AnyGenerator<SFSymbol> = SFSymbol.arbitrary.map { $0.rawValue }
 ```
 
 ## Installation
@@ -245,7 +192,7 @@ Then add the packages you want to:
 
 ## Credits
 
-The Genything and Trickery projects are owned and maintained by [SkipTheDishes](https://www.skipthedishes.com/), a [Just Eat Takeaway.com](https://www.justeattakeaway.com/) subsidiary.
+The Genything project is owned and maintained by [SkipTheDishes](https://www.skipthedishes.com/), a [Just Eat Takeaway.com](https://www.justeattakeaway.com/) subsidiary.
 
 ### Contributing
 

@@ -1,6 +1,8 @@
 import Foundation
 import Genything
 
+// MARK: - GenLibData
+
 private struct GenLibData: Codable {
     /// A template which supports the following substitutions:
     /// `verb`: A past tense verb
@@ -23,6 +25,8 @@ private struct GenLibData: Codable {
     }
 }
 
+// MARK: - GenLibsScriptGenerator
+
 struct GenLibsScriptGenerator {
     private static let data = Bundle.main.url(forResource: "genlib", withExtension: "json")
         .flatMap {
@@ -32,13 +36,13 @@ struct GenLibsScriptGenerator {
             try? JSONDecoder().decode(GenLibData.self, from: $0)
         }!
 
-    let generator = Gen.of(data.scripts).flatMap {
-        .replacing($0, with: [
-            (replace: "${verb}", by: Gen.of(data.words.verbs.regular)),
-            (replace: "${verb-past}", by: Gen.of(data.words.verbs.past)),
-            (replace: "${noun}", by: Gen.of(data.words.nouns)),
-            (replace: "${nouns}", by: Gen.of(data.words.nouns).map { $0 + "s" }),
-            (replace: "${adjective}", by: Gen.of(data.words.adjectives)),
+    let generator = data.scripts.arbitrary.flatMap {
+        Generators.replacing($0, with: [
+            (replace: "${verb}", by: data.words.verbs.regular.arbitrary),
+            (replace: "${verb-past}", by: data.words.verbs.past.arbitrary),
+            (replace: "${noun}", by: data.words.nouns.arbitrary),
+            (replace: "${nouns}", by: data.words.nouns.arbitrary.map { $0 + "s" }),
+            (replace: "${adjective}", by: data.words.adjectives.arbitrary),
         ])
     }
 }
