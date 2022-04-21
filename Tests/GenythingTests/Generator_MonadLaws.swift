@@ -15,8 +15,8 @@ final class Generator_ObeysMonadLaws: XCTestCase {
         let normalResult = increment(value: value)
 
         XCTAssertEqual(
-            flatMapResult.next(.init()),
-            normalResult.next(.init())
+            flatMapResult.next(.predetermined()),
+            normalResult.next(.predetermined())
         )
     }
 
@@ -32,8 +32,8 @@ final class Generator_ObeysMonadLaws: XCTestCase {
         let normalResult = wrap(value: value)
 
         XCTAssertEqual(
-            flatMapResult.next(.init()),
-            normalResult.next(.init())
+            flatMapResult.next(.predetermined()),
+            normalResult.next(.predetermined())
         )
     }
 
@@ -63,7 +63,7 @@ final class Generator_ObeysMonadLaws: XCTestCase {
                 functions[0]($0).flatMap(functions[1])
             }
 
-            return chained.next(RandomSource()) == nested.next(RandomSource())
+            return chained.next(.predetermined()) == nested.next(.predetermined())
         }
     }
 }

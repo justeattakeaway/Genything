@@ -21,7 +21,7 @@ let counter = Counter()
 
 // We need a random source
 
-let rs = RandomSource()
+let rs: RandomSource = .predetermined()
 
 // Now we can see what it produces
 

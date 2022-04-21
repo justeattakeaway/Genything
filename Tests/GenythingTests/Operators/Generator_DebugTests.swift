@@ -8,6 +8,6 @@ final class Generator_DebugTests: XCTestCase {
             .debug()
             .map { $0 * 2 }
             .debug("*2")
-            .take(5, randomSource: RandomSource())
+            .take(5, randomSource: .predetermined())
     }
 }

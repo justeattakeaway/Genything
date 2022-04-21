@@ -7,8 +7,8 @@ final class Generator_MapTests: XCTestCase {
         let gen2 = gen1.map { $0 }
 
         XCTAssertEqual(
-            gen1.take(1000, randomSource: RandomSource()),
-            gen2.take(1000, randomSource: RandomSource())
+            gen1.take(1000, randomSource: .predetermined()),
+            gen2.take(1000, randomSource: .predetermined())
         )
     }
 }

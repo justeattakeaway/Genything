@@ -41,9 +41,9 @@ final class Generators_ShuffleLoopTests: XCTestCase {
         )
 
         // All cards of the deck are drawn, and they are all unique
-        XCTAssertEqual(52, Set<Card>(cardGen.take(52, randomSource: RandomSource())).count)
+        XCTAssertEqual(52, Set<Card>(cardGen.take(52, randomSource: .predetermined())).count)
 
         // Drawing more from the deck takes from a newly shuffled pile and will repeat values
-        XCTAssertEqual(52, Set<Card>(cardGen.take(53, randomSource: RandomSource())).count)
+        XCTAssertEqual(52, Set<Card>(cardGen.take(53, randomSource: .predetermined())).count)
     }
 }

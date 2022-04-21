@@ -7,7 +7,7 @@ internal final class Generator_SequenceTests: XCTestCase {
         let gen = Int.arbitrary
 
         // when I run a loop of size `100`
-        for _ in gen.sequence(100, randomSource: RandomSource()) {
+        for _ in gen.sequence(100, randomSource: .predetermined()) {
             // no-op
         }
 
@@ -22,7 +22,7 @@ internal final class Generator_SequenceTests: XCTestCase {
         // and a counter
         var count = 0
         // when I run a loop and count
-        for _ in gen.sequence(expected, randomSource: RandomSource()) {
+        for _ in gen.sequence(expected, randomSource: .predetermined()) {
             count += 1
         }
         // then count matches expectations
@@ -37,7 +37,7 @@ internal final class Generator_SequenceTests: XCTestCase {
         // and a counter
         var count = 0
         // when I run a loop and count
-        for _ in gen.sequence(0, randomSource: RandomSource()) {
+        for _ in gen.sequence(0, randomSource: .predetermined()) {
             count += 1
         }
         // then count matches expectations

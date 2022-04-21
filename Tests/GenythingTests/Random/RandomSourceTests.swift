@@ -5,8 +5,8 @@ internal final class RandomSourceTests: XCTestCase {
     func test_using_a_RandomSource() {
         // A new randomSource is created each execution
         XCTAssertEqual(
-            Int.arbitrary.next(RandomSource()),
-            Int.arbitrary.next(RandomSource())
+            Int.arbitrary.next(.predetermined()),
+            Int.arbitrary.next(.predetermined())
         )
 
         // To introduce randomness we need to track our randomSource
@@ -20,7 +20,7 @@ internal final class RandomSourceTests: XCTestCase {
 
     func test_generate_one_with_same_seed_produces_same() {
         let calls = (1 ... 100).map { _ in
-            (1 ... 100).arbitrary.next(RandomSource())
+            (1 ... 100).arbitrary.next(.predetermined())
         }
 
         let allCallsAreSame = calls.allSatisfy {
@@ -54,8 +54,8 @@ internal final class RandomSourceTests: XCTestCase {
     }
 
     func test_multiple_calls_with_same_seed_produce_same() {
-        let first = (1 ... 100).arbitrary.take(1000, randomSource: RandomSource())
-        let second = (1 ... 100).arbitrary.take(1000, randomSource: RandomSource())
+        let first = (1 ... 100).arbitrary.take(1000, randomSource: .predetermined())
+        let second = (1 ... 100).arbitrary.take(1000, randomSource: .predetermined())
 
         XCTAssertEqual(first, second)
     }
@@ -64,7 +64,7 @@ internal final class RandomSourceTests: XCTestCase {
         let result = Generators.zip(
             (1 ... 100).arbitrary,
             (1 ... 100).arbitrary
-        ).take(1000, randomSource: RandomSource())
+        ).take(1000, randomSource: .predetermined())
 
         XCTAssertNotEqual(
             result.map { $0.0 },

@@ -27,7 +27,7 @@ let userGenerator = AnyGenerator { rs in
     )
 }
 
-userGenerator.next(RandomSource()) /// Returns: An arbitrary user
+userGenerator.next(.predetermined()) /// Returns: An arbitrary user
 
 // As you can see it is not difficult to create a generator which is capable of quickly providing us with arbitrary users of our system. But we can do even better!
 
@@ -93,13 +93,13 @@ let over18UserGen = User.arbitrary.regenerate { user, randomSource in
     user.age = (18...Int.max).arbitrary.next(randomSource)
 }
 
-over18UserGen.next(RandomSource()) /// Returns: An arbitrary user with age >= 18
+over18UserGen.next(.predetermined()) /// Returns: An arbitrary user with age >= 18
 
 let under18UserGen = User.arbitrary.regenerate { user, randomSource in
     user.age = (0..<18).arbitrary.next(randomSource)
 }
 
-under18UserGen.next(RandomSource()) /// Returns: An arbitrary user with age < 18
+under18UserGen.next(.predetermined()) /// Returns: An arbitrary user with age < 18
 
 // We assume that the routine should be invariant to any other User property other than the age
 // By leaving the other properties arbitrary, and conducting multiple tests, we can be reasonably sure of this assumption

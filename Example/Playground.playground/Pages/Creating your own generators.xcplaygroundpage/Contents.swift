@@ -17,7 +17,7 @@ struct RandomDate: Generator {
     }
 }
 
-RandomDate().next(RandomSource()) /// Returns: An arbitrary date
+RandomDate().next(.predetermined()) /// Returns: An arbitrary date
 
 // It's also important to mention that while abstracting randomness is a large part of what makes Genything great, there is no requirement:
 
@@ -28,7 +28,7 @@ struct CurrentDate: Generator {
     }
 }
 
-CurrentDate().next(RandomSource()) /// Returns: The current date
+CurrentDate().next(.predetermined()) /// Returns: The current date
 
 // Many Genything operators are themselves just Generators:
 
@@ -45,7 +45,7 @@ let unixTimeGenerator = MapOperator(source: CurrentDate()) { date in
     date.timeIntervalSince1970
 }
 
-unixTimeGenerator.next(RandomSource()) /// Returns: An arbitrary unix time as `TimeInterval`
+unixTimeGenerator.next(.predetermined()) /// Returns: An arbitrary unix time as `TimeInterval`
 
 // We can use this knowledge to create our own operators:
 
@@ -68,8 +68,8 @@ struct FormatDate<Source>: Generator where Source: Generator, Source.T == Date {
     }
 }
 
-FormatDate(source: CurrentDate()).next(RandomSource()) /// Returns: The current date, formatted
-FormatDate(source: RandomDate()).next(RandomSource()) /// Returns: An arbitrary date, formatted
+FormatDate(source: CurrentDate()).next(.predetermined()) /// Returns: The current date, formatted
+FormatDate(source: RandomDate()).next(.predetermined()) /// Returns: An arbitrary date, formatted
 
 // And now you can add this operator to Genything's DSL
 

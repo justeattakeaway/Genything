@@ -65,7 +65,7 @@ struct BusinessListView: View {
             addressLine1: Fake.Addresses.streetLine.next(rs),
             addressLine2: addressLine2Gen.next(rs)
         )
-    }.take(50, randomSource: RandomSource())
+    }.take(50, randomSource: .predetermined())
 
     var body: some View {
         List {
