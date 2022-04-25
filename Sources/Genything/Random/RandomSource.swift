@@ -20,13 +20,6 @@ public class RandomSource {
         self.originalSeed = originalSeed
     }
 
-    /// Initializes a `RandomSource` from a predetermined shared seed
-    ///
-    /// - Returns: A new, independent random source.
-    public convenience init() {
-        self.init(determinism: .predetermined(seed: 2022))
-    }
-
     /// The original seed used to begin random number generation
     ///
     /// To be used for debugging purposes and to "replay" a generation event
@@ -39,7 +32,18 @@ public class RandomSource {
 // MARK: Convenience RandomSource Creators
 
 extension RandomSource {
-    /// Returns: An independent `RandomSource` initialized from a nondeterministic seed
+    /// Returns: An new, independent `RandomSource` initialized by default with a common seed for all Genything users
+    public static func predetermined(seed: UInt64 = 2022) -> RandomSource {
+        .init(determinism: .predetermined(seed: seed))
+    }
+    
+    /// Returns: An new, independent `RandomSource` which can be used to replay a previous deterministic random execution
+    /// - Note: Named to help with discoverability
+    public static func replay(seed: UInt64) -> RandomSource {
+        .init(determinism: .predetermined(seed: seed))
+    }
+    
+    /// Returns: An new, independent `RandomSource` initialized from a nondeterministic seed
     public static func random() -> RandomSource {
         .init(determinism: .random)
     }

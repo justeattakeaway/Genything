@@ -7,7 +7,7 @@ internal final class FoundationArbitraryTests: XCTestCase {
         let expectedCount = 100
 
         var datesSet: Set<Date> = Set()
-        for date in Date.arbitrary.sequence(expectedCount, randomSource: RandomSource()) {
+        for date in Date.arbitrary.sequence(expectedCount, randomSource: .predetermined()) {
             datesSet.insert(date)
         }
 

@@ -3,7 +3,7 @@ import XCTest
 
 internal final class SwiftArbitraryTests: XCTestCase {
     func test_stringGeneration_createsDifferentStrings_withDifferentSizes() throws {
-        let strings = String.arbitrary.take(2, randomSource: RandomSource())
+        let strings = String.arbitrary.take(2, randomSource: .predetermined())
 
         XCTAssertEqual(2, strings.count)
         XCTAssertNotEqual(strings[0], strings[1])
@@ -12,7 +12,7 @@ internal final class SwiftArbitraryTests: XCTestCase {
 
     func test_optional_createsOptionals_andRealValues() {
         let arb = (String?).arbitrary
-        let samples = arb.take(10, randomSource: RandomSource())
+        let samples = arb.take(10, randomSource: .predetermined())
 
         XCTAssert(samples.contains(nil))
 
@@ -22,7 +22,7 @@ internal final class SwiftArbitraryTests: XCTestCase {
     }
 
     func test_boolGeneration_createsRandomBool() {
-        let bools = Bool.arbitrary.take(10, randomSource: RandomSource())
+        let bools = Bool.arbitrary.take(10, randomSource: .predetermined())
         XCTAssertTrue(bools.contains(true))
         XCTAssertTrue(bools.contains(false))
     }

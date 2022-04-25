@@ -7,7 +7,7 @@ final class Generators_WeightedTests: XCTestCase {
         let values = Generators.weighted([
             (1, "A"),
             (1, "B"),
-        ]).sequence(1000, randomSource: RandomSource()).countDistinct()
+        ]).sequence(1000, randomSource: .predetermined()).countDistinct()
 
         guard
             let a = values["A"],
@@ -23,7 +23,7 @@ final class Generators_WeightedTests: XCTestCase {
         let values = Generators.weighted([
             (2, "A"),
             (1, "B"),
-        ]).sequence(1000, randomSource: RandomSource()).countDistinct()
+        ]).sequence(1000, randomSource: .predetermined()).countDistinct()
 
         guard
             let a = values["A"],

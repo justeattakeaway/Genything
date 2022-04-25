@@ -14,7 +14,7 @@ internal final class DiceRollerTests: XCTestCase {
 
     // With enough dice rolls the mean should be very close to 3.5
     func test_d6_mean() {
-        let occurences = d6.take(1_000_000, randomSource: RandomSource())
+        let occurences = d6.take(1_000_000, randomSource: .predetermined())
         let mean = Double(occurences.reduce(0, +)) / Double(occurences.count)
         XCTAssertEqual(mean, 3.5, accuracy: 0.005)
     }

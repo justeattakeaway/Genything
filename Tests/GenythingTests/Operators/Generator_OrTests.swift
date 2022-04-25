@@ -6,7 +6,7 @@ final class Generator_OrTests: XCTestCase {
         let totalCount = 10000
         let trueCount = Generators.constant(false)
             .or(Generators.constant(true))
-            .take(totalCount, randomSource: RandomSource())
+            .take(totalCount, randomSource: .predetermined())
             .filter { $0 }
             .count
 
@@ -17,7 +17,7 @@ final class Generator_OrTests: XCTestCase {
         let totalCount = 10000
         let trueCount = Generators.constant(false)
             .or(Generators.constant(true), otherProbability: 0.0)
-            .take(totalCount, randomSource: RandomSource())
+            .take(totalCount, randomSource: .predetermined())
             .filter { $0 }
             .count
 
@@ -28,7 +28,7 @@ final class Generator_OrTests: XCTestCase {
         let totalCount = 10000
         let trueCount = Generators.constant(false)
             .or(Generators.constant(true), otherProbability: 1.0)
-            .take(totalCount, randomSource: RandomSource())
+            .take(totalCount, randomSource: .predetermined())
             .filter { $0 }
             .count
 

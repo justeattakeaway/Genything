@@ -9,7 +9,7 @@ final class Generator_AlsoTests: XCTestCase {
         var count = 0
         _ = Generators.constant(()).also {
             count += 1
-        }.take(iterations, randomSource: RandomSource())
+        }.take(iterations, randomSource: .predetermined())
 
         XCTAssertEqual(iterations, count)
     }

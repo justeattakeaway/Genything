@@ -10,7 +10,7 @@
 //
 //        let result = Exhaustive.Loop(range)
 //            .scan(0) { $0 + $1 }
-//            .take(range.count, randomSource: RandomSource())
+//            .take(range.count, randomSource: .predetermined())
 //
 //        XCTAssertEqual([0, 1, 3, 6, 10, 15], result)
 //    }
@@ -20,7 +20,7 @@
 //
 //        let result = Generators.constant(0)
 //            .scan(0) { acc, _ in acc + 1 }
-//            .take(range.count, randomSource: RandomSource())
+//            .take(range.count, randomSource: .predetermined())
 //
 //        XCTAssertEqual([1, 2, 3, 4, 5, 6], result)
 //    }
@@ -30,7 +30,7 @@
 //
 //        let result = Generators.constant(0)
 //            .scan(0) { acc, _ in acc + 2 }
-//            .take(range.count, randomSource: RandomSource())
+//            .take(range.count, randomSource: .predetermined())
 //
 //        XCTAssertEqual([2, 4, 6, 8, 10, 12], result)
 //    }
@@ -43,6 +43,6 @@
 //                average * 0.5 + Double(newValue) * 0.5
 //            }
 //            .debug("average")
-//            .sequence(100, randomSource: RandomSource()).forEach { _ in }
+//            .sequence(100, randomSource: .predetermined()).forEach { _ in }
 //    }
 //}

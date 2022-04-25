@@ -11,7 +11,7 @@ final class Generators_OneOfTests: XCTestCase {
         // Count which bucket we are taking from
         let countGen0 = Generators
             .one(of: [gen0, gen1])
-            .take(iterations, randomSource: RandomSource())
+            .take(iterations, randomSource: .predetermined())
             .filter { $0 == 0 }
             .count
 

@@ -6,8 +6,8 @@ final class Generators_LazyTests: XCTestCase {
         let iterator = Generators.iterate(0 ... 10)
 
         XCTAssertNotEqual(
-            iterator.take(5, randomSource: RandomSource()),
-            iterator.take(5, randomSource: RandomSource())
+            iterator.take(5, randomSource: .predetermined()),
+            iterator.take(5, randomSource: .predetermined())
         )
     }
 
@@ -17,8 +17,8 @@ final class Generators_LazyTests: XCTestCase {
         }
 
         XCTAssertEqual(
-            lazyIterator.start().take(5, randomSource: RandomSource()),
-            lazyIterator.start().take(5, randomSource: RandomSource())
+            lazyIterator.start().take(5, randomSource: .predetermined()),
+            lazyIterator.start().take(5, randomSource: .predetermined())
         )
     }
 }

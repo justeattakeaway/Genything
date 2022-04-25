@@ -6,8 +6,8 @@ final class Generators_RandomizedGeneratorTests: XCTestCase {
         let arb = Int.arbitrary
 
         XCTAssertEqual(
-            arb.take(20, randomSource: RandomSource()),
-            arb.randomize(with: RandomSource()).take(20)
+            arb.take(20, randomSource: .predetermined()),
+            arb.randomize(with: .predetermined()).take(20)
         )
     }
 }

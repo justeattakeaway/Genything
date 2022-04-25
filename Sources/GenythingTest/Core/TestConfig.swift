@@ -34,7 +34,7 @@ extension TestConfig {
     private static var `defaultFactory`: () -> TestConfig = {
         TestConfig(
             maxIterations: 1000,
-            randomSource: RandomSource()
+            randomSource: .predetermined()
         )
     }
 
