@@ -1,5 +1,6 @@
 import Foundation
 import Genything
+#if canImport(XCTest)
 import XCTest
 
 // MARK: - Failure Detection / RandomSource storage
@@ -514,3 +515,4 @@ extension XCTestCase {
         )
     }
 }
+#endif

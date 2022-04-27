@@ -1,5 +1,6 @@
 import Foundation
 import Genything
+#if canImport(XCTest)
 import XCTest
 
 private func rerunInfo(_ randomSource: RandomSource) -> String {
@@ -26,3 +27,4 @@ func fail(
 ) {
     XCTFail("[Genything] - Failed with exception `\(error)`. \(rerunInfo(randomSource))", file: file, line: line)
 }
+#endif
