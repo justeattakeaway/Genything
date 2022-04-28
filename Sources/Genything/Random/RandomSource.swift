@@ -36,13 +36,13 @@ extension RandomSource {
     public static func predetermined(seed: UInt64 = 2022) -> RandomSource {
         .init(determinism: .predetermined(seed: seed))
     }
-    
+
     /// Returns: An new, independent `RandomSource` which can be used to replay a previous deterministic random execution
     /// - Note: Named to help with discoverability
     public static func replay(seed: UInt64) -> RandomSource {
         .init(determinism: .predetermined(seed: seed))
     }
-    
+
     /// Returns: An new, independent `RandomSource` initialized from a nondeterministic seed
     public static func random() -> RandomSource {
         .init(determinism: .random)

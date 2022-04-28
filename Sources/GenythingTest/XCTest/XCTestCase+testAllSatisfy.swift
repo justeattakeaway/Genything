@@ -1,5 +1,6 @@
 import Foundation
 import Genything
+#if canImport(XCTest)
 import XCTest
 
 // - MARK: Test
@@ -140,3 +141,4 @@ extension XCTestCase {
         )
     }
 }
+#endif
