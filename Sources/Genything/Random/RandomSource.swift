@@ -16,7 +16,7 @@ public class RandomSource {
     ///   - originalSeed: The original seed (start position) of `rng`
     ///
     public init(using rng: RandomNumberGenerator, originalSeed: UInt64?) {
-        self.rng = AnyRandomNumberGenerator(rng: rng)
+        self.rng = AnyRandomNumberGenerator(wrapped: rng)
         self.originalSeed = originalSeed
     }
 
