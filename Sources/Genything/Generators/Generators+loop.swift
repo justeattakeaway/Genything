@@ -14,7 +14,7 @@ extension Generators {
 /// Since this generator will comprehensibly examine all elements of the collection it can be used to display all possible configurations or test all possible values when the problem space is small and known.
 ///
 /// - Warning: This generator is stateful and cannot be restarted. Pay attention to how it to how the reference is being retained and do not share the generator to unsuspecting consumers.
-private class Loop<Elements>: Generator where Elements: Swift.Collection {
+class Loop<Elements>: Generator where Elements: Swift.Collection {
 
     /// Creates a Generator that loops the provided collection of elements.
     ///
