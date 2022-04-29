@@ -20,10 +20,17 @@ extension Generators {
     /// - Returns: The generator of Arrays containing values selected in order from the provided generators
     public static func collect<G, R>(_ generators: [G], _ transform: @escaping (G.T) -> R) -> AnyGenerator<[R]>
         where G: Generator {
-        AnyGenerator<[R]> { ctx in
-            generators.map {
-                $0.next(ctx)
-            }.map(transform)
-        }
+            Collect(sources: generators, transform: transform).eraseToAnyGenerator()
+    }
+}
+
+struct Collect<Source, T>: Generator where Source: Generator {
+    let sources: [Source]
+    let transform: (Source.T) -> T
+
+    func next(_ randomSource: RandomSource) -> [T] {
+        sources.map {
+            $0.next(randomSource)
+        }.map(transform)
     }
 }
