@@ -9,7 +9,7 @@ extension Generators {
     /// let genA = Generators.constant("A")
     /// let genB = Generators.constant("B")
     ///
-    /// Generators.merge(genA, genB) // Produces values ABABABABABAB...
+    /// Generators.merge([genA, genB]) // Produces values ABABABABABAB...
     /// ```
     ///
     /// - Returns: The generator
