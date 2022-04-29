@@ -10,8 +10,7 @@ extension Generators {
     /// - Returns: The generator
     public static func join<G>(_ generators: [G], separator: String = "") -> AnyGenerator<String> where G: Generator,
         G.T == String {
-        Generators
-            .collect(generators)
+        collect(generators)
             .map { $0.joined(separator: separator) }
     }
 }
