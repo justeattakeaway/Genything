@@ -1,1 +1,277 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"eraseToAnyGenerator"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","identifier":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator","preciseIdentifier":"s:9Genything12AnyGeneratorV","text":"AnyGenerator"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":">"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/genything\/anygenerator\/erasetoanygenerator()"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/eraseToAnyGenerator()","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Erases types conforming to the abstract protocol Generator to the concrete struct AnyGenerator"}],"kind":"symbol","metadata":{"role":"symbol","title":"eraseToAnyGenerator()","roleHeading":"Instance Method","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"eraseToAnyGenerator"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","text":"AnyGenerator","preciseIdentifier":"s:9Genything12AnyGeneratorV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":">"}],"symbolKind":"method","externalID":"s:9Genything9GeneratorPAAE010eraseToAnyB0AA0eB0Vy1TQzGyF::SYNTHESIZED::s:9Genything12AnyGeneratorV","extendedModule":"Genything","modules":[{"name":"Genything"}]},"hierarchy":{"paths":[["doc:\/\/Genything\/documentation\/Genything","doc:\/\/Genything\/documentation\/Genything\/AnyGenerator","doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/Generator-Implementations"]]},"references":{"doc://Genything/documentation/Genything":{"role":"collection","title":"Genything","abstract":[],"identifier":"doc:\/\/Genything\/documentation\/Genything","kind":"symbol","type":"topic","url":"\/documentation\/genything"},"doc://Genything/documentation/Genything/AnyGenerator/Generator-Implementations":{"role":"collectionGroup","title":"Generator Implementations","abstract":[],"identifier":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/Generator-Implementations","kind":"article","type":"topic","url":"\/documentation\/genything\/anygenerator\/generator-implementations"},"doc://Genything/documentation/Genything/AnyGenerator/eraseToAnyGenerator()":{"role":"symbol","title":"eraseToAnyGenerator()","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"eraseToAnyGenerator"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","text":"AnyGenerator","preciseIdentifier":"s:9Genything12AnyGeneratorV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":">"}],"abstract":[{"type":"text","text":"Erases types conforming to the abstract protocol Generator to the concrete struct AnyGenerator"}],"identifier":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/eraseToAnyGenerator()","kind":"symbol","type":"topic","url":"\/documentation\/genything\/anygenerator\/erasetoanygenerator()"},"doc://Genything/documentation/Genything/AnyGenerator":{"role":"symbol","title":"AnyGenerator","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"AnyGenerator"}],"abstract":[{"type":"text","text":"A type-erased "},{"type":"codeVoice","code":"Generator"}],"identifier":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"AnyGenerator"}],"url":"\/documentation\/genything\/anygenerator"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Erases types conforming to the abstract protocol Generator to the concrete struct AnyGenerator",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Genything\/documentation\/Genything",
+        "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+        "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/Generator-Implementations"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/eraseToAnyGenerator()"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "Genything",
+    "externalID" : "s:9Genything9GeneratorPAAE010eraseToAnyB0AA0eB0Vy1TQzGyF::SYNTHESIZED::s:9Genything12AnyGeneratorV",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "eraseToAnyGenerator"
+      },
+      {
+        "kind" : "text",
+        "text" : "() -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+        "text" : "AnyGenerator"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Self"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : ">"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Genything"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "eraseToAnyGenerator()"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "eraseToAnyGenerator"
+            },
+            {
+              "kind" : "text",
+              "text" : "() -> "
+            },
+            {
+              "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+              "text" : "AnyGenerator"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Self"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : ">"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/genything\/anygenerator\/erasetoanygenerator()"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Genything/documentation/Genything": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Genything",
+  "type" : "topic",
+  "url" : "\/documentation\/genything"
+},
+"doc://Genything/documentation/Genything/AnyGenerator": {
+  "abstract" : [
+    {
+      "text" : "A type-erased ",
+      "type" : "text"
+    },
+    {
+      "code" : "Generator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "AnyGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "AnyGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "AnyGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/anygenerator"
+},
+"doc://Genything/documentation/Genything/AnyGenerator/Generator-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/Generator-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Generator Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/anygenerator\/generator-implementations"
+},
+"doc://Genything/documentation/Genything/AnyGenerator/eraseToAnyGenerator()": {
+  "abstract" : [
+    {
+      "text" : "Erases types conforming to the abstract protocol Generator to the concrete struct AnyGenerator",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "eraseToAnyGenerator"
+    },
+    {
+      "kind" : "text",
+      "text" : "() -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+      "text" : "AnyGenerator"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/eraseToAnyGenerator()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "eraseToAnyGenerator()",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/anygenerator\/erasetoanygenerator()"
+}
+}
+}

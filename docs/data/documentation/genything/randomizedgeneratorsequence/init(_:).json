@@ -1,1 +1,322 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"generator"},{"kind":"text","text":": "},{"kind":"typeIdentifier","identifier":"doc:\/\/Genything\/documentation\/Genything\/RandomizedGenerator","preciseIdentifier":"s:9Genything19RandomizedGeneratorV","text":"RandomizedGenerator"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"G"},{"kind":"text","text":">)"}],"languages":["swift"],"platforms":["macOS"]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/genything\/randomizedgeneratorsequence\/init(_:)"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/init(_:)","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Initializes a "},{"type":"codeVoice","code":"RandomizedGenerator"},{"type":"text","text":" conforming to "},{"type":"codeVoice","code":"Sequence"},{"type":"text","text":" which also acts as it’s own "},{"type":"codeVoice","code":"Iterator"}],"kind":"symbol","metadata":{"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"RandomizedGenerator","preciseIdentifier":"s:9Genything19RandomizedGeneratorV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"G"},{"kind":"text","text":">)"}],"title":"init(_:)","roleHeading":"Initializer","role":"symbol","symbolKind":"init","externalID":"s:9Genything27RandomizedGeneratorSequenceVyACyxGAA0bC0VyxGcfc","modules":[{"name":"Genything"}]},"hierarchy":{"paths":[["doc:\/\/Genything\/documentation\/Genything","doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence"]]},"references":{"doc://Genything/documentation/Genything/RandomizedGeneratorSequence/init(_:)":{"role":"symbol","title":"init(_:)","fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"RandomizedGenerator","preciseIdentifier":"s:9Genything19RandomizedGeneratorV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"G"},{"kind":"text","text":">)"}],"abstract":[{"type":"text","text":"Initializes a "},{"type":"codeVoice","code":"RandomizedGenerator"},{"type":"text","text":" conforming to "},{"type":"codeVoice","code":"Sequence"},{"type":"text","text":" which also acts as it’s own "},{"type":"codeVoice","code":"Iterator"}],"identifier":"doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/init(_:)","kind":"symbol","type":"topic","url":"\/documentation\/genything\/randomizedgeneratorsequence\/init(_:)"},"doc://Genything/documentation/Genything":{"role":"collection","title":"Genything","abstract":[],"identifier":"doc:\/\/Genything\/documentation\/Genything","kind":"symbol","type":"topic","url":"\/documentation\/genything"},"doc://Genything/documentation/Genything/RandomizedGenerator":{"role":"symbol","title":"RandomizedGenerator","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"RandomizedGenerator"}],"abstract":[{"type":"text","text":"A Generator binded together with a RandomSource which has copies of Generator functions which produce values. Used to persist the randomness between multiple generated productions of values."}],"identifier":"doc:\/\/Genything\/documentation\/Genything\/RandomizedGenerator","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"RandomizedGenerator"}],"url":"\/documentation\/genything\/randomizedgenerator"},"doc://Genything/documentation/Genything/RandomizedGeneratorSequence":{"role":"symbol","title":"RandomizedGeneratorSequence","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"RandomizedGeneratorSequence"}],"abstract":[{"type":"text","text":"A "},{"type":"codeVoice","code":"RandomizedGenerator"},{"type":"text","text":" wrapped as a "},{"type":"codeVoice","code":"Sequence"},{"type":"text","text":" which also acts as it’s own "},{"type":"codeVoice","code":"Iterator"}],"identifier":"doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"RandomizedGeneratorSequence"}],"url":"\/documentation\/genything\/randomizedgeneratorsequence"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Initializes a ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomizedGenerator",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " conforming to ",
+      "type" : "text"
+    },
+    {
+      "code" : "Sequence",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " which also acts as it’s own ",
+      "type" : "text"
+    },
+    {
+      "code" : "Iterator",
+      "type" : "codeVoice"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Genything\/documentation\/Genything",
+        "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/init(_:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:9Genything27RandomizedGeneratorSequenceVyACyxGAA0bC0VyxGcfc",
+    "fragments" : [
+      {
+        "kind" : "identifier",
+        "text" : "init"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:9Genything19RandomizedGeneratorV",
+        "text" : "RandomizedGenerator"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "G"
+      },
+      {
+        "kind" : "text",
+        "text" : ">)"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Genything"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Initializer",
+    "symbolKind" : "init",
+    "title" : "init(_:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "init"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "_"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "generator"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGenerator",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:9Genything19RandomizedGeneratorV",
+              "text" : "RandomizedGenerator"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "G"
+            },
+            {
+              "kind" : "text",
+              "text" : ">)"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/genything\/randomizedgeneratorsequence\/init(_:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Genything/documentation/Genything": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Genything",
+  "type" : "topic",
+  "url" : "\/documentation\/genything"
+},
+"doc://Genything/documentation/Genything/RandomizedGenerator": {
+  "abstract" : [
+    {
+      "text" : "A Generator binded together with a RandomSource which has copies of Generator functions which produce values. Used to persist the randomness between multiple generated productions of values.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RandomizedGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RandomizedGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "RandomizedGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/randomizedgenerator"
+},
+"doc://Genything/documentation/Genything/RandomizedGeneratorSequence": {
+  "abstract" : [
+    {
+      "text" : "A ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomizedGenerator",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " wrapped as a ",
+      "type" : "text"
+    },
+    {
+      "code" : "Sequence",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " which also acts as it’s own ",
+      "type" : "text"
+    },
+    {
+      "code" : "Iterator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RandomizedGeneratorSequence"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RandomizedGeneratorSequence"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "RandomizedGeneratorSequence",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/randomizedgeneratorsequence"
+},
+"doc://Genything/documentation/Genything/RandomizedGeneratorSequence/init(_:)": {
+  "abstract" : [
+    {
+      "text" : "Initializes a ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomizedGenerator",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " conforming to ",
+      "type" : "text"
+    },
+    {
+      "code" : "Sequence",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " which also acts as it’s own ",
+      "type" : "text"
+    },
+    {
+      "code" : "Iterator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Genything19RandomizedGeneratorV",
+      "text" : "RandomizedGenerator"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "G"
+    },
+    {
+      "kind" : "text",
+      "text" : ">)"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/init(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/randomizedgeneratorsequence\/init(_:)"
+}
+}
+}

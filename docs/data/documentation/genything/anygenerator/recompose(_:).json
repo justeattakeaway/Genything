@@ -1,1 +1,532 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"recompose"},{"kind":"text","text":"("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"compose"},{"kind":"text","text":": "},{"kind":"keyword","text":"@escaping"},{"kind":"text","text":" ("},{"kind":"keyword","text":"inout"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":", "},{"kind":"typeIdentifier","identifier":"doc:\/\/Genything\/documentation\/Genything\/Composer","preciseIdentifier":"s:9Genything8ComposerV","text":"Composer"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Void","preciseIdentifier":"s:s4Voida"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","identifier":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator","preciseIdentifier":"s:9Genything12AnyGeneratorV","text":"AnyGenerator"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":">"}],"languages":["swift"],"platforms":["macOS"]}]},{"kind":"content","content":[{"anchor":"return-value","level":2,"type":"heading","text":"Return Value"},{"type":"paragraph","inlineContent":[{"type":"text","text":"A generator which produces modified values of type "},{"type":"codeVoice","code":"T"}]}]},{"kind":"parameters","parameters":[{"name":"compose","content":[{"type":"paragraph","inlineContent":[{"type":"text","text":"A block which provides the previously generated value as an inout parameter, allowing you to make changes to the properties contained within if they are variable. To do so the composer is also provided as the second argument."}]}]}]},{"kind":"content","content":[{"anchor":"discussion","level":2,"type":"heading","text":"Discussion"},{"style":"note","content":[{"type":"paragraph","inlineContent":[{"type":"text","text":"This composition block is executed for each generated value, only truly arbitrary generators should be created in this block. If a generator which relies on it’s own state is created in this block it will be recreated for each generated value. If a stateful generator is desired to be used you must hold the reference outside the block."}]}],"type":"aside","name":"Attention"}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/genything\/anygenerator\/recompose(_:)"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/recompose(_:)","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Apply additional changes to an already created element on the receiving generator"}],"kind":"symbol","metadata":{"role":"symbol","title":"recompose(_:)","roleHeading":"Instance Method","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"recompose"},{"kind":"text","text":"(("},{"kind":"keyword","text":"inout"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Composer","preciseIdentifier":"s:9Genything8ComposerV"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Void","preciseIdentifier":"s:s4Voida"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"AnyGenerator","preciseIdentifier":"s:9Genything12AnyGeneratorV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":">"}],"symbolKind":"method","externalID":"s:9Genything9GeneratorPAAE9recomposeyAA03AnyB0Vy1TQzGyAHz_AA8ComposerVtcF::SYNTHESIZED::s:9Genything12AnyGeneratorV","extendedModule":"Genything","modules":[{"name":"Genything"}]},"hierarchy":{"paths":[["doc:\/\/Genything\/documentation\/Genything","doc:\/\/Genything\/documentation\/Genything\/AnyGenerator","doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/Generator-Implementations"]]},"references":{"doc://Genything/documentation/Genything/AnyGenerator":{"role":"symbol","title":"AnyGenerator","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"AnyGenerator"}],"abstract":[{"type":"text","text":"A type-erased "},{"type":"codeVoice","code":"Generator"}],"identifier":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"AnyGenerator"}],"url":"\/documentation\/genything\/anygenerator"},"doc://Genything/documentation/Genything":{"role":"collection","title":"Genything","abstract":[],"identifier":"doc:\/\/Genything\/documentation\/Genything","kind":"symbol","type":"topic","url":"\/documentation\/genything"},"doc://Genything/documentation/Genything/AnyGenerator/recompose(_:)":{"role":"symbol","title":"recompose(_:)","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"recompose"},{"kind":"text","text":"(("},{"kind":"keyword","text":"inout"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Composer","preciseIdentifier":"s:9Genything8ComposerV"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Void","preciseIdentifier":"s:s4Voida"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"AnyGenerator","preciseIdentifier":"s:9Genything12AnyGeneratorV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":">"}],"abstract":[{"type":"text","text":"Apply additional changes to an already created element on the receiving generator"}],"identifier":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/recompose(_:)","kind":"symbol","type":"topic","url":"\/documentation\/genything\/anygenerator\/recompose(_:)"},"doc://Genything/documentation/Genything/AnyGenerator/Generator-Implementations":{"role":"collectionGroup","title":"Generator Implementations","abstract":[],"identifier":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/Generator-Implementations","kind":"article","type":"topic","url":"\/documentation\/genything\/anygenerator\/generator-implementations"},"doc://Genything/documentation/Genything/Composer":{"role":"symbol","title":"Composer","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"Composer"}],"abstract":[{"type":"text","text":"The composer class which passes in the randomSource and allows us to generate more complex data with ease"}],"identifier":"doc:\/\/Genything\/documentation\/Genything\/Composer","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Composer"}],"url":"\/documentation\/genything\/composer"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Apply additional changes to an already created element on the receiving generator",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Genything\/documentation\/Genything",
+        "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+        "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/Generator-Implementations"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/recompose(_:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "Genything",
+    "externalID" : "s:9Genything9GeneratorPAAE9recomposeyAA03AnyB0Vy1TQzGyAHz_AA8ComposerVtcF::SYNTHESIZED::s:9Genything12AnyGeneratorV",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "recompose"
+      },
+      {
+        "kind" : "text",
+        "text" : "(("
+      },
+      {
+        "kind" : "keyword",
+        "text" : "inout"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Self"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : ", "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:9Genything8ComposerV",
+        "text" : "Composer"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:s4Voida",
+        "text" : "Void"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+        "text" : "AnyGenerator"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Self"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : ">"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Genything"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "recompose(_:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "recompose"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "_"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "compose"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "@escaping"
+            },
+            {
+              "kind" : "text",
+              "text" : " ("
+            },
+            {
+              "kind" : "keyword",
+              "text" : "inout"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Self"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Composer",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:9Genything8ComposerV",
+              "text" : "Composer"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s4Voida",
+              "text" : "Void"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+              "text" : "AnyGenerator"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Self"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : ">"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "A generator which produces modified values of type ",
+              "type" : "text"
+            },
+            {
+              "code" : "T",
+              "type" : "codeVoice"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "A block which provides the previously generated value as an inout parameter, allowing you to make changes to the properties contained within if they are variable. To do so the composer is also provided as the second argument.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "compose"
+        }
+      ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "This composition block is executed for each generated value, only truly arbitrary generators should be created in this block. If a generator which relies on it’s own state is created in this block it will be recreated for each generated value. If a stateful generator is desired to be used you must hold the reference outside the block.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "Attention",
+          "style" : "note",
+          "type" : "aside"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/genything\/anygenerator\/recompose(_:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Genything/documentation/Genything": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Genything",
+  "type" : "topic",
+  "url" : "\/documentation\/genything"
+},
+"doc://Genything/documentation/Genything/AnyGenerator": {
+  "abstract" : [
+    {
+      "text" : "A type-erased ",
+      "type" : "text"
+    },
+    {
+      "code" : "Generator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "AnyGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "AnyGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "AnyGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/anygenerator"
+},
+"doc://Genything/documentation/Genything/AnyGenerator/Generator-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/Generator-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Generator Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/anygenerator\/generator-implementations"
+},
+"doc://Genything/documentation/Genything/AnyGenerator/recompose(_:)": {
+  "abstract" : [
+    {
+      "text" : "Apply additional changes to an already created element on the receiving generator",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "recompose"
+    },
+    {
+      "kind" : "text",
+      "text" : "(("
+    },
+    {
+      "kind" : "keyword",
+      "text" : "inout"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Genything8ComposerV",
+      "text" : "Composer"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s4Voida",
+      "text" : "Void"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+      "text" : "AnyGenerator"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/recompose(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "recompose(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/anygenerator\/recompose(_:)"
+},
+"doc://Genything/documentation/Genything/Composer": {
+  "abstract" : [
+    {
+      "text" : "The composer class which passes in the randomSource and allows us to generate more complex data with ease",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Composer"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Composer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Composer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Composer",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/composer"
+}
+}
+}
