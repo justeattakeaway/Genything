@@ -1,0 +1,413 @@
+{
+  "abstract" : [
+    {
+      "text" : "Returns: The receiver generator binded together with ",
+      "type" : "text"
+    },
+    {
+      "code" : "randomSource",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " to produce values without requiring a ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomSource",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " at every call",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Genything\/documentation\/Genything",
+        "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+        "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/Generator-Implementations"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/randomize(with:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "Genything",
+    "externalID" : "s:9Genything9GeneratorPAAE9randomize4withAA010RandomizedB0VyxGAA12RandomSourceC_tF::SYNTHESIZED::s:9Genything12AnyGeneratorV",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "randomize"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "with"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:9Genything12RandomSourceC",
+        "text" : "RandomSource"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:9Genything19RandomizedGeneratorV",
+        "text" : "RandomizedGenerator"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "Self"
+      },
+      {
+        "kind" : "text",
+        "text" : ">"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Genything"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "randomize(with:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "randomize"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "with"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "randomSource"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomSource",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:9Genything12RandomSourceC",
+              "text" : "RandomSource"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGenerator",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:9Genything19RandomizedGeneratorV",
+              "text" : "RandomizedGenerator"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Self"
+            },
+            {
+              "kind" : "text",
+              "text" : ">"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/genything\/anygenerator\/randomize(with:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Genything/documentation/Genything": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Genything",
+  "type" : "topic",
+  "url" : "\/documentation\/genything"
+},
+"doc://Genything/documentation/Genything/AnyGenerator": {
+  "abstract" : [
+    {
+      "text" : "A type-erased ",
+      "type" : "text"
+    },
+    {
+      "code" : "Generator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "AnyGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "AnyGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "AnyGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/anygenerator"
+},
+"doc://Genything/documentation/Genything/AnyGenerator/Generator-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/Generator-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Generator Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/anygenerator\/generator-implementations"
+},
+"doc://Genything/documentation/Genything/AnyGenerator/randomize(with:)": {
+  "abstract" : [
+    {
+      "text" : "Returns: The receiver generator binded together with ",
+      "type" : "text"
+    },
+    {
+      "code" : "randomSource",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " to produce values without requiring a ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomSource",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " at every call",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "randomize"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "with"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Genything12RandomSourceC",
+      "text" : "RandomSource"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Genything19RandomizedGeneratorV",
+      "text" : "RandomizedGenerator"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator\/randomize(with:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "randomize(with:)",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/anygenerator\/randomize(with:)"
+},
+"doc://Genything/documentation/Genything/RandomSource": {
+  "abstract" : [
+    {
+      "text" : "A RandomSource holds a reference to a RandomNumberGenerator. Allowing for a session of deterministic random state to passed around to generators which can be restarted or replayed at any time.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RandomSource"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomSource",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RandomSource"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "RandomSource",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/randomsource"
+},
+"doc://Genything/documentation/Genything/RandomizedGenerator": {
+  "abstract" : [
+    {
+      "text" : "A Generator binded together with a RandomSource which has copies of Generator functions which produce values. Used to persist the randomness between multiple generated productions of values.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RandomizedGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RandomizedGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "RandomizedGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/randomizedgenerator"
+}
+}
+}

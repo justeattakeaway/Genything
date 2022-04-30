@@ -1,0 +1,507 @@
+{
+  "abstract" : [
+    {
+      "text" : "Easily draw values from various generators to create a generator which will execute the compose block for each generation.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Genything\/documentation\/Genything",
+        "doc:\/\/Genything\/documentation\/Genything\/Generators"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Genything\/documentation\/Genything\/Generators\/compose(_:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "Genything",
+    "externalID" : "s:9Genything10GeneratorsO7composeyAA12AnyGeneratorVyxGxAA8ComposerVclFZ",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "static"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "compose"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "genericParameter",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : ">(("
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:9Genything8ComposerV",
+        "text" : "Composer"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+        "text" : "AnyGenerator"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : ">"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Genything"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Type Method",
+    "symbolKind" : "method",
+    "title" : "compose(_:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "static"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "compose"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "genericParameter",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : ">("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "_"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "compose"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "@escaping"
+            },
+            {
+              "kind" : "text",
+              "text" : " ("
+            },
+            {
+              "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Composer",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:9Genything8ComposerV",
+              "text" : "Composer"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+              "text" : "AnyGenerator"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : ">"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "A generator which produces values of type ",
+              "type" : "text"
+            },
+            {
+              "code" : "T",
+              "type" : "codeVoice"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "A block which produces elements of type ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "T",
+                  "type" : "codeVoice"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "build"
+        }
+      ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The composition block is executed for each generated value, only truly arbitrary generators should be created in this block. If a generator which relies on it’s own state is created in this block it will be recreated for each generated value. If a stateful generator is desired to be used you must hold the reference outside the block.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "Attention",
+          "style" : "note",
+          "type" : "aside"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/genything\/generators\/compose(_:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Genything/documentation/Genything": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Genything",
+  "type" : "topic",
+  "url" : "\/documentation\/genything"
+},
+"doc://Genything/documentation/Genything/AnyGenerator": {
+  "abstract" : [
+    {
+      "text" : "A type-erased ",
+      "type" : "text"
+    },
+    {
+      "code" : "Generator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "AnyGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "AnyGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "AnyGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/anygenerator"
+},
+"doc://Genything/documentation/Genything/Composer": {
+  "abstract" : [
+    {
+      "text" : "The composer class which passes in the randomSource and allows us to generate more complex data with ease",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Composer"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Composer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Composer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Composer",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/composer"
+},
+"doc://Genything/documentation/Genything/Generators": {
+  "abstract" : [
+    {
+      "text" : "A namespace for types that generate",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Generators"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Generators",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Generators"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Generators",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/generators"
+},
+"doc://Genything/documentation/Genything/Generators/compose(_:)": {
+  "abstract" : [
+    {
+      "text" : "Easily draw values from various generators to create a generator which will execute the compose block for each generation.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "compose"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "genericParameter",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ">(("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Genything8ComposerV",
+      "text" : "Composer"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+      "text" : "AnyGenerator"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Generators\/compose(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "compose(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/generators\/compose(_:)"
+}
+}
+}

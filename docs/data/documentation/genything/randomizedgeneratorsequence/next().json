@@ -1,0 +1,260 @@
+{
+  "abstract" : [
+    {
+      "text" : "Produces the next value from the ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomizedGenerator",
+      "type" : "codeVoice"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Genything\/documentation\/Genything",
+        "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/next()"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:9Genything27RandomizedGeneratorSequenceV4next1TQzSgyF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "next"
+      },
+      {
+        "kind" : "text",
+        "text" : "() -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "G"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : "?"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Genything"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "next()"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "next"
+            },
+            {
+              "kind" : "text",
+              "text" : "() -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "G"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : "?"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/genything\/randomizedgeneratorsequence\/next()"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Genything/documentation/Genything": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Genything",
+  "type" : "topic",
+  "url" : "\/documentation\/genything"
+},
+"doc://Genything/documentation/Genything/RandomizedGeneratorSequence": {
+  "abstract" : [
+    {
+      "text" : "A ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomizedGenerator",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " wrapped as a ",
+      "type" : "text"
+    },
+    {
+      "code" : "Sequence",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " which also acts as it’s own ",
+      "type" : "text"
+    },
+    {
+      "code" : "Iterator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RandomizedGeneratorSequence"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RandomizedGeneratorSequence"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "RandomizedGeneratorSequence",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/randomizedgeneratorsequence"
+},
+"doc://Genything/documentation/Genything/RandomizedGeneratorSequence/next()": {
+  "abstract" : [
+    {
+      "text" : "Produces the next value from the ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomizedGenerator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "next"
+    },
+    {
+      "kind" : "text",
+      "text" : "() -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "G"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/next()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "next()",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/randomizedgeneratorsequence\/next()"
+}
+}
+}

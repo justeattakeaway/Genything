@@ -1,0 +1,357 @@
+{
+  "abstract" : [
+    {
+      "text" : "Generates an arbitrary value of type ",
+      "type" : "text"
+    },
+    {
+      "code" : "T",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " where ",
+      "type" : "text"
+    },
+    {
+      "code" : "T",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " conforms to ",
+      "type" : "text"
+    },
+    {
+      "code" : "Arbitrary",
+      "type" : "codeVoice"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Genything\/documentation\/Genything",
+        "doc:\/\/Genything\/documentation\/Genything\/Composer"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Genything\/documentation\/Genything\/Composer\/arbitrary()"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:9Genything8ComposerV9arbitraryxyAA9ArbitraryRzlF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "arbitrary"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "genericParameter",
+        "text" : "T"
+      },
+      {
+        "kind" : "text",
+        "text" : ">() -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "text" : "T"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Genything"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "arbitrary()"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "arbitrary"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "genericParameter",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : ">() -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "where"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "T"
+            },
+            {
+              "kind" : "text",
+              "text" : " : "
+            },
+            {
+              "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Arbitrary",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:9Genything9ArbitraryP",
+              "text" : "Arbitrary"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "An arbitrary value of type ",
+              "type" : "text"
+            },
+            {
+              "code" : "T",
+              "type" : "codeVoice"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/genything\/composer\/arbitrary()"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Genything/documentation/Genything": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Genything",
+  "type" : "topic",
+  "url" : "\/documentation\/genything"
+},
+"doc://Genything/documentation/Genything/Arbitrary": {
+  "abstract" : [
+    {
+      "text" : "A type that conforms to the Arbitrary protocol can be used to randomly generate ",
+      "type" : "text"
+    },
+    {
+      "inlineContent" : [
+        {
+          "text" : "any",
+          "type" : "text"
+        }
+      ],
+      "type" : "emphasis"
+    },
+    {
+      "text" : " discrete value from the conforming type’s range of possible values",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Arbitrary"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Arbitrary",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Arbitrary"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Arbitrary",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/arbitrary"
+},
+"doc://Genything/documentation/Genything/Composer": {
+  "abstract" : [
+    {
+      "text" : "The composer class which passes in the randomSource and allows us to generate more complex data with ease",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Composer"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Composer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Composer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Composer",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/composer"
+},
+"doc://Genything/documentation/Genything/Composer/arbitrary()": {
+  "abstract" : [
+    {
+      "text" : "Generates an arbitrary value of type ",
+      "type" : "text"
+    },
+    {
+      "code" : "T",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " where ",
+      "type" : "text"
+    },
+    {
+      "code" : "T",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " conforms to ",
+      "type" : "text"
+    },
+    {
+      "code" : "Arbitrary",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "arbitrary"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "genericParameter",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ">() -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "T"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Composer\/arbitrary()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "arbitrary()",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/composer\/arbitrary()"
+}
+}
+}

@@ -1,0 +1,474 @@
+{
+  "abstract" : [
+    {
+      "text" : "A ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomizedGenerator",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " wrapped as a ",
+      "type" : "text"
+    },
+    {
+      "code" : "Sequence",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " which also acts as it’s own ",
+      "type" : "text"
+    },
+    {
+      "code" : "Iterator",
+      "type" : "codeVoice"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Genything\/documentation\/Genything"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:9Genything27RandomizedGeneratorSequenceV",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "struct"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "RandomizedGeneratorSequence"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Genything"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "RandomizedGeneratorSequence"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Structure",
+    "symbolKind" : "struct",
+    "title" : "RandomizedGeneratorSequence"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "struct"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "RandomizedGeneratorSequence"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "genericParameter",
+              "text" : "G"
+            },
+            {
+              "kind" : "text",
+              "text" : "> "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "where"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "G"
+            },
+            {
+              "kind" : "text",
+              "text" : " : "
+            },
+            {
+              "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Generator",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:9Genything9GeneratorP",
+              "text" : "Generator"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "Length",
+          "level" : 1,
+          "text" : "Length",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "This Sequence is infinite! Do not attempt to for-in the contents without limiting the sequence. To limit the sequence you can make use of Sequence operators such as ",
+              "type" : "text"
+            },
+            {
+              "code" : "prefix()",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ".",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "anchor" : "Repeated-Access",
+          "level" : 1,
+          "text" : "Repeated Access",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "This sequence is destructively consumed by iteration. As a consequence, don’t assume that multiple for-in loops will either resume iteration or restart from the beginning:",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/Genything\/St",
+        "doc:\/\/Genything\/ST"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/init(_:)"
+      ],
+      "title" : "Initializers"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/next()"
+      ],
+      "title" : "Instance Methods"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/Sequence-Implementations"
+      ],
+      "title" : "Default Implementations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/genything\/randomizedgeneratorsequence"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Genything/ST": {
+  "identifier" : "doc:\/\/Genything\/ST",
+  "title" : "Swift.Sequence",
+  "type" : "unresolvable"
+},
+"doc://Genything/St": {
+  "identifier" : "doc:\/\/Genything\/St",
+  "title" : "Swift.IteratorProtocol",
+  "type" : "unresolvable"
+},
+"doc://Genything/documentation/Genything": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Genything",
+  "type" : "topic",
+  "url" : "\/documentation\/genything"
+},
+"doc://Genything/documentation/Genything/Generator": {
+  "abstract" : [
+    {
+      "text" : "Declares that a type can be used to generate an infinite sequence of values of the associatedtype ",
+      "type" : "text"
+    },
+    {
+      "code" : "T",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Generator"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Generator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Generator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Generator",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/generator"
+},
+"doc://Genything/documentation/Genything/RandomizedGeneratorSequence": {
+  "abstract" : [
+    {
+      "text" : "A ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomizedGenerator",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " wrapped as a ",
+      "type" : "text"
+    },
+    {
+      "code" : "Sequence",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " which also acts as it’s own ",
+      "type" : "text"
+    },
+    {
+      "code" : "Iterator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RandomizedGeneratorSequence"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RandomizedGeneratorSequence"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "RandomizedGeneratorSequence",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/randomizedgeneratorsequence"
+},
+"doc://Genything/documentation/Genything/RandomizedGeneratorSequence/Sequence-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/Sequence-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Sequence Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/randomizedgeneratorsequence\/sequence-implementations"
+},
+"doc://Genything/documentation/Genything/RandomizedGeneratorSequence/init(_:)": {
+  "abstract" : [
+    {
+      "text" : "Initializes a ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomizedGenerator",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " conforming to ",
+      "type" : "text"
+    },
+    {
+      "code" : "Sequence",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " which also acts as it’s own ",
+      "type" : "text"
+    },
+    {
+      "code" : "Iterator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Genything19RandomizedGeneratorV",
+      "text" : "RandomizedGenerator"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "G"
+    },
+    {
+      "kind" : "text",
+      "text" : ">)"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/init(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/randomizedgeneratorsequence\/init(_:)"
+},
+"doc://Genything/documentation/Genything/RandomizedGeneratorSequence/next()": {
+  "abstract" : [
+    {
+      "text" : "Produces the next value from the ",
+      "type" : "text"
+    },
+    {
+      "code" : "RandomizedGenerator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "next"
+    },
+    {
+      "kind" : "text",
+      "text" : "() -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "G"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/RandomizedGeneratorSequence\/next()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "next()",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/randomizedgeneratorsequence\/next()"
+}
+}
+}

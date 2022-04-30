@@ -13,7 +13,7 @@ public struct RandomizedGeneratorSequence<G>: Sequence, IteratorProtocol
     /// The wrapped generator
     let generator: RandomizedGenerator<G>
 
-    /// Initializes a `RandomizedGenerator` wrapped as a `Sequence` which also acts as it's own `Iterator`
+    /// Initializes a `RandomizedGenerator` conforming to `Sequence` which also acts as it's own `Iterator`
     public init(_ generator: RandomizedGenerator<G>) {
         self.generator = generator
     }

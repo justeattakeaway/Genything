@@ -31,7 +31,7 @@ extension Generators {
     ///
     /// The probability of choosing a weighted value is equal to the value's weight divided by the total weight
     ///
-    /// - SeeAlso: `weighted(weights:)`
+    /// - SeeAlso: ``weighted(_:)``
     ///
     /// - Parameter weights: Pairing of generators with their weights
     ///
