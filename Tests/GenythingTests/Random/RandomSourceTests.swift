@@ -10,7 +10,7 @@ internal final class RandomSourceTests: XCTestCase {
         )
 
         // To introduce randomness we need to track our randomSource
-        let randomSource = RandomSource(determinism: .predetermined(seed: 0))
+        let randomSource = RandomSource.predetermined(seed: 0)
 
         XCTAssertNotEqual(
             Int.arbitrary.next(randomSource),
@@ -31,7 +31,7 @@ internal final class RandomSourceTests: XCTestCase {
     }
 
     func test_generate_one_with_propogated_rng_produces_differently() {
-        let ctx = RandomSource(determinism: .predetermined(seed: 0))
+        let ctx = RandomSource.predetermined(seed: 0)
 
         let calls = (0 ..< 100).map { _ in
             (1 ... 100).arbitrary.next(ctx)
@@ -45,7 +45,7 @@ internal final class RandomSourceTests: XCTestCase {
     }
 
     func test_multiple_takes_with_propagated_rng_produce_differently() {
-        let ctx = RandomSource(determinism: .predetermined(seed: 0))
+        let ctx = RandomSource.predetermined(seed: 0)
 
         let first = (1 ... 100).arbitrary.take(100, randomSource: ctx)
         let second = (1 ... 100).arbitrary.take(100, randomSource: ctx)
