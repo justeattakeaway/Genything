@@ -23,7 +23,6 @@ jobs:
           --target Genything \
           --disable-indexing \
           --transform-for-static-hosting \
-          --hosting-base-path Genything \
           --output-path docs
         CURRENT_COMMIT_HASH=`git rev-parse --short HEAD`
         git add docs
