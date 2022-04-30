@@ -17,7 +17,6 @@ jobs:
         set -eux
         git config user.email "nicorichard@users.noreply.github.com"
         git config user.name "Nico Richard"
-        export DOCC_JSON_PRETTYPRINT="YES"
         export SWIFTPM_ENABLE_COMMAND_PLUGINS=1 
         swift package \
           --allow-writing-to-directory docs \
