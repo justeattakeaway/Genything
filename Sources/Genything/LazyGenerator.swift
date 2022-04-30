@@ -1,4 +1,4 @@
-/// A LazyGenerator defers the initialization of a generator until a later time. This should be used when generators have state requirements which might cause them to behave in unexpected ways when shared or recreated.
+/// A LazyGenerator defers the initialization of a generator until a later time. This can be used when generators have state requirements which might cause them to behave in unexpected ways when shared or recreated.
 ///
 /// The wrapped Generator can be safely transformed while retaining the lazy initialization via `map(transform:)`
 public struct LazyGenerator<G: Generator> {

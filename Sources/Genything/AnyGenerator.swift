@@ -1,4 +1,4 @@
-/// A type-erased Generator
+/// A type-erased `Generator`
 public struct AnyGenerator<T>: Generator {
     /// Creates a type-erasing Generator to wrap the provided Generator
     ///

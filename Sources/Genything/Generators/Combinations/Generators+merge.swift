@@ -44,5 +44,4 @@ class Merge<Source>: Generator where Source: Generator {
     }
 
     private let loop: Loop<[Source]>
-
 }
