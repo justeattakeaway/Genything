@@ -6,7 +6,7 @@ final class Generators_MergeTests: XCTestCase {
         var curr = 0
         testAllSatisfy(Generators.merge([
             Generators.constant(0),
-            Generators.constant(1)
+            Generators.constant(1),
         ])) { value in
             defer {
                 curr = (curr + 1) % 2

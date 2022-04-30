@@ -3,10 +3,10 @@ import XCTest
 
 final class Generators_CollectTests: XCTestCase {
     func test_collecting_to_alternate_generators() {
-        testAllSatisfy(Generators.collect([
+        testAllSatisfy(Generators.collect(
             Generators.constant(0),
             Generators.constant(1)
-        ])) { values in
+        )) { values in
             values[0] == 0 && values[1] == 1
         }
     }

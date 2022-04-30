@@ -7,6 +7,15 @@ extension Generators {
     public static func shuffled<T>(_ values: [T]) -> AnyGenerator<[T]> {
         Shuffled(values).eraseToAnyGenerator()
     }
+
+    /// Returns: A generator which produces the result of shuffling the provided list
+    ///
+    /// - Precondition: Values may not be empty.
+    /// - Parameter values: The (non-empty) values which this generator will shuffle
+    /// - Returns: The generator
+    public static func shuffled<T>(_ values: T...) -> AnyGenerator<[T]> {
+        shuffled(values)
+    }
 }
 
 // MARK: - Shuffled

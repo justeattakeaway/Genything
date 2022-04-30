@@ -10,8 +10,22 @@ extension Generators {
     /// - SeeAlso: https://developer.apple.com/documentation/gameplaykit/gkshuffleddistribution
     /// - Warning: The resulting generator accumulates state. Shared access of the same instance may have unintended effects. Be careful not to expose this generator as a singleton. When sharing the definition use a computed variable, a function, or wrap it with a `LazyGenerator` so that different generator instanced are always created on access.
     public static func shuffleLoop<Elements>(_ collection: Elements) -> AnyGenerator<Elements.Element>
-        where Elements: Swift.Collection {
+        where Elements: Collection {
         ShuffleLoop(collection).eraseToAnyGenerator()
+    }
+
+    /// A generator which produces results by shuffling the provided list and drawing values until empty, then reshuffles
+    ///
+    /// Best visualized with a playing card metaphor
+    ///     - the dealer shuffles the deck of cards and deals cards 1 by 1 until no more cards remain
+    ///     - the dealer reshuffles the deck and repeats
+    ///
+    /// The same `value` cannot be redrawn until all other values are drawn
+    ///
+    /// - SeeAlso: https://developer.apple.com/documentation/gameplaykit/gkshuffleddistribution
+    /// - Warning: The resulting generator accumulates state. Shared access of the same instance may have unintended effects. Be careful not to expose this generator as a singleton. When sharing the definition use a computed variable, a function, or wrap it with a `LazyGenerator` so that different generator instanced are always created on access.
+    public static func shuffleLoop<T>(_ collection: T...) -> AnyGenerator<T> {
+        shuffleLoop(collection)
     }
 }
 
@@ -26,7 +40,7 @@ extension Generators {
 /// The same `value` cannot be redrawn until all other values are drawn
 ///
 /// - SeeAlso: https://developer.apple.com/documentation/gameplaykit/gkshuffleddistribution
-private class ShuffleLoop<Elements>: Generator where Elements: Swift.Collection {
+private class ShuffleLoop<Elements>: Generator where Elements: Collection {
 
     /// Creates a shuffled loop Generator for a collection of elements.
     ///

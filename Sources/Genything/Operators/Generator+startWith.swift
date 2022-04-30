@@ -7,28 +7,39 @@ extension Generator {
     ///    - values: Array of values which will be produced in order before the receiver takes over
     ///
     /// - Returns: The generator
-    public func startWith<S: Swift.Sequence>(_ sequence: S) -> AnyGenerator<T> where S.Element == T {
-        StartWith(source: self, sequence: sequence).eraseToAnyGenerator()
+    public func startWith<S: Sequence>(_ sequence: S) -> AnyGenerator<T> where S.Element == T {
+        SwitchOnNil(start: Generators.iterate(sequence), end: self).eraseToAnyGenerator()
     }
 }
 
-// MARK: - StartWith
+// MARK: - NilSwitch
 
-private final class StartWith<Source, Elements>: Generator where Elements: Swift.Sequence, Source: Generator,
-    Source.T == Elements.Element {
+final class SwitchOnNil<StartSource, EndSource>: Generator where StartSource: Generator, EndSource: Generator,
+    StartSource.T == EndSource.T? {
 
     /// Creates a Generators for a sequence of elements.
     ///
     /// - Parameter sequence: The sequence of elements to generate.
-    public init(source: Source, sequence: Elements) {
-        self.source = source
-        iterator = sequence.makeIterator()
+    public init(start: StartSource, end: EndSource) {
+        self.start = start
+        self.end = end
     }
 
-    public func next(_ randomSource: RandomSource) -> Source.T {
-        iterator.next() ?? source.next(randomSource)
+    public func next(_ randomSource: RandomSource) -> EndSource.T {
+        if switched {
+            return end.next(randomSource)
+        }
+
+        if let candidate = start.next(randomSource) {
+            return candidate
+        } else {
+            switched = true
+            return next(randomSource)
+        }
     }
 
-    let source: Source
-    var iterator: Elements.Iterator
+    private(set) var switched = false
+
+    private let start: StartSource
+    private let end: EndSource
 }
