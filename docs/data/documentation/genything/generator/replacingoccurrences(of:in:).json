@@ -1,1 +1,529 @@
-{"primaryContentSections":[{"kind":"declarations","declarations":[{"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"replacingOccurrences"},{"kind":"text","text":"("},{"kind":"externalParam","text":"of"},{"kind":"text","text":" "},{"kind":"internalParam","text":"substring"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"},{"kind":"text","text":", "},{"kind":"externalParam","text":"in"},{"kind":"text","text":" "},{"kind":"internalParam","text":"source"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","identifier":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator","preciseIdentifier":"s:9Genything12AnyGeneratorV","text":"AnyGenerator"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"},{"kind":"text","text":">"}],"languages":["swift"],"platforms":["macOS"]}]},{"kind":"content","content":[{"anchor":"return-value","level":2,"type":"heading","text":"Return Value"},{"type":"paragraph","inlineContent":[{"type":"text","text":"The "},{"type":"codeVoice","code":"String"},{"type":"text","text":" generator"}]}]},{"kind":"parameters","parameters":[{"name":"substring","content":[{"type":"paragraph","inlineContent":[{"type":"text","text":"The substring that should be replaced"}]}]},{"name":"source","content":[{"type":"paragraph","inlineContent":[{"type":"text","text":"The source or template "},{"type":"codeVoice","code":"String"},{"type":"text","text":" that will be modified"}]}]}]},{"kind":"content","content":[{"anchor":"discussion","level":2,"type":"heading","text":"Discussion"},{"type":"paragraph","inlineContent":[{"type":"text","text":"The receiver’s contents will be coerced by interpolation to type "},{"type":"codeVoice","code":"String"}]}]}],"schemaVersion":{"major":0,"minor":2,"patch":0},"sections":[],"variants":[{"paths":["\/documentation\/genything\/generator\/replacingoccurrences(of:in:)"],"traits":[{"interfaceLanguage":"swift"}]}],"identifier":{"url":"doc:\/\/Genything\/documentation\/Genything\/Generator\/replacingOccurrences(of:in:)","interfaceLanguage":"swift"},"abstract":[{"type":"text","text":"Returns: A generator of strings which replace "},{"type":"codeVoice","code":"character"},{"type":"text","text":" in "},{"type":"codeVoice","code":"source"},{"type":"text","text":" by the content of the receiver’s generator"}],"kind":"symbol","metadata":{"role":"symbol","title":"replacingOccurrences(of:in:)","roleHeading":"Instance Method","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"replacingOccurrences"},{"kind":"text","text":"("},{"kind":"externalParam","text":"of"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"},{"kind":"text","text":", "},{"kind":"externalParam","text":"in"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"AnyGenerator","preciseIdentifier":"s:9Genything12AnyGeneratorV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"},{"kind":"text","text":">"}],"symbolKind":"method","externalID":"s:9Genything9GeneratorPAAE20replacingOccurrences2of2inAA03AnyB0VySSGSS_SStF","extendedModule":"Genything","modules":[{"name":"Genything"}]},"hierarchy":{"paths":[["doc:\/\/Genything\/documentation\/Genything","doc:\/\/Genything\/documentation\/Genything\/Generator"]]},"references":{"doc://Genything/documentation/Genything":{"role":"collection","title":"Genything","abstract":[],"identifier":"doc:\/\/Genything\/documentation\/Genything","kind":"symbol","type":"topic","url":"\/documentation\/genything"},"doc://Genything/documentation/Genything/Generator":{"role":"symbol","title":"Generator","fragments":[{"kind":"keyword","text":"protocol"},{"kind":"text","text":" "},{"kind":"identifier","text":"Generator"}],"abstract":[{"type":"text","text":"Declares that a type can be used to generate an infinite sequence of values of the associatedtype "},{"type":"codeVoice","code":"T"},{"type":"text","text":"."}],"identifier":"doc:\/\/Genything\/documentation\/Genything\/Generator","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"Generator"}],"url":"\/documentation\/genything\/generator"},"doc://Genything/documentation/Genything/AnyGenerator":{"role":"symbol","title":"AnyGenerator","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"AnyGenerator"}],"abstract":[{"type":"text","text":"A type-erased "},{"type":"codeVoice","code":"Generator"}],"identifier":"doc:\/\/Genything\/documentation\/Genything\/AnyGenerator","kind":"symbol","type":"topic","navigatorTitle":[{"kind":"identifier","text":"AnyGenerator"}],"url":"\/documentation\/genything\/anygenerator"},"doc://Genything/documentation/Genything/Generator/replacingOccurrences(of:in:)":{"role":"symbol","title":"replacingOccurrences(of:in:)","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"replacingOccurrences"},{"kind":"text","text":"("},{"kind":"externalParam","text":"of"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"},{"kind":"text","text":", "},{"kind":"externalParam","text":"in"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"AnyGenerator","preciseIdentifier":"s:9Genything12AnyGeneratorV"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"String","preciseIdentifier":"s:SS"},{"kind":"text","text":">"}],"abstract":[{"type":"text","text":"Returns: A generator of strings which replace "},{"type":"codeVoice","code":"character"},{"type":"text","text":" in "},{"type":"codeVoice","code":"source"},{"type":"text","text":" by the content of the receiver’s generator"}],"identifier":"doc:\/\/Genything\/documentation\/Genything\/Generator\/replacingOccurrences(of:in:)","kind":"symbol","type":"topic","url":"\/documentation\/genything\/generator\/replacingoccurrences(of:in:)"}}}
+{
+  "abstract" : [
+    {
+      "text" : "Returns: A generator of strings which replace ",
+      "type" : "text"
+    },
+    {
+      "code" : "character",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " in ",
+      "type" : "text"
+    },
+    {
+      "code" : "source",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " by the content of the receiver’s generator",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Genything\/documentation\/Genything",
+        "doc:\/\/Genything\/documentation\/Genything\/Generator"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Genything\/documentation\/Genything\/Generator\/replacingOccurrences(of:in:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "Genything",
+    "externalID" : "s:9Genything9GeneratorPAAE20replacingOccurrences2of2inAA03AnyB0VySSGSS_SStF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "replacingOccurrences"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "of"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SS",
+        "text" : "String"
+      },
+      {
+        "kind" : "text",
+        "text" : ", "
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "in"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SS",
+        "text" : "String"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+        "text" : "AnyGenerator"
+      },
+      {
+        "kind" : "text",
+        "text" : "<"
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SS",
+        "text" : "String"
+      },
+      {
+        "kind" : "text",
+        "text" : ">"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Genything"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "replacingOccurrences(of:in:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "replacingOccurrences"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "of"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "substring"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SS",
+              "text" : "String"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "in"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "source"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SS",
+              "text" : "String"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+              "text" : "AnyGenerator"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SS",
+              "text" : "String"
+            },
+            {
+              "kind" : "text",
+              "text" : ">"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The ",
+              "type" : "text"
+            },
+            {
+              "code" : "String",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " generator",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The substring that should be replaced",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "substring"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The source or template ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "String",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : " that will be modified",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "source"
+        }
+      ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The receiver’s contents will be coerced by interpolation to type ",
+              "type" : "text"
+            },
+            {
+              "code" : "String",
+              "type" : "codeVoice"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/genything\/generator\/replacingoccurrences(of:in:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Genything/documentation/Genything": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Genything",
+  "type" : "topic",
+  "url" : "\/documentation\/genything"
+},
+"doc://Genything/documentation/Genything/AnyGenerator": {
+  "abstract" : [
+    {
+      "text" : "A type-erased ",
+      "type" : "text"
+    },
+    {
+      "code" : "Generator",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "AnyGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/AnyGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "AnyGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "AnyGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/anygenerator"
+},
+"doc://Genything/documentation/Genything/Generator": {
+  "abstract" : [
+    {
+      "text" : "Declares that a type can be used to generate an infinite sequence of values of the associatedtype ",
+      "type" : "text"
+    },
+    {
+      "code" : "T",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Generator"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Generator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Generator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Generator",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/generator"
+},
+"doc://Genything/documentation/Genything/Generator/replacingOccurrences(of:in:)": {
+  "abstract" : [
+    {
+      "text" : "Returns: A generator of strings which replace ",
+      "type" : "text"
+    },
+    {
+      "code" : "character",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " in ",
+      "type" : "text"
+    },
+    {
+      "code" : "source",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " by the content of the receiver’s generator",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "replacingOccurrences"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "of"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "in"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:9Genything12AnyGeneratorV",
+      "text" : "AnyGenerator"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/Genything\/documentation\/Genything\/Generator\/replacingOccurrences(of:in:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "replacingOccurrences(of:in:)",
+  "type" : "topic",
+  "url" : "\/documentation\/genything\/generator\/replacingoccurrences(of:in:)"
+}
+}
+}
