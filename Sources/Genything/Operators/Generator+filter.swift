@@ -1,4 +1,18 @@
 extension Generator {
+    struct Filter<Source>: Generator where Source: Generator {
+        let source: Source
+        let isIncluded: (Source.T) -> Bool
+
+        public func next(_ randomSource: RandomSource) -> Source.T {
+            while true {
+                let candidate = source.next(randomSource)
+                if isIncluded(candidate) {
+                    return candidate
+                }
+            }
+        }
+    }
+
     /// Returns: A generator that only produces values which pass the test `isIncluded`
     ///
     /// - Warning: If the filtered condition is rare enough this function will become infinitely complex and will run forever
@@ -11,21 +25,6 @@ extension Generator {
     func filter(_ isIncluded: @escaping (T) -> Bool) -> AnyGenerator<T> {
         Filter(source: self, isIncluded: isIncluded).eraseToAnyGenerator()
     }
-}
 
-// MARK: - Filter
-
-private struct Filter<Source>: Generator where Source: Generator {
-    let source: Source
-    let isIncluded: (Source.T) -> Bool
-
-    public func next(_ randomSource: RandomSource) -> Source.T {
-        while true {
-            let candidate = source.next(randomSource)
-            if isIncluded(candidate) {
-                return candidate
-            }
-        }
-    }
 }
 

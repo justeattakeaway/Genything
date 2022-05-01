@@ -10,36 +10,35 @@ extension Generator {
     public func startWith<S: Sequence>(_ sequence: S) -> AnyGenerator<T> where S.Element == T {
         SwitchOnNil(start: Generators.iterate(sequence), end: self).eraseToAnyGenerator()
     }
-}
 
-// MARK: - NilSwitch
+    final class SwitchOnNil<StartSource, EndSource>: Generator where StartSource: Generator, EndSource: Generator,
+        StartSource.T == EndSource.T? {
 
-final class SwitchOnNil<StartSource, EndSource>: Generator where StartSource: Generator, EndSource: Generator,
-    StartSource.T == EndSource.T? {
-
-    /// Creates a Generators for a sequence of elements.
-    ///
-    /// - Parameter sequence: The sequence of elements to generate.
-    public init(start: StartSource, end: EndSource) {
-        self.start = start
-        self.end = end
-    }
-
-    public func next(_ randomSource: RandomSource) -> EndSource.T {
-        if switched {
-            return end.next(randomSource)
+        /// Creates a Generators for a sequence of elements.
+        ///
+        /// - Parameter sequence: The sequence of elements to generate.
+        public init(start: StartSource, end: EndSource) {
+            self.start = start
+            self.end = end
         }
 
-        if let candidate = start.next(randomSource) {
-            return candidate
-        } else {
-            switched = true
-            return next(randomSource)
+        public func next(_ randomSource: RandomSource) -> EndSource.T {
+            if switched {
+                return end.next(randomSource)
+            }
+
+            if let candidate = start.next(randomSource) {
+                return candidate
+            } else {
+                switched = true
+                return next(randomSource)
+            }
         }
+
+        private(set) var switched = false
+
+        private let start: StartSource
+        private let end: EndSource
     }
 
-    private(set) var switched = false
-
-    private let start: StartSource
-    private let end: EndSource
 }

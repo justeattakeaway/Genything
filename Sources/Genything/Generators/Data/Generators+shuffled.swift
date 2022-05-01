@@ -16,19 +16,20 @@ extension Generators {
     public static func shuffled<T>(_ values: T...) -> AnyGenerator<[T]> {
         shuffled(values)
     }
-}
 
-// MARK: - Shuffled
 
-private struct Shuffled<T>: Generator {
-    let values: [T]
+    // MARK: - Shuffled
 
-    init(_ values: [T]) {
-        assert(!values.isEmpty, "`Gen.shuffled(values:)` was invoked with an empty list of values")
-        self.values = values
-    }
+    struct Shuffled<T>: Generator {
+        let values: [T]
 
-    func next(_ randomSource: RandomSource) -> [T] {
-        values.shuffled(using: &randomSource.rng)
+        init(_ values: [T]) {
+            assert(!values.isEmpty, "`Gen.shuffled(values:)` was invoked with an empty list of values")
+            self.values = values
+        }
+
+        func next(_ randomSource: RandomSource) -> [T] {
+            values.shuffled(using: &randomSource.rng)
+        }
     }
 }

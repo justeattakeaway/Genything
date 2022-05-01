@@ -44,15 +44,15 @@ extension Generators {
         where G: Generator {
         collect(generators, transform: transform)
     }
-}
 
-struct Collect<Source, T>: Generator where Source: Generator {
-    let sources: [Source]
-    let transform: (Source.T) -> T
+    struct Collect<Source, T>: Generator where Source: Generator {
+        let sources: [Source]
+        let transform: (Source.T) -> T
 
-    func next(_ randomSource: RandomSource) -> [T] {
-        sources.map {
-            $0.next(randomSource)
-        }.map(transform)
+        func next(_ randomSource: RandomSource) -> [T] {
+            sources.map {
+                $0.next(randomSource)
+            }.map(transform)
+        }
     }
 }

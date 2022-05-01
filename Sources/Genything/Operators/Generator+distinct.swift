@@ -1,4 +1,24 @@
 extension Generator where T: Equatable {
+    class Distinct<Source>: Generator where Source: Generator, Source.T: Equatable {
+
+        init(source: Source, memorySize: Int? = nil) {
+            self.source = source
+            memory = FIFODistinctMemory(maxSize: memorySize)
+        }
+
+        public func next(_ randomSource: RandomSource) -> Source.T {
+            while true {
+                let candidate = source.next(randomSource)
+                if memory.verifyDistinct(candidate) {
+                    return candidate
+                }
+            }
+        }
+
+        let source: Source
+        var memory: FIFODistinctMemory<Source.T>
+    }
+
     /// Returns: A generator that produces distinct values by comparing against it's memory
     ///
     /// - Warning: If it is no longer possible to generate a distinct value this operator will become infinitely complex and run forever
@@ -19,9 +39,8 @@ extension Generator where T: Equatable {
     func removeDuplicates() -> AnyGenerator<T> {
         Distinct(source: self, memorySize: 1).eraseToAnyGenerator()
     }
-}
 
-// MARK: - Filter
+}
 
 private struct FIFODistinctMemory<T: Equatable> {
     let maxSize: Int?
@@ -44,24 +63,3 @@ private struct FIFODistinctMemory<T: Equatable> {
         return false
     }
 }
-
-private class Distinct<Source>: Generator where Source: Generator, Source.T: Equatable {
-
-    init(source: Source, memorySize: Int? = nil) {
-        self.source = source
-        memory = FIFODistinctMemory(maxSize: memorySize)
-    }
-
-    public func next(_ randomSource: RandomSource) -> Source.T {
-        while true {
-            let candidate = source.next(randomSource)
-            if memory.verifyDistinct(candidate) {
-                return candidate
-            }
-        }
-    }
-
-    let source: Source
-    var memory: FIFODistinctMemory<Source.T>
-}
-

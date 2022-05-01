@@ -32,16 +32,17 @@ extension Generators {
     public static func merge<G>(_ generators: G...) -> AnyGenerator<G.T> where G: Generator {
         merge(generators)
     }
-}
 
-class Merge<Source>: Generator where Source: Generator {
-    init(_ sources: [Source]) {
-        loop = Loop(sources)
+    class Merge<Source>: Generator where Source: Generator {
+        init(_ sources: [Source]) {
+            loop = Loop(sources)
+        }
+
+        func next(_ randomSource: RandomSource) -> Source.T {
+            loop.next(randomSource).next(randomSource)
+        }
+
+        private let loop: Loop<[Source]>
     }
 
-    func next(_ randomSource: RandomSource) -> Source.T {
-        loop.next(randomSource).next(randomSource)
-    }
-
-    private let loop: Loop<[Source]>
 }

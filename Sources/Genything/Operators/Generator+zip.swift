@@ -252,157 +252,158 @@ extension Generators {
     }
 }
 
-// MARK: - Zip
+extension Generators {
 
-private struct Zip<A, B>: Generator where A: Generator, B: Generator {
+    private struct Zip<A, B>: Generator where A: Generator, B: Generator {
 
-    /// Creates a Generator that applies the zip function to two upstream Generators.
-    /// - Parameters:
-    ///   - a: A Generator to zip.
-    ///   - b: Another Generator to zip.
-    public init(_ a: A, _ b: B) {
-        self.a = a
-        self.b = b
+        /// Creates a Generator that applies the zip function to two upstream Generators.
+        /// - Parameters:
+        ///   - a: A Generator to zip.
+        ///   - b: Another Generator to zip.
+        public init(_ a: A, _ b: B) {
+            self.a = a
+            self.b = b
+        }
+
+        /// A Generator to zip.
+        public let a: A
+
+        /// Another Generator to zip.
+        public let b: B
+
+        public func next(_ randomSource: RandomSource) -> (A.T, B.T) {
+            (
+                a.next(randomSource),
+                b.next(randomSource)
+            )
+        }
     }
 
-    /// A Generator to zip.
-    public let a: A
+    // MARK: - Zip3
 
-    /// Another Generator to zip.
-    public let b: B
+    private struct Zip3<A, B, C>: Generator where A: Generator,
+        B: Generator,
+        C: Generator {
 
-    public func next(_ randomSource: RandomSource) -> (A.T, B.T) {
-        (
-            a.next(randomSource),
-            b.next(randomSource)
-        )
-    }
-}
+        /// Creates a Generator that applies the zip function to two upstream Generators.
+        /// - Parameters:
+        ///   - a: A Generator to zip.
+        ///   - b: Another Generator to zip.
+        ///   - c: Another Generator to zip.
+        public init(_ a: A, _ b: B, _ c: C) {
+            self.a = a
+            self.b = b
+            self.c = c
+        }
 
-// MARK: - Zip3
+        /// A Generator to zip.
+        public let a: A
 
-private struct Zip3<A, B, C>: Generator where A: Generator,
-    B: Generator,
-    C: Generator {
+        /// Another Generator to zip.
+        public let b: B
 
-    /// Creates a Generator that applies the zip function to two upstream Generators.
-    /// - Parameters:
-    ///   - a: A Generator to zip.
-    ///   - b: Another Generator to zip.
-    ///   - c: Another Generator to zip.
-    public init(_ a: A, _ b: B, _ c: C) {
-        self.a = a
-        self.b = b
-        self.c = c
-    }
+        /// Another Generator to zip.
+        public let c: C
 
-    /// A Generator to zip.
-    public let a: A
-
-    /// Another Generator to zip.
-    public let b: B
-
-    /// Another Generator to zip.
-    public let c: C
-
-    public func next(_ randomSource: RandomSource) -> (A.T, B.T, C.T) {
-        (
-            a.next(randomSource),
-            b.next(randomSource),
-            c.next(randomSource)
-        )
-    }
-}
-
-// MARK: - Zip4
-
-private struct Zip4<A, B, C, D>: Generator
-    where A: Generator,
-    B: Generator,
-    C: Generator,
-    D: Generator {
-
-    /// Creates a Generator that applies the zip function to two upstream Generators.
-    /// - Parameters:
-    ///   - a: A Generator to zip.
-    ///   - b: Another Generator to zip.
-    ///   - c: Another Generator to zip.
-    ///   - d: Another Generator to zip.
-    public init(_ a: A, _ b: B, _ c: C, _ d: D) {
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
+        public func next(_ randomSource: RandomSource) -> (A.T, B.T, C.T) {
+            (
+                a.next(randomSource),
+                b.next(randomSource),
+                c.next(randomSource)
+            )
+        }
     }
 
-    /// A Generator to zip.
-    public let a: A
+    // MARK: - Zip4
 
-    /// Another Generator to zip.
-    public let b: B
+    private struct Zip4<A, B, C, D>: Generator
+        where A: Generator,
+        B: Generator,
+        C: Generator,
+        D: Generator {
 
-    /// Another Generator to zip.
-    public let c: C
+        /// Creates a Generator that applies the zip function to two upstream Generators.
+        /// - Parameters:
+        ///   - a: A Generator to zip.
+        ///   - b: Another Generator to zip.
+        ///   - c: Another Generator to zip.
+        ///   - d: Another Generator to zip.
+        public init(_ a: A, _ b: B, _ c: C, _ d: D) {
+            self.a = a
+            self.b = b
+            self.c = c
+            self.d = d
+        }
 
-    /// Another Generator to zip.
-    public let d: D
+        /// A Generator to zip.
+        public let a: A
 
-    public func next(_ randomSource: RandomSource) -> (A.T, B.T, C.T, D.T) {
-        (
-            a.next(randomSource),
-            b.next(randomSource),
-            c.next(randomSource),
-            d.next(randomSource)
-        )
-    }
-}
+        /// Another Generator to zip.
+        public let b: B
 
-// MARK: - Zip5
+        /// Another Generator to zip.
+        public let c: C
 
-private struct Zip5<A, B, C, D, E>: Generator
-    where A: Generator,
-    B: Generator,
-    C: Generator,
-    D: Generator,
-    E: Generator {
+        /// Another Generator to zip.
+        public let d: D
 
-    /// Creates a Generator that applies the zip function to two upstream Generators.
-    /// - Parameters:
-    ///   - a: A Generator to zip.
-    ///   - b: Another Generator to zip.
-    ///   - c: Another Generator to zip.
-    ///   - d: Another Generator to zip.
-    ///   - e: Another Generator to zip.
-    public init(_ a: A, _ b: B, _ c: C, _ d: D, _ e: E) {
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-        self.e = e
+        public func next(_ randomSource: RandomSource) -> (A.T, B.T, C.T, D.T) {
+            (
+                a.next(randomSource),
+                b.next(randomSource),
+                c.next(randomSource),
+                d.next(randomSource)
+            )
+        }
     }
 
-    /// A Generator to zip.
-    public let a: A
+    // MARK: - Zip5
 
-    /// Another Generator to zip.
-    public let b: B
+    private struct Zip5<A, B, C, D, E>: Generator
+        where A: Generator,
+        B: Generator,
+        C: Generator,
+        D: Generator,
+        E: Generator {
 
-    /// Another Generator to zip.
-    public let c: C
+        /// Creates a Generator that applies the zip function to two upstream Generators.
+        /// - Parameters:
+        ///   - a: A Generator to zip.
+        ///   - b: Another Generator to zip.
+        ///   - c: Another Generator to zip.
+        ///   - d: Another Generator to zip.
+        ///   - e: Another Generator to zip.
+        public init(_ a: A, _ b: B, _ c: C, _ d: D, _ e: E) {
+            self.a = a
+            self.b = b
+            self.c = c
+            self.d = d
+            self.e = e
+        }
 
-    /// Another Generator to zip.
-    public let d: D
+        /// A Generator to zip.
+        public let a: A
 
-    /// Another Generator to zip.
-    public let e: E
+        /// Another Generator to zip.
+        public let b: B
 
-    public func next(_ randomSource: RandomSource) -> (A.T, B.T, C.T, D.T, E.T) {
-        (
-            a.next(randomSource),
-            b.next(randomSource),
-            c.next(randomSource),
-            d.next(randomSource),
-            e.next(randomSource)
-        )
+        /// Another Generator to zip.
+        public let c: C
+
+        /// Another Generator to zip.
+        public let d: D
+
+        /// Another Generator to zip.
+        public let e: E
+
+        public func next(_ randomSource: RandomSource) -> (A.T, B.T, C.T, D.T, E.T) {
+            (
+                a.next(randomSource),
+                b.next(randomSource),
+                c.next(randomSource),
+                d.next(randomSource),
+                e.next(randomSource)
+            )
+        }
     }
 }

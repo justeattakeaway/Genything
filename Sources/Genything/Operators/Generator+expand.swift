@@ -38,17 +38,16 @@ extension Generator {
             expand(toSize: $0)
         }
     }
-}
 
-// MARK: - Expand
+    struct Expand<Source>: Generator where Source: Generator {
+        let source: Source
+        let size: Int
 
-private struct Expand<Source>: Generator where Source: Generator {
-    let source: Source
-    let size: Int
-
-    public func next(_ randomSource: RandomSource) -> [Source.T] {
-        Array(repeating: source, count: size).map {
-            $0.next(randomSource)
+        public func next(_ randomSource: RandomSource) -> [Source.T] {
+            Array(repeating: source, count: size).map {
+                $0.next(randomSource)
+            }
         }
     }
+
 }
