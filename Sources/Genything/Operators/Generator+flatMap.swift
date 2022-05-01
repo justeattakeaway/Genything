@@ -6,11 +6,16 @@ extension Generator {
     ///
     /// - Returns: A `Gen` generator of values of type `R`
     public func flatMap<G: Generator>(_ transform: @escaping (T) -> G) -> AnyGenerator<G.T> {
-        FlatMap(source: self, transform: transform).eraseToAnyGenerator()
+        Generators.FlatMap(source: self, transform: transform).eraseToAnyGenerator()
     }
 
 
 
+    
+
+}
+
+extension Generators {
     struct FlatMap<Source, Output>: Generator where Source: Generator, Output: Generator {
         let source: Source
         let transform: (Source.T) -> Output
@@ -19,5 +24,4 @@ extension Generator {
             transform(source.next(randomSource)).next(randomSource)
         }
     }
-
 }

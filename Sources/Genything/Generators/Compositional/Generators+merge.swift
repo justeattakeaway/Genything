@@ -33,7 +33,7 @@ extension Generators {
         merge(generators)
     }
 
-    class Merge<Source>: Generator where Source: Generator {
+    final class Merge<Source>: Generator where Source: Generator {
         init(_ sources: [Source]) {
             loop = Loop(sources)
         }

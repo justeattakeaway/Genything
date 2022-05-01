@@ -7,10 +7,12 @@ extension Generator {
     ///   - initialResult: The first value to combine and transform with the receiver's values.
     ///   - nextPartialResult: A closure which transforms the receiver's current value and the last value produced by the resulting generator.
     public func scan<R>(_ initialResult: R, _ nextPartialResult: @escaping (R, T) -> R) -> AnyGenerator<R> {
-        Scan(source: self, initialResult: initialResult, nextPartialResult: nextPartialResult)
+        Generators.Scan(source: self, initialResult: initialResult, nextPartialResult: nextPartialResult)
             .eraseToAnyGenerator()
     }
+}
 
+extension Generators {
     final class Scan<Source, R>: Generator where Source: Generator {
 
         init(

@@ -17,7 +17,7 @@ extension Generators {
     /// A Generator that generates a given `Sequence` of elements. When the generator exhausts the elements in the sequence, it will begin to return nil.
     ///
     /// - Warning: This generator is stateful and cannot be restarted. Pay attention to how the reference is being retained and do not share the generator to unsuspecting consumers.
-    class Iterate<Elements>: Generator where Elements: Sequence {
+    final class Iterate<Elements>: Generator where Elements: Sequence {
 
         /// Creates a Generator for a sequence of elements.
         ///

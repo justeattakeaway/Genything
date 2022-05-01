@@ -8,7 +8,7 @@ extension Generator {
     ///
     /// - Returns: A generator of Tuples
     public func zip<B>(_ other: B) -> AnyGenerator<(Self.T, B.T)> where B: Generator {
-        Zip(self, other).eraseToAnyGenerator()
+        Generators.Zip(self, other).eraseToAnyGenerator()
     }
 
     /// Returns: A generator by zipping together the values produced by the receiver and `other`
@@ -66,7 +66,7 @@ extension Generator {
     ///
     /// - Returns: A generator of Tuples
     public func zip<B, C>(_ b: B, _ c: C) -> AnyGenerator<(Self.T, B.T, C.T)> where B: Generator, C: Generator {
-        Zip3(self, b, c).eraseToAnyGenerator()
+        Generators.Zip3(self, b, c).eraseToAnyGenerator()
     }
 
     /// Returns: A generator by zipping together the values produced by the receiver and `other`
@@ -127,7 +127,7 @@ extension Generator {
     /// - Returns: A generator of Tuples
     public func zip<B, C, D>(_ b: B, _ c: C, _ d: D) -> AnyGenerator<(Self.T, B.T, C.T, D.T)>
         where B: Generator, C: Generator, D: Generator {
-        Zip4(self, b, c, d).eraseToAnyGenerator()
+            Generators.Zip4(self, b, c, d).eraseToAnyGenerator()
     }
 
     /// Returns: A generator by zipping together the values produced by the receiver and `other`
@@ -158,7 +158,7 @@ extension Generators {
         _ d: D
     ) -> AnyGenerator<(A.T, B.T, C.T, D.T)>
         where A: Generator, B: Generator, C: Generator, D: Generator {
-        Zip4(a, b, c, d).eraseToAnyGenerator()
+            Generators.Zip4(a, b, c, d).eraseToAnyGenerator()
     }
 
     /// Returns: A generator by zipping together the values produced by the supplied generators
@@ -190,7 +190,7 @@ extension Generator {
     /// - Returns: A generator of Tuples
     public func zip<B, C, D, E>(_ b: B, _ c: C, _ d: D, _ e: E) -> AnyGenerator<(Self.T, B.T, C.T, D.T, E.T)>
         where B: Generator, C: Generator, D: Generator, E: Generator {
-        Zip5(self, b, c, d, e).eraseToAnyGenerator()
+            Generators.Zip5(self, b, c, d, e).eraseToAnyGenerator()
     }
 
     /// Returns: A generator by zipping together the values produced by the receiver and `other`
@@ -254,7 +254,7 @@ extension Generators {
 
 extension Generators {
 
-    private struct Zip<A, B>: Generator where A: Generator, B: Generator {
+    struct Zip<A, B>: Generator where A: Generator, B: Generator {
 
         /// Creates a Generator that applies the zip function to two upstream Generators.
         /// - Parameters:
@@ -281,7 +281,7 @@ extension Generators {
 
     // MARK: - Zip3
 
-    private struct Zip3<A, B, C>: Generator where A: Generator,
+    struct Zip3<A, B, C>: Generator where A: Generator,
         B: Generator,
         C: Generator {
 
@@ -316,7 +316,7 @@ extension Generators {
 
     // MARK: - Zip4
 
-    private struct Zip4<A, B, C, D>: Generator
+    struct Zip4<A, B, C, D>: Generator
         where A: Generator,
         B: Generator,
         C: Generator,
@@ -359,7 +359,7 @@ extension Generators {
 
     // MARK: - Zip5
 
-    private struct Zip5<A, B, C, D, E>: Generator
+    struct Zip5<A, B, C, D, E>: Generator
         where A: Generator,
         B: Generator,
         C: Generator,

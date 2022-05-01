@@ -1,5 +1,29 @@
 extension Generator where T: Equatable {
-    class Distinct<Source>: Generator where Source: Generator, Source.T: Equatable {
+    /// Returns: A generator that produces distinct values by comparing against it's memory
+    ///
+    /// - Warning: If it is no longer possible to generate a distinct value this operator will become infinitely complex and run forever
+    ///
+    /// - Parameters:
+    ///   - memorySize: The maximum size of the FIFO memory which will be used to compare against for distinctness
+    ///
+    /// - Returns: A `Gen` generator.
+    func distinct(memorySize: Int? = nil) -> AnyGenerator<T> {
+        Generators.Distinct(source: self, memorySize: memorySize).eraseToAnyGenerator()
+    }
+
+    /// Returns: A generator that produces values which do not match the previously generated value
+    ///
+    /// - Warning: If it is no longer possible to generate a distinct value this operator will become infinitely complex and run forever
+    ///
+    /// - Returns: A `Gen` generator.
+    func removeDuplicates() -> AnyGenerator<T> {
+        Generators.Distinct(source: self, memorySize: 1).eraseToAnyGenerator()
+    }
+
+}
+
+extension Generators {
+    final class Distinct<Source>: Generator where Source: Generator, Source.T: Equatable {
 
         init(source: Source, memorySize: Int? = nil) {
             self.source = source
@@ -15,31 +39,9 @@ extension Generator where T: Equatable {
             }
         }
 
-        let source: Source
-        var memory: FIFODistinctMemory<Source.T>
+        private let source: Source
+        private var memory: FIFODistinctMemory<Source.T>
     }
-
-    /// Returns: A generator that produces distinct values by comparing against it's memory
-    ///
-    /// - Warning: If it is no longer possible to generate a distinct value this operator will become infinitely complex and run forever
-    ///
-    /// - Parameters:
-    ///   - memorySize: The maximum size of the FIFO memory which will be used to compare against for distinctness
-    ///
-    /// - Returns: A `Gen` generator.
-    func distinct(memorySize: Int? = nil) -> AnyGenerator<T> {
-        Distinct(source: self, memorySize: memorySize).eraseToAnyGenerator()
-    }
-
-    /// Returns: A generator that produces values which do not match the previously generated value
-    ///
-    /// - Warning: If it is no longer possible to generate a distinct value this operator will become infinitely complex and run forever
-    ///
-    /// - Returns: A `Gen` generator.
-    func removeDuplicates() -> AnyGenerator<T> {
-        Distinct(source: self, memorySize: 1).eraseToAnyGenerator()
-    }
-
 }
 
 private struct FIFODistinctMemory<T: Equatable> {

@@ -41,7 +41,7 @@ extension Generators {
     /// The same `value` cannot be redrawn until all other values are drawn
     ///
     /// - SeeAlso: https://developer.apple.com/documentation/gameplaykit/gkshuffleddistribution
-    class ShuffleLoop<Elements>: Generator where Elements: Collection {
+    final class ShuffleLoop<Elements>: Generator where Elements: Collection {
 
         /// Creates a shuffled loop Generator for a collection of elements.
         ///

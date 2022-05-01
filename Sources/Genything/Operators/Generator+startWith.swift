@@ -8,9 +8,11 @@ extension Generator {
     ///
     /// - Returns: The generator
     public func startWith<S: Sequence>(_ sequence: S) -> AnyGenerator<T> where S.Element == T {
-        SwitchOnNil(start: Generators.iterate(sequence), end: self).eraseToAnyGenerator()
+        Generators.SwitchOnNil(start: Generators.iterate(sequence), end: self).eraseToAnyGenerator()
     }
+}
 
+extension Generators {
     final class SwitchOnNil<StartSource, EndSource>: Generator where StartSource: Generator, EndSource: Generator,
         StartSource.T == EndSource.T? {
 
@@ -40,5 +42,4 @@ extension Generator {
         private let start: StartSource
         private let end: EndSource
     }
-
 }

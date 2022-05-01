@@ -6,9 +6,14 @@ extension Generator {
     ///
     /// - Returns: A `Gen` generator of values of type `R`
     public func map<R>(_ transform: @escaping (T) -> R) -> AnyGenerator<R> {
-        Map(source: self, transform: transform).eraseToAnyGenerator()
+        Generators.Map(source: self, transform: transform).eraseToAnyGenerator()
     }
 
+    
+
+}
+
+extension Generators {
     struct Map<Source, T>: Generator where Source: Generator {
         let source: Source
         let transform: (Source.T) -> T
@@ -17,5 +22,4 @@ extension Generator {
             transform(source.next(randomSource))
         }
     }
-
 }
