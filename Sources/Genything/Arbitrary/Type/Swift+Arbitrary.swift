@@ -12,7 +12,7 @@ extension Bool: Arbitrary {
 // MARK: - Double + Arbitrary
 
 extension Double: Arbitrary {
-    /// A generator of arbitrary `Doubles`s
+    /// A generator of arbitrary `Double`s
     public static var arbitrary: AnyGenerator<Double> {
         (Self.leastNormalMagnitude ... Self.greatestFiniteMagnitude).arbitrary
     }
