@@ -1,7 +1,6 @@
 import Foundation
 import Genything
 import Trickery
-
 /*:
  ![Genything Icon](icon.png)
  
@@ -14,24 +13,24 @@ import Trickery
  This library takes inspiration from [Combine](https://developer.apple.com/documentation/combine), notably for designing operators. Users of Genything are therefore able to quickly compose complex generators using familiar functions such as `map`, `flatmap`, `zip` and many more. When it comes to generators for property based testing, [SwiftCheck](https://github.com/typelift/SwiftCheck) was taken into consideration. An example of this is with Genything's `testAllSatisfy` function which is similar to SwiftCheck's `forAll`.
  
  ## What sets Genything apart?
- Existing libraries that facilitate data generation are usually specific to property based testing and have hard requirements. One limitation seen in current solutions is not being able to use the same generator in an example app and within unit tests. There is also no abstraction of randomness and limited support for result reproducibility.
+ The existing libraries for data data generation are usually specific to property based testing and have hard requirements. One limitation seen in current solutions is not being able to use the same generator in an example app and within unit tests. There is also no abstraction of randomness and limited support for result reproducibility.
  - - -
  */
 /*: ### What is a Generator?
- A way to generate random values of a given type with a context that lets you decide how random you would like to be. */
+ A way to generate random values of a given type with a context that lets us decide how random we would like to be. */
 
 let boolGenerator = AnyGenerator<Bool> { context in /// `context` is a `RandomSource` which
-    Bool.random(using: &context.rng)                /// lets you control the randomness
+    Bool.random(using: &context.rng)                /// lets us control the randomness
 }
-/*: ### How can I create a generator?
- The most common way to create a generator is using `arbitrary`. This property is available for most Swift types. You can also implement the `Arbitrary` protocol to unlock this property for your custom types. */
+/*: ### How can we create a generator?
+ The most common way to create a generator is using `arbitrary`. This property is available for most Swift types. We can also implement the `Arbitrary` protocol to unlock this property for our custom types. */
 
 let digitGenerator: AnyGenerator<Int> = (0...9).arbitrary
 
-/// If you want pseudo-realistic fake data you can import Trickery and use Fake.
-/// You can also use operators to compose complex generators. This will be looked into further in the [next page](@next) of the playground.
+/// If we want pseudo-realistic fake data we can import Trickery and use Fake.
+/// We can also use operators to compose complex generators. This will be looked into further in the next page of the playground.
 let fakeDigitGenerator: AnyGenerator<Int> = Fake.Numerics.digits
-/*: ### How can I get values out of a generator?
+/*: ### How can we get values out of a generator?
  The main functions to extract values from a generator are:
  * `next(_:)` which produces the next element from this generator
  * `take(_:,randomSource:)` which returns an array of values from the generator
@@ -67,7 +66,7 @@ assert(seededDeterministicValue == replayValue)
 
 let randomValue = digitGenerator.next(.random()) /// This results will be the closest to a truly random and nondeterministic generated value
 
-/// If you pass the same randomSource to different generators you will get new results as the seed to randomize the data will change. This will be discussed more in the Stateful generators playground page.
+/// If we pass the same randomSource to different generators we will get new results as the seed to randomize the data will change. This will be discussed more in the Stateful generators playground page.
 let newRandomSourceWithDefaultSeed = digitGenerator.next(.predetermined())
 let newRandomSourceWithTheSameSeed = digitGenerator.next(.predetermined())
 
