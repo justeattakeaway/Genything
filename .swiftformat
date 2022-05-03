@@ -1,3 +1,5 @@
+--exclude Example
+
 # Adapted from the version of SwiftFormat used at Airbnb: 
 # https://github.com/calda/SwiftFormat/releases/tag/0.50-beta-1
 

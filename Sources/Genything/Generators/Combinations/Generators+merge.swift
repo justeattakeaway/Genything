@@ -4,7 +4,7 @@ extension Generators {
     /// Returns: A generator which produces results by looping over the provided generators in order
     ///
     /// # Example
-    /// 
+    ///
     /// ```swift
     /// let genA = Generators.constant("A")
     /// let genB = Generators.constant("B")
@@ -19,13 +19,14 @@ extension Generators {
 }
 
 class Merge<Source>: Generator where Source: Generator {
-    private let loop: Loop<[Source]>
-
     init(_ sources: [Source]) {
-        self.loop = Loop(sources)
+        loop = Loop(sources)
     }
 
     func next(_ randomSource: RandomSource) -> Source.T {
         loop.next(randomSource).next(randomSource)
     }
+
+    private let loop: Loop<[Source]>
+
 }
