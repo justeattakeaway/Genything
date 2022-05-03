@@ -7,7 +7,7 @@ extension Generator where T: Equatable {
     ///   - memorySize: The maximum size of the FIFO memory which will be used to compare against for distinctness
     ///
     /// - Returns: A `Gen` generator.
-    func distinct(memorySize: Int? = nil) -> AnyGenerator<T> {
+    public func distinct(memorySize: Int? = nil) -> AnyGenerator<T> {
         Generators.Distinct(source: self, memorySize: memorySize).eraseToAnyGenerator()
     }
 
@@ -16,7 +16,7 @@ extension Generator where T: Equatable {
     /// - Warning: If it is no longer possible to generate a distinct value this operator will become infinitely complex and run forever
     ///
     /// - Returns: A `Gen` generator.
-    func removeDuplicates() -> AnyGenerator<T> {
+    public func removeDuplicates() -> AnyGenerator<T> {
         Generators.Distinct(source: self, memorySize: 1).eraseToAnyGenerator()
     }
 

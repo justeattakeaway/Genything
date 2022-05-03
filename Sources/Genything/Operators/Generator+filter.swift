@@ -1,6 +1,6 @@
 extension Generator {
 
-    /// Returns: A generator that only produces values which pass the test `isIncluded`
+    /// Returns: A generator that for each iteration repeatedly generates values until a suitable match can be found
     ///
     /// - Warning: If the filtered condition is rare enough this function will become infinitely complex and will run forever
     /// e.g. `Int.arbitrary.filter { $0 == 999 }` has a `$1/Int.max$` probability of occuring and will be nearly infinite
@@ -8,8 +8,8 @@ extension Generator {
     /// - Parameters:
     ///   - isIncluded: A function which returns true if the value should be included
     ///
-    /// - Returns: A `Gen` generator.
-    func filter(_ isIncluded: @escaping (T) -> Bool) -> AnyGenerator<T> {
+    /// - Returns: A generator that for each iteration repeatedly generates values until a suitable match can be found
+    public func filter(_ isIncluded: @escaping (T) -> Bool) -> AnyGenerator<T> {
         Generators.Filter(source: self, isIncluded: isIncluded).eraseToAnyGenerator()
     }
 
