@@ -127,7 +127,7 @@ extension Generator {
     /// - Returns: A generator of Tuples
     public func zip<B, C, D>(_ b: B, _ c: C, _ d: D) -> AnyGenerator<(Self.T, B.T, C.T, D.T)>
         where B: Generator, C: Generator, D: Generator {
-            Generators.Zip4(self, b, c, d).eraseToAnyGenerator()
+        Generators.Zip4(self, b, c, d).eraseToAnyGenerator()
     }
 
     /// Returns: A generator by zipping together the values produced by the receiver and `other`
@@ -158,7 +158,7 @@ extension Generators {
         _ d: D
     ) -> AnyGenerator<(A.T, B.T, C.T, D.T)>
         where A: Generator, B: Generator, C: Generator, D: Generator {
-            Generators.Zip4(a, b, c, d).eraseToAnyGenerator()
+        Generators.Zip4(a, b, c, d).eraseToAnyGenerator()
     }
 
     /// Returns: A generator by zipping together the values produced by the supplied generators
@@ -190,7 +190,7 @@ extension Generator {
     /// - Returns: A generator of Tuples
     public func zip<B, C, D, E>(_ b: B, _ c: C, _ d: D, _ e: E) -> AnyGenerator<(Self.T, B.T, C.T, D.T, E.T)>
         where B: Generator, C: Generator, D: Generator, E: Generator {
-            Generators.Zip5(self, b, c, d, e).eraseToAnyGenerator()
+        Generators.Zip5(self, b, c, d, e).eraseToAnyGenerator()
     }
 
     /// Returns: A generator by zipping together the values produced by the receiver and `other`

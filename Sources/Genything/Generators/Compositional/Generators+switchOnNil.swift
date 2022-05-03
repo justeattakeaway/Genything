@@ -7,6 +7,8 @@ extension Generators {
             self.end = end
         }
 
+        private(set) var switched = false
+
         func next(_ randomSource: RandomSource) -> EndSource.T {
             if switched {
                 return end.next(randomSource)
@@ -19,8 +21,6 @@ extension Generators {
                 return next(randomSource)
             }
         }
-
-        private(set) var switched = false
 
         private let start: StartSource
         private let end: EndSource

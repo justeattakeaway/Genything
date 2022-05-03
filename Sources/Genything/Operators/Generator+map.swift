@@ -9,7 +9,7 @@ extension Generator {
         Generators.Map(source: self, transform: transform).eraseToAnyGenerator()
     }
 
-    
+
 
 }
 

@@ -33,7 +33,7 @@ jobs:
         if [ -n "$(git status --porcelain)" ]; then
             echo "Documentation changes found. Commiting the changes to the 'gh-pages' branch and pushing to origin."
             git commit -m "Update GitHub Pages documentation site to '$CURRENT_COMMIT_HASH'."
-            git push
+            git push origin HEAD:gh-pages
         else
           echo "No documentation changes."
         fi
