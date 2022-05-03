@@ -10,7 +10,7 @@ extension Generator {
     /// - Returns: A generator that begins to generate values after the provided generation count
     public func dropFirst(_ count: Int = 1) -> AnyGenerator<T> {
         assert(count >= 0, "`dropFirst(count:)` called with a negative count")
-        
+
         return Generators.Drop(source: self, count: count).eraseToAnyGenerator()
     }
 }
@@ -21,6 +21,10 @@ extension Generators {
             self.source = source
             self.count = count
         }
+
+
+        let source: Source
+        let count: Int
 
         func next(_ randomSource: RandomSource) -> Source.T {
             if isFirst {
@@ -33,8 +37,5 @@ extension Generators {
         }
 
         private var isFirst = true
-        
-        let source: Source
-        let count: Int
     }
 }
