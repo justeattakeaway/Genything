@@ -20,7 +20,7 @@ extension Generators {
     /// - Returns: The generator of Arrays containing values selected in order from the provided generators
     public static func collect<G, R>(_ generators: [G], _ transform: @escaping (G.T) -> R) -> AnyGenerator<[R]>
         where G: Generator {
-            Collect(sources: generators, transform: transform).eraseToAnyGenerator()
+        Collect(sources: generators, transform: transform).eraseToAnyGenerator()
     }
 }
 
