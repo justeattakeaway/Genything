@@ -48,4 +48,7 @@ extension RandomSource {
         let seed = UInt64(arc4random())
         return .init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
     }
+    
+    /// Returns: The system’s default source of random data which is neither independent nor deterministic.
+    public static var system: RandomSource = .init(using: SystemRandomNumberGenerator(), originalSeed: nil)
 }
