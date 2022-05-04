@@ -7,37 +7,37 @@ extension Generator {
     ///   - initialResult: The first value to combine and transform with the receiver's values.
     ///   - nextPartialResult: A closure which transforms the receiver's current value and the last value produced by the resulting generator.
     public func scan<R>(_ initialResult: R, _ nextPartialResult: @escaping (R, T) -> R) -> AnyGenerator<R> {
-        Scan(source: self, initialResult: initialResult, nextPartialResult: nextPartialResult)
+        Generators.Scan(source: self, initialResult: initialResult, nextPartialResult: nextPartialResult)
             .eraseToAnyGenerator()
     }
 }
 
-// MARK: - Scan
+extension Generators {
+    final class Scan<Source, R>: Generator where Source: Generator {
 
-private final class Scan<Source, R>: Generator where Source: Generator {
+        init(
+            source: Source,
+            initialResult: R,
+            nextPartialResult: @escaping (R, Source.T) -> R
+        ) {
+            self.source = source
+            self.initialResult = initialResult
+            self.nextPartialResult = nextPartialResult
+        }
 
-    init(
-        source: Source,
-        initialResult: R,
-        nextPartialResult: @escaping (R, Source.T) -> R
-    ) {
-        self.source = source
-        self.initialResult = initialResult
-        self.nextPartialResult = nextPartialResult
+        public func next(_ randomSource: RandomSource) -> R {
+            let nextResult = nextPartialResult(previousResult, source.next(randomSource))
+            previousResult = nextResult
+            return nextResult
+        }
+
+        typealias T = R
+
+        let source: Source
+        let initialResult: R
+        let nextPartialResult: (R, Source.T) -> R
+
+        lazy var previousResult = initialResult
+
     }
-
-    public func next(_ randomSource: RandomSource) -> R {
-        let nextResult = nextPartialResult(previousResult, source.next(randomSource))
-        previousResult = nextResult
-        return nextResult
-    }
-
-    typealias T = R
-
-    let source: Source
-    let initialResult: R
-    let nextPartialResult: (R, Source.T) -> R
-
-    lazy var previousResult = initialResult
-
 }

@@ -8,7 +8,7 @@ extension Generator {
     ///
     /// - Returns: A `Gen` generator
     public func expand(toSize size: Int) -> AnyGenerator<[T]> {
-        Expand(source: self, size: size).eraseToAnyGenerator()
+        Generators.Expand(source: self, size: size).eraseToAnyGenerator()
     }
 
     /// Returns: The receiver's generator expanded to generate an array of the receiver's values
@@ -40,15 +40,15 @@ extension Generator {
     }
 }
 
-// MARK: - Expand
+extension Generators {
+    struct Expand<Source>: Generator where Source: Generator {
+        let source: Source
+        let size: Int
 
-private struct Expand<Source>: Generator where Source: Generator {
-    let source: Source
-    let size: Int
-
-    public func next(_ randomSource: RandomSource) -> [Source.T] {
-        Array(repeating: source, count: size).map {
-            $0.next(randomSource)
+        public func next(_ randomSource: RandomSource) -> [Source.T] {
+            Array(repeating: source, count: size).map {
+                $0.next(randomSource)
+            }
         }
     }
 }
