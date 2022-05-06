@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: - RandomSource
 
-/// The randomSource will be passed through all generators
+/// A RandomSource holds a reference to a RandomNumberGenerator. Allowing for a session of deterministic random state to passed around to generators which can be restarted or replayed at any time.
 ///
 /// It's main purpose is to hold onto the Random Number Generator `rng`, so that as generations occur the RNG's state changes are propogated to each generator
 ///
@@ -25,7 +25,7 @@ public class RandomSource {
     /// To be used for debugging purposes and to "replay" a generation event
     public let originalSeed: UInt64?
 
-    /// A type-erased random number generator conformed to `RandomNumberGenerator`
+    /// A type-erased `RandomNumberGenerator`
     public var rng: AnyRandomNumberGenerator
 }
 
@@ -34,17 +34,21 @@ public class RandomSource {
 extension RandomSource {
     /// Returns: An new, independent `RandomSource` initialized by default with a common seed for all Genything users
     public static func predetermined(seed: UInt64 = 2022) -> RandomSource {
-        .init(determinism: .predetermined(seed: seed))
+        .init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
     }
 
     /// Returns: An new, independent `RandomSource` which can be used to replay a previous deterministic random execution
     /// - Note: Named to help with discoverability
     public static func replay(seed: UInt64) -> RandomSource {
-        .init(determinism: .predetermined(seed: seed))
+        predetermined(seed: seed)
     }
 
     /// Returns: An new, independent `RandomSource` initialized from a nondeterministic seed
     public static func random() -> RandomSource {
-        .init(determinism: .random)
+        let seed = UInt64(arc4random())
+        return .init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
     }
+    
+    /// Returns: The system’s default source of random data which is neither independent nor deterministic.
+    public static var system: RandomSource = .init(using: SystemRandomNumberGenerator(), originalSeed: nil)
 }

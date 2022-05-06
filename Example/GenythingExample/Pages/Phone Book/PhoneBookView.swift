@@ -30,7 +30,7 @@ private struct PhoneBookCell: View {
 struct PhoneBookView: View {
     private let data = Generators.zip(Fake.PersonNames.full(), Fake.PhoneNumbers.formatted) {
         Contact(name: $0, phoneNumber: $1)
-    }.take(50, randomSource: .init(determinism: .random))
+    }.take(50, randomSource: .random())
 
     var body: some View {
         List {

@@ -5,7 +5,7 @@ import Trickery
 let generator = GenLibsScriptGenerator().generator
 
 private func generateScript() -> String {
-    generator.next(RandomSource(determinism: .random))
+    generator.next(.system)
 }
 
 // MARK: - GenLibsView
