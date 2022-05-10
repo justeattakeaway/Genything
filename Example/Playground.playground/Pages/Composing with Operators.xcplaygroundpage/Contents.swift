@@ -39,13 +39,27 @@ let fixedSizeArray = Int.arbitrary.expand(toSize: 2).next(.random())
 let rangeSizedArray = Int.arbitrary.expand(toSizeInRange: 0...5).next(.random())
 
 /*:
- ## Seed Value
-But that is not just it... With genything, we can manipulate the data so it fulfill any expecatations.
-For example, we can influence the randon with a specific seed value
+ ## Weighted
+This method allows to attribute weight to each element to be generated. For this example, this would generate twice as many apples as bananas. The size was setted randomly to show the example
  */
 
-let seedValue = Int.arbitrary.next(.predetermined(seed: 5))
+let weighted = Generators
+    .weighted([
+        (2, "Apple"),
+        (1, "Banana"),
+    ])
+    .expand(toSize: 6)
+    .next(.random())
 
+/*:
+ ## Loop
+The loop method would create an array of a random size containing a loop of the previously setted values. For this example, the size was setted in order to show the expected result
+ */
+
+let loop = Generators
+    .loop(0...3)
+    .expand(toSize: 10)
+    .next(.random())
 
 /*:
  # Mutating Operators.
@@ -72,40 +86,25 @@ let mapCharToString = Character.arbitrary
     .expand(toSizeInRange: 1 ... 5)
     .map { (chars: [Character]) -> String in String(chars) }
     .next(.random())
-
-/*:
-## CompactMap
- Compact map would not return nil value on the array, returning an array of non-optionals
- */
-
-let removeNilFromIntArray = Array<Int?>
-    .arbitrary
-    .next(.random())
-    .compactMap { $0 }
-
 /*:
 ## FlatMap
- Flat map would flatetn up the array, and turn the array of arrays into only one sequence
+ Flat map would flaten up the result of the map, and it would turn the received value into a Generator
  */
 
-let flatTwoArrays = Array<Int>
-    .arbitrary
-    .expand(toSize: 3) // This would return an Array of Array<Int>
-    .next(.random())
-    .flatMap { $0 }
+let arrayOfGenerators: [AnyGenerator<Int>] = [
+    (0..<5).arbitrary,
+    (6...10).arbitrary
+]
 
-/*:
-## Reduce
- This operator goes through the array and do a specific defined operation. In this case, reduce will sum the integer values
- */
+let generatorOfRandomGenerators: AnyGenerator<AnyGenerator<Int>> = arrayOfGenerators.arbitrary
 
-let totalSum = Int
-    .arbitrary
-    .expand(toSizeInRange: 0...5).next(.random())
-    .reduce(0, +)
+generatorOfRandomGenerators.next(.random()).next(.random())
+
+let flattenArray = generatorOfRandomGenerators.flatMap { $0 }.next(.random())
+
 /*:
 ## Zip.
-When you zip two Generators, it returns a single Generator with an array of the two elements zipped. Here is a demonstration that the zip return is correct
+When you zip two Generators, it returns a single Generator with an array of the two elements zipped. Here is a demonstration that the zip return is correct.
 */
 let a = Int.arbitrary.expand(toSize: 1)
 let b = Int.arbitrary.expand(toSize: 2)
