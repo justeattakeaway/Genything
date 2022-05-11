@@ -7,7 +7,7 @@ import XCTest
 /*:
 # Composing With Operators Introduction
  
-With Genything, we can generate any randon value for each type, for example:
+With Genything, we can generate any random value for each type, for example:
  
 */
  
@@ -52,7 +52,7 @@ let weighted = Generators
 
 /*:
  ## Loop
-The loop method would create an array of a random size containing a loop of the previously setted values. For this example, the size was setted in order to show the expected result
+The loop method would create an array of a random size containing a loop of the previously selected values. For this example, the size was setted in order to show the expected result
  */
 
 let loop = Generators
@@ -86,7 +86,7 @@ let mapCharToString = Character.arbitrary
     .next(.random())
 /*:
 ## FlatMap
- Flat map would flaten up the result of the map, and it would turn the received value into a Generator. For this example. There is an array of integer generators that would be flatten up on a single integer generator
+ Flat map would flatten up the result of the map, and it would turn the received value into a Generator. For this example. There is an array of integer generators that would be flatten up on a single integer generator
  */
 
 let arrayOfGenerators: [AnyGenerator<Int>] = [
@@ -103,14 +103,14 @@ let generatorOfRandomGenerators: AnyGenerator<AnyGenerator<Int>> = arrayOfGenera
 
 /*:
  Then we generate a random generator.
- From that generator, we can generate our random value
+ From that generator, we can generate a random value
  */
 
 generatorOfRandomGenerators.next(.random()).next(.predetermined())
 
 /*:
- The approach showed above has two problems: the sintax is not very ergonomic - there are 2 .next calls and we need to send the same random source to both if we want to maintain predictability.
-We can solve it using flatmap operator inside Genything.
+ The approach shown above has two problems: the syntax is not very ergonomic - there are 2 .next calls and we need to send the same random source to both if we want to maintain predictability.
+We can solve it using the flatmap operator inside Genything.
  */
 
 let flattenArray = generatorOfRandomGenerators.flatMap { $0 }
@@ -118,7 +118,7 @@ let generateFlattenArray = flattenArray.next(.predetermined())
 
 /*:
 ## Zip.
-Zip operator combine two generators and emit a single element for each combination.
+Zip operators combine two generators and emit a single element for each combination.
 When you zip two Generators, it returns a single Generator with an array of the two elements zipped. Here is a demonstration that the zip return is correct.
 */
 let a = Int.arbitrary.expand(toSize: 1)
