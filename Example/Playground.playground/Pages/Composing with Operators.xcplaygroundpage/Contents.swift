@@ -36,7 +36,7 @@ let fixedSizeArray = Int.arbitrary.expand(toSize: 2).next(.random())
 
 /*: or with the size inside a range */
 
-let rangeSizedArray = Int.arbitrary.expand(toSizeInRange: 0...5).next(.random())
+let rangeSizedArray = Int.arbitrary.expand(toSizeInRange: 3...5).next(.random())
 
 /*:
  ## Weighted
@@ -48,8 +48,7 @@ let weighted = Generators
         (2, "Apple"),
         (1, "Banana"),
     ])
-    .expand(toSize: 6)
-    .next(.random())
+    .take(6, randomSource: .random())
 
 /*:
  ## Loop
@@ -58,8 +57,7 @@ The loop method would create an array of a random size containing a loop of the 
 
 let loop = Generators
     .loop(0...3)
-    .expand(toSize: 10)
-    .next(.random())
+    .take(10, randomSource: .random())
 
 /*:
  # Mutating Operators.
@@ -88,22 +86,39 @@ let mapCharToString = Character.arbitrary
     .next(.random())
 /*:
 ## FlatMap
- Flat map would flaten up the result of the map, and it would turn the received value into a Generator
+ Flat map would flaten up the result of the map, and it would turn the received value into a Generator. For this example. There is an array of integer generators that would be flatten up on a single integer generator
  */
 
 let arrayOfGenerators: [AnyGenerator<Int>] = [
     (0..<5).arbitrary,
-    (6...10).arbitrary
+    (6..<10).arbitrary,
+    (11..<15).arbitrary,
+    (16..<20).arbitrary
 ]
 
+/*:
+ Let's choose a random generator by turning it into a generator.
+ */
 let generatorOfRandomGenerators: AnyGenerator<AnyGenerator<Int>> = arrayOfGenerators.arbitrary
 
-generatorOfRandomGenerators.next(.random()).next(.random())
+/*:
+ Then we generate a random generator.
+ From that generator, we can generate our random value
+ */
 
-let flattenArray = generatorOfRandomGenerators.flatMap { $0 }.next(.random())
+generatorOfRandomGenerators.next(.random()).next(.predetermined())
+
+/*:
+ The approach showed above has two problems: the sintax is not very ergonomic - there are 2 .next calls and we need to send the same random source to both if we want to maintain predictability.
+We can solve it using flatmap operator inside Genything.
+ */
+
+let flattenArray = generatorOfRandomGenerators.flatMap { $0 }
+let generateFlattenArray = flattenArray.next(.predetermined())
 
 /*:
 ## Zip.
+Zip operator combine two generators and emit a single element for each combination.
 When you zip two Generators, it returns a single Generator with an array of the two elements zipped. Here is a demonstration that the zip return is correct.
 */
 let a = Int.arbitrary.expand(toSize: 1)
