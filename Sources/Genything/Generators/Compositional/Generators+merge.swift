@@ -35,14 +35,13 @@ extension Generators {
 
     final class Merge<Source>: Generator where Source: Generator {
         init(_ sources: [Source]) {
-            loop = Loop(sources)
+            loop = Loop(sources).flatMap { $0 }
         }
 
         func next(_ randomSource: RandomSource) -> Source.T {
-            loop.next(randomSource).next(randomSource)
+            loop.next(randomSource)
         }
 
-        private let loop: Loop<[Source]>
+        private let loop: AnyGenerator<Source.T>
     }
-
 }

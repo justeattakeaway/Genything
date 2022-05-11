@@ -32,6 +32,10 @@ public class RandomSource {
 // MARK: Convenience RandomSource Creators
 
 extension RandomSource {
+
+    /// Returns: The system’s default source of random data which is neither independent nor deterministic.
+    public static var system: RandomSource = .init(using: SystemRandomNumberGenerator(), originalSeed: nil)
+
     /// Returns: An new, independent `RandomSource` initialized by default with a common seed for all Genything users
     public static func predetermined(seed: UInt64 = 2022) -> RandomSource {
         .init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
@@ -48,7 +52,4 @@ extension RandomSource {
         let seed = UInt64(arc4random())
         return .init(using: LinearCongruentialRandomNumberGenerator(seed: seed), originalSeed: seed)
     }
-    
-    /// Returns: The system’s default source of random data which is neither independent nor deterministic.
-    public static var system: RandomSource = .init(using: SystemRandomNumberGenerator(), originalSeed: nil)
 }

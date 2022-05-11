@@ -8,11 +8,6 @@ extension Generator {
     public func flatMap<G: Generator>(_ transform: @escaping (T) -> G) -> AnyGenerator<G.T> {
         Generators.FlatMap(source: self, transform: transform).eraseToAnyGenerator()
     }
-
-
-
-
-
 }
 
 extension Generators {
