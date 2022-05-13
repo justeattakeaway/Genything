@@ -18,12 +18,13 @@ let character = Character.arbitrary.next(.random())
 
 /*: Including Optionals */
 
-let integerOptional = Int?.arbitrary.next(.random())
+let integerOptional = Int.arbitrary.orNil().next(.random())
 
-/*: And even more complex types, like: */
+/*: And even more complex types with different syntax, like: */
 
 let integerArray: [Int] = Array.arbitrary.next(.random())
-let integerOptionalArray: [Int?] = Array.arbitrary.next(.random())
+let charArray: [Character] = .arbitrary.next(.random())
+let integerOptionalArray = [Int?].arbitrary.next(.random())
 let dictionary: Dictionary<Int, String> = Dictionary.arbitrary.next(.random())
 
 /*:
@@ -40,7 +41,9 @@ let rangeSizedArray = Int.arbitrary.expand(toSizeInRange: 3...5).next(.random())
 
 /*:
  ## Weighted
-This method allows to attribute weight to each element to be generated. For this example, this would generate twice as many apples as bananas. The size was setted randomly to show the example
+This method allows to attribute weight to each element to be generated. For this example, this would generate twice as many apples as bananas.
+ 
+ The size was setted randomly to show the example 🪄
  */
 
 let weighted = Generators
@@ -52,7 +55,8 @@ let weighted = Generators
 
 /*:
  ## Loop
-The loop method would create an array of a random size containing a loop of the previously selected values. For this example, the size was setted in order to show the expected result
+The loop method would create an array of a random size containing a loop of the previously selected values.
+ For this example, the size was setted in order to show the expected result 🪄
  */
 
 let loop = Generators
@@ -61,7 +65,7 @@ let loop = Generators
 
 /*:
  # Mutating Operators.
- Moving forward, the lib allows to mutate the data using some Rx programming, as:
+ Moving forward, the lib allows to mutate the data using some Rx programming functions, as:
  
  ## Map
  
@@ -72,7 +76,7 @@ let mapCountValue = Generators
     .constant(32) // starts at 32
     .map { $0 + 1 }
     .map { $0 + 1 }
-    .map { $0 + 1 } // add 3
+    .map { $0 + 1 }
     .next(.random())
 
 /*:
@@ -109,8 +113,11 @@ let generatorOfRandomGenerators: AnyGenerator<AnyGenerator<Int>> = arrayOfGenera
 generatorOfRandomGenerators.next(.random()).next(.predetermined())
 
 /*:
- The approach shown above has two problems: the syntax is not very ergonomic - there are 2 .next calls and we need to send the same random source to both if we want to maintain predictability.
-We can solve it using the flatmap operator inside Genything.
+ The approach shown above has two problems:
+ 1. The syntax is not very ergonomic - there are 2 .next calls
+ 2. The need to send the same random source to both if we want to maintain predictability.
+ 
+ We can solve both aforementioned problems using flatMap.
  */
 
 let flattenArray = generatorOfRandomGenerators.flatMap { $0 }
@@ -121,10 +128,25 @@ let generateFlattenArray = flattenArray.next(.predetermined())
 Zip operators combine two generators and emit a single element for each combination.
 When you zip two Generators, it returns a single Generator with an array of the two elements zipped. Here is a demonstration that the zip return is correct.
 */
+struct Point {
+    var x: Int
+    var y: Int
+}
+
+let xPoint = (1...3).arbitrary
+let yPoint = (5...8).arbitrary
+
+xPoint
+    .zip(yPoint) { x, y in
+        Point(x: x, y: y)
+    }
+    .next(.random())
+
+
 let a = Int.arbitrary.expand(toSize: 1)
 let b = Int.arbitrary.expand(toSize: 2)
 
 let result = Generators.zip(a, b)
     .map {  $0.0.count == 1 && $0.1.count == 2 }
     .next(.random())
-
+//: [Modelling Production Data](@next)
