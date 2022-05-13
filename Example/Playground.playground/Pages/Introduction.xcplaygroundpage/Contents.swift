@@ -78,7 +78,7 @@ let generatedSequence = digitGenerator.sequence(randomSource: randomSource) /// 
  * `replay(seed:)` allows us to use an existing seed in order to obtain reproducible results. This is useful when debugging unit tests after extracting the seed from a previous generator
  * `random()` creates a nondeterministic RandomSource */
 
-/// Under the hood genything uses a linear congrugential random number generator wich allows us to reproduce the same values for particular seed.
+/// Under the hood Genything uses a linear congruential random number generator wich allows us to reproduce the same values for particular seed.
 
 let deterministicValue = digitGenerator.next(.predetermined()) /// The seed used here is the default one, i.e `2022`
 
