@@ -19,9 +19,17 @@ import Trickery
 /*: ### What is a Generator?
  A way to generate random values of a given type with a context that lets us decide how random we would like to be. */
 
-let boolGenerator = AnyGenerator<Bool> { context in /// `context` is a `RandomSource` which
-    Bool.random(using: &context.rng)                /// lets us control the randomness
+let boolGenerator = AnyGenerator<Bool> { randomSource in /// `RandomSource` which
+    Bool.random(using: &randomSource.rng)                /// lets us control the randomness
 }
+
+
+
+
+
+
+
+
 /*: ### How can we create a generator?
  The most common way to create a generator is using `arbitrary`. This property is available for most Swift types. We can also implement the `Arbitrary` protocol to unlock this property for our custom types. */
 
@@ -30,6 +38,14 @@ let digitGenerator: AnyGenerator<Int> = (0...9).arbitrary
 /// If we want pseudo-realistic fake data we can import Trickery and use Fake.
 /// We can also use operators to compose complex generators. This will be looked into further in the next page of the playground.
 let fakeDigitGenerator: AnyGenerator<Int> = Fake.Numerics.digits
+
+
+
+
+
+
+
+
 /*: ### How can we get values out of a generator?
  The main functions to extract values from a generator are:
  * `next(_:)` which produces the next element from this generator
@@ -48,6 +64,13 @@ assert(Array(generatedFiniteSequence) == generatedArray)
 
 let generatedSequence = digitGenerator.sequence(randomSource: randomSource) /// Returns a sequence of infinite elements from the integer generator.
 
+
+
+
+
+
+
+
 /*: ### What is a `RandomSource`?
  A `RandomSouce` enables us to control the randomness of the generated data.
  Using the following static methods we can conveniently create deterministic and nondeterministic `RandomSource`s:
@@ -55,16 +78,13 @@ let generatedSequence = digitGenerator.sequence(randomSource: randomSource) /// 
  * `replay(seed:)` allows us to use an existing seed in order to obtain reproducible results. This is useful when debugging unit tests after extracting the seed from a previous generator
  * `random()` creates a nondeterministic RandomSource */
 
+/// Under the hood genything uses a linear congrugential random number generator wich allows us to reproduce the same values for particular seed.
+
 let deterministicValue = digitGenerator.next(.predetermined()) /// The seed used here is the default one, i.e `2022`
 
 let seededDeterministicValue = digitGenerator.next(.predetermined(seed: 42)) /// Here we use a custom seed, i.e `42`
 
-let replayValue = digitGenerator.next(.replay(seed: 42)) /// This line is essentially the same as the one above
-
-/// `replay(seed:)` and `predetermined(seed:)` are the same:
-assert(seededDeterministicValue == replayValue)
-
-let randomValue = digitGenerator.next(.random()) /// This results will be the closest to a truly random and nondeterministic generated value
+let randomValue = digitGenerator.next(.random()) /// This results will use a random seed which you can replay if needed
 
 /// If we pass the same randomSource to different generators we will get new results as the seed to randomize the data will change. This will be discussed more in the Stateful generators playground page.
 let newRandomSourceWithDefaultSeed = digitGenerator.next(.predetermined())
