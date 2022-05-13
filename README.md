@@ -56,7 +56,7 @@ Both of these libraries may be used for code testing, rapid prototyping, demo ap
   - Run your [screenshot](https://github.com/pointfreeco/swift-snapshot-testing) [tests](https://github.com/uber/ios-snapshot-test-case) with easy-to-use and predictable data
   - Use your generators to unit test with [Property Based Testing](https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237)
 - High test coverage
-- [100% Documented](https://justeattakeaway.github.io/Genything)
+- [100% Documented](https://justeattakeaway.github.io/Genything/documentation/genything/)
 
 ### Generator
 
@@ -90,13 +90,13 @@ AnyGenerator<Bool> { randomSource in
 }
 ```
 
-Or, we can take advantage of Genything's arbitrary conformance for [most standard Swift types](https://justeattakeaway.github.io/Genything/Extensions.html), including `Bool`:
+Or, we can take advantage of Genything's arbitrary conformance for most standard Swift types (including `Bool`)
 
 ```swift
 Bool.arbitrary
 ```
 
-Genything provides numerous ways to [create your own Generators](https://justeattakeaway.github.io/Genything/Enums/Generators.html) under the `Generators` namespace, and the `Generator` type is [extended by many operators](https://justeattakeaway.github.io/Genything/Protocols/Generator.html) which you can use to further mutate and control the resulting generator.
+Genything provides numerous ways to [create your own Generators](https://justeattakeaway.github.io/Genything/documentation/genything/generators) under the `Generators` namespace, and the `Generator` type is [extended by many operators](https://justeattakeaway.github.io/Genything/documentation/genything/generator) which you can use to further mutate and control the resulting generator.
 
 ### Arbitrary
 

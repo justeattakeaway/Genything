@@ -32,7 +32,7 @@ private let polygonGen = Generators.compose {
     )
 }.expand(toSizeInRange: 6 ... 12)
 
-private let randomSource = RandomSource(determinism: .random)
+private let randomSource = RandomSource.random()
 
 // MARK: - ShapeDrawingView
 
