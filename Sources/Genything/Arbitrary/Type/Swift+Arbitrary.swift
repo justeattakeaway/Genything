@@ -78,11 +78,13 @@ extension Character: Arbitrary {
 extension String: Arbitrary {
     /// A generator of arbitrary `String`s of random sizes
     public static var arbitrary: AnyGenerator<String> {
-        arbitrary()
+        AnyGenerator { $0 }.flatMap { rs in
+            arbitrary(in: 0 ... rs.maxArbitraryCollectionSize)
+        }
     }
 
     /// A generator of arbitrary `String`s of random sizes in`range`
-    public static func arbitrary(in range: ClosedRange<Int> = 0 ... 100) -> AnyGenerator<String> {
+    public static func arbitrary(in range: ClosedRange<Int>) -> AnyGenerator<String> {
         Character.arbitrary
             .expand(toSizeInRange: range)
             .map { String($0) }
@@ -94,11 +96,13 @@ extension String: Arbitrary {
 extension Array: Arbitrary where Element: Arbitrary {
     /// A generator of arbitrary `Array`s of random sizes
     public static var arbitrary: AnyGenerator<Array> {
-        arbitrary()
+        AnyGenerator { $0 }.flatMap { rs in
+            arbitrary(in: 0 ... rs.maxRecursiveArbitraryCollectionSize)
+        }
     }
 
     /// A generator of arbitrary `Array`s of random sizes in `range`
-    public static func arbitrary(in range: ClosedRange<Int> = 0 ... 33) -> AnyGenerator<Array> {
+    public static func arbitrary(in range: ClosedRange<Int>) -> AnyGenerator<Array> {
         Element.arbitrary
             .expand(toSizeInRange: range)
     }
