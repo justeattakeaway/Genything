@@ -1,7 +1,6 @@
 import Foundation
 import Genything
 import GenythingTest
-import Trickery
 import XCTest
 
 /*:
@@ -13,6 +12,7 @@ struct User {
     var id: UUID
     var name: String
     var age: Int
+    var handedness: Handedness
     
     enum Handedness {
         case left, right, ambidextrous
@@ -36,7 +36,7 @@ AnyGenerator { rs in
 
 
 //: By adopting CaseIterable, we can auto-synthesize arbitrary conformance for Handedness
-extension Handedness: CaseIterable {}
+extension User.Handedness: CaseIterable {}
 
 
 
@@ -81,7 +81,11 @@ extension User: Arbitrary {
         }
     }
 }
-//: 🕵️ If you noticed that this may be a great candidate for code generation, you would be right. Genything offers Sourcery templates to automatically create arbitrary generators for all of your models.
+/*:
+ 🕵️ "This looks like boilerplate, I bet you could generate this code..."
+
+ You would be right! Genything offers Sourcery templates to automatically create arbitrary generators for all of your models.
+ */
 
 
 
@@ -97,17 +101,22 @@ func isAdult(_ user: User) -> Bool {
     user.age >= 18
 }
 
+
+
+
+
+
 /*:
  A traditional pattern to test this might look something like the following.
  
  It's up to the developer to choose adequate values for the test, including edge cases.
  Models can grow to be quite large, and it can become difficult to initialize all of the properties with dummy data.
  
- We also are not likely to test different properties, we can't say that "an 18 year olf user with **any name** is an adult".
+ We also are not likely to test the scenario with different properties, we can't say that "an 18 year old user is an adult no matter what their name is, which hand is dominant, or what ID they may have".
  */
 class TestAgeTraditional: XCTestCase {
     func makeSut(age: Int) -> User {
-        User(id: UUID(), name: "", age: age)
+        User(id: UUID(), name: "", age: age, handedness: .right)
     }
     
     func test_givenUnder18Users_isAdult_isFalse_forAChild() {
@@ -127,8 +136,16 @@ class TestAgeTraditional: XCTestCase {
 
 TestAgeTraditional.defaultTestSuite.run()
 
+
+
+
+
+
+
+
+
 /*:
- Using Genything we can test the User for invariants. By leaving the properties that are meant to be irrelevant to the  test as arbitrary and conducting multiple tests, we can be reasonably sure of this assumption.
+ Using Genything we can test that our function is invariant. We assume that for the entire set of possible inputs, as long as our particular condition is satisfied, the result holds. By testing with arbitrary random data for all properties and conducting multiple tests we can be _reasonably_ sure of our assumption.
  */
 
 class TestAgeUsingGenything: XCTestCase {
@@ -146,7 +163,7 @@ class TestAgeUsingGenything: XCTestCase {
     }
 }
 
-TestAgeRouting.defaultTestSuite.run()
+TestAgeUsingGenything.defaultTestSuite.run()
 
 
 
@@ -158,10 +175,12 @@ TestAgeRouting.defaultTestSuite.run()
 
 
 /*:
- 🧑‍🎨 > "This data is still very arbitrary, how can I generate nice previews and example apps"
- In this case we can reach for `Trickery`, a companion library of **realistic** generators.
+ 🧑‍🎨 "This data is still very arbitrary, how can I generate nice previews and example apps"
+ 
+ In this case we can use `Trickery`, a companion library full of **realistic** generators.
  */
+import Trickery
+
 User.arbitrary.recompose { user, generate in
-    user.name = generate(Fake.PersonNames.name)
-    user.age = generate((0...100).arbitrary)
+    user.name = generate(Trickery.Fake.PersonNames.full())
 }
