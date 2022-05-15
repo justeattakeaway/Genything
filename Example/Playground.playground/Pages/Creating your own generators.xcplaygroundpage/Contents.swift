@@ -106,3 +106,9 @@ extension Generator where T == Date {
 RandomDate()
     .applyDateFormatting()
     .next(.predetermined())
+
+
+
+
+
+//: [Next: Modelling Production Data](@next)
