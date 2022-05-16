@@ -3,8 +3,7 @@
     <pages>
         <page name='Introduction'/>
         <page name='Composing with Operators'/>
-        <page name='Modelling Production Data'/>
         <page name='Creating your own generators'/>
-        <page name='Stateful generators'/>
+        <page name='Modelling Production Data'/>
     </pages>
 </playground>

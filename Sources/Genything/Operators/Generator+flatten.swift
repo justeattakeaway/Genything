@@ -8,6 +8,16 @@ extension Generator where T: Sequence {
     }
 }
 
+extension Generator where T: Generator {
+    /// Flattens a generator of generators into a generator of the nested generator's elements.
+    ///
+    /// - Returns: A generator which generates it's elements from the nested generator's elements.
+    public func flatten() -> AnyGenerator<T.T> {
+        Generators.FlatMap(source: self) { $0 }
+            .eraseToAnyGenerator()
+    }
+}
+
 extension Generators {
     class Flatten<Source>: Generator where Source: Generator, Source.T: Sequence {
 

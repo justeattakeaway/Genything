@@ -150,7 +150,7 @@ extension Dictionary: Arbitrary where Key: Arbitrary, Value: Arbitrary {
     /// A generator of `Dictionary`s where `Key` and `Value` conform to `Arbitrary`
     public static var arbitrary: AnyGenerator<Dictionary> {
         [Key].arbitrary.flatMap { (k: [Key]) in
-            [Value].arbitrary.flatMap { (v: [Value]) in
+            Value.arbitrary.expand(toSize: k.count).flatMap { (v: [Value]) in
                 Generators.constant(Dictionary(zip(k, v)) { $1 })
             }
         }

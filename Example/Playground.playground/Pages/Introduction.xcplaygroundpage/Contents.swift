@@ -80,6 +80,8 @@ let generatedSequence = digitGenerator.sequence(randomSource: randomSource) /// 
 
 /// Under the hood Genything uses a linear congruential random number generator wich allows us to reproduce the same values for particular seed.
 
+/// Under the hood Genything uses a linear congruential random number generator wich allows us to reproduce the same values for particular seed.
+
 let deterministicValue = digitGenerator.next(.predetermined()) /// The seed used here is the default one, i.e `2022`
 
 let seededDeterministicValue = digitGenerator.next(.predetermined(seed: 42)) /// Here we use a custom seed, i.e `42`
