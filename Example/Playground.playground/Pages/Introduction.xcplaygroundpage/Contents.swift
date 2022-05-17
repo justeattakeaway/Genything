@@ -72,11 +72,13 @@ let generatedSequence = digitGenerator.sequence(randomSource: randomSource) /// 
 
 
 /*: ### What is a `RandomSource`?
- A `RandomSouce` enables us to control the randomness of the generated data.
- Using the following static methods we can conveniently create deterministic and nondeterministic `RandomSource`s:
+ A `RandomSource` enables us to control the randomness of the generated data.
+ Using the following static methods we can conveniently create deterministic and nondeterministic random sources:
  * `predetermined(seed:)` allows us to provide deterministic results based on a default or custom seed,
  * `replay(seed:)` allows us to use an existing seed in order to obtain reproducible results. This is useful when debugging unit tests after extracting the seed from a previous generator
- * `random()` creates a nondeterministic RandomSource */
+ * `random()` creates a nondeterministic random source */
+
+/// Under the hood Genything uses a linear congruential random number generator wich allows us to reproduce the same values for particular seed.
 
 /// Under the hood Genything uses a linear congruential random number generator wich allows us to reproduce the same values for particular seed.
 
