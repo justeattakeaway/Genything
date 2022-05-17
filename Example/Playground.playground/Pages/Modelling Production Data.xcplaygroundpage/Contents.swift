@@ -2,22 +2,43 @@ import Foundation
 import Genything
 import GenythingTest
 import XCTest
+import SwiftUI
+import PlaygroundSupport
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*:
- Before this, we've seen how Genything can be used to generate mostly numbers. But we're developing real apps, not doing equations!
+ Before this, we've seen how Genything can be used to generate integers. But we're developing real apps, not doing equations!
 
  Let's take a look at a model that more closely resembles something from an app:
 */
-struct User {
+struct User: Identifiable {
     var id: UUID
     var name: String
     var age: Int
     var handedness: Handedness
-    
+
     enum Handedness {
         case left, right, ambidextrous
     }
 }
+
+
+
+
 
 
 
@@ -45,9 +66,6 @@ extension User.Handedness: CaseIterable {}
 
 
 
-
-
-
 //: Genything also offers a composer which simplifies the factory by automatically searching for arbitrary conformance and performing the generation
 Generators.compose { generate in
     User(
@@ -57,8 +75,6 @@ Generators.compose { generate in
         handedness: generate()
     )
 }
-
-
 
 
 
@@ -94,6 +110,7 @@ extension User: Arbitrary {
 
 
 
+
 /*:
  Let's take a look at a practical example. Consider some function `isAdult(user:)`, which we want to write some unit tests to verify.
 */
@@ -106,26 +123,29 @@ func isAdult(_ user: User) -> Bool {
 
 
 
+
+
+
 /*:
  A traditional pattern to test this might look something like the following.
- 
+
  It's up to the developer to choose adequate values for the test, including edge cases.
  Models can grow to be quite large, and it can become difficult to initialize all of the properties with dummy data.
- 
+
  We also are not likely to test the scenario with different properties, we can't say that "an 18 year old user is an adult no matter what their name is, which hand is dominant, or what ID they may have".
  */
 class TestAgeTraditional: XCTestCase {
     func makeSut(age: Int) -> User {
         User(id: UUID(), name: "", age: age, handedness: .right)
     }
-    
+
     func test_givenUnder18Users_isAdult_isFalse_forAChild() {
         var sut = makeSut(age: 0)
         XCTAssertFalse(isAdult(sut))
         sut.age = 17
         XCTAssertFalse(isAdult(sut))
     }
-    
+
     func test_givenUnder18Users_isAdult_isFalse_forEdgeCases() {
         var sut = makeSut(age: -1)
         XCTAssertFalse(isAdult(sut))
@@ -134,7 +154,8 @@ class TestAgeTraditional: XCTestCase {
     }
 }
 
-TestAgeTraditional.defaultTestSuite.run()
+/// Uncomment to see it in action
+// TestAgeTraditional.defaultTestSuite.run()
 
 
 
@@ -163,8 +184,42 @@ class TestAgeUsingGenything: XCTestCase {
     }
 }
 
-TestAgeUsingGenything.defaultTestSuite.run()
+/// Uncomment to see it in action
+// TestAgeUsingGenything.defaultTestSuite.run()
 
+
+
+
+
+
+
+
+/*:
+ What sets Genything apart is that it is not _just_ a property testing framework. The same generators can be used for Example Apps, Automation Stubs, Screenshot Tests, or to stub data during development.
+
+ Let's see the generator we built in action:
+ */
+struct UserDirectory: View {
+    var users: [User]
+    var body: some View {
+        List(users) { user in
+            HStack {
+                Text(user.name)
+                switch user.handedness {
+                    case .left: Text("🫲")
+                    case .right: Text("🫱")
+                    case .ambidextrous: Text("🫲🫱")
+                }
+            }
+        }
+    }
+}
+
+let tenUsers = User.arbitrary
+    .take(10, randomSource: .predetermined())
+
+/// Uncomment to see it in action
+// PlaygroundPage.current.setLiveView(UserDirectory(users: tenUsers))
 
 
 
