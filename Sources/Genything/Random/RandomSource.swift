@@ -27,6 +27,13 @@ public class RandomSource {
 
     /// A type-erased `RandomNumberGenerator`
     public var rng: AnyRandomNumberGenerator
+    
+    /// Controls the maximum size for unbounded arbitrary collections (such as Dictionaries or Arrays) of arbitrary values
+    /// Due to the fact that these collections contain other arbitary values, which may themselves contain further collections this parameter may need to be tweaked for performance reasons.
+    public var maxRecursiveArbitraryCollectionSize: Int = 33
+    
+    /// Controls the maximum size for unbounded arbitrary collections such as Strings
+    public var maxArbitraryCollectionSize: Int = 100
 }
 
 // MARK: Convenience RandomSource Creators
