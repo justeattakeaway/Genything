@@ -171,8 +171,8 @@ let sfSymbolGen: AnyGenerator<SFSymbol> = SFSymbol.arbitrary.map { $0.rawValue }
 
 ```ruby
 pod 'Genything'
-pod 'Trickery' # Optional library of realistic fake data
-pod 'GenythingTest' # Optional extensions for property test assertions
+pod 'Trickery' # Optional library of realistic fake data (Fake)
+pod 'GenythingTest' # Optional extensions for property testing (testAll, testAllSatisfy)
 ```
 
 ### Swift Package Manager
@@ -181,7 +181,7 @@ Create a `Package.swift` file in your root directory and add:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/justeattakeaway/genything.git", .exact("0.0.1"))
+    .package(url: "https://github.com/justeattakeaway/genything.git", .upToNextMajor(from: "1.0.0"))
 ]
 ```
 
