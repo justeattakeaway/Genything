@@ -89,6 +89,13 @@ extension String: Arbitrary {
             .expand(toSizeInRange: range)
             .map { String($0) }
     }
+
+    /// A generator of arbitrary `String`s of random sizes in`range`
+    public static func arbitrary(in range: Range<Int>) -> AnyGenerator<String> {
+        Character.arbitrary
+            .expand(toSizeInRange: range)
+            .map { String($0) }
+    }
 }
 
 // MARK: - Array + Arbitrary
@@ -103,6 +110,12 @@ extension Array: Arbitrary where Element: Arbitrary {
 
     /// A generator of arbitrary `Array`s of random sizes in `range`
     public static func arbitrary(in range: ClosedRange<Int>) -> AnyGenerator<Array> {
+        Element.arbitrary
+            .expand(toSizeInRange: range)
+    }
+
+    /// A generator of arbitrary `Array`s of random sizes in `range`
+    public static func arbitrary(in range: Range<Int>) -> AnyGenerator<Array> {
         Element.arbitrary
             .expand(toSizeInRange: range)
     }
