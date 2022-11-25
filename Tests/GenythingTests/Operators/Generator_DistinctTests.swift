@@ -1,5 +1,4 @@
 import GenythingTest
-import Trickery
 import XCTest
 @testable import Genything
 
