@@ -1,3 +1,4 @@
+import GenythingTest
 import XCTest
 @testable import Trickery
 
@@ -7,9 +8,9 @@ private typealias Numerics = Fake.Numerics
 
 class FakeNumericsTests: XCTestCase {
     func test_digits() {
-        testAll(Numerics.digits) {
-            XCTAssertTrue($0 < 10)
-            XCTAssertTrue($0 >= 0)
+        TestSuite().testAll(Numerics.digits) { assert, val in
+            assert(val < 10)
+            assert(val >= 0)
         }
     }
 }

@@ -7,30 +7,30 @@ final class Generator_ReplacingOccurencesTests: XCTestCase {
         let digits = (0 ... 9).arbitrary
         let gen = digits.replacingOccurrences(of: "#", in: "(###) ###-####")
 
-        TestSuite().testAll(gen) { phoneNumber in
+        TestSuite().testAll(gen) { assert, phoneNumber in
             let subject = Array(phoneNumber)
 
-            XCTAssertEqual(14, subject.count)
+            assert.equal(14, subject.count)
 
-            XCTAssertEqual("(", subject[0])
+            assert.equal("(", subject[0])
 
-            XCTAssertTrue(subject[1].isNumber)
-            XCTAssertTrue(subject[2].isNumber)
-            XCTAssertTrue(subject[3].isNumber)
+            assert.true(subject[1].isNumber)
+            assert.true(subject[2].isNumber)
+            assert.true(subject[3].isNumber)
 
-            XCTAssertEqual(")", subject[4])
-            XCTAssertEqual(" ", subject[5])
+            assert.equal(")", subject[4])
+            assert.equal(" ", subject[5])
 
-            XCTAssertTrue(subject[6].isNumber)
-            XCTAssertTrue(subject[7].isNumber)
-            XCTAssertTrue(subject[8].isNumber)
+            assert.true(subject[6].isNumber)
+            assert.true(subject[7].isNumber)
+            assert.true(subject[8].isNumber)
 
-            XCTAssertEqual("-", subject[9])
+            assert.equal("-", subject[9])
 
-            XCTAssertTrue(subject[10].isNumber)
-            XCTAssertTrue(subject[11].isNumber)
-            XCTAssertTrue(subject[12].isNumber)
-            XCTAssertTrue(subject[13].isNumber)
+            assert.true(subject[10].isNumber)
+            assert.true(subject[11].isNumber)
+            assert.true(subject[12].isNumber)
+            assert.true(subject[13].isNumber)
         }
     }
 }

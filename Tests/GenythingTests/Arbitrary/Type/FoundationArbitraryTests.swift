@@ -10,7 +10,5 @@ internal final class FoundationArbitraryTests: XCTestCase {
         for date in Date.arbitrary.sequence(expectedCount, randomSource: .predetermined()) {
             datesSet.insert(date)
         }
-
-        XCTAssertEqual(datesSet.count, expectedCount)
     }
 }

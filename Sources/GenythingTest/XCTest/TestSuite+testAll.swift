@@ -6,23 +6,23 @@ extension TestSuite {
     ///
     /// Will run a maximum of n times, where n is the provided `iterations` or the `RandomSource` value
     ///
-    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
-    ///
     /// - Parameters:
     ///   - randomSource: The randomSource to be used for generation
     ///   - gen1: A generator who's values will be used for testing
     ///   - body: A closure body where you may make your XCTest assertions
     ///
-    /// - Attention: A failing predicate will assert with `XCTFail`
+    /// - Attention: A throwing predicate will raise an `XCTFail`
     ///
     public func testAll<G1>(
         _ gen1: G1,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T) throws -> Void
+        _ body: (Assertion, G1.T) throws -> Void
     ) where G1: Generator {
         do {
-            try gen1.sequence(config.maxIterations, randomSource: config.randomSource).forEach(body)
+            try gen1.sequence(config.maxIterations, randomSource: config.randomSource).forEach { value in
+                try body(Assertion(config: config), value)
+            }
         } catch {
             fail(error, randomSource: config.randomSource, file: file, line: line)
         }
@@ -47,13 +47,15 @@ extension TestSuite {
         _ gen2: G2,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T) throws -> Void
+        _ body: (Assertion, G1.T, G2.T) throws -> Void
     ) where G1: Generator, G2: Generator {
         testAll(
             gen1.zip(gen2),
             file: file,
             line: line,
-            body
+            {
+                try body($0, $1.0, $1.1)
+            }
         )
     }
 
@@ -78,13 +80,15 @@ extension TestSuite {
         _ gen3: G3,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T) throws -> Void
+        _ body: (Assertion, G1.T, G2.T, G3.T) throws -> Void
     ) where G1: Generator, G2: Generator, G3: Generator {
         testAll(
             gen1.zip(gen2, gen3),
             file: file,
             line: line,
-            body
+            {
+                try body($0, $1.0, $1.1, $1.2)
+            }
         )
     }
 
@@ -111,13 +115,15 @@ extension TestSuite {
         _ gen4: G4,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T) throws -> Void
+        _ body: (Assertion, G1.T, G2.T, G3.T, G4.T) throws -> Void
     ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator {
         testAll(
             gen1.zip(gen2, gen3, gen4),
             file: file,
             line: line,
-            body
+            {
+                try body($0, $1.0, $1.1, $1.2, $1.3)
+            }
         )
     }
 
@@ -146,14 +152,16 @@ extension TestSuite {
         _ gen5: G5,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T) throws -> Void
+        _ body: (Assertion, G1.T, G2.T, G3.T, G4.T, G5.T) throws -> Void
     ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator,
         G5: Generator {
         testAll(
             gen1.zip(gen2, gen3, gen4, gen5),
             file: file,
             line: line,
-            body
+            {
+                try body($0, $1.0, $1.1, $1.2, $1.3, $1.4)
+            }
         )
     }
 
@@ -186,7 +194,7 @@ extension TestSuite {
         _ gen6: G6,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T) throws -> Void
+        _ body: (Assertion, G1.T, G2.T, G3.T, G4.T, G5.T, G6.T) throws -> Void
     ) where G1: Generator, G2: Generator, G3: Generator,
         G4: Generator,
         G5: Generator, G6: Generator {
@@ -203,7 +211,9 @@ extension TestSuite {
             },
             file: file,
             line: line,
-            body
+            {
+                try body($0, $1.0, $1.1, $1.2, $1.3, $1.4, $1.5)
+            }
         )
     }
 
@@ -238,7 +248,7 @@ extension TestSuite {
         _ gen7: G7,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T) throws -> Void
+        _ body: (Assertion, G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T) throws -> Void
     ) where G1: Generator, G2: Generator, G3: Generator,
         G4: Generator, G5: Generator, G6: Generator, G7: Generator {
         testAll(
@@ -255,7 +265,9 @@ extension TestSuite {
             },
             file: file,
             line: line,
-            body
+            {
+                try body($0, $1.0, $1.1, $1.2, $1.3, $1.4, $1.5, $1.6)
+            }
         )
     }
 
@@ -292,7 +304,7 @@ extension TestSuite {
         _ gen8: G8,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T) throws -> Void
+        _ body: (Assertion, G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T) throws -> Void
     ) where G1: Generator,
         G2: Generator,
         G3: Generator,
@@ -316,7 +328,9 @@ extension TestSuite {
             },
             file: file,
             line: line,
-            body
+            {
+                try body($0, $1.0, $1.1, $1.2, $1.3, $1.4, $1.5, $1.6, $1.7)
+            }
         )
     }
 
@@ -355,7 +369,7 @@ extension TestSuite {
         _ gen9: G9,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T) throws -> Void
+        _ body: (Assertion, G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T) throws -> Void
     ) where G1: Generator,
         G2: Generator,
         G3: Generator,
@@ -381,7 +395,9 @@ extension TestSuite {
             },
             file: file,
             line: line,
-            body
+            {
+                try body($0, $1.0, $1.1, $1.2, $1.3, $1.4, $1.5, $1.6, $1.7, $1.8)
+            }
         )
     }
 
@@ -422,7 +438,7 @@ extension TestSuite {
         _ gen10: G10,
         file: StaticString = #filePath,
         line: UInt = #line,
-        _ body: (G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T, G10.T) throws -> Void
+        _ body: (Assertion, G1.T, G2.T, G3.T, G4.T, G5.T, G6.T, G7.T, G8.T, G9.T, G10.T) throws -> Void
     ) where G1: Generator, G2: Generator,
         G3: Generator, G4: Generator, G5: Generator, G6: Generator, G7: Generator, G8: Generator, G9: Generator, G10: Generator {
         testAll(
@@ -442,7 +458,9 @@ extension TestSuite {
             },
             file: file,
             line: line,
-            body
+            {
+                try body($0, $1.0, $1.1, $1.2, $1.3, $1.4, $1.5, $1.6, $1.7, $1.8, $1.9)
+            }
         )
     }
 
