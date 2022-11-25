@@ -16,6 +16,10 @@ let package = Package(
         .library(
             name: "Genything",
             targets: ["Genything", "GenythingTest"]
+        ),
+        .library(
+            name: "Trickery",
+            targets: ["Trickery"]
         )
     ],
     dependencies: [
@@ -41,6 +45,17 @@ let package = Package(
         .testTarget(
             name: "GenythingTestTests",
             dependencies: ["Genything", "GenythingTest"]
-        )
+        ),
+        .target(
+            name: "Trickery",
+            dependencies: ["Genything"],
+            resources: [
+                .process("Resources"),
+            ]
+        ),
+        .testTarget(
+            name: "TrickeryTests",
+            dependencies: ["Genything", "Trickery", "GenythingTest"]
+        ),
     ]
 )
