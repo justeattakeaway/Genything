@@ -1,7 +1,30 @@
 import Foundation
 import Genything
-#if canImport(XCTest)
-import XCTest
+
+#if DEBUG
+    public func XCTFail(
+        _ message: String,
+        file: StaticString,
+        line: UInt
+    ) {
+        handler(nil, true, "\(file)", line, message, nil)
+    }
+
+    private typealias XCTFailureHandler = @convention(c) (
+      AnyObject?, Bool, UnsafePointer<CChar>, UInt, String, String?
+    ) -> Void
+
+    private let handler = unsafeBitCast(
+      dlsym(dlopen(nil, RTLD_LAZY), "_XCTFailureHandler"),
+      to: XCTFailureHandler.self
+    )
+#else
+    public func XCTFail(
+        _ message: String = "",
+        file: StaticString,
+        line: UInt
+    ) {}
+#endif
 
 private func rerunInfo(_ randomSource: RandomSource) -> String {
     if let seed = randomSource.originalSeed {
@@ -27,4 +50,3 @@ func fail(
 ) {
     XCTFail("[Genything] - Failed with exception `\(error)`. \(rerunInfo(randomSource))", file: file, line: line)
 }
-#endif

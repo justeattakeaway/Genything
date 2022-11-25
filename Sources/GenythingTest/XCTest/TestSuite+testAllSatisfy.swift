@@ -1,11 +1,8 @@
 import Foundation
 import Genything
-#if canImport(XCTest)
-import XCTest
-
 // - MARK: Test
 
-extension XCTestCase {
+extension TestSuite {
     /// Iterates over a generator sequence and asserts that all values satisfy the given `predicate`
     ///
     /// - Parameters:
@@ -15,7 +12,6 @@ extension XCTestCase {
     ///   - predicate: A closure that takes an element of the sequence as its argument and returns a Boolean value that indicates whether the passed element satisfies a condition
     public func testAllSatisfy<G1>(
         _ generator: G1,
-        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         predicate: @escaping (G1.T) throws -> Bool
@@ -49,14 +45,12 @@ extension XCTestCase {
     public func testAllSatisfy<G1, G2>(
         _ gen1: G1,
         _ gen2: G2,
-        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         predicate: @escaping (G1.T, G2.T) throws -> Bool
     ) where G1: Generator, G2: Generator {
         testAllSatisfy(
             gen1.zip(gen2),
-            config: config,
             file: file,
             line: line,
             predicate: predicate
@@ -74,14 +68,12 @@ extension XCTestCase {
         _ gen1: G1,
         _ gen2: G2,
         _ gen3: G3,
-        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         predicate: @escaping (G1.T, G2.T, G3.T) throws -> Bool
     ) where G1: Generator, G2: Generator, G3: Generator {
         testAllSatisfy(
             gen1.zip(gen2, gen3),
-            config: config,
             file: file,
             line: line,
             predicate: predicate
@@ -100,14 +92,12 @@ extension XCTestCase {
         _ gen2: G2,
         _ gen3: G3,
         _ gen4: G4,
-        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         predicate: @escaping (G1.T, G2.T, G3.T, G4.T) throws -> Bool
     ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator {
         testAllSatisfy(
             gen1.zip(gen2, gen3, gen4),
-            config: config,
             file: file,
             line: line,
             predicate: predicate
@@ -127,18 +117,15 @@ extension XCTestCase {
         _ gen3: G3,
         _ gen4: G4,
         _ gen5: G5,
-        config: TestConfig = .default(),
         file: StaticString = #filePath,
         line: UInt = #line,
         predicate: @escaping (G1.T, G2.T, G3.T, G4.T, G5.T) throws -> Bool
     ) where G1: Generator, G2: Generator, G3: Generator, G4: Generator, G5: Generator {
         testAllSatisfy(
             gen1.zip(gen2, gen3, gen4, gen5),
-            config: config,
             file: file,
             line: line,
             predicate: predicate
         )
     }
 }
-#endif

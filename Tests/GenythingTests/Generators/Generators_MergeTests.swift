@@ -1,10 +1,11 @@
 import XCTest
 @testable import Genything
+import GenythingTest
 
 final class Generators_MergeTests: XCTestCase {
     func test_merging_generators() {
         var curr = 0
-        testAllSatisfy(Generators.merge([
+        TestSuite().testAllSatisfy(Generators.merge([
             Generators.constant(0),
             Generators.constant(1),
         ])) { value in

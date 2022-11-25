@@ -55,7 +55,7 @@ final class Generator_ObeysMonadLaws: XCTestCase {
         .expand(toSize: 2)
 
         // the associativity law is satisfied
-        testAllSatisfy((-50...50).arbitrary, twoApplyingFunctions) { value, functions in
+        TestSuite().testAllSatisfy((-50...50).arbitrary, twoApplyingFunctions) { value, functions in
             let generator = Generators.constant(value)
 
             let chained = generator.flatMap(functions[0]).flatMap(functions[1])

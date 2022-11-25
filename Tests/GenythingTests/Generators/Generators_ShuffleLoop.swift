@@ -9,7 +9,7 @@ final class Generators_ShuffleLoopTests: XCTestCase {
 
         var history = [Int]()
 
-        testAll(d6shuffle) {
+        TestSuite().testAll(d6shuffle) {
             if history.count >= 6 {
                 history.removeAll()
             }

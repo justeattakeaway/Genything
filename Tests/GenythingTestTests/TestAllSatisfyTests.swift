@@ -9,7 +9,7 @@ internal final class TestAllSatisfyTests: XCTestCase {
             (1 ... 100).arbitrary
         )
 
-        testAllSatisfy(gen) { a, b in
+        TestSuite().testAllSatisfy(gen) { a, b in
             a >= 1 && a <= 100 &&
                 b >= 1 && b <= 100
         }
@@ -17,7 +17,7 @@ internal final class TestAllSatisfyTests: XCTestCase {
 
     func test_that_testAllSatisfy_fails_when_it_should() {
         XCTExpectFailure()
-        testAllSatisfy(Generators.constant(false)) { $0 }
+        TestSuite().testAllSatisfy(Generators.constant(false)) { $0 }
     }
 
     func test_that_testAllSatisfy_runs_the_correct_iteration_amount_from_randomSource() {
@@ -27,7 +27,7 @@ internal final class TestAllSatisfyTests: XCTestCase {
         let gen = Generators.constant(())
 
         var count = 0
-        testAllSatisfy(gen, config: config) { _ in
+        TestSuite(config: config).testAllSatisfy(gen) { _ in
             count += 1
             return true
         }
@@ -40,7 +40,7 @@ internal final class TestAllSatisfyTests: XCTestCase {
         let gen = Generators.constant(())
 
         var count = 0
-        testAllSatisfy(gen) { _ in
+        TestSuite().testAllSatisfy(gen) { _ in
             count += 1
             return true
         }

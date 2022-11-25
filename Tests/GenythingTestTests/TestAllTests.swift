@@ -6,7 +6,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_passes_when_it_should_with_correct_iterations() {
         var count = 0
-        testAll(genTrue) {
+        TestSuite().testAll(genTrue) {
             count += 1
             XCTAssertTrue($0)
         }
@@ -16,7 +16,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_passes_when_it_should_2() {
         var count = 0
-        testAll(genTrue, genTrue) {
+        TestSuite().testAll(genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1)
         }
@@ -26,7 +26,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_passes_when_it_should_3() {
         var count = 0
-        testAll(genTrue, genTrue, genTrue) {
+        TestSuite().testAll(genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2)
         }
@@ -36,7 +36,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_passes_when_it_should_4() {
         var count = 0
-        testAll(genTrue, genTrue, genTrue, genTrue) {
+        TestSuite().testAll(genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3)
         }
@@ -46,7 +46,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_passes_when_it_should_5() {
         var count = 0
-        testAll(genTrue, genTrue, genTrue, genTrue, genTrue) {
+        TestSuite().testAll(genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4)
         }
@@ -56,7 +56,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_passes_when_it_should_6() {
         var count = 0
-        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
+        TestSuite().testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5)
         }
@@ -66,7 +66,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_passes_when_it_should_7() {
         var count = 0
-        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
+        TestSuite().testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6)
         }
@@ -76,7 +76,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_passes_when_it_should_8() {
         var count = 0
-        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
+        TestSuite().testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6 && $7)
         }
@@ -86,7 +86,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_passes_when_it_should_9() {
         var count = 0
-        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
+        TestSuite().testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6 && $7 && $8)
         }
@@ -96,7 +96,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_passes_when_it_should_10() {
         var count = 0
-        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
+        TestSuite().testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) {
             count += 1
             XCTAssertTrue($0 && $1 && $2 && $3 && $4 && $5 && $6 && $7 && $8 && $9)
         }
@@ -106,7 +106,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_fails_when_it_should() {
         XCTExpectFailure()
-        testAll((1 ... 100).arbitrary) { a in
+        TestSuite().testAll((1 ... 100).arbitrary) { a in
             XCTAssert(a < 1)
         }
     }

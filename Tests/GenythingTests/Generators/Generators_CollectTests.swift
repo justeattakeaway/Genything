@@ -1,9 +1,10 @@
 import XCTest
 @testable import Genything
+import GenythingTest
 
 final class Generators_CollectTests: XCTestCase {
     func test_collecting_to_alternate_generators() {
-        testAllSatisfy(Generators.collect(
+        TestSuite().testAllSatisfy(Generators.collect(
             Generators.constant(0),
             Generators.constant(1)
         )) { values in
