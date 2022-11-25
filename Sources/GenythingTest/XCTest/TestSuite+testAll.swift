@@ -1,14 +1,6 @@
 import Foundation
 import Genything
 
-public struct TestSuite {
-    public let config: TestConfig
-
-    public init(config: TestConfig = .default()) {
-        self.config = config
-    }
-}
-
 extension TestSuite {
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
     ///

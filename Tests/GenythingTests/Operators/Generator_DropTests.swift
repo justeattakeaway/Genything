@@ -1,6 +1,6 @@
+import GenythingTest
 import XCTest
 @testable import Genything
-import GenythingTest
 
 final class Generator_DropTests: XCTestCase {
     func test_generator_drop_matches_sequence_behaviour() {

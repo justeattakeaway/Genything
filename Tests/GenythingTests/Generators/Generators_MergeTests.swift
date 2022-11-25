@@ -1,6 +1,6 @@
+import GenythingTest
 import XCTest
 @testable import Genything
-import GenythingTest
 
 final class Generators_MergeTests: XCTestCase {
     func test_merging_generators() {

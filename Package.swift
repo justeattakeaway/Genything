@@ -20,7 +20,7 @@ let package = Package(
         .library(
             name: "Trickery",
             targets: ["Trickery"]
-        )
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.

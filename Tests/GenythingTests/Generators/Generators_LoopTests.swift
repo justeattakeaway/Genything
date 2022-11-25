@@ -1,6 +1,6 @@
+import GenythingTest
 import XCTest
 @testable import Genything
-import GenythingTest
 
 final class Generators_LoopTests: XCTestCase {
     func test_a_long_sequence_never_loops_but_generates_expected_values() {

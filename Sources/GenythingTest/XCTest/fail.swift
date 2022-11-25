@@ -2,35 +2,35 @@ import Foundation
 import Genything
 
 #if DEBUG
-    public func XCTFail(
-        _ message: String,
-        file: StaticString,
-        line: UInt
-    ) {
-        handler(nil, true, "\(file)", line, message, nil)
-    }
+public func XCTFail(
+    _ message: String,
+    file: StaticString,
+    line: UInt
+) {
+    handler(nil, true, "\(file)", line, message, nil)
+}
 
-    private typealias XCTFailureHandler = @convention(c) (
-      AnyObject?, Bool, UnsafePointer<CChar>, UInt, String, String?
-    ) -> Void
+private typealias XCTFailureHandler = @convention(c) (
+    AnyObject?, Bool, UnsafePointer<CChar>, UInt, String, String?
+) -> Void
 
-    private let handler = unsafeBitCast(
-      dlsym(dlopen(nil, RTLD_LAZY), "_XCTFailureHandler"),
-      to: XCTFailureHandler.self
-    )
+private let handler = unsafeBitCast(
+    dlsym(dlopen(nil, RTLD_LAZY), "_XCTFailureHandler"),
+    to: XCTFailureHandler.self
+)
 #else
-    public func XCTFail(
-        _ message: String = "",
-        file: StaticString,
-        line: UInt
-    ) {}
+public func XCTFail(
+    _: String = "",
+    file _: StaticString,
+    line _: UInt
+) {}
 #endif
 
 private func rerunInfo(_ randomSource: RandomSource) -> String {
     if let seed = randomSource.originalSeed {
-        return "Re-run test with seed `\(seed)`."
+        return "Re-run with seed `\(seed)`."
     }
-    return "Cannot be re-run."
+    return ""
 }
 
 func fail(

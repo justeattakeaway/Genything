@@ -1,8 +1,7 @@
-//
-//  File.swift
-//  
-//
-//  Created by Nico Richard on 2022-11-24.
-//
+public struct TestSuite {
+    public let config: TestConfig
 
-import Foundation
+    public init(config: TestConfig = .default()) {
+        self.config = config
+    }
+}

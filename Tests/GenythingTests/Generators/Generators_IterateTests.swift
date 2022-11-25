@@ -1,6 +1,6 @@
+import GenythingTest
 import XCTest
 @testable import Genything
-import GenythingTest
 
 final class Generators_IterateTests: XCTestCase {
     func test_the_sequence_generates_expected_values() {

@@ -1,6 +1,6 @@
+import GenythingTest
 import XCTest
 @testable import Genything
-import GenythingTest
 
 final class Generator_PrependTests: XCTestCase {
     func test_after_the_sequence_concludes_we_switch_to_the_receiver() {
