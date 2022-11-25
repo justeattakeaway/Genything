@@ -32,8 +32,6 @@ extension TestSuite {
     ///
     /// Will run a maximum of n times, where n is the provided `iterations` or the `RandomSource` value
     ///
-    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
-    ///
     /// - Parameters:
     ///   - randomSource: The randomSource to be used for generation
     ///   - gen1: A generator who's values will be used for testing
@@ -62,8 +60,6 @@ extension TestSuite {
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
     ///
     /// Will run a maximum of n times, where n is the provided `iterations` or the `RandomSource` value
-    ///
-    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
     ///
     /// - Parameters:
     ///   - randomSource: The randomSource to be used for generation
@@ -96,7 +92,7 @@ extension TestSuite {
     ///
     /// Will run a maximum of n times, where n is the provided `iterations` or the `RandomSource` value
     ///
-    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
+
     ///
     /// - Parameters:
     ///   - randomSource: The randomSource to be used for generation
@@ -130,8 +126,6 @@ extension TestSuite {
     /// Iterates (lazily) over the provided generators, passing values to the `body` block for testing
     ///
     /// Will run a maximum of n times, where n is the provided `iterations` or the `RandomSource` value
-    ///
-    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
     ///
     /// - Parameters:
     ///   - randomSource: The randomSource to be used for generation
@@ -170,8 +164,6 @@ extension TestSuite {
     /// Will run a maximum of n times, where n is the provided `iterations` or the `RandomSource` value
     ///
     /// - Note: This is a very complex check. Consider combining your generators first.
-    ///
-    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
     ///
     /// - Parameters:
     ///   - randomSource: The randomSource to be used for generation
@@ -222,8 +214,6 @@ extension TestSuite {
     /// Will run a maximum of n times, where n is the provided `iterations` or the `RandomSource` value
     ///
     /// - Note: This is a very complex check. Consider combining your generators first.
-    ///
-    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
     ///
     /// - Parameters:
     ///   - randomSource: The randomSource to be used for generation
@@ -276,8 +266,6 @@ extension TestSuite {
     /// Will run a maximum of n times, where n is the provided `iterations` or the `RandomSource` value
     ///
     /// - Note: This is a very complex check. Consider combining your generators first.
-    ///
-    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
     ///
     /// - Parameters:
     ///   - randomSource: The randomSource to be used for generation
@@ -339,8 +327,6 @@ extension TestSuite {
     /// Will run a maximum of n times, where n is the provided `iterations` or the `RandomSource` value
     ///
     /// - Note: This is a very complex check. Consider combining your generators first.
-    ///
-    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
     ///
     /// - Parameters:
     ///   - randomSource: The randomSource to be used for generation
@@ -406,8 +392,6 @@ extension TestSuite {
     /// Will run a maximum of n times, where n is the provided `iterations` or the `RandomSource` value
     ///
     /// - Note: This is a very complex check. Consider combining your generators first.
-    ///
-    /// - Attention: Sets `continueAfterFailure` to `false` for this `XCTestCase`
     ///
     /// - Parameters:
     ///   - randomSource: The randomSource to be used for generation
