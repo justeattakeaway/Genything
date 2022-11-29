@@ -13,7 +13,7 @@ final class Generator_RecomposeTests: XCTestCase {
                 pizza.size = compose(sizeFilter)
             }
 
-        TestSuite().testAllSatisfy(gen) {
+        testAllSatisfy(gen) {
             $0.size == .large || $0.size == .medium
         }
     }

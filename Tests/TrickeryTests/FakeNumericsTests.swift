@@ -8,7 +8,7 @@ private typealias Numerics = Fake.Numerics
 
 class FakeNumericsTests: XCTestCase {
     func test_digits() {
-        TestSuite().testAll(Numerics.digits) { assert, val in
+        testAll(Numerics.digits) { assert, val in
             assert(val < 10)
             assert(val >= 0)
         }

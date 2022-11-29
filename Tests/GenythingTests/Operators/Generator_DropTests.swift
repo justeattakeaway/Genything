@@ -4,7 +4,7 @@ import XCTest
 
 final class Generator_DropTests: XCTestCase {
     func test_generator_drop_matches_sequence_behaviour() {
-        TestSuite().testAllSatisfy((0...20).arbitrary, (0...20).arbitrary) { dropAmount, takeAmount in
+        testAllSatisfy((0...20).arbitrary, (0...20).arbitrary) { dropAmount, takeAmount in
             let sequenced = Array(
                 Int.arbitrary
                     .sequence(randomSource: .predetermined())

@@ -4,7 +4,7 @@ import XCTest
 
 class FakePhoneNumberTests: XCTestCase {
     func test_phoneNumber() {
-        TestSuite().testAll(Fake.PhoneNumbers.formatted) { assert, phoneNumber in
+        testAll(Fake.PhoneNumbers.formatted) { assert, phoneNumber in
             let subject = Array(phoneNumber)
 
             assert.equal(14, subject.count)

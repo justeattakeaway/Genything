@@ -4,14 +4,14 @@ import XCTest
 
 class FakeEmailsTests: XCTestCase {
     func test_personalEmails() {
-        TestSuite().testAll(Fake.Emails.personal) { assert, email in
+        testAll(Fake.Emails.personal) { assert, email in
             let parts = email.split(separator: "@")
             assert.equal(parts.count, 2)
         }
     }
 
     func test_businessEmails() {
-        TestSuite().testAll(Fake.Emails.business()) { assert, email in
+        testAll(Fake.Emails.business()) { assert, email in
             let parts = email.split(separator: "@")
             assert.equal(parts.count, 2)
         }

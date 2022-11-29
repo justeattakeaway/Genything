@@ -1,11 +1,3 @@
-public struct TestSuite {
-    public let config: TestConfig
-
-    public init(config: TestConfig = .default()) {
-        self.config = config
-    }
-}
-
 public struct Assertion {
     public func callAsFunction(
         _ expression: @autoclosure () -> Bool,
@@ -27,7 +19,7 @@ public struct Assertion {
         let value2 = expression2()
         guard value1 == value2 else {
             return fail(
-                message ?? "Assertion Failed. Expected \(value1). Received \(value2).",
+                message ?? "Assertion Failed. (\(value1)) is not equal to (\(value2)).",
                 randomSource: config.randomSource,
                 file: file,
                 line: line
@@ -103,5 +95,4 @@ public struct Assertion {
     }
 
     let config: TestConfig
-
 }

@@ -7,7 +7,7 @@ final class Generator_PrependTests: XCTestCase {
         let gen = Generators.constant(Int.max).prepend(1 ... 10)
 
         var expected = 1
-        TestSuite().testAllSatisfy(gen) {
+        testAllSatisfy(gen) {
             defer {
                 if expected < 10 {
                     expected += 1
@@ -23,7 +23,7 @@ final class Generator_PrependTests: XCTestCase {
         let gen = Generators.constant(0).prepend(1 ... Int.max)
 
         var expected = 1
-        TestSuite().testAllSatisfy(gen) {
+        testAllSatisfy(gen) {
             defer { expected += 1 }
             return expected == $0
         }

@@ -5,7 +5,7 @@ import XCTest
 final class Generators_LoopTests: XCTestCase {
     func test_a_long_sequence_never_loops_but_generates_expected_values() {
         var expected = 0
-        TestSuite().testAllSatisfy(Generators.loop(0 ... Int.max)) {
+        testAllSatisfy(Generators.loop(0 ... Int.max)) {
             defer {
                 expected += 1
             }
@@ -15,7 +15,7 @@ final class Generators_LoopTests: XCTestCase {
 
     func test_a_short_sequence_loops_with_expected_values() {
         var expected = 0
-        TestSuite().testAllSatisfy(Generators.loop(0 ... 10)) {
+        testAllSatisfy(Generators.loop(0 ... 10)) {
             defer {
                 if expected == 10 {
                     expected = 0
@@ -29,7 +29,7 @@ final class Generators_LoopTests: XCTestCase {
 
     func test_that_i_can_loop_a_list() {
         var expected = false
-        TestSuite().testAllSatisfy(Generators.loop([false, true])) {
+        testAllSatisfy(Generators.loop([false, true])) {
             defer { expected = !expected }
             return $0 == expected
         }

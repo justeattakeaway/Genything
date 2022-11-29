@@ -7,7 +7,7 @@ final class Generator_ReplacingOccurencesTests: XCTestCase {
         let digits = (0 ... 9).arbitrary
         let gen = digits.replacingOccurrences(of: "#", in: "(###) ###-####")
 
-        TestSuite().testAll(gen) { assert, phoneNumber in
+        testAll(gen) { assert, phoneNumber in
             let subject = Array(phoneNumber)
 
             assert.equal(14, subject.count)

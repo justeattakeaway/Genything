@@ -9,7 +9,7 @@ final class Generator_DistinctTests: XCTestCase {
         let bitGenerator = (0...1).arbitrary.removeDuplicates()
 
         var last: Int? // Storage for the last bit we generated
-        TestSuite().testAllSatisfy(bitGenerator) { bit in
+        testAllSatisfy(bitGenerator) { bit in
             defer { last = bit } // Store the bit for the next comparison
             if let last = last, last == bit {
                 // If this bit matches the last, the function does not work as expected

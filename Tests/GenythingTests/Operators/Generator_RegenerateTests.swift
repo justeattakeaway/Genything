@@ -13,7 +13,7 @@ final class Generator_RegenerateTests: XCTestCase {
                 pizza.size = sizeFilter.next(randomSource)
             }
 
-        TestSuite().testAllSatisfy(pizzas) {
+        testAllSatisfy(pizzas) {
             $0.size == .large || $0.size == .medium
         }
     }

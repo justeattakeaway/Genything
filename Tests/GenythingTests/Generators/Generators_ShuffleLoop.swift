@@ -9,7 +9,7 @@ final class Generators_ShuffleLoopTests: XCTestCase {
 
         var history = [Int]()
 
-        TestSuite().testAllSatisfy(d6shuffle) { value in
+        testAllSatisfy(d6shuffle) { value in
             defer {
                 history.append(value)
             }

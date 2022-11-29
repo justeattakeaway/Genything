@@ -7,7 +7,7 @@ internal final class DiceRollerTests: XCTestCase {
 
     // Let's verify that all the values are within the expected bounds
     func test_d6_bounds() {
-        TestSuite().testAllSatisfy(d6) {
+        testAllSatisfy(d6) {
             1 ... 6 ~= $0
         }
     }
@@ -25,7 +25,7 @@ internal final class DiceRollerTests: XCTestCase {
         let two_d6 = d6.zip(d6) { $0 + $1 }
 
         // and we get the expected result
-        TestSuite().testAllSatisfy(two_d6) {
+        testAllSatisfy(two_d6) {
             2 ... 12 ~= $0
         }
 
@@ -34,7 +34,7 @@ internal final class DiceRollerTests: XCTestCase {
         let two_d6_2 = Generators.collect([d6, d6]).map { $0.reduce(0, +) }
 
         // and we get the expected result
-        TestSuite().testAllSatisfy(two_d6_2) {
+        testAllSatisfy(two_d6_2) {
             2 ... 12 ~= $0
         }
 
@@ -43,7 +43,7 @@ internal final class DiceRollerTests: XCTestCase {
         let two_d6_3 = Generators.reduce([d6, d6], 0, +)
 
         // and we get the expected result
-        TestSuite().testAllSatisfy(two_d6_3) {
+        testAllSatisfy(two_d6_3) {
             2 ... 12 ~= $0
         }
     }
@@ -65,7 +65,7 @@ internal final class DiceRollerTests: XCTestCase {
         let twoDaggers = roll([d4, d4], modifier: daggerProficiencyBonus)
 
         // Which will only produce results in the expected damage range
-        TestSuite().testAllSatisfy(twoDaggers) {
+        testAllSatisfy(twoDaggers) {
             4 ... 10 ~= $0
         }
     }

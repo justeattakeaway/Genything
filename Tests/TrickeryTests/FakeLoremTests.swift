@@ -4,13 +4,13 @@ import XCTest
 
 class FakeLoremTests: XCTestCase {
     func test_lorem_word() {
-        TestSuite().testAllSatisfy(Fake.Lorem.word) {
+        testAllSatisfy(Fake.Lorem.word) {
             !$0.isEmpty
         }
     }
 
     func test_lorem_sentence() {
-        TestSuite().testAll(Fake.Lorem.sentence()) { assert, value in
+        testAll(Fake.Lorem.sentence()) { assert, value in
             assert.false(value.isEmpty)
             assert.equal(true, value.first?.isUppercase)
             assert.equal(".", value.last)

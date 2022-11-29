@@ -5,7 +5,7 @@ import XCTest
 final class Generators_MergeTests: XCTestCase {
     func test_merging_generators() {
         var curr = 0
-        TestSuite().testAllSatisfy(Generators.merge([
+        testAllSatisfy(Generators.merge([
             Generators.constant(0),
             Generators.constant(1),
         ])) { value in
