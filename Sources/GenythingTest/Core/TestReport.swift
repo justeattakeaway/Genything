@@ -30,6 +30,5 @@ struct FailedTestReport<T>: Error, TestReport {
     /// A reason for the test's failure
     enum Reason<T> {
         case predicate(value: T)
-        case error(error: Error)
     }
 }

@@ -1,5 +1,6 @@
 public struct Assertion {
-    public func callAsFunction(
+
+    public mutating func callAsFunction(
         _ expression: @autoclosure () -> Bool,
         message: String? = nil,
         file: StaticString = #filePath,
@@ -8,91 +9,69 @@ public struct Assertion {
         self.true(expression(), message: message, file: file, line: line)
     }
 
-    public func equal<T: Equatable>(
+    public mutating func equal<T: Equatable>(
         _ expression1: @autoclosure () -> T,
         _ expression2: @autoclosure () -> T,
         message: String? = nil,
-        file: StaticString = #filePath,
-        line: UInt = #line
+        file _: StaticString = #filePath,
+        line _: UInt = #line
     ) {
         let value1 = expression1()
         let value2 = expression2()
         guard value1 == value2 else {
-            return fail(
-                message ?? "Assertion Failed. (\(value1)) is not equal to (\(value2)).",
-                randomSource: config.randomSource,
-                file: file,
-                line: line
-            )
+            return failure = message ?? "Assertion Failed. (\(value1)) is not equal to (\(value2))."
         }
     }
 
-    public func identical(
+    public mutating func identical(
         _ expression1: @autoclosure () -> AnyObject?,
         _ expression2: @autoclosure () -> AnyObject?,
         message: String? = nil,
-        file: StaticString = #filePath,
-        line: UInt = #line
+        file _: StaticString = #filePath,
+        line _: UInt = #line
     ) {
         let value1 = expression1()
         let value2 = expression2()
         guard value1 === value2 else {
-            return fail(
-                message ?? "Assertion Failed. Expected \(String(describing: value1)). Received \(String(describing: value2)).",
-                randomSource: config.randomSource,
-                file: file,
-                line: line
-            )
+            return failure = message ??
+                "Assertion Failed. Expected \(String(describing: value1)). Received \(String(describing: value2))."
         }
     }
 
-    public func `nil`(
+    public mutating func `nil`(
         _ expression: @autoclosure () -> Any?,
         message: String? = nil,
-        file: StaticString = #filePath,
-        line: UInt = #line
+        file _: StaticString = #filePath,
+        line _: UInt = #line
     ) {
         guard expression() != nil else {
-            return fail(
-                message ?? "Assertion Failed. Expected nil.",
-                randomSource: config.randomSource,
-                file: file,
-                line: line
-            )
+            return failure = message ?? "Assertion Failed. Expected nil."
         }
     }
 
-    public func `false`(
+    public mutating func `false`(
         _ expression: @autoclosure () -> Bool,
         message: String? = nil,
-        file: StaticString = #filePath,
-        line: UInt = #line
+        file _: StaticString = #filePath,
+        line _: UInt = #line
     ) {
         guard !expression() else {
-            return fail(
-                message ?? "Assertion Failed. Expected nil.",
-                randomSource: config.randomSource,
-                file: file,
-                line: line
-            )
+            return failure = message ?? "Assertion Failed. Expected a false expression."
         }
     }
 
-    public func `true`(
+    public mutating func `true`(
         _ expression: @autoclosure () -> Bool,
         message: String? = nil,
-        file: StaticString = #filePath,
-        line: UInt = #line
+        file _: StaticString = #filePath,
+        line _: UInt = #line
     ) {
         guard expression() else {
-            return fail(
-                message ?? "Assertion Failed",
-                randomSource: config.randomSource,
-                file: file,
-                line: line
-            )
+            return failure = message ?? "Assertion Failed."
         }
     }
+
+    var failure: String? = nil
 
     let config: TestConfig
 }

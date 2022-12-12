@@ -39,7 +39,7 @@ func fail(
     file: StaticString = #filePath,
     line: UInt = #line
 ) {
-    XCTFail("[Genything] - \(message) \(rerunInfo(randomSource))", file: file, line: line)
+    XCTFail("\(message) \(rerunInfo(randomSource))", file: file, line: line)
 }
 
 func fail(
@@ -48,5 +48,5 @@ func fail(
     file: StaticString = #filePath,
     line: UInt = #line
 ) {
-    XCTFail("[Genything] - Failed with exception `\(error)`. \(rerunInfo(randomSource))", file: file, line: line)
+    XCTFail("Test failed with exception `\(error)`. \(rerunInfo(randomSource))", file: file, line: line)
 }

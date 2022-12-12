@@ -16,6 +16,7 @@ internal final class TestAllTests: XCTestCase {
 
     func test_all_passes_when_it_should_2() {
         var count = 0
+
         testAll(genTrue, genTrue) { assert, v1, v2 in
             count += 1
             assert(v1 && v2)
@@ -60,49 +61,6 @@ internal final class TestAllTests: XCTestCase {
             count += 1
             assert(v1 && v2 && v3 && v4 && v5 && v6)
         }
-
-        XCTAssertEqual(TestConfig.default().maxIterations, count)
-    }
-
-    func test_all_passes_when_it_should_7() {
-        var count = 0
-        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue) { assert, v1, v2, v3, v4, v5, v6, v7 in
-            count += 1
-            assert(v1 && v2 && v3 && v4 && v5 && v6 && v7)
-        }
-
-        XCTAssertEqual(TestConfig.default().maxIterations, count)
-    }
-
-    func test_all_passes_when_it_should_8() {
-        var count = 0
-        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue)
-            { assert, v1, v2, v3, v4, v5, v6, v7, v8 in
-                count += 1
-                assert(v1 && v2 && v3 && v4 && v5 && v6 && v7 && v8)
-            }
-
-        XCTAssertEqual(TestConfig.default().maxIterations, count)
-    }
-
-    func test_all_passes_when_it_should_9() {
-        var count = 0
-        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue)
-            { assert, v1, v2, v3, v4, v5, v6, v7, v8, v9 in
-                count += 1
-                assert(v1 && v2 && v3 && v4 && v5 && v6 && v7 && v8 && v9)
-            }
-
-        XCTAssertEqual(TestConfig.default().maxIterations, count)
-    }
-
-    func test_all_passes_when_it_should_10() {
-        var count = 0
-        testAll(genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue, genTrue)
-            { assert, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10 in
-                count += 1
-                assert(v1 && v2 && v3 && v4 && v5 && v6 && v7 && v8 && v9 && v10)
-            }
 
         XCTAssertEqual(TestConfig.default().maxIterations, count)
     }
