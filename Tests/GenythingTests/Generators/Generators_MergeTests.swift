@@ -1,3 +1,4 @@
+import GenythingTest
 import XCTest
 @testable import Genything
 

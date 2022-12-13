@@ -21,7 +21,7 @@ final class Generator_FilterTests: XCTestCase {
             let isDigit = { $0 >= 0 && $0 < 10 } // `10/1.8446744e+19` chance of occuring
             let gen = Int.arbitrary.filter(isDigit)
 
-            self.testAllSatisfy(gen) {
+            testAllSatisfy(gen) {
                 isDigit($0)
             }
 

@@ -17,12 +17,13 @@ final class Generator_ZipTests: XCTestCase {
         let secondGen = secondRange.arbitrary
 
         let zipped = firstGen.zip(secondGen)
-        testAll(zipped) { first, second in
-            XCTAssertTrue(firstRange.contains(first))
-            XCTAssertTrue(secondRange.contains(second))
+        testAll(zipped) { assert, zipped in
+            let (first, second) = zipped
+            assert(firstRange.contains(first))
+            assert(secondRange.contains(second))
 
-            XCTAssertFalse(secondRange.contains(first))
-            XCTAssertFalse(firstRange.contains(second))
+            assert.false(secondRange.contains(first))
+            assert.false(firstRange.contains(second))
         }
     }
 
@@ -31,9 +32,9 @@ final class Generator_ZipTests: XCTestCase {
         let secondGen = (Character("A") ... Character("Z")).arbitrary
 
         let zipped = firstGen.zip(secondGen) { "\($0)\($1)" }
-        testAll(zipped) { combined in
-            XCTAssertTrue(combined.first?.isLowercase ?? false)
-            XCTAssertTrue(combined.last?.isUppercase ?? false)
+        testAll(zipped) { assert, combined in
+            assert(combined.first?.isLowercase ?? false)
+            assert(combined.last?.isUppercase ?? false)
         }
     }
 

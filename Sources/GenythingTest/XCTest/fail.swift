@@ -1,13 +1,36 @@
 import Foundation
 import Genything
-#if canImport(XCTest)
-import XCTest
+
+#if DEBUG
+public func XCTFail(
+    _ message: String,
+    file: StaticString,
+    line: UInt
+) {
+    handler(nil, true, "\(file)", line, message, nil)
+}
+
+private typealias XCTFailureHandler = @convention(c) (
+    AnyObject?, Bool, UnsafePointer<CChar>, UInt, String, String?
+) -> Void
+
+private let handler = unsafeBitCast(
+    dlsym(dlopen(nil, RTLD_LAZY), "_XCTFailureHandler"),
+    to: XCTFailureHandler.self
+)
+#else
+public func XCTFail(
+    _: String = "",
+    file _: StaticString,
+    line _: UInt
+) {}
+#endif
 
 private func rerunInfo(_ randomSource: RandomSource) -> String {
     if let seed = randomSource.originalSeed {
-        return "Re-run test with seed `\(seed)`."
+        return "Re-run with seed `\(seed)`."
     }
-    return "Cannot be re-run."
+    return ""
 }
 
 func fail(
@@ -16,7 +39,7 @@ func fail(
     file: StaticString = #filePath,
     line: UInt = #line
 ) {
-    XCTFail("[Genything] - \(message) \(rerunInfo(randomSource))", file: file, line: line)
+    XCTFail("\(message) \(rerunInfo(randomSource))", file: file, line: line)
 }
 
 func fail(
@@ -25,6 +48,5 @@ func fail(
     file: StaticString = #filePath,
     line: UInt = #line
 ) {
-    XCTFail("[Genything] - Failed with exception `\(error)`. \(rerunInfo(randomSource))", file: file, line: line)
+    XCTFail("Test failed with exception `\(error)`. \(rerunInfo(randomSource))", file: file, line: line)
 }
-#endif

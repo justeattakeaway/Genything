@@ -30,6 +30,13 @@ extension TestConfig {
         defaultFactory()
     }
 
+    /// Returns: An new, independent `TestConfig` based on the default configuration. Can be used to replay a previous deterministic random test execution.
+    public static func replay(seed: UInt64) -> TestConfig {
+        var config = defaultFactory()
+        config.randomSource = .replay(seed: seed)
+        return config
+    }
+
     /// Storage for the factory capable of creating a `TestConfig` which will be used by default
     private static var `defaultFactory`: () -> TestConfig = {
         TestConfig(

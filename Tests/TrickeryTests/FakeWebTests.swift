@@ -4,29 +4,29 @@ import XCTest
 
 class FakeWebTests: XCTestCase {
     func test_urlScheme() {
-        testAll(Fake.Web.urlScheme) {
-            XCTAssertTrue(["https", "http"].contains($0))
+        testAllSatisfy(Fake.Web.urlScheme) {
+            ["https", "http"].contains($0)
         }
     }
 
     func test_urlDomain() {
-        testAll(Fake.Web.urlDomain) {
-            XCTAssertTrue($0.count <= 63)
-            XCTAssertTrue($0.count >= 1)
+        testAll(Fake.Web.urlDomain) { assert, value in
+            assert(value.count <= 63)
+            assert(value.count >= 1)
         }
     }
 
     func test_urlSubdomain() {
-        testAll(Fake.Web.urlSubdomain) {
-            XCTAssertTrue($0.count <= 63)
-            XCTAssertTrue($0.count >= 1)
+        testAll(Fake.Web.urlSubdomain) { assert, value in
+            assert(value.count <= 63)
+            assert(value.count >= 1)
         }
     }
 
     func test_urlString() {
-        testAll(Fake.Web.urlString) {
+        testAllSatisfy(Fake.Web.urlString) {
             let url = URL(string: $0)! // Fatal is only failure condition
-            XCTAssertFalse(url.isFileURL)
+            return !url.isFileURL
         }
     }
 }

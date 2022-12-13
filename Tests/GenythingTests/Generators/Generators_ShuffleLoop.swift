@@ -9,14 +9,15 @@ final class Generators_ShuffleLoopTests: XCTestCase {
 
         var history = [Int]()
 
-        testAll(d6shuffle) {
+        testAllSatisfy(d6shuffle) { value in
+            defer {
+                history.append(value)
+            }
             if history.count >= 6 {
                 history.removeAll()
             }
 
-            XCTAssertFalse(history.contains($0))
-
-            history.append($0)
+            return !history.contains(value)
         }
     }
 

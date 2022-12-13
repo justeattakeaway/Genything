@@ -1,12 +1,13 @@
+import GenythingTest
 import XCTest
 @testable import Trickery
 
 class FakeBusinessNames: XCTestCase {
     func test_businessNames() {
-        testAll(Fake.BusinessNames.any) {
-            let names = $0.components(separatedBy: .whitespaces)
+        testAll(Fake.BusinessNames.any) { assert, value in
+            let names = value.components(separatedBy: .whitespaces)
             names.forEach {
-                XCTAssertEqual(true, $0.first?.isUppercase)
+                assert.equal(true, $0.first?.isUppercase)
             }
         }
     }
