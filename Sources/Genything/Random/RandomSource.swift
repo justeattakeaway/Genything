@@ -15,8 +15,8 @@ public class RandomSource {
     ///   - rng: The Random Number Generator to be used to produce values
     ///   - originalSeed: The original seed (start position) of `rng`
     ///
-    public init(using rng: RandomNumberGenerator, originalSeed: UInt64?) {
-        self.rng = AnyRandomNumberGenerator(wrapped: rng)
+    public init(using rng: some RandomNumberGenerator, originalSeed: UInt64?) {
+        self.rng = rng
         self.originalSeed = originalSeed
     }
 
@@ -26,7 +26,7 @@ public class RandomSource {
     public let originalSeed: UInt64?
 
     /// A type-erased `RandomNumberGenerator`
-    public var rng: AnyRandomNumberGenerator
+    public var rng: any RandomNumberGenerator
 
     /// Controls the maximum size for unbounded arbitrary collections (such as Dictionaries or Arrays) of arbitrary values
     /// Due to the fact that these collections contain other arbitary values, which may themselves contain further collections this parameter may need to be tweaked for performance reasons.

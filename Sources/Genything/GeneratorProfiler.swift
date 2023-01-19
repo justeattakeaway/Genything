@@ -97,12 +97,10 @@ class GeneratorProfiler<Source: Generator> {
         originalSeed: nil
     )
 
-
     /// Pulls the wrapped random number generator which is counting randomizations
     private var randomizationCount: Int {
-        (randomSource.rng.wrapped as! CountingRandomNumberGenerator).count
+        (randomSource.rng as! CountingRandomNumberGenerator).count
     }
-
 
     /// Runs a single iteration of the profiler, measuring statistics for the generation that occurs within
     private func iteration() {
