@@ -211,13 +211,9 @@ extension LazySequence: Arbitrary where Base: Arbitrary {
 extension Repeated: Arbitrary where Element: Arbitrary {
     /// A generator of `Repeated`s where `Element` conforms to `Arbitrary`
     public static var arbitrary: AnyGenerator<Repeated> {
-        let constructor: (Element, Int) -> Repeated<Element> = { element, count in
-            repeatElement(element, count: count)
-        }
-
-        return Element.arbitrary
+        Element.arbitrary
             .zip(Int.arbitrary)
-            .map { t in constructor(t.0, t.1) }
+            .map(repeatElement(_:count:))
     }
 }
 

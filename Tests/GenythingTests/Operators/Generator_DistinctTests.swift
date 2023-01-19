@@ -11,7 +11,7 @@ final class Generator_DistinctTests: XCTestCase {
         var last: Int? // Storage for the last bit we generated
         testAllSatisfy(bitGenerator) { bit in
             defer { last = bit } // Store the bit for the next comparison
-            if let last = last, last == bit {
+            if let last, last == bit {
                 // If this bit matches the last, the function does not work as expected
                 return false
             }
