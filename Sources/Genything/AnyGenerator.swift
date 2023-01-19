@@ -14,6 +14,13 @@ public struct AnyGenerator<T>: Generator {
         wrappedNext = next
     }
 
+    /// Creates an `AnyGenerator` which generates elements via the provided autoclosure
+    ///
+    /// - Parameter next: A block which returns the next element
+    public init(_ next: @autoclosure @escaping () -> T) {
+        wrappedNext = { _ in next() }
+    }
+
     /// Produces the next element from this generator using the provided random source
     ///
     /// - Parameter randomSource: A source of random to be used by upstream generators
