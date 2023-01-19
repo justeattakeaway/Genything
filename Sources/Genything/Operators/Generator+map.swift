@@ -8,9 +8,6 @@ extension Generator {
     public func map<R>(_ transform: @escaping (T) -> R) -> AnyGenerator<R> {
         Generators.Map(source: self, transform: transform).eraseToAnyGenerator()
     }
-
-
-
 }
 
 extension Generators {
