@@ -50,7 +50,7 @@ private struct FIFODistinctMemory<T: Equatable> {
 
     private mutating func append(_ item: T) {
         defer {
-            if let maxSize = maxSize, memory.count > maxSize {
+            if let maxSize, memory.count > maxSize {
                 memory.removeFirst()
             }
         }
